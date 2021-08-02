@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>同一台机器配置多个git账号.md</title>
+      <link href="/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/"/>
+      <url>/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/</url>
+      
+        <content type="html"><![CDATA[<p>不论是出于何种需要，我们有时候会有配置多个git账号的需求，下面是我个人实践的一种方式。（网上有许多可以实现的方法，但个人感觉它们都缺乏逻辑，不好记忆。）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">总的来说分以下几步：</span><br><span class="line">1、 删除已经配置的全局账号（如果还没有配置全局账号则可省略）</span><br><span class="line"></span><br><span class="line">2、 命令行生成不同的密匙（注意密匙文件不能同名，最好放在默认目录下）</span><br><span class="line"></span><br><span class="line">3、 在默认目录下添加config文件（文件名就是config，没有后缀）,配置哪个git账号使用哪个git密匙</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># github</span><br><span class="line">Host github.com    &#x2F;&#x2F;随便取</span><br><span class="line">HostName github.com  &#x2F;&#x2F;需要链接的网址</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_rsa_office_github  &#x2F;&#x2F;对应的密匙文件名</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">User hanshuang-ai  &#x2F;&#x2F;对应的git用户名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># gitab</span><br><span class="line">Host gitlab</span><br><span class="line">HostName 49.233.21.66</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line">User LCY</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ceshi</title>
+      <link href="/2021/07/30/%E6%B5%8B%E8%AF%95/"/>
+      <url>/2021/07/30/%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p>测试</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解析URL</title>
+      <link href="/2021/07/30/%E8%A7%A3%E6%9E%90URL/"/>
+      <url>/2021/07/30/%E8%A7%A3%E6%9E%90URL/</url>
+      
+        <content type="html"><![CDATA[<p><code>先根据 ？ 或者 &amp; 符进行将url分割成数组，再遍历数据，根据数组内每项的 = 号，分别取值赋给 key 和 value。最后将 key 和 value 组合成一个对象</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 解析URL</span><br><span class="line">let url &#x3D; window.location.href;</span><br><span class="line">let reg &#x3D; &#x2F;[?&amp;][^?&amp;]+&#x3D;[^?&amp;]+&#x2F;g;</span><br><span class="line">let arr &#x3D; url.match(reg);</span><br><span class="line">let params &#x3D; &#123;&#125;;</span><br><span class="line">if (arr) &#123;</span><br><span class="line">    arr.forEach((item) &#x3D;&gt; &#123;</span><br><span class="line">        let tempArr &#x3D; item.substring(1).split(&#39;&#x3D;&#39;);</span><br><span class="line">        let key &#x3D; tempArr[0];</span><br><span class="line">        let val &#x3D; tempArr[1];</span><br><span class="line">        params[key] &#x3D; val;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 代码片段 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>闭包</title>
+      <link href="/2021/07/30/%E9%97%AD%E5%8C%85/"/>
+      <url>/2021/07/30/%E9%97%AD%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。</p><p>定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。<br><code>形参是作为局部变量使用的</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sayHello(name)&#123;</span><br><span class="line">    console.log(&#39;hello&#39;+name);&#x2F;&#x2F;局部变量，外界无法访问</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(&#39;小明&#39;)</span><br></pre></td></tr></table></figure></p><p>如果函数挂载在对象上，那它们就是对象的方法。且js的函数可以嵌套在其他的函数中定义，它们可以访问它们被定义时所处的作用域中的任何变量，就形成了一个闭包。</p><h2 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h2><h3 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;console.log(&#39;123)&#125;</span><br></pre></td></tr></table></figure><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong><em><code>注意函数的声明提前</code></em></strong><br>函数的声明提前就是在代码执行过程中，函数的调用可以在声明之前。也就是说在代码的编写过程中（或者在代码排版中），函数声明的位置即使在调用之后也可以。<br><code>但是函数表达式创建的函数是不能提前的</code></p><p><strong><em>用表达式定义的函数，函数名是可选的</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let a &#x3D; function b(x)&#123;</span><br><span class="line">    if(x&lt;&#x3D;1&gt;)&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return x*b(x-1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">函数表达式在包含名称的时候，对递归是很有用的。</span><br><span class="line">函数表达式定义的函数在包含函数名时，函数的局部作用域就会包含一个绑定到函数对象的名称，也就是说函数名就会成为函数内部的一个局部变量。</span><br></pre></td></tr></table></figure></p><h2 id="函数的嵌套"><a href="#函数的嵌套" class="headerlink" title="函数的嵌套"></a>函数的嵌套</h2><p><code>被嵌套的函数可以访问嵌套函数里的参数和变量</code>，这也是闭包的条件</p><h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><p>一个变量的作用域是程序源代码中定义这个变量的区域。</p><h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>全局变量拥有全局作用域，在代码的任何位置都能访问。</p><h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>局部变量只能在局部作用域年内访问，外界无法按访问。<code>函数参数也是局部变量，只在函数体内有定义</code></p><p>局部作用域优先级高于全局作用域</p><h2 id="作用域链-1"><a href="#作用域链-1" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个对象列表或者链表，这组对象定义了这段代码的作用域。<code>作用域链的顶层是由全局对象组成的</code></p><p>当在js中需要查找某个变量的时候，程序会从链中的第一个对象内开始查找，如果没有，则会继续查找下一个对象，以此类推，直到查找到为止。这个过程形成的链，就是作用域链。<br>如果查找到最后还是没有查找到，则会抛出一个引用错误。</p><h3 id="不包含嵌套的函数体的作用域链"><a href="#不包含嵌套的函数体的作用域链" class="headerlink" title="不包含嵌套的函数体的作用域链"></a>不包含嵌套的函数体的作用域链</h3><p><code>两个对象:1、定义函数参数和局部变量的对象2、全局对象</code></p><h3 id="包含嵌套函数体的作用域链"><a href="#包含嵌套函数体的作用域链" class="headerlink" title="包含嵌套函数体的作用域链"></a>包含嵌套函数体的作用域链</h3><p><code>三个对象：1、定义函数参数和局部变量的对象2、全局对象3、被嵌套含税的外层函数体</code></p><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>函数的执行依赖于变量作用域，作用域是在函数定义时就决定的，不是在函数执行的时候确定的。函数可以通过作用域链连接起来，函数体内部的变量都可以保存在函数作用域内，这就是闭包。</p><h2 id="常用应用场景"><a href="#常用应用场景" class="headerlink" title="常用应用场景"></a>常用应用场景</h2><p>一个函数嵌套另一个函数，外部函数将内部函数作为返回值时</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>终端命令</title>
+      <link href="/2021/07/30/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
+      <url>/2021/07/30/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="服务器相关"><a href="#服务器相关" class="headerlink" title="服务器相关"></a>服务器相关</h2><h4 id="远程连接服务器"><a href="#远程连接服务器" class="headerlink" title="远程连接服务器"></a>远程连接服务器</h4><p><code>ssh root@xx.xx.xx.xx(ip地址)</code></p><h2 id="本机情况"><a href="#本机情况" class="headerlink" title="本机情况"></a>本机情况</h2><h4 id="查看本机ip"><a href="#查看本机ip" class="headerlink" title="查看本机ip"></a>查看本机ip</h4><p><code>ifconfig</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>节流和防抖</title>
+      <link href="/2021/07/30/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/"/>
+      <url>/2021/07/30/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">函数防抖和函数节流都是防止某一时间频繁触发，但是这两兄弟之间的原理却不一样。</span><br><span class="line">函数防抖是某一段时间内只执行一次，而函数节流是间隔时间执行。</span><br><span class="line"></span><br><span class="line">防抖</span><br><span class="line">让函数在停止触发事件后的一段时间再执行</span><br><span class="line">节流</span><br><span class="line">让函数以固定的频率触发</span><br></pre></td></tr></table></figure><p><strong>防抖：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">对于短时间内连续触发的事件，</span><br><span class="line">防抖的含义就是让某个时间期限内，</span><br><span class="line">事件处理函数只执行一次。</span><br><span class="line"></span><br><span class="line">防抖的原理就是让函数让函数延时执行，如果期间触发了新事件，则取消原来的延时计划</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序页面不同状态下的数据情况</title>
+      <link href="/2021/07/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <url>/2021/07/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微信小程序页面不同状态下的数据情况"><a href="#微信小程序页面不同状态下的数据情况" class="headerlink" title="微信小程序页面不同状态下的数据情况"></a>微信小程序页面不同状态下的数据情况</h1><h2 id="微信小程序页面生命周期"><a href="#微信小程序页面生命周期" class="headerlink" title="微信小程序页面生命周期"></a>微信小程序页面生命周期</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">onload  监听页面加载</span><br><span class="line"></span><br><span class="line">onready 监听页面初次加载完成</span><br><span class="line"></span><br><span class="line">onshow  监听页面显示</span><br><span class="line"></span><br><span class="line">onhide  监听页面隐藏</span><br><span class="line"></span><br><span class="line">onUnload  监听页面卸载，卸载本页跳转到其他页面</span><br><span class="line"></span><br><span class="line">onshow会在onready之前加载小程序</span><br><span class="line">wx.navigateTo只会触发（页面隐藏事件）onhide，不会触发（页面卸载事件）onload</span><br><span class="line">wx.redirectTo只会触发（页面卸载事件）onUnload，不会触发（页面隐藏时间）onhide</span><br><span class="line">wx.reLaunch同wx.redirectTo，但是wx.redirectTo只会卸载当前页面，wx.reLaunch会卸载所有页面，包括tab页。</span><br></pre></td></tr></table></figure><h2 id="微信小程序页面data内的数据和非data内的数据，在页面被卸载时的不同表现"><a href="#微信小程序页面data内的数据和非data内的数据，在页面被卸载时的不同表现" class="headerlink" title="微信小程序页面data内的数据和非data内的数据，在页面被卸载时的不同表现"></a>微信小程序页面data内的数据和非data内的数据，在页面被卸载时的不同表现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面卸载时，data内的数据会被清空，但是非data内的数据不会被卸载。</span><br><span class="line">再次进入该页面的时候，非data内的数据会被再次继续使用。</span><br></pre></td></tr></table></figure><p><img src="/image/1.png" alt="alt"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>服务端渲染与预渲染</title>
+      <link href="/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/"/>
+      <url>/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现</span><br><span class="line"></span><br><span class="line">预渲染是直接接服务器内完整的静态页面发送给浏览器呈现</span><br></pre></td></tr></table></figure><p><br></p><p><strong>实现方式不同</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。</span><br><span class="line">Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于seo。</span><br><span class="line">但是一些事件和一些DOMAPI是无法在服务端用的,所以需要把客户端打包好的js代码动态注入到html中,此处为异步获取js逻辑。</span><br><span class="line">所以此处seo是抓取不到任何有用的信息的。</span><br><span class="line">那么问题来了，什么时候用ajax获取数据？什么时候通过服务端获取数据？</span><br><span class="line">当利于seo有优化时，比如开发的新闻网站，购物网站。需要被搜索引擎索引到，就需要从服务端获取数据，然后生成html，再吐给浏览器。</span><br><span class="line">而一些无关紧要的数据通过ajax获取就行。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prerendering：预渲染并不需要服务端支持。</span><br><span class="line">它只能生成你在templete写好的dom结构,也就是只能生成静态的html文件。</span><br><span class="line">一般是每个路由对应一个静态的html文件，在服务器获取时就已经生成好了，而不需要diff再动态生成dom。</span><br><span class="line">假如你想通过ajax获取到的数据来优化seo,可以吗？可以，可以设置一个预渲染时常。</span><br><span class="line">假如你用prerender-spa-plugin插件，设置renderAfterTime：5000。可触发渲染的时间，用于获取数据(ajax)后再保存渲染结果。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">预渲染的应用场景：营销页面（例如&#x2F;,&#x2F;about,&#x2F;contact等）的 SEO，你可能需要预渲染。</span><br><span class="line">无需使用 web 服务器实时动态编译 HTML，而是使用预渲染方式，在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。</span><br><span class="line">优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点。</span><br><span class="line"></span><br><span class="line">预渲染不适用经常变化的数据，比如说股票代码网站，天气预报网站。因为此时的数据是动态的，而预渲染时已经生成好了dom节点。</span><br><span class="line">此时如果要兼容seo就需要使用SSR了。</span><br><span class="line">预渲染也不适用大量的路由页面，比如成千上百个路由，因为此时打包后预渲染将会非常慢。</span><br><span class="line">而SSR并没有这些问题。</span><br><span class="line"></span><br><span class="line">预渲染最好的应用场景是需要seo的活动页面。预渲染也可以配置骨架屏，当ajax获取到数据之后把骨架屏替换掉，可以减少白屏时间。</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器回流与重绘测试</title>
+      <link href="/2021/07/30/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%E6%B5%8B%E8%AF%95/"/>
+      <url>/2021/07/30/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><h2 id="回流（browser-reflow）"><a href="#回流（browser-reflow）" class="headerlink" title="回流（browser-reflow）"></a>回流（browser-reflow）</h2><h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>重绘也叫重排，可以简单理解为浏览器页面重新排版。<br>重排是在浏览器中执行的一个流程，用来计算文档中（<a href="http://baidu.com" target="_blank" rel="noopener">文档流</a>）各元素的位置与几何形状，以便重新呈现该文档中的部分获全部内容。</p><h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><h2 id="什么情况下会引起浏览器的重绘"><a href="#什么情况下会引起浏览器的重绘" class="headerlink" title="什么情况下会引起浏览器的重绘"></a>什么情况下会引起浏览器的重绘</h2><h3 id="用户决定的行为"><a href="#用户决定的行为" class="headerlink" title="用户决定的行为"></a>用户决定的行为</h3><p><strong><em><code>多是DOM操作</code></em></strong><br>比如：删除、添加DOM元素、更新某个元素的class、字体大小等</p><h3 id="浏览器决定给的行为"><a href="#浏览器决定给的行为" class="headerlink" title="浏览器决定给的行为"></a>浏览器决定给的行为</h3><p><strong><em><code>resize事件</code></em></strong><br>比如：resize事件导致的换行（文本或图文混排）等</p><h1 id="重绘的危害"><a href="#重绘的危害" class="headerlink" title="重绘的危害"></a>重绘的危害</h1><p><strong><em><code>由于某些重绘工作用时较长，占用浏览器线程，从而使用户的其他操作被阻止，甚至导致页面崩溃</code></em></strong></p><h2 id="不同行为对重绘的影响"><a href="#不同行为对重绘的影响" class="headerlink" title="不同行为对重绘的影响"></a>不同行为对重绘的影响</h2><p><img src="/assets/image/reflow-chart.png" alt="avatar"></p><h1 id="处理解决"><a href="#处理解决" class="headerlink" title="处理解决"></a>处理解决</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 浏览器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基于rgb原理制作渐变色生成器</title>
+      <link href="/2021/07/30/%E5%9F%BA%E4%BA%8Ergb%E5%8E%9F%E7%90%86%E5%88%B6%E4%BD%9C%E6%B8%90%E5%8F%98%E8%89%B2%E7%94%9F%E6%88%90%E5%99%A8/"/>
+      <url>/2021/07/30/%E5%9F%BA%E4%BA%8Ergb%E5%8E%9F%E7%90%86%E5%88%B6%E4%BD%9C%E6%B8%90%E5%8F%98%E8%89%B2%E7%94%9F%E6%88%90%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>基于rgb原理制作渐变色生成器</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端应对高并发</title>
+      <link href="/2021/07/30/%E5%89%8D%E7%AB%AF%E5%BA%94%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+      <url>/2021/07/30/%E5%89%8D%E7%AB%AF%E5%BA%94%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是高并发"><a href="#什么是高并发" class="headerlink" title="什么是高并发"></a>什么是高并发</h2><p>高并发指的是软件系统在一段时间内能够处理大量的请求。</p><h2 id="高并发时经历了什么"><a href="#高并发时经历了什么" class="headerlink" title="高并发时经历了什么"></a>高并发时经历了什么</h2><p>高并发的基础是请求，所以可以在请求阶段做优化<br>1、DNS解析<br>2、s</p><h2 id="每个阶段的优化"><a href="#每个阶段的优化" class="headerlink" title="每个阶段的优化"></a>每个阶段的优化</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实战应用 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>同一台电脑配置多个git密匙</title>
+      <link href="/2021/07/30/%E5%90%8C%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E5%AF%86%E5%8C%99/"/>
+      <url>/2021/07/30/%E5%90%8C%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E5%AF%86%E5%8C%99/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="title-’同一台电脑配置多个git密匙’"><a href="#title-’同一台电脑配置多个git密匙’" class="headerlink" title="title :’同一台电脑配置多个git密匙’"></a>title :’同一台电脑配置多个git密匙’</h2><p>1、 生成对应的github密匙<br>2、 ssh-add 生成的密匙名称</p><p><code>但是这样的话可能重启电脑或者换个文件夹就会失效</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>命令行查看本机ip</title>
+      <link href="/2021/07/30/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/"/>
+      <url>/2021/07/30/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/</url>
+      
+        <content type="html"><![CDATA[<p><code>ifconfig</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前后端分离的思考</title>
+      <link href="/2021/07/30/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83/"/>
+      <url>/2021/07/30/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83/</url>
+      
+        <content type="html"><![CDATA[<p><code>本文是偶然间在微信公众号(业余草)上发现的，感觉说的很好，特此转载记录一下，只为记录，别无他做。如原文作者感觉被侵犯了权益，则删除。</code></p><p><strong><em>文章基本上说明了前后端开发的历史，但不涉及具体的技术，可以帮助入行不久的人了解一些开发流程。</em></strong></p><p>1、背景<br>前后端分离已成为互联网项目开发的业界标准使用方式，通过nginx+tomcat的方式（也可以中间加一个nodejs）有效的进行解耦，并且前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，车载终端，安卓，IOS等等）打下坚实的基础。这个步骤是系统架构从猿进化成人的必经之路。</p><p>核心思想是前端HTML页面通过AJAX调用后端的RESTFUL API接口并使用JSON数据进行交互。</p><p>Web服务器：一般指像Nginx，Apache这类的服务器，他们一般只能解析静态资源；</p><p>应用服务器：一般指像Tomcat，Jetty，Resin这类的服务器可以解析动态资源也可以解析静态资源，但解析静态资源的能力没有web服务器好；</p><p><strong><em><code>一般都是只有web服务器才能被外网访问，应用服务器只能内网访问。</code></em></strong></p><p>以前的Java Web项目大多数都是Java程序员又当爹又当妈，又搞前端，又搞后端。随着时代的发展，渐渐的许多大中小公司开始把前后端的界限分的越来越明确，前端工程师只管前端的事情，后端工程师只管后端的事情。正所谓术业有专攻，一个人如果什么都会，那么他毕竟什么都不精。大中型公司需要专业人才，小公司需要全才，但是对于个人职业发展来说，前后端需要分离。</p><p>2、未分离时代（各种耦合）<br>早期主要使用MVC框架，Jsp+Servlet的结构图如下：</p><p><img src="http://qiniu.aoxuekj.com/640.webp" alt=""></p><p>大致就是所有的请求都被发送给作为控制器的Servlet，它接受请求，并根据请求信息将它们分发给适当的JSP来响应。同时，Servlet还根据JSP的需求生成JavaBeans的实例并输出给JSP环境。JSP可以通过直接调用方法或使用UseBean的自定义标签得到JavaBeans中的数据。需要说明的是，这个View还可以采用 Velocity、Freemaker 等模板引擎。使用了这些模板引擎，可以使得开发过程中的人员分工更加明确，还能提高开发效率。</p><p>那么，在这个时期，开发方式有如下两种：</p><p>方式一</p><p><img src="http://qiniu.aoxuekj.com/640%20%281%29.webp" alt=""></p><p>方式二</p><p><img src="http://qiniu.aoxuekj.com/640%20%282%29.webp" alt=""></p><p>方式二已经逐渐淘汰。主要原因有两点：1）前端在开发过程中严重依赖后端，在后端没有完成的情况下，前端根本无法干活；2）由于趋势问题，会JSP，懂velocity，freemarker等模板引擎的前端越来越少；因此，方式二逐渐不被采用。然而，不得不说一点，方式一，其实很多小型传统软件公司至今还在使用。那么，方式一和方式二具有哪些共同的缺点呢? </p><p>1、前端无法单独调试，开发效率低；</p><p>2、前端不可避免会遇到后台代码，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">           request.setCharacterEncoding(&quot;utf-8&quot;)</span><br><span class="line">           String name&#x3D;request.getParameter(&quot;username&quot;);</span><br><span class="line">           out.print(name);</span><br><span class="line">       %&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure><p>这种方式耦合性太强。那么，就算你用了freemarker等模板引擎，不能写Java代码。那前端也不可避免的要去重新学习该模板引擎的模板语法，无谓增加了前端的学习成本。正如我们后端开发不想写前端一样，你想想如果你的后台代码里嵌入前端代码，你是什么感受？因此，这种方式十分不妥。</p><p>3、JSP本身所导致的一些其他问题 比如，JSP第一次运行的时候比较缓慢，因为里头包含一个将JSP翻译为Servlet的步骤。再比如因为同步加载的原因，在JSP中有很多内容的情况下，页面响应会很慢。</p><p>3、半分离时代<br>前后端半分离，前端负责开发页面，通过接口（Ajax）获取数据，采用Dom操作对页面进行数据绑定，最终是由前端把页面渲染出来。这也就是Ajax与SPA应用（单页应用）结合的方式，其结构图如下：</p><p><img src="http://qiniu.aoxuekj.com/640%20%283%29.webp" alt=""></p><p>步骤如下：</p><p>（1）浏览器请求，CDN返回HTML页面；</p><p>（2）HTML中的JS代码以Ajax方式请求后台的Restful接口；</p><p>（3）接口返回Json数据，页面解析Json数据，通过Dom操作渲染页面；后端提供的都是以JSON为数据格式的API接口供Native端使用，同样提供给WEB的也是JSON格式的API接口。</p><p><strong><em>那么意味着WEB工作流程是：</em></strong></p><p>1、打开web，加载基本资源，如CSS，JS等；</p><p>2、发起一个Ajax请求再到服务端请求数据，同时展示loading；</p><p>3、得到json格式的数据后再根据逻辑选择模板渲染出DOM字符串；</p><p>4、将DOM字符串插入页面中web view渲染出DOM结构；</p><p><code>这些步骤都由用户所使用的设备中逐步执行，也就是说用户的设备性能与APP的运行速度联系的更紧换句话说就是如果用户的设备很低端，那么APP打开页面的速度会越慢。</code></p><p>为什么说是半分离的？因为不是所有页面都是单页面应用，在多页面应用的情况下，前端因为没有掌握controller层，前端需要跟后端讨论，我们这个页面是要同步输出呢，还是异步Json渲染呢？而且，即使在这一时期，通常也是一个工程师搞定前后端所有工作。因此，在这一阶段，只能算半分离。</p><p>首先，这种方式的优点是很明显的。前端不会嵌入任何后台代码，前端专注于HTML、CSS、JS的开发，不依赖于后端。自己还能够模拟Json数据来渲染页面。发现Bug，也能迅速定位出是谁的问题。</p><p><strong><em><code>然而，在这种架构下，还是存在明显的弊端的。最明显的有如下几点：</code></em></strong></p><p>1）JS存在大量冗余，在业务复杂的情况下，页面的渲染部分的代码，非常复杂；</p><p>2）在Json返回的数据量比较大的情况下，渲染的十分缓慢，会出现页面卡顿的情况；</p><p>3）SEO（ Search Engine Optimization，即搜索引擎优化）非常不方便，由于搜索引擎的爬虫无法爬下JS异步渲染的数据，导致这样的页面，SEO会存在一定的问题；</p><p>4）资源消耗严重，在业务复杂的情况下，一个页面可能要发起多次HTTP请求才能将页面渲染完毕。</p><p>可能有人不服，觉得PC端建立多次HTTP请求也没啥。那你考虑过移动端么，知道移动端建立一次HTTP请求需要消耗多少资源么？</p><p>正是因为如上缺点，我们才亟需真正的前后端分离架构。</p><p>4、分离时代<br>大家一致认同的前后端分离的例子就是SPA(Single-page application)，所有用到的展现数据都是后端通过异步接口(AJAX/JSONP)的方式提供的，前端只管展现。从某种意义上来说，SPA确实做到了前后端分离，但这种方式存在两个问题：</p><p>1）WEB服务中，SPA类占的比例很少。很多场景下还有同步/同步+异步混合的模式，SPA不能作为一种通用的解决方案；</p><p>2）现阶段的SPA开发模式，接口通常是按照展现逻辑来提供的，而且为了提高效率我们也需要后端帮我们处理一些展现逻辑，这就意味着后端还是涉足了view层的工作，不是真正的前后端分离。</p><p><code>SPA式的前后端分离，从物理层做区分（认为只要是客户端的就是前端，服务器端就是后端）这种分法已经无法满足前后端分离的需求，我们认为从职责上划分才能满足目前的使用场景：</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">前端负责view和controller层 </span><br><span class="line">后端只负责model层，业务处理与数据持久化等 </span><br><span class="line">controller层与view层对于目前的后端开发来说，只是很边缘的一层，</span><br><span class="line">目前的java更适合做持久层、model层的业务。</span><br></pre></td></tr></table></figure><p>在前后端彻底分离这一时期，前端的范围被扩展，controller层也被认为属于前端的一部分。在这一时期：</p><p>前端：负责View和Controller层。</p><p>后端：只负责Model层，业务/数据处理等。</p><p>可是服务端人员对前端HTML结构不熟悉，前端也不懂后台代码呀，controller层如何实现呢？这就是node.js的妙用了，node.js适合运用在高并发、I/O密集、少量业务逻辑的场景。最重要的一点是，前端不用再学一门其他的语言了，对前端来说，上手度大大提高。</p><p><img src="http://qiniu.aoxuekj.com/640%20%284%29.webp" alt=""></p><p>可以就把Nodejs当成跟前端交互的api。总得来说，NodeJs的作用在MVC中相当于C（控制器）。Nodejs路由的实现逻辑是把前端静态页面代码当成字符串发送到客户端（例如浏览器），简单理解可以理解为路由是提供给客户端的一组api接口，只不过返回的数据是页面代码的字符串而已。</p><p>用NodeJs来作为桥梁架接服务器端API输出的JSON。后端出于性能和别的原因，提供的接口所返回的数据格式也许不太适合前端直接使用，前端所需的排序功能、筛选功能，以及到了视图层的页面展现，也许都需要对接口所提供的数据进行二次处理。这些处理虽可以放在前端来进行，但也许数据量一大便会浪费浏览器性能。因而现今，增加Node中间层便是一种良好的解决方案。</p><p><img src="http://qiniu.aoxuekj.com/640%20%285%29.webp" alt=""></p><p>浏览器(webview)不再直接请求JSP的API，而是：</p><p>1）浏览器请求服务器端的NodeJS；</p><p>2）NodeJS再发起HTTP去请求JSP；</p><p>3）JSP依然原样API输出JSON给NodeJS；</p><p>4）NodeJS收到JSON后再渲染出HTML页面；</p><p>5）NodeJS直接将HTML页面flush到浏览器；</p><p>这样，浏览器得到的就是普通的HTML页面，而不用再发Ajax去请求服务器了。</p><p>淘宝的前端团队提出的中途岛(Midway Framework)的架构如下图所示：</p><p><img src="http://qiniu.aoxuekj.com/640%20%286%29.webp" alt=""></p><p>增加node.js作为中间层，具体有哪些好处呢？</p><p>(1)适配性提升；我们其实在开发过程中，经常会给PC端、mobile、app端各自研发一套前端。其实对于这三端来说，大部分端业务逻辑是一样的。唯一区别就是交互展现逻辑不同。如果controller层在后端手里，后端为了这些不同端页面展示逻辑，自己维护这些controller，模版无法重用，徒增和前端沟通端成本。如果增加了node.js层，此时架构图如下：</p><p><img src="http://qiniu.aoxuekj.com/640%20%287%29.webp" alt=""></p><p>在该结构下，每种前端的界面展示逻辑由node层自己维护。如果产品经理中途想要改动界面什么的，可以由前端自己专职维护，后端无需操心。前后端各司其职，后端专注自己的业务逻辑开发，前端专注产品效果开发。</p><p>(2)响应速度提升；我们有时候，会遇到后端返回给前端的数据太简单了，<code>前端需要对这些数据进行逻辑运算。那么在数据量比较小的时候，对其做运算分组等操作，并无影响。但是当数据量大的时候，会有明显的卡顿效果</code>。这时候，node中间层其实可以将很多这样的代码放入node层处理、也可以替后端分担一些简单的逻辑、又可以用模板引擎自己掌握前台的输出。这样做灵活度、响应度都大大提升。</p><p>举个例子，即使做了页面静态化之后，前端依然还是有不少需要实时从后端获取的信息，这些信息都在不同的业务系统中，所以需要前端发送5、6个异步请求来。有了NodeJs之后，前端可以在NodeJs中去代理这5个异步请求。还能很容易的做bigpipe，这块的优化能让整个渲染效率提升很多。在PC上你觉得发5、6个异步请求也没什么，但是在无线端，在客户手机上建立一个http请求开销很大。有了这个优化，性能一下提升好几倍。</p><p>(3)性能得到提升；大家应该都知道单一职责原则。从该角度来看，我们，请求一个页面，可能要响应很多个后端接口，请求变多了，自然速度就变慢了，这种现象在mobile端更加严重。采用node作为中间层，将页面所需要的多个后端数据，直接在内网阶段就拼装好，再统一返回给前端，会得到更好的性能。</p><p>(4)异步与模板统一；淘宝首页就是被几十个HTML片段（每个片段一个文件）拼装成，之前PHP同步include这几十个片段，一定是串行的，Node可以异步，读文件可以并行，一旦这些片段中也包含业务逻辑，异步的优势就很明显了，真正做到哪个文件先渲染完就先输出显示。前端机的文件系统越复杂，页面的组成片段越多，这种异步的提速效果就越明显。前后端模板统一在无线领域很有用，PC页面和WIFI场景下的页面适合前端渲染（后端数据Ajax到前端），2G、3G弱网络环境适合后端渲染（数据随页面吐给前端），所以同样的模板，在不同的条件下走不同的渲染渠道，模板只需一次开发。</p><p>增加NodeJS中间层后的前后端职责划分：</p><p><img src="http://qiniu.aoxuekj.com/640%20%288%29.webp" alt=""></p><p>5、总结<br>从经典的JSP+Servlet+JavaBean的MVC时代，到SSM（Spring + SpringMVC + Mybatis）和SSH（Spring + Struts + Hibernate）的Java 框架时代，再到前端框架（KnockoutJS、AngularJS、vueJS、ReactJS）为主的MV*时代，然后是Nodejs引领的全栈时代，技术和架构一直都在进步。虽然“基于NodeJS的全栈式开发”模式很让人兴奋，但是把基于Node的全栈开发变成一个稳定，让大家都能接受的东西还有很多路要走。创新之路不会止步，无论是前后端分离模式还是其他模式，都是为了更方便得解决需求，但它们都只是一个“中转站”。前端项目与后端项目是两个项目，放在两个不同的服务器，需要独立部署，两个不同的工程，两个不同的代码库，不同的开发人员。前端只需要关注页面的样式与动态数据的解析及渲染，而后端专注于具体业务逻辑。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 思想 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue</title>
+      <link href="/2021/07/30/vue/"/>
+      <url>/2021/07/30/vue/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用nuxt创建站点</title>
+      <link href="/2021/07/30/%E4%BD%BF%E7%94%A8nuxt%E5%88%9B%E5%BB%BA%E7%AB%99%E7%82%B9/"/>
+      <url>/2021/07/30/%E4%BD%BF%E7%94%A8nuxt%E5%88%9B%E5%BB%BA%E7%AB%99%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<p><code>nuxt使用了Vue，但是令人兴奋的地方是支持seo，另外还具有自己的静态站点生成器，非常适合web站的开发。</code><br>nuxt中文官网链接：<a href="https://www.nuxtjs.cn/" target="_blank" rel="noopener">https://www.nuxtjs.cn/</a></p><h1 id="安装与创建项目"><a href="#安装与创建项目" class="headerlink" title="安装与创建项目"></a>安装与创建项目</h1><h2 id="安装nuxt"><a href="#安装nuxt" class="headerlink" title="安装nuxt"></a>安装nuxt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p><code>nuxt可以使用yarn、npx、npm三种方式创建项目</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、yarn</span><br><span class="line">yarn create nuxt-app &lt;project-name&gt;</span><br><span class="line"></span><br><span class="line">2、npx</span><br><span class="line">npx create-nuxt-app &lt;project-name&gt;</span><br><span class="line"></span><br><span class="line">3、npm</span><br><span class="line">npm init nuxt-app &lt;project-name&gt;</span><br></pre></td></tr></table></figure></p><h2 id="创建项目时的可选项分析"><a href="#创建项目时的可选项分析" class="headerlink" title="创建项目时的可选项分析"></a>创建项目时的可选项分析</h2><p><a href="https://www.nuxtjs.cn/guide/installation" target="_blank" rel="noopener">https://www.nuxtjs.cn/guide/installation</a></p><h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p><img src="http://qiniu.aoxuekj.com/nuxt_catalog.png" alt=""></p><h2 id="assets"><a href="#assets" class="headerlink" title="assets"></a>assets</h2><p>资源目录，用来存在未编译的静态资源。LESS、SASS、JavaScript</p><h2 id="components"><a href="#components" class="headerlink" title="components"></a>components</h2><p>组件目录，用来存放组织应用的Vue组件</p><h2 id="layouts"><a href="#layouts" class="headerlink" title="layouts"></a>layouts</h2><p>布局目录，用来组织应用布局</p><h2 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h2><p>中间件目录，用来存放应用的中间件</p><h2 id="node-modules"><a href="#node-modules" class="headerlink" title="node_modules"></a>node_modules</h2><p>npm包目录，这是任何一个使用npm包的应用都存在的目录</p><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p>插件目录，用来存放需要在根vue应用实例化之前就要运行js插件</p><h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>静态文件目录，但是不会被编译，服务器启动时，该目录的文件会映射到根路径下</p><h2 id="store"><a href="#store" class="headerlink" title="store"></a>store</h2><p>组织vuex状态树文件，在该目录下创建一个index.js文件就可激活这些配置</p><h2 id="其他根目录文件"><a href="#其他根目录文件" class="headerlink" title="其他根目录文件"></a>其他根目录文件</h2><h3 id="editorconfiig"><a href="#editorconfiig" class="headerlink" title=".editorconfiig"></a>.editorconfiig</h3><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><h3 id="nuxt-config-js"><a href="#nuxt-config-js" class="headerlink" title="nuxt.config.js"></a>nuxt.config.js</h3><p>nuxt应用的个性化配置，高优先级，可以覆盖默认配置</p><h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>用来描述应用依赖关系和对外暴露的脚本接口，<code>该文件不能被重命名</code></p><h3 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h3><h3 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h3><h2 id="nuxt创建的项目供局域网访问"><a href="#nuxt创建的项目供局域网访问" class="headerlink" title="nuxt创建的项目供局域网访问"></a>nuxt创建的项目供局域网访问</h2><h3 id="在当前项目安装依赖"><a href="#在当前项目安装依赖" class="headerlink" title="在当前项目安装依赖"></a>在当前项目安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev cross-env</span><br></pre></td></tr></table></figure><p>在package.json中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;cross-env NUXT_HOST&#x3D;0.0.0.0 NUXT_PORT&#x3D;3333 nuxt&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nuxt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于ftp无法链接服务器的问题</title>
+      <link href="/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>有时候，我们使用ftp软件连接远程ftp，会发现有的软件能连上，有的则连不上。究其原因，可能是软件设置的问题，毕竟链接的是同一个服务器上的ftp，相对来讲，服务器环境是稳定的。</p><p><code>本文环境：macOS Catalina 10.15.7，ftp软件 filezila 3.51.0</code></p><h3 id="错误代码227"><a href="#错误代码227" class="headerlink" title="错误代码227"></a>错误代码227</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来讲，将服务器的链接模式改为被动  即可</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/1.png" alt="alt"></p><h3 id="错误代码220"><a href="#错误代码220" class="headerlink" title="错误代码220"></a>错误代码220</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很可能是服务器不支持FTP over TLS的连接方式。解决方式就是在该站点内 加密方式  使用明文</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/2.png" alt="alt"></p><p><br></p><p><strong>特别声明：本次链接的网站是使用的宝塔面板，ftp也是宝塔生成，所以才可能会存在这个问题，不代表只要是服务器上的ftp一定会存在该问题</strong><br><img src="/image/ftp/3.png" alt="alt"><br><img src="/image/ftp/4.png" alt="alt"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue-router</title>
+      <link href="/2021/07/30/vue-router/"/>
+      <url>/2021/07/30/vue-router/</url>
+      
+        <content type="html"><![CDATA[<p>官方网址：<a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><code>安装有3中方式</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1、js网址链接</span><br><span class="line">先引入vue，再引入vue-router</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;path&#x2F;to&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;path&#x2F;to&#x2F;vue-router.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">2、NPM</span><br><span class="line">npm install vue-router</span><br><span class="line">如果在一个模块化工程中使用它，必须要通过 Vue.use() 明确地安装路由功能：</span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import VueRouter from &#39;vue-router&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line">3、在vue cli项目内用插件的方式</span><br><span class="line">vue add router</span><br></pre></td></tr></table></figure></p><p><code>vue-router是基于路由和组件的路由用于设定访问路径，将路径和组件映射起来。在vue-router的单页面应用中, 页面的路径的改变就是组件的切换。</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue-element-admin详解1 permission.js</title>
+      <link href="/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/"/>
+      <url>/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/</url>
+      
+        <content type="html"><![CDATA[<p><code>vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。</code></p><p><strong>代码解析</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">import router from &#39;.&#x2F;router&#39;</span><br><span class="line">import store from &#39;.&#x2F;store&#39;</span><br><span class="line">import &#123; Message &#125; from &#39;element-ui&#39;</span><br><span class="line">import NProgress from &#39;nprogress&#39; </span><br><span class="line">import &#39;nprogress&#x2F;nprogress.css&#39; </span><br><span class="line">&#x2F;&#x2F;auth文件主要依赖js-cookie模块，把getToken，setToken，removeToken设置在这里</span><br><span class="line">import &#123; getToken &#125; from &#39;@&#x2F;utils&#x2F;auth&#39; </span><br><span class="line">&#x2F;&#x2F;get-page-title文件主要是网站的标题，get-page-title通过依赖setting.js里的title变量修改网站标题</span><br><span class="line">&#x2F;&#x2F;如果需要更改网站的标题，可以直接到setting.js修改title属性</span><br><span class="line">import getPageTitle from &#39;@&#x2F;utils&#x2F;get-page-title&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;NProgress是封装的进度条，基本不用动</span><br><span class="line">NProgress.configure(&#123; showSpinner: false &#125;) </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;路由白名单列表，把路由添加到这个数组，不用登陆也可以访问</span><br><span class="line">const whiteList &#x3D; [&#39;&#x2F;login&#39;] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">router.beforeEach(async(to, from, next) &#x3D;&gt; &#123; </span><br><span class="line">  &#x2F;&#x2F; 请求路由时进度条开始</span><br><span class="line">  NProgress.start()</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 设置标题</span><br><span class="line">  document.title &#x3D; getPageTitle(to.meta.title)</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 这里的getToken()就是在上面导入的auth.js里的getToken()方法</span><br><span class="line">  const hasToken &#x3D; getToken()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;如果存在token，即存在已登陆的令牌</span><br><span class="line">  if (hasToken) &#123;</span><br><span class="line">  &#x2F;&#x2F;如果用户存在令牌的情况请求登录页面，就让用户直接跳转到首页，避免存在重复登录的情况</span><br><span class="line">    if (to.path &#x3D;&#x3D;&#x3D; &#39;&#x2F;login&#39;) &#123;</span><br><span class="line">      &#x2F;&#x2F; 直接跳转到首页，当然取决于你的路由重定向到哪里</span><br><span class="line">      next(&#123; path: &#39;&#x2F;&#39; &#125;)</span><br><span class="line">      &#x2F;&#x2F;一定要关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F;如果已经有令牌的用户请求的不是登录页，是其他页面</span><br><span class="line">      &#x2F;&#x2F;就从Vuex里拿到用户的信息，这里也证明用户不是第一次登录了</span><br><span class="line">      const hasGetUserInfo &#x3D; store.getters.name</span><br><span class="line">      if (hasGetUserInfo) &#123;</span><br><span class="line">      &#x2F;&#x2F;信息拿到后，用户请求哪就跳转哪</span><br><span class="line">        next()</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果有令牌，但是没有用户信息，证明用户是第一次登录，通过Vuex设置用户信息</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;getInfo&#39;)</span><br><span class="line">        &#x2F;&#x2F;设置好了之后，依然可以请求哪就跳转哪</span><br><span class="line">          next()</span><br><span class="line">        &#125; catch (error) &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果出错了，把令牌去掉，并让用户重新去到登录页面</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;resetToken&#39;)</span><br><span class="line">          Message.error(error || &#39;Has Error&#39;)</span><br><span class="line">          next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">          &#x2F;&#x2F;关闭进度条</span><br><span class="line">          NProgress.done()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F;这里是没有令牌的情况</span><br><span class="line">    &#x2F;&#x2F;还记得上面的白名单吗，现在起作用了</span><br><span class="line">    &#x2F;&#x2F;whiteList.indexOf(to.path) !&#x3D;&#x3D; -1)判断用户请求的路由是否在白名单里</span><br><span class="line">    if (whiteList.indexOf(to.path) !&#x3D;&#x3D; -1) &#123;</span><br><span class="line">      &#x2F;&#x2F; 不是-1就证明存在白名单里，不管你有没有令牌，都直接去到白名单路由对应的页面</span><br><span class="line">      next()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F; 如果这个页面不在白名单里，直接跳转到登录页面</span><br><span class="line">      next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">      &#x2F;&#x2F;关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F;每次请求结束后都需要关闭进度条</span><br><span class="line">  NProgress.done()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tcp三次握手和四次挥手</title>
+      <link href="/2021/07/30/tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
+      <url>/2021/07/30/tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h1><p>客户端和服务端通信前要进行连接，<br><code>“3次握手”的作用就是</code><strong><em><code>双方都能明确自己和对方的收、发能力是正常的。</code></em></strong></p><p><img src="http://qiniu.aoxuekj.com/2019100611062917.png" alt=""></p><h2 id="第一次握手："><a href="#第一次握手：" class="headerlink" title="第一次握手："></a>第一次握手：</h2><p>客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。</p><h2 id="第二次握手："><a href="#第二次握手：" class="headerlink" title="第二次握手："></a>第二次握手：</h2><p>服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。 从客户端的视角来看，我接到了服务端发送过来的响应数据包，说明服务端接收到了我在第一次握手时发送的网络包，并且成功发送了响应数据包，这就说明，服务端的接收、发送能力正常。而另一方面，我收到了服务端的响应数据包，说明我第一次发送的网络包成功到达服务端，这样，我自己的发送和接收能力也是正常的。<code>但是服务器还不知道我的接收能力</code></p><h2 id="第三次握手："><a href="#第三次握手：" class="headerlink" title="第三次握手："></a>第三次握手：</h2><p>客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力，服务端的发送、接收能力是正常的。 第一、二次握手后，服务端并不知道客户端的接收能力以及自己的发送能力是否正常。而在第三次握手时，服务端收到了客户端对第二次握手作的回应。从服务端的角度，我在第二次握手时的响应数据发送出去了，客户端接收到了。所以，我的发送能力是正常的。而客户端的接收能力也是正常的。</p><h1 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h1><p><img src="http://qiniu.aoxuekj.com/20191006110633739.png" alt=""></p><ol><li>客户端发送一个FIN段，并包含一个希望接收者看到的自己当前的序列号K. 同时还包含一个ACK表示确认对方最近一次发过来的数据。 </li><li>服务端将K值加1作为ACK序号值，表明收到了上一个包。这时上层的应用程序会被告知另一端发起了关闭操作，通常这将引起应用程序发起自己的关闭操作。 </li><li>服务端发起自己的FIN段，ACK=K+1, Seq=L。</li><li>客户端确认。ACK=L+1。</li></ol><h1 id="为什么握手是三次，挥手是四次"><a href="#为什么握手是三次，挥手是四次" class="headerlink" title="为什么握手是三次，挥手是四次"></a>为什么握手是三次，挥手是四次</h1><p>这是因为服务端在LISTEN状态下，<code>收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端</code>(<strong><em>相当于将四次挥手中的第2、3次合并了</em></strong>)。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方是否现在关闭发送数据通道，需要上层应用来决定，因此，己方ACK和FIN一般都会分开发送。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>uniapp</title>
+      <link href="/2021/07/30/uniapp/"/>
+      <url>/2021/07/30/uniapp/</url>
+      
+        <content type="html"><![CDATA[<p>uniapp</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ssh远程连接服务器</title>
+      <link href="/2021/07/30/ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2021/07/30/ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>ssh root@xxx.xxx.xxx.xxx(ip地址)</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sublime内使用终端</title>
+      <link href="/2021/07/30/sublime%E5%86%85%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF/"/>
+      <url>/2021/07/30/sublime%E5%86%85%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装终端插件"><a href="#安装终端插件" class="headerlink" title="安装终端插件"></a>安装终端插件</h1><p>cmd+shift+P组合键，在弹框内输入<code>package</code>，选择<code>Package Control:Install Package</code></p><p>然后在弹框内输入<code>terminus</code>，等待完成安装。</p><h1 id="运行插件"><a href="#运行插件" class="headerlink" title="运行插件"></a>运行插件</h1><p>cmd+shift+P组合键，在弹框内输入<code>terminus</code>，选择<code>Terminus:Toggle Panel</code>即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sublime </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nuxt内使用vant框架</title>
+      <link href="/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/"/>
+      <url>/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="nuxt目录介绍"><a href="#nuxt目录介绍" class="headerlink" title="nuxt目录介绍"></a>nuxt目录介绍</h1><p>1、<code>assets: 资源目录，用来组织未编译的静态资源</code><br>2、<code>layouts</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">布局文件目录，里面可以放些全局可用的布局，例如default、error。</span><br><span class="line">default表示默认布局，error可以用来展示404。</span><br><span class="line">如果没有默认布局的要求，直接放置一个error即可。</span><br><span class="line"></span><br><span class="line">注：并不需要特殊路由设置，在nuxt框架下，如果访问的路径不存在，(并且有error布局的情况下)则会直接使用该布局。</span><br></pre></td></tr></table></figure></p><h1 id="nuxt内使用vant（或者说是nuxt内使用第三方框架）"><a href="#nuxt内使用vant（或者说是nuxt内使用第三方框架）" class="headerlink" title="nuxt内使用vant（或者说是nuxt内使用第三方框架）"></a>nuxt内使用vant（或者说是nuxt内使用第三方框架）</h1><p>1、在plugins目录下新建vant.js文件，并引入vue和vant以及vant的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;;</span><br><span class="line">import Vant from &#39;vant&#39;;</span><br><span class="line">import &#39;vant&#x2F;lib&#x2F;index.css&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Vant)</span><br></pre></td></tr></table></figure><br>2、在nuxt.config.js下引入vant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    &#123;src: &#39;~&#x2F;plugins&#x2F;vant.js&#39;, ssr: true&#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>process.env.NODE_ENV</title>
+      <link href="/2021/07/30/process-env-NODE-ENV/"/>
+      <url>/2021/07/30/process-env-NODE-ENV/</url>
+      
+        <content type="html"><![CDATA[<p>1、在node当中，全局变量process代表的是node当中的进程。 process.env包含着关于系统环境的信息，<code>但是并不包含NODE_ENV这个属性</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nodejs打开浏览器</title>
+      <link href="/2021/07/30/nodejs%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+      <url>/2021/07/30/nodejs%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const open &#x3D; require(&#39;open&#39;)</span><br><span class="line"></span><br><span class="line">let url &#x3D; &#39;http:&#x2F;&#x2F;www.xxx.com&#39;</span><br><span class="line">open(url)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 服务器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> node </tag>
+            
+            <tag> 代码片段 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nodeCanvas渲染</title>
+      <link href="/2021/07/30/nodeCanvas%E6%B8%B2%E6%9F%93/"/>
+      <url>/2021/07/30/nodeCanvas%E6%B8%B2%E6%9F%93/</url>
+      
+        <content type="html"><![CDATA[<p>近期项目涉及地理系统，使用的框架是mars3d</p><p>mars3d本身提供了加载<a href="http:baidu.com">geojson</a>、图片以及模型的API，<br>但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。<br>经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，<br>在服务器直接生成png图片，在需要使用的时候直接加载图片。<br>由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。</p><p>`凡是引用包的地方，都需要先加载包，但是node canvas直接使用哪个npm引用有很大的几率会出现问题</p><p>`</p><h1 id="node加载数据"><a href="#node加载数据" class="headerlink" title="node加载数据"></a>node加载数据</h1><p>node加载数据使用的是自带的fs模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let fs &#x3D; require(&#39;fs&#39;)</span><br><span class="line">let data &#x3D; fs.readFileSync(&#39;XXX.json&#39;)</span><br><span class="line">let obj &#x3D; JSON.parse(data)</span><br></pre></td></tr></table></figure></p><h1 id="使用node-canvas将数据绘制到canvas上"><a href="#使用node-canvas将数据绘制到canvas上" class="headerlink" title="使用node canvas将数据绘制到canvas上"></a>使用node canvas将数据绘制到canvas上</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;createCanvas&#125; &#x3D; canvas</span><br><span class="line">const width &#x3D; 2000</span><br><span class="line">const height &#x3D; 2000</span><br><span class="line">const canvas &#x3D; createCanvas(width,height)</span><br><span class="line">const context &#x3D; canvas.getContext(&#39;2d)</span><br></pre></td></tr></table></figure><h1 id="处理node-canvas生成的base64数据，生成png"><a href="#处理node-canvas生成的base64数据，生成png" class="headerlink" title="处理node canvas生成的base64数据，生成png"></a>处理node canvas生成的base64数据，生成png</h1><h1 id="将png保存到本地"><a href="#将png保存到本地" class="headerlink" title="将png保存到本地"></a>将png保存到本地</h1>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mars3d使用指南</title>
+      <link href="/2021/07/30/mars3d%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+      <url>/2021/07/30/mars3d%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<p><code>本文只是mars3d的使用，并且使用的方式是直接在html内编写，不涉及Vue或其他方式</code></p><p>开发指南:<a href="http://mars3d.cn/apidoc" target="_blank" rel="noopener">http://mars3d.cn/apidoc</a><br>官网demo:<a href="http://mars3d.cn/example" target="_blank" rel="noopener">http://mars3d.cn/example</a></p><p><em><code>本文随时更新</code></em></p><h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>mars3d是在cesium基础上二次封装的一个前端框架，继承与扩展了cesium的功能，开源但是不能用于商业用途，会有水印与log信息。</p><h2 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h2><p>mars3d图层（个人理解）就是在canvas（webgl）上添加一类元素的容器。经常使用到的有geoLayer,imageLayer,divLayer、模型等</p><h3 id="geoLayer"><a href="#geoLayer" class="headerlink" title="geoLayer"></a>geoLayer</h3><p>geoLayer主要用来加载geoJson数据，并根据geoLayer数据的type值进行不同的渲染，可以生成点、线、面等</p><h3 id="imageLayer"><a href="#imageLayer" class="headerlink" title="imageLayer"></a>imageLayer</h3><p>imageLayer主要用来加载img图片，该图片会随earthMap一同缩放，这是它与divLayer最大的不同</p><h3 id="divLayer"><a href="#divLayer" class="headerlink" title="divLayer"></a>divLayer</h3><p>divLayer主要用来加载自定义div元素，它不同earthMap缩放，在检查代码中会发现它是脱离canvas元素的（随earthMap一同缩放的都是在canvas元素中的），由于它脱离canvas，但是又相对于earthMap有位置的定位，所以当earthMap宽高超出屏幕范围时，会导致浏览器滚动条的出现，如果没有特殊需求，不建议使用。<br><strong><em><code>由于divLayer脱离canvas元素，当使用canvas录屏的时候，是无法录取该元素的，这就导致操作时看到的内容与录屏后视频显示的内容不一致</code></em></strong></p><h3 id="模型加载"><a href="#模型加载" class="headerlink" title="模型加载"></a>模型加载</h3><p>mars3d是支持模型加载的，并且即使加载的是动态模型，也不会导致浏览器的回流与重绘。但是当imageLayer加载的是gif动图时，即使earthMap没有任何操作，也会因为gif序列帧的问题引起浏览器的回流与重绘。<br><strong><em><code>建议需要动图时，直接上模型</code></em></strong><br>相关测试可查看<a href="http:www.baidu.com">浏览器回流与重绘测试</a></p><hr><h1 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h1><hr><h1 id="应用demo解析"><a href="#应用demo解析" class="headerlink" title="应用demo解析"></a>应用demo解析</h1><h2 id="加载离线地球"><a href="#加载离线地球" class="headerlink" title="加载离线地球"></a>加载离线地球</h2><h2 id="加载图片模拟克里金插值"><a href="#加载图片模拟克里金插值" class="headerlink" title="加载图片模拟克里金插值"></a>加载图片模拟克里金插值</h2><h2 id="加载icon图片作为图标方式"><a href="#加载icon图片作为图标方式" class="headerlink" title="加载icon图片作为图标方式"></a>加载icon图片作为图标方式</h2><h2 id="加载gif动图"><a href="#加载gif动图" class="headerlink" title="加载gif动图"></a>加载gif动图</h2><h2 id="加载3D模型图"><a href="#加载3D模型图" class="headerlink" title="加载3D模型图"></a>加载3D模型图</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 可视化 </tag>
+            
+            <tag> mars3d </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>node canvas生成图片并保存</title>
+      <link href="/2021/07/30/node-canvas%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E5%B9%B6%E4%BF%9D%E5%AD%98/"/>
+      <url>/2021/07/30/node-canvas%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E5%B9%B6%E4%BF%9D%E5%AD%98/</url>
+      
+        <content type="html"><![CDATA[<p><code>canvas可以将画布转为base64，而base64就是该图片的信息，但是node保存文件的时候需要buffer格式的信息，所以只需要将canvas转成的base64处理成buffer，就可以保存</code></p><p>总结如下：<br><strong><em>1、将画布信息转为base64</em></strong><br><strong><em>2、处理base64为buffer，进行保存</em></strong></p><h3 id="引入canvas模块"><a href="#引入canvas模块" class="headerlink" title="引入canvas模块"></a>引入canvas模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123;createCanvas&#125; &#x3D; require(&#39;canvas&#39;)</span><br></pre></td></tr></table></figure><h3 id="canvas绘图"><a href="#canvas绘图" class="headerlink" title="canvas绘图"></a>canvas绘图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const canvas &#x3D; createCanvas(200,200)</span><br><span class="line">const ctx &#x3D; canvas.getContext(&#39;2d&#39;)</span><br><span class="line"></span><br><span class="line">ctx.font &#x3D; &#39;30px&#39;</span><br><span class="line">ctx.rotate(0.1)</span><br><span class="line">ctx.fillText(&#39;Hello&#39;,50,100)</span><br></pre></td></tr></table></figure><h3 id="将画布信息转为base64"><a href="#将画布信息转为base64" class="headerlink" title="将画布信息转为base64"></a>将画布信息转为base64</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const dataURl &#x3D; canvas.toDataURL(&#39;image&#x2F;png&#39;)</span><br></pre></td></tr></table></figure><h3 id="处理base64为buffer"><a href="#处理base64为buffer" class="headerlink" title="处理base64为buffer"></a>处理base64为buffer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const base64Data &#x3D; dataURl.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);</span><br><span class="line">const bufferData &#x3D; new Buffer(base64Data,&#39;base64&#39;)</span><br></pre></td></tr></table></figure><h3 id="保存buffer为图片格式"><a href="#保存buffer为图片格式" class="headerlink" title="保存buffer为图片格式"></a>保存buffer为图片格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(&#39;2.png&#39;,bufferData,function (err)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log(err)</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        console.log(&#39;图片保存成功&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const &#123;createCanvas&#125; &#x3D; require(&#39;canvas&#39;)</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;)</span><br><span class="line"></span><br><span class="line">const canvas &#x3D; createCanvas(200,200)</span><br><span class="line">const ctx &#x3D; canvas.getContext(&#39;2d&#39;)</span><br><span class="line"></span><br><span class="line">ctx.font &#x3D; &#39;30px&#39;</span><br><span class="line">ctx.rotate(0.1)</span><br><span class="line">ctx.fillText(&#39;Hello&#39;,50,100)</span><br><span class="line"></span><br><span class="line">const dataURl &#x3D; canvas.toDataURL(&#39;image&#x2F;png&#39;)</span><br><span class="line">console.log(dataURl)</span><br><span class="line"></span><br><span class="line">const base64Data &#x3D; dataURl.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);</span><br><span class="line">console.log(base64Data)</span><br><span class="line">const bufferData &#x3D; new Buffer(base64Data,&#39;base64&#39;)</span><br><span class="line">fs.writeFile(&#39;2.png&#39;,bufferData,function (err)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log(err)</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        console.log(&#39;图片保存成功&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 可视化 </tag>
+            
+            <tag> node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>node</title>
+      <link href="/2021/07/30/node/"/>
+      <url>/2021/07/30/node/</url>
+      
+        <content type="html"><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="node原生引入的http创建的服务器解决跨域问题"><a href="#node原生引入的http创建的服务器解决跨域问题" class="headerlink" title="node原生引入的http创建的服务器解决跨域问题"></a>node原生引入的http创建的服务器解决跨域问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">http.createServer((req,res)&#x3D;&gt;&#123;</span><br><span class="line">    res.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);&#x2F;&#x2F;跨域</span><br><span class="line">    res.end(&#39;12&#39;)</span><br><span class="line">&#125;).listen(&#39;3000&#39;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS安装homebrew</title>
+      <link href="/2021/07/30/macOS%E5%AE%89%E8%A3%85homebrew/"/>
+      <url>/2021/07/30/macOS%E5%AE%89%E8%A3%85homebrew/</url>
+      
+        <content type="html"><![CDATA[<p>Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p><h2 id="官方安装方式-https-brew-sh-index-zh-cn"><a href="#官方安装方式-https-brew-sh-index-zh-cn" class="headerlink" title="官方安装方式(https://brew.sh/index_zh-cn)"></a>官方安装方式(<a href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">https://brew.sh/index_zh-cn</a>)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure><p><code>官方安装方法在国内很多时候都是无法直接安装问题的，因为网络问题，解决方法也有很多，这里就不一一介绍了，这里就介绍最简单的方法</code></p><h2 id="国内快速安装"><a href="#国内快速安装" class="headerlink" title="国内快速安装"></a>国内快速安装</h2><p><code>这里只推荐安装最全的方式，我一般选中科大的源</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;bin&#x2F;zsh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;gitee.com&#x2F;cunkai&#x2F;HomebrewCN&#x2F;raw&#x2F;master&#x2F;Homebrew.sh)&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS安装jenkins</title>
+      <link href="/2021/07/30/macOS%E5%AE%89%E8%A3%85jenkins/"/>
+      <url>/2021/07/30/macOS%E5%AE%89%E8%A3%85jenkins/</url>
+      
+        <content type="html"><![CDATA[<p><code>官方推荐使用Homebrew的方式安装，本机安装的方式已经不支[下载](https://www.jenkins.io/download/lts/macos/)</code></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装最新版"><a href="#安装最新版" class="headerlink" title="安装最新版"></a>安装最新版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jenkins-lts</span><br></pre></td></tr></table></figure><h2 id="安装稳定版"><a href="#安装稳定版" class="headerlink" title="安装稳定版"></a>安装稳定版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jenkins-lts@YOUR_VERSION</span><br></pre></td></tr></table></figure><h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services start jenkins-lts</span><br></pre></td></tr></table></figure><h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services restart jenkins-lts</span><br></pre></td></tr></table></figure><h1 id="更新jenkins"><a href="#更新jenkins" class="headerlink" title="更新jenkins"></a>更新jenkins</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade jenkins-lts</span><br></pre></td></tr></table></figure><p><code>但是要启动jenkins，必须要有java jdk，所以还需下载(https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)</code></p><p>下载安装版即可</p><p>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 </p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> jenkins </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js面向对象编程思想</title>
+      <link href="/2021/07/30/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+      <url>/2021/07/30/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>js的所有数据都可以看成是对象，但是内置的对象还无法发挥面向对象编程的威力。<br>js的面向对象与其他语言严格的面向对象不太一样，js不区分类和实例的概念，而是通过原型来实现的（原型继承）。<br><code>类：类是对象的类型模板，不表示具体的实例</code><br><code>实例：实例是根据类创建的对象</code></p><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><p>js对每个创建的对象都会设置一个原型，指向它的原型对象。</p><h3 id="创建对象单的方法"><a href="#创建对象单的方法" class="headerlink" title="创建对象单的方法"></a>创建对象单的方法</h3><h4 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h4><p><code>用花括号括起来的名值对集合，一组名值之间用冒号（：），名值对之间用逗号（，）</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#123;</span><br><span class="line">    name:&#39;1&#39;,</span><br><span class="line">    age:&#39;2&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="通过new创建对象（构造函数）"><a href="#通过new创建对象（构造函数）" class="headerlink" title="通过new创建对象（构造函数）"></a>通过new创建对象（构造函数）</h4><p><code>new运算符创建并初始化一个新对象，关键字new后跟随一个函数进行调用</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let o &#x3D; new Object();&#x2F;&#x2F;通过new创建，等价于&#123;&#125;对象</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;通过构造函数创建</span><br><span class="line">function Student()&#123;</span><br><span class="line">    this.name &#x3D; &#39;name&#39;,</span><br><span class="line">    this.age &#x3D; &#39;age&#39;,</span><br><span class="line">    this.hello &#x3D; function()&#123;</span><br><span class="line">        console.log(&#39;hello&#39;+this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let a &#x3D; new Student(&#39;小明&#39;,18)</span><br></pre></td></tr></table></figure><br><code>调用构造函数的做一个重要特征就是：构造函数的prototye属性被用作新对象的原型，通同一个构造函数创建的所有对象都继承自一个相同的对象，因此它们都是同一个类的成员。</code></p><h4 id="Object-create-函数创建"><a href="#Object-create-函数创建" class="headerlink" title="Object.create()函数创建"></a>Object.create()函数创建</h4><p><code>这是一个静态方法，作用是创建一个新对象。参数有两个，第一个是这个对象的原型，第二个参数可选（用来对对象属性的描述）</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let point &#x3D; Object.create(&#123;</span><br><span class="line">    x:&#39;1&#39;,</span><br><span class="line">    y:&#39;100&#39;</span><br><span class="line">&#125;)</span><br><span class="line">point继承了属性x和y</span><br></pre></td></tr></table></figure></p><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>js的对象都是属性的集合，它们之间可能会有重叠的部分，这一部分可以单独提取出来进行’共享’，这就是类的组成。<br>换句话说<br><code>类就是不同对象之间共有属性的集合</code><br>通过同一个构造函数创建的所有对象都是该类的成员。</p><p>js中基于原型的继承机制是动态的</p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>虽然很多语言都支持两种继承：接口继承（只继承方法签名）和实现继承（继承实际的方法），但在js中只支持实现继承，而且主要是通过原型链实现的。</p><h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><h3 id="类继承"><a href="#类继承" class="headerlink" title="类继承"></a>类继承</h3><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>live-server使用</title>
+      <link href="/2021/07/30/live-server%E4%BD%BF%E7%94%A8/"/>
+      <url>/2021/07/30/live-server%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p><code>本文适用于使用cnpm下载的live-server，使用npm或者其他方式下载的安装包未做测试</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">与http-server比，live-server是一种自动热更新的工具包。</span><br><span class="line">但是在启动http-server的时候，会自动启动127.0.0.1与本机ip地址两个链接以供访问，</span><br><span class="line">这就使得内网内的设备都能访问。</span><br><span class="line">但是live-server默认只会启动127.0.0.1（在没有修改包文件内index.js的时候）</span><br><span class="line">导致每次想换启动地址时都需要去修改index.js文件，导致非常麻烦。</span><br><span class="line"></span><br><span class="line">目前本机安装的live-server版本，可以通过在命令行内直接使用命令指定的方式修改端口和链接。</span><br></pre></td></tr></table></figure><p><strong>修改端口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">live-server --port&#x3D;&#39;8081&#39;</span><br></pre></td></tr></table></figure></p><p><br></p><p><strong>修改地址</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">live-server --host&#x3D;&#39;192.168.1.1&#39;</span><br><span class="line"></span><br><span class="line">注意host内应该是本机的内网ip地址，这样在同一个内网下，不同的设备才能访问我们开放的页面</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js根据url一次性打开多个窗口</title>
+      <link href="/2021/07/30/js%E6%A0%B9%E6%8D%AEurl%E4%B8%80%E6%AC%A1%E6%80%A7%E6%89%93%E5%BC%80%E5%A4%9A%E4%B8%AA%E7%AA%97%E5%8F%A3/"/>
+      <url>/2021/07/30/js%E6%A0%B9%E6%8D%AEurl%E4%B8%80%E6%AC%A1%E6%80%A7%E6%89%93%E5%BC%80%E5%A4%9A%E4%B8%AA%E7%AA%97%E5%8F%A3/</url>
+      
+        <content type="html"><![CDATA[<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>window.open如果只是直接调用window.open(‘url’),如果使用多个页面，页面肯定只会显示一个。</p><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>在网站点击某个栏目链接的时候： 1、需要打开对应的栏目信息，显示相关资讯 2、跳转到网店，供用户购买</p><h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;url&#39;,a)</span><br><span class="line">window.open(&#39;url&#39;,b)</span><br><span class="line"></span><br><span class="line">关键点就是url后面的a和b对页面进行不同的区分</span><br><span class="line">这两个值不能不填，也不能填一样的，否则就只会打开一个页面</span><br></pre></td></tr></table></figure><p><code>注意：open()方法会都打开或者查找窗口，也就是说在浏览器未打开相应窗口的情况下 会打开该窗口，如果浏览器已经打开了相应窗口，则会跳转到该窗口，不会再次重新打开</code></p><h2 id="实现2"><a href="#实现2" class="headerlink" title="实现2"></a>实现2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var url &#x3D; [&quot;url1&quot;, &quot;url2&quot;]</span><br><span class="line">  for (var i &#x3D; 0; i &lt; url.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;window.open(url[i], &#39;_blank&#39;);</span><br><span class="line">    window.open(url[i], &#39;i&#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  window.open里面的&#39;_blank&#39;可以换成i,这样相当于给每个新开的窗口命名</span><br><span class="line">  这样再次点击的时候就会查找窗口，而不是再次新开窗口，如果使用&#39;_blank&#39;</span><br><span class="line">  则每次点击都是新开窗口，可以看作是命名了相同的名字。</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js设计模式</title>
+      <link href="/2021/07/30/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2021/07/30/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>声明一个函数，保存在一个首字母大写的变量里</p><h3 id="通过this添加属性或者方法"><a href="#通过this添加属性或者方法" class="headerlink" title="通过this添加属性或者方法"></a>通过this添加属性或者方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let Student &#x3D; function(id,name,age)&#123;</span><br><span class="line">    this.id &#x3D; id;  &#x2F;&#x2F;通过this添加属性或者方法</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">    this.print &#x3D; function()&#123;</span><br><span class="line">        console.log(this.name + this.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="通过prototype添加属性和方法"><a href="#通过prototype添加属性和方法" class="headerlink" title="通过prototype添加属性和方法"></a>通过prototype添加属性和方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Stydent.prototype.display &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;1&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">Student.prototype &#x3D; &#123;</span><br><span class="line">    display:function()&#123;</span><br><span class="line">        console.log(&#39;2)</span><br><span class="line">    &#125;,</span><br><span class="line">    let score &#x3D; function()&#123;</span><br><span class="line">        alert(&#39;123&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="通过this和prototype添加属性和方法的区别"><a href="#通过this和prototype添加属性和方法的区别" class="headerlink" title="通过this和prototype添加属性和方法的区别"></a>通过this和prototype添加属性和方法的区别</h3><p><code>通过this添加的属性和方法是添加在了当前对象上，在使用new构造函数创建新对象时，添加的属性和方法会被复制到新对象上。</code><br><code>通过prototype添加的属性和方法  并不是  添加到对象本身上，所以在使用new构造函数创建新对象时，添加的属性和方法  不会  复制到新对象上</code></p><p><img src="http://qiniu.aoxuekj.com/WX20210330-150148.png" alt=""></p><h3 id="私有变量和公共变量（以及属性）"><a href="#私有变量和公共变量（以及属性）" class="headerlink" title="私有变量和公共变量（以及属性）"></a>私有变量和公共变量（以及属性）</h3><p><code>通过this或者prototype添加的属性和方法可以在外界访问到，可以看做时候公有变量和属性</code><br><code>未 通过this后者prototype添加的属性不能被实例访问到，是类的私有变量和属性</code></p><p><img src="http://qiniu.aoxuekj.com/WX20210330-153053.png" alt=""></p><h4 id="类的静态变量可以通过-闭包-实现"><a href="#类的静态变量可以通过-闭包-实现" class="headerlink" title="类的静态变量可以通过 闭包 实现"></a>类的静态变量可以通过 <a href="http://blog.aoxuekj.com/2021/03/30/%E9%97%AD%E5%8C%85/" target="_blank" rel="noopener">闭包</a> 实现</h4><p>闭包是有权访问另外一个函数作用域中变量的函数，即<code>在一个函数内部创建另外一个函数</code></p><h4 id="创建对象的时候如果不使用new"><a href="#创建对象的时候如果不使用new" class="headerlink" title="创建对象的时候如果不使用new"></a>创建对象的时候如果不使用new</h4><p><img src="http://qiniu.aoxuekj.com/WX20210330-173031%402x.png" alt=""></p><p><code>new关键字的作用是对当前对象的this不停的赋值，如果创建对象的时候省略了new关键字，则会在全局作用域中执行，这样函数内的this指向window，所以在没有new关键字的情况下创建的函数里面的属性就指向window</code></p><p><img src="http://qiniu.aoxuekj.com/WX20210330-173728%402x.png" alt=""></p><h3 id="如何检测一个对象添加的属性和方法的指向"><a href="#如何检测一个对象添加的属性和方法的指向" class="headerlink" title="如何检测一个对象添加的属性和方法的指向"></a>如何检测一个对象添加的属性和方法的指向</h3><p><strong><em><code>constructor</code></em></strong></p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>每个类大体都可以包含3个部分：<br>1、 <code>构造函数之内的，供</code><strong><em><code>实例化对象</code></em></strong><code>的时候复制使用。</code><br>2、 <code>构造函数之外，直接通过点语法添加的，供</code><strong><em><code>类</code></em></strong><code>使用。</code><br>3、 <code>类的原型中的，实例化对象可以通过其原型间接访问到的。</code></p><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>jq load方法注意事项</title>
+      <link href="/2021/07/30/jq-load%E6%96%B9%E6%B3%95%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+      <url>/2021/07/30/jq-load%E6%96%B9%E6%B3%95%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> jQuery </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cesium</title>
+      <link href="/2021/07/30/cesium/"/>
+      <url>/2021/07/30/cesium/</url>
+      
+        <content type="html"><![CDATA[<p>cesium</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 可视化 </tag>
+            
+            <tag> cesium </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es6</title>
+      <link href="/2021/07/30/es6/"/>
+      <url>/2021/07/30/es6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p><code>从数组和对象中提取值，对变量进行赋值，这被称为解构</code></p><h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [a,b,c] &#x3D; [1,2,3];</span><br><span class="line">console.log(a,b,c);&#x2F;&#x2F; 1 2 3</span><br></pre></td></tr></table></figure><p><code>解构不成功，变量的值为undefined</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let [a,b] &#x3D; [1];</span><br><span class="line">console.log(a,b);&#x2F;&#x2F; 1 undefined</span><br><span class="line"></span><br><span class="line">let [a,b] &#x3D; &#39;1&#39;;</span><br><span class="line">console.log(a,b);&#x2F;&#x2F; 1 undefined</span><br></pre></td></tr></table></figure></p><p><strong>如果等号右边不是可遍历的结构，会报错</strong></p><p>会报错的常见形式：</p><p>1、 数字</p><p>2、 布尔</p><p>3、 NaN</p><p>4、 undefined</p><p>5、null</p><p>6、{}  对象</p><h2 id="解构赋值的应用"><a href="#解构赋值的应用" class="headerlink" title="解构赋值的应用"></a>解构赋值的应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">假设下面是某个请求的返回值，形参是res</span><br><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 200,</span><br><span class="line">    &quot;msg&quot;: &quot;成功&quot;,</span><br><span class="line">    &quot;data&quot;: &#123;</span><br><span class="line">        &quot;pageNum&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 99,</span><br><span class="line">        &quot;size&quot;: 49,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">1、不用解构赋值</span><br><span class="line">let data &#x3D; res;</span><br><span class="line">if(data.data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;</span><br><span class="line">写起来比较繁琐</span><br><span class="line"></span><br><span class="line">2、使用解构赋值</span><br><span class="line">let &#123;data&#125; &#x3D; res;</span><br><span class="line">if(data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;</span><br></pre></td></tr></table></figure><p><code>这里需要注意的一点就是：声明的变量必须是返回值里面的某个属性，也就是说：返回值内必须包含被声明的这个变量字段。</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo-Theme-Snail</title>
+      <link href="/2019/11/01/Hexo-Theme-Snail/"/>
+      <url>/2019/11/01/Hexo-Theme-Snail/</url>
+      
+        <content type="html"><![CDATA[<h1 id="hexo-theme-snail"><a href="#hexo-theme-snail" class="headerlink" title="hexo-theme-snail"></a>hexo-theme-snail</h1><p><a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">View Hexo-Theme-Snail Sources On Github &#10174; </a></p><p><a href="https://www.dusign.net" target="_blank" rel="noopener">View Live Super Snail Blog &#10174;</a></p><p><img src="snail.png" alt="hexo-theme-snail"></p><p>Hexo-theme-snail is a succinct hexo theme. It has two colors, light and star, that can be set according to your own preferences in the settings, and also has the functions of sharing and commenting. More features are under development.</p><h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul><li>light color theme and star theme</li><li>diversified comment system</li><li>notice tips</li><li>share to other platforms (under development)</li><li>picture sharing (under development)</li></ul><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure><h3 id="Setup-your-blog"><a href="#Setup-your-blog" class="headerlink" title="Setup your blog"></a>Setup your blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure><h3 id="Installation-Theme"><a href="#Installation-Theme" class="headerlink" title="Installation Theme"></a>Installation Theme</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ rm -rf <span class="built_in">source</span></span><br><span class="line">$ rm _config.yml package.json README.md LICENSE</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/dusign/hexo-theme-snail.git</span><br><span class="line">$ mv ./hexo-theme-snail/snail ./themes</span><br><span class="line">$ mv ./hexo-theme-snail/* ./</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure><h3 id="Set-Theme"><a href="#Set-Theme" class="headerlink" title="Set Theme"></a>Set Theme</h3><p>Modify the value of <code>theme:</code> in <code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">snail</span></span><br></pre></td></tr></table></figure></p><h3 id="Start-the-Server"><a href="#Start-the-Server" class="headerlink" title="Start the Server"></a>Start the Server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><h3 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h3><p>Replace the following information with your own.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> </span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">At</span> <span class="string">the</span> <span class="string">bottom</span> <span class="string">of</span> <span class="string">the</span> <span class="string">well,</span> <span class="string">it</span> <span class="string">is</span> <span class="string">destined</span> <span class="string">to</span> <span class="string">see</span> <span class="string">only</span> <span class="string">the</span> <span class="string">sky</span> <span class="string">at</span> <span class="string">the</span> <span class="string">wellhead.</span> </span><br><span class="line">          <span class="string">However,</span> <span class="string">the</span> <span class="string">starting</span> <span class="string">point</span> <span class="string">only</span> <span class="string">affects</span> <span class="string">the</span> <span class="string">process</span> <span class="string">of</span> <span class="string">reaching</span> <span class="string">your</span> <span class="string">peak</span> <span class="string">and</span> <span class="string">does</span> <span class="string">not</span> <span class="string">determine</span> <span class="string">the</span> <span class="string">height</span> <span class="string">you</span> <span class="string">reach.</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Dusign</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span></span><br></pre></td></tr></table></figure></p><h3 id="Site-Settings"><a href="#Site-Settings" class="headerlink" title="Site Settings"></a>Site Settings</h3><p>Put customized pictures in <code>img</code> directory.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site settings</span></span><br><span class="line"><span class="attr">SEOTitle:</span> <span class="string">Hexo-theme-snail</span></span><br><span class="line"><span class="attr">email:</span> <span class="string">hexo-theme-snail@mail.com</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">"A hexo theme"</span></span><br><span class="line"><span class="attr">keyword:</span> <span class="string">"dusign, hexo-theme-snail"</span></span><br><span class="line"><span class="attr">header-img:</span> <span class="string">img/header_img/home-bg-1-dark.jpg</span></span><br><span class="line"><span class="attr">signature:</span> <span class="literal">true</span> <span class="comment">#show signature</span></span><br><span class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/Just-do-it-white.png</span></span><br></pre></td></tr></table></figure></p><h3 id="SNS-Settings"><a href="#SNS-Settings" class="headerlink" title="SNS Settings"></a>SNS Settings</h3><p>If you don’t want to display it, you can delete it directly.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SNS settings</span></span><br><span class="line"><span class="attr">github_username:</span>    <span class="string">dusign</span></span><br><span class="line"><span class="attr">twitter_username:</span>   <span class="string">dusignr</span></span><br><span class="line"><span class="attr">facebook_username:</span>  <span class="string">Gang</span> <span class="string">Du</span></span><br><span class="line"><span class="attr">zhihu_username:</span> <span class="string">dusignr</span></span><br></pre></td></tr></table></figure></p><h3 id="Sidebar-Settings"><a href="#Sidebar-Settings" class="headerlink" title="Sidebar Settings"></a>Sidebar Settings</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sidebar Settings</span></span><br><span class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>                      <span class="comment"># whether or not using Sidebar.</span></span><br><span class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"Welcome to visit, I'm Dusign!"</span></span><br><span class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/ironman-draw.png</span>      <span class="comment"># use absolute URL, seeing it's used in both `/` and `/about/`</span></span><br><span class="line"><span class="attr">widgets:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">short-about</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># widget behavior</span></span><br><span class="line"><span class="comment">## Archive</span></span><br><span class="line"><span class="attr">archive_type:</span> <span class="string">'monthly'</span></span><br><span class="line"><span class="attr">show_count:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## Featured Tags</span></span><br><span class="line"><span class="attr">featured-tags:</span> <span class="literal">true</span>                     <span class="comment"># whether or not using Feature-Tags</span></span><br><span class="line"><span class="attr">featured-condition-size:</span> <span class="number">1</span>              <span class="comment"># A tag will be featured if the size of it is more than this condition value</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## Friends</span></span><br><span class="line"><span class="attr">friends:</span> <span class="string">[</span></span><br><span class="line">    <span class="string">&#123;</span></span><br><span class="line">        <span class="attr">title:</span> <span class="string">"Dusign's Blog"</span><span class="string">,</span></span><br><span class="line">        <span class="attr">href:</span> <span class="string">"https://blog.csdn.net/d_Nail"</span></span><br><span class="line">    <span class="string">&#125;,&#123;</span></span><br><span class="line">        <span class="attr">title:</span> <span class="string">"Dusign's Web"</span><span class="string">,</span></span><br><span class="line">        <span class="attr">href:</span> <span class="string">"#"</span></span><br><span class="line">    <span class="string">&#125;,&#123;</span></span><br><span class="line">        <span class="attr">title:</span> <span class="string">"Dusign's Github"</span><span class="string">,</span></span><br><span class="line">        <span class="attr">href:</span> <span class="string">"https://github.com/dusign"</span></span><br><span class="line">    <span class="string">&#125;,&#123;</span></span><br><span class="line">        <span class="attr">title:</span> <span class="string">"Other"</span><span class="string">,</span></span><br><span class="line">        <span class="attr">href:</span> <span class="string">"#"</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"><span class="string">]</span></span><br></pre></td></tr></table></figure><h3 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">snail</span></span><br></pre></td></tr></table></figure><h3 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span></span><br><span class="line">      <span class="attr">github:</span> <span class="string">github.repository.address</span></span><br><span class="line">      <span class="attr">coding:</span> <span class="string">coding.repository.address</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><p>See httpymls://github.com/imsun/gitment for detailed configuration method.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Comment</span></span><br><span class="line"><span class="comment">## This comment system is gitment</span></span><br><span class="line"><span class="comment">## gitment url: https://github.com/imsun/gitment</span></span><br><span class="line"><span class="attr">comment:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">owner:</span></span><br><span class="line">  <span class="attr">repo:</span></span><br><span class="line">  <span class="attr">client_id:</span></span><br><span class="line">  <span class="attr">client_secret:</span></span><br></pre></td></tr></table></figure></p><h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tip</span></span><br><span class="line"><span class="attr">tip:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">content:</span> <span class="string">欢迎访问</span> <span class="string">&lt;a</span> <span class="string">href="https://www.dusign.net"</span> <span class="string">target="dusign"&gt;dusign&lt;/a&gt;</span> <span class="string">的博客，博客系统一键分享的功能还在完善中，请大家耐心等待。</span></span><br><span class="line">          <span class="string">若有问题或者有好的建议欢迎留言，笔者看到之后会及时回复。</span></span><br><span class="line">          <span class="string">评论点赞需要github账号登录，如果没有账号的话请点击</span> </span><br><span class="line">          <span class="string">&lt;a</span> <span class="string">href="https://github.com"</span> <span class="string">target="view_window"</span> <span class="string">&gt;</span> <span class="string">github</span> <span class="string">&lt;/a&gt;</span> <span class="string">注册，</span> <span class="string">谢谢</span> <span class="string">!</span></span><br></pre></td></tr></table></figure><h3 id="Color-Sheme"><a href="#Color-Sheme" class="headerlink" title="Color Sheme"></a>Color Sheme</h3><p>Set the <code>enable</code> value of the desired color sheme to <code>true</code>. If the value of <code>bg_effects.star.enable</code> is <code>true</code>, please modify the value of <code>highlight_theme</code> in <code>./themes/snail/_config.yml</code> to <code>night</code>.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Color Sheme</span></span><br><span class="line"><span class="comment">## If there is no effect after modification, please empty the cache and try again.</span></span><br><span class="line"><span class="comment">## ⚠️ The following special effects will take up a lot of cpu resorces, please open it carefully.</span></span><br><span class="line"><span class="attr">bg_effects:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">color:</span> <span class="number">129</span><span class="string">,200,61</span></span><br><span class="line">    <span class="attr">pointColor:</span> <span class="number">129</span><span class="string">,200,61</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br><span class="line">    <span class="attr">zIndex:</span> <span class="number">-9</span></span><br><span class="line">    <span class="attr">count:</span> <span class="number">99</span></span><br><span class="line">  <span class="attr">mouse_click:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">content:</span> <span class="string">'"🌱","just do it","🌾","🍀","don'</span><span class="string">'t give up","🍂","🌻","try it again","🍃","never say die","🌵","🌿","🌴"'</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">'"rgb(121,93,179)"</span></span><br><span class="line"><span class="string">          ,"rgb(76,180,231)"</span></span><br><span class="line"><span class="string">          ,"rgb(184,90,154)"</span></span><br><span class="line"><span class="string">          ,"rgb(157,211,250)"</span></span><br><span class="line"><span class="string">          ,"rgb(255,0,0)"</span></span><br><span class="line"><span class="string">          ,"rgb(242,153,29)"</span></span><br><span class="line"><span class="string">          ,"rgb(23,204,16)"</span></span><br><span class="line"><span class="string">          ,"rgb(222,0,0)"</span></span><br><span class="line"><span class="string">          ,"rgb(22,36,92)"</span></span><br><span class="line"><span class="string">          ,"rgb(127,24,116)"</span></span><br><span class="line"><span class="string">          ,"rgb(119,195,79)"</span></span><br><span class="line"><span class="string">          ,"rgb(4,77,34)"</span></span><br><span class="line"><span class="string">          ,"rgb(122,2,60)"'</span></span><br><span class="line">  <span class="attr">star:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p><h2 id="Releases"><a href="#Releases" class="headerlink" title="Releases"></a>Releases</h2><p>V1.0</p><ul><li>fix the bugs</li><li>add comment system</li><li>add notice tips</li><li>add star sheme</li></ul><h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Apache License 2.0 Copyright(c) 2018-2020 <a href="https://github.com/dusign" target="_blank" rel="noopener">Dusign</a>   </p><p><a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">hexo-theme-snail</a> is derived from <a href="https://github.com/Huxpro/huxpro.github.io" target="_blank" rel="noopener">Huxpro</a> Apache License 2.0. Copyright (c) 2015-2020 Huxpro</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo-theme-snail </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
