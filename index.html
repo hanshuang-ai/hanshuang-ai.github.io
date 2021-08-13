@@ -163,21 +163,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -192,6 +178,20 @@
                         
                         <li>
                             <a href="/photography/">Photography</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -334,9 +334,78 @@
 
     
 
+    
+
+    
+
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/08/13/编辑器常用搜索匹配技巧/">
+                <h2 class="post-title">
+                    编辑器常用搜索匹配技巧
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    编辑器内删除所有代码空行^\s*(?=\r?$)\n
+...
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Dusign on
+                    2021-08-13
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/08/04/cesium专题/">
+                <h2 class="post-title">
+                    cesium专题
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    CesiumJS 是一款用于创建虚拟场景的3D地理信息平台。目标是用于创建以基于Web的地图动态数据可视化。目前尽力提升平台的性能、准确率、虚拟化能力、易用性以及平台的各种支持。
+
+Cesium 是一个跨平台、跨浏览器的展示三维地球和地图的 javascript 库。
+Cesium 使用WebGL 来进行硬件加速图形，使用时不需要任何插件支持，但是浏览器必须支持WebGL。
+Cesium是基......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Dusign on
+                    2021-08-04
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -404,6 +473,37 @@
 
         <div class="post-preview">
 
+            <a href="/2021/07/30/闭包/">
+                <h2 class="post-title">
+                    闭包
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    函数代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。
+定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。形参是作为局部变量使用的12345function sayHello(name)&#123;    console.log(&#39;hello&#39;+name);&#x2F;&#x2F;局部变量，外界无法访问&#125;sayHello(......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Dusign on
+                    2021-07-30
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
             <a href="/2021/07/30/解析URL/">
                 <h2 class="post-title">
                     解析URL
@@ -423,37 +523,6 @@
                 <div class="tags">
                     
                       <a href="/tags/#代码片段" title="代码片段">代码片段</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/闭包/">
-                <h2 class="post-title">
-                    闭包
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    函数代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。
-定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。形参是作为局部变量使用的12345function sayHello(name)&#123;    console.log(&#39;hello&#39;+name);&#x2F;&#x2F;局部变量，外界无法访问&#125;sayHello(......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
                     
                 </div>
             
@@ -560,38 +629,6 @@
 
         <div class="post-preview">
 
-            <a href="/2021/07/30/服务端渲染与预渲染/">
-                <h2 class="post-title">
-                    服务端渲染与预渲染
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    123服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现预渲染是直接接服务器内完整的静态页面发送给浏览器呈现
-
-实现方式不同：1234567SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于se......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
             <a href="/2021/07/30/浏览器回流与重绘测试/">
                 <h2 class="post-title">
                     浏览器回流与重绘测试
@@ -613,37 +650,6 @@
                 <div class="tags">
                     
                       <a href="/tags/#测试" title="测试">测试</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/基于rgb原理制作渐变色生成器/">
-                <h2 class="post-title">
-                    基于rgb原理制作渐变色生成器
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    基于rgb原理制作渐变色生成器
-...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
                     
                 </div>
             
@@ -710,9 +716,9 @@
     <div class="tags">
         
             
-            <a href="/tags/#可视化" title="可视化" rel="3">可视化</a>
-            
         
+            
+            <a href="/tags/#可视化" title="可视化" rel="3">可视化</a>
             
         
             
@@ -734,9 +740,9 @@
             
         
             
-        
-            
             <a href="/tags/#代码片段" title="代码片段" rel="2">代码片段</a>
+            
+        
             
         
             
@@ -814,6 +820,14 @@
     <ul>
       
         <li>
+          <a href="/2021/08/13/%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E6%8A%80%E5%B7%A7/">编辑器常用搜索匹配技巧</a>
+        </li>
+      
+        <li>
+          <a href="/2021/08/04/cesium%E4%B8%93%E9%A2%98/">cesium专题</a>
+        </li>
+      
+        <li>
           <a href="/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/">同一台机器配置多个git账号.md</a>
         </li>
       
@@ -822,15 +836,7 @@
         </li>
       
         <li>
-          <a href="/2021/07/30/%E8%A7%A3%E6%9E%90URL/">解析URL</a>
-        </li>
-      
-        <li>
           <a href="/2021/07/30/%E9%97%AD%E5%8C%85/">闭包</a>
-        </li>
-      
-        <li>
-          <a href="/2021/07/30/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">终端命令</a>
         </li>
       
     </ul>
@@ -853,7 +859,7 @@
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -864,19 +870,19 @@
     <div class="widget">
       <ul>
         
-          <a href="categories/#框架"><li>框架</li></a>
-        
           <a href="categories/#hexo"><li>hexo</li></a>
+        
+          <a href="categories/#框架"><li>框架</li></a>
         
           <a href="categories/#概念"><li>概念</li></a>
         
-          <a href="categories/#开发工具"><li>开发工具</li></a>
-        
           <a href="categories/#服务器"><li>服务器</li></a>
         
-          <a href="categories/#思想"><li>思想</li></a>
+          <a href="categories/#开发工具"><li>开发工具</li></a>
         
           <a href="categories/#实战应用"><li>实战应用</li></a>
+        
+          <a href="categories/#思想"><li>思想</li></a>
         
           <a href="categories/#浏览器"><li>浏览器</li></a>
         

@@ -163,21 +163,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -192,6 +178,20 @@
                         
                         <li>
                             <a href="/photography/">Photography</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -246,19 +246,19 @@
             <!-- 标签云 -->
             <div id='tag_clouds' class="tags">
                 
-                    <a href="#框架" title="框架" rel="5">框架</a>
-                
                     <a href="#hexo" title="hexo" rel="1">hexo</a>
+                
+                    <a href="#框架" title="框架" rel="5">框架</a>
                 
                     <a href="#概念" title="概念" rel="1">概念</a>
                 
-                    <a href="#开发工具" title="开发工具" rel="1">开发工具</a>
-                
                     <a href="#服务器" title="服务器" rel="1">服务器</a>
                 
-                    <a href="#思想" title="思想" rel="1">思想</a>
+                    <a href="#开发工具" title="开发工具" rel="1">开发工具</a>
                 
                     <a href="#实战应用" title="实战应用" rel="1">实战应用</a>
+                
+                    <a href="#思想" title="思想" rel="1">思想</a>
                 
                     <a href="#浏览器" title="浏览器" rel="1">浏览器</a>
                 
@@ -266,6 +266,32 @@
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="hexo">
+                    <span class="tag-text">hexo</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2019/11/01/Hexo-Theme-Snail/">
+                        <h2 class="post-title">
+                            Hexo-Theme-Snail
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                A succinct hexo theme.
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="框架">
@@ -350,32 +376,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="hexo">
-                    <span class="tag-text">hexo</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2019/11/01/Hexo-Theme-Snail/">
-                        <h2 class="post-title">
-                            Hexo-Theme-Snail
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                A succinct hexo theme.
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="概念">
                     <span class="tag-text">概念</span>
                 </span>
@@ -388,28 +388,6 @@
                      <a href="/2021/07/30/js面向对象编程思想/">
                         <h2 class="post-title">
                             js面向对象编程思想
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="开发工具">
-                    <span class="tag-text">开发工具</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2021/07/30/sublime内使用终端/">
-                        <h2 class="post-title">
-                            sublime内使用终端
                         </h2>
                         
                     </a>
@@ -442,8 +420,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="思想">
-                    <span class="tag-text">思想</span>
+                <span class="fa fa-tag listing-seperator" id="开发工具">
+                    <span class="tag-text">开发工具</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -451,9 +429,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2021/07/30/前后端分离的思考/">
+                     <a href="/2021/07/30/sublime内使用终端/">
                         <h2 class="post-title">
-                            前后端分离的思考
+                            sublime内使用终端
                         </h2>
                         
                     </a>
@@ -476,6 +454,28 @@
                      <a href="/2021/07/30/前端应对高并发/">
                         <h2 class="post-title">
                             前端应对高并发
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="思想">
+                    <span class="tag-text">思想</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2021/07/30/前后端分离的思考/">
+                        <h2 class="post-title">
+                            前后端分离的思考
                         </h2>
                         
                     </a>

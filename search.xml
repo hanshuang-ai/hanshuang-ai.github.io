@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>编辑器常用搜索匹配技巧</title>
+      <link href="/2021/08/13/%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E6%8A%80%E5%B7%A7/"/>
+      <url>/2021/08/13/%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E6%8A%80%E5%B7%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="编辑器内删除所有代码空行"><a href="#编辑器内删除所有代码空行" class="headerlink" title="编辑器内删除所有代码空行"></a>编辑器内删除所有代码空行</h1><p><code>^\s*(?=\r?$)\n</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cesium专题</title>
+      <link href="/2021/08/04/cesium%E4%B8%93%E9%A2%98/"/>
+      <url>/2021/08/04/cesium%E4%B8%93%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>CesiumJS 是一款用于创建虚拟场景的3D地理信息平台。目标是用于创建以基于Web的地图动态数据可视化。目前尽力提升平台的性能、准确率、虚拟化能力、易用性以及平台的各种支持。</p><ul><li>Cesium 是一个跨平台、跨浏览器的展示三维地球和地图的 javascript 库。</li><li>Cesium 使用WebGL 来进行硬件加速图形，使用时不需要任何插件支持，但是浏览器必须支持WebGL。</li><li>Cesium是基于Apache2.0 许可的开源程序。它可以免费的用于商业和非商业用途。</li></ul><h2 id="数据格式与功能特性"><a href="#数据格式与功能特性" class="headerlink" title="数据格式与功能特性"></a>数据格式与功能特性</h2><ul><li>支持2D,2.5D,3D 形式的地理（地图）数据展示，</li><li>可以绘制各种几何图形、高亮区域，支持导入图片，甚至三维模型等多种数据可视化展示</li><li>可用于动态数据可视化并提供良好的触摸支持，支持绝大多数的浏览器和移动端浏览器。</li><li>支持基于时间轴的动态流式数据展示</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>同一台机器配置多个git账号.md</title>
       <link href="/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/"/>
       <url>/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/</url>
@@ -30,6 +56,19 @@
     
     
     <entry>
+      <title>闭包</title>
+      <link href="/2021/07/30/%E9%97%AD%E5%8C%85/"/>
+      <url>/2021/07/30/%E9%97%AD%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。</p><p>定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。<br><code>形参是作为局部变量使用的</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sayHello(name)&#123;</span><br><span class="line">    console.log(&#39;hello&#39;+name);&#x2F;&#x2F;局部变量，外界无法访问</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(&#39;小明&#39;)</span><br></pre></td></tr></table></figure></p><p>如果函数挂载在对象上，那它们就是对象的方法。且js的函数可以嵌套在其他的函数中定义，它们可以访问它们被定义时所处的作用域中的任何变量，就形成了一个闭包。</p><h2 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h2><h3 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;console.log(&#39;123)&#125;</span><br></pre></td></tr></table></figure><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong><em><code>注意函数的声明提前</code></em></strong><br>函数的声明提前就是在代码执行过程中，函数的调用可以在声明之前。也就是说在代码的编写过程中（或者在代码排版中），函数声明的位置即使在调用之后也可以。<br><code>但是函数表达式创建的函数是不能提前的</code></p><p><strong><em>用表达式定义的函数，函数名是可选的</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let a &#x3D; function b(x)&#123;</span><br><span class="line">    if(x&lt;&#x3D;1&gt;)&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return x*b(x-1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">函数表达式在包含名称的时候，对递归是很有用的。</span><br><span class="line">函数表达式定义的函数在包含函数名时，函数的局部作用域就会包含一个绑定到函数对象的名称，也就是说函数名就会成为函数内部的一个局部变量。</span><br></pre></td></tr></table></figure></p><h2 id="函数的嵌套"><a href="#函数的嵌套" class="headerlink" title="函数的嵌套"></a>函数的嵌套</h2><p><code>被嵌套的函数可以访问嵌套函数里的参数和变量</code>，这也是闭包的条件</p><h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><p>一个变量的作用域是程序源代码中定义这个变量的区域。</p><h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>全局变量拥有全局作用域，在代码的任何位置都能访问。</p><h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>局部变量只能在局部作用域年内访问，外界无法按访问。<code>函数参数也是局部变量，只在函数体内有定义</code></p><p>局部作用域优先级高于全局作用域</p><h2 id="作用域链-1"><a href="#作用域链-1" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个对象列表或者链表，这组对象定义了这段代码的作用域。<code>作用域链的顶层是由全局对象组成的</code></p><p>当在js中需要查找某个变量的时候，程序会从链中的第一个对象内开始查找，如果没有，则会继续查找下一个对象，以此类推，直到查找到为止。这个过程形成的链，就是作用域链。<br>如果查找到最后还是没有查找到，则会抛出一个引用错误。</p><h3 id="不包含嵌套的函数体的作用域链"><a href="#不包含嵌套的函数体的作用域链" class="headerlink" title="不包含嵌套的函数体的作用域链"></a>不包含嵌套的函数体的作用域链</h3><p><code>两个对象:1、定义函数参数和局部变量的对象2、全局对象</code></p><h3 id="包含嵌套函数体的作用域链"><a href="#包含嵌套函数体的作用域链" class="headerlink" title="包含嵌套函数体的作用域链"></a>包含嵌套函数体的作用域链</h3><p><code>三个对象：1、定义函数参数和局部变量的对象2、全局对象3、被嵌套含税的外层函数体</code></p><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>函数的执行依赖于变量作用域，作用域是在函数定义时就决定的，不是在函数执行的时候确定的。函数可以通过作用域链连接起来，函数体内部的变量都可以保存在函数作用域内，这就是闭包。</p><h2 id="常用应用场景"><a href="#常用应用场景" class="headerlink" title="常用应用场景"></a>常用应用场景</h2><p>一个函数嵌套另一个函数，外部函数将内部函数作为返回值时</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解析URL</title>
       <link href="/2021/07/30/%E8%A7%A3%E6%9E%90URL/"/>
       <url>/2021/07/30/%E8%A7%A3%E6%9E%90URL/</url>
@@ -43,19 +82,6 @@
             <tag> 代码片段 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>闭包</title>
-      <link href="/2021/07/30/%E9%97%AD%E5%8C%85/"/>
-      <url>/2021/07/30/%E9%97%AD%E5%8C%85/</url>
-      
-        <content type="html"><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。</p><p>定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。<br><code>形参是作为局部变量使用的</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sayHello(name)&#123;</span><br><span class="line">    console.log(&#39;hello&#39;+name);&#x2F;&#x2F;局部变量，外界无法访问</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(&#39;小明&#39;)</span><br></pre></td></tr></table></figure></p><p>如果函数挂载在对象上，那它们就是对象的方法。且js的函数可以嵌套在其他的函数中定义，它们可以访问它们被定义时所处的作用域中的任何变量，就形成了一个闭包。</p><h2 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h2><h3 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;console.log(&#39;123)&#125;</span><br></pre></td></tr></table></figure><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong><em><code>注意函数的声明提前</code></em></strong><br>函数的声明提前就是在代码执行过程中，函数的调用可以在声明之前。也就是说在代码的编写过程中（或者在代码排版中），函数声明的位置即使在调用之后也可以。<br><code>但是函数表达式创建的函数是不能提前的</code></p><p><strong><em>用表达式定义的函数，函数名是可选的</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;124&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let a &#x3D; function b(x)&#123;</span><br><span class="line">    if(x&lt;&#x3D;1&gt;)&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return x*b(x-1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">函数表达式在包含名称的时候，对递归是很有用的。</span><br><span class="line">函数表达式定义的函数在包含函数名时，函数的局部作用域就会包含一个绑定到函数对象的名称，也就是说函数名就会成为函数内部的一个局部变量。</span><br></pre></td></tr></table></figure></p><h2 id="函数的嵌套"><a href="#函数的嵌套" class="headerlink" title="函数的嵌套"></a>函数的嵌套</h2><p><code>被嵌套的函数可以访问嵌套函数里的参数和变量</code>，这也是闭包的条件</p><h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><p>一个变量的作用域是程序源代码中定义这个变量的区域。</p><h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>全局变量拥有全局作用域，在代码的任何位置都能访问。</p><h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>局部变量只能在局部作用域年内访问，外界无法按访问。<code>函数参数也是局部变量，只在函数体内有定义</code></p><p>局部作用域优先级高于全局作用域</p><h2 id="作用域链-1"><a href="#作用域链-1" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个对象列表或者链表，这组对象定义了这段代码的作用域。<code>作用域链的顶层是由全局对象组成的</code></p><p>当在js中需要查找某个变量的时候，程序会从链中的第一个对象内开始查找，如果没有，则会继续查找下一个对象，以此类推，直到查找到为止。这个过程形成的链，就是作用域链。<br>如果查找到最后还是没有查找到，则会抛出一个引用错误。</p><h3 id="不包含嵌套的函数体的作用域链"><a href="#不包含嵌套的函数体的作用域链" class="headerlink" title="不包含嵌套的函数体的作用域链"></a>不包含嵌套的函数体的作用域链</h3><p><code>两个对象:1、定义函数参数和局部变量的对象2、全局对象</code></p><h3 id="包含嵌套函数体的作用域链"><a href="#包含嵌套函数体的作用域链" class="headerlink" title="包含嵌套函数体的作用域链"></a>包含嵌套函数体的作用域链</h3><p><code>三个对象：1、定义函数参数和局部变量的对象2、全局对象3、被嵌套含税的外层函数体</code></p><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>函数的执行依赖于变量作用域，作用域是在函数定义时就决定的，不是在函数执行的时候确定的。函数可以通过作用域链连接起来，函数体内部的变量都可以保存在函数作用域内，这就是闭包。</p><h2 id="常用应用场景"><a href="#常用应用场景" class="headerlink" title="常用应用场景"></a>常用应用场景</h2><p>一个函数嵌套另一个函数，外部函数将内部函数作为返回值时</p>]]></content>
-      
-      
       
     </entry>
     
@@ -101,19 +127,6 @@
     
     
     <entry>
-      <title>服务端渲染与预渲染</title>
-      <link href="/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/"/>
-      <url>/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现</span><br><span class="line"></span><br><span class="line">预渲染是直接接服务器内完整的静态页面发送给浏览器呈现</span><br></pre></td></tr></table></figure><p><br></p><p><strong>实现方式不同</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。</span><br><span class="line">Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于seo。</span><br><span class="line">但是一些事件和一些DOMAPI是无法在服务端用的,所以需要把客户端打包好的js代码动态注入到html中,此处为异步获取js逻辑。</span><br><span class="line">所以此处seo是抓取不到任何有用的信息的。</span><br><span class="line">那么问题来了，什么时候用ajax获取数据？什么时候通过服务端获取数据？</span><br><span class="line">当利于seo有优化时，比如开发的新闻网站，购物网站。需要被搜索引擎索引到，就需要从服务端获取数据，然后生成html，再吐给浏览器。</span><br><span class="line">而一些无关紧要的数据通过ajax获取就行。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prerendering：预渲染并不需要服务端支持。</span><br><span class="line">它只能生成你在templete写好的dom结构,也就是只能生成静态的html文件。</span><br><span class="line">一般是每个路由对应一个静态的html文件，在服务器获取时就已经生成好了，而不需要diff再动态生成dom。</span><br><span class="line">假如你想通过ajax获取到的数据来优化seo,可以吗？可以，可以设置一个预渲染时常。</span><br><span class="line">假如你用prerender-spa-plugin插件，设置renderAfterTime：5000。可触发渲染的时间，用于获取数据(ajax)后再保存渲染结果。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">预渲染的应用场景：营销页面（例如&#x2F;,&#x2F;about,&#x2F;contact等）的 SEO，你可能需要预渲染。</span><br><span class="line">无需使用 web 服务器实时动态编译 HTML，而是使用预渲染方式，在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。</span><br><span class="line">优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点。</span><br><span class="line"></span><br><span class="line">预渲染不适用经常变化的数据，比如说股票代码网站，天气预报网站。因为此时的数据是动态的，而预渲染时已经生成好了dom节点。</span><br><span class="line">此时如果要兼容seo就需要使用SSR了。</span><br><span class="line">预渲染也不适用大量的路由页面，比如成千上百个路由，因为此时打包后预渲染将会非常慢。</span><br><span class="line">而SSR并没有这些问题。</span><br><span class="line"></span><br><span class="line">预渲染最好的应用场景是需要seo的活动页面。预渲染也可以配置骨架屏，当ajax获取到数据之后把骨架屏替换掉，可以减少白屏时间。</span><br></pre></td></tr></table></figure></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>浏览器回流与重绘测试</title>
       <link href="/2021/07/30/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%E6%B5%8B%E8%AF%95/"/>
       <url>/2021/07/30/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%E6%B5%8B%E8%AF%95/</url>
@@ -133,6 +146,19 @@
             <tag> 测试 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>服务端渲染与预渲染</title>
+      <link href="/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/"/>
+      <url>/2021/07/30/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B8%8E%E9%A2%84%E6%B8%B2%E6%9F%93/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现</span><br><span class="line"></span><br><span class="line">预渲染是直接接服务器内完整的静态页面发送给浏览器呈现</span><br></pre></td></tr></table></figure><p><br></p><p><strong>实现方式不同</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。</span><br><span class="line">Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于seo。</span><br><span class="line">但是一些事件和一些DOMAPI是无法在服务端用的,所以需要把客户端打包好的js代码动态注入到html中,此处为异步获取js逻辑。</span><br><span class="line">所以此处seo是抓取不到任何有用的信息的。</span><br><span class="line">那么问题来了，什么时候用ajax获取数据？什么时候通过服务端获取数据？</span><br><span class="line">当利于seo有优化时，比如开发的新闻网站，购物网站。需要被搜索引擎索引到，就需要从服务端获取数据，然后生成html，再吐给浏览器。</span><br><span class="line">而一些无关紧要的数据通过ajax获取就行。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Prerendering：预渲染并不需要服务端支持。</span><br><span class="line">它只能生成你在templete写好的dom结构,也就是只能生成静态的html文件。</span><br><span class="line">一般是每个路由对应一个静态的html文件，在服务器获取时就已经生成好了，而不需要diff再动态生成dom。</span><br><span class="line">假如你想通过ajax获取到的数据来优化seo,可以吗？可以，可以设置一个预渲染时常。</span><br><span class="line">假如你用prerender-spa-plugin插件，设置renderAfterTime：5000。可触发渲染的时间，用于获取数据(ajax)后再保存渲染结果。</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">预渲染的应用场景：营销页面（例如&#x2F;,&#x2F;about,&#x2F;contact等）的 SEO，你可能需要预渲染。</span><br><span class="line">无需使用 web 服务器实时动态编译 HTML，而是使用预渲染方式，在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。</span><br><span class="line">优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点。</span><br><span class="line"></span><br><span class="line">预渲染不适用经常变化的数据，比如说股票代码网站，天气预报网站。因为此时的数据是动态的，而预渲染时已经生成好了dom节点。</span><br><span class="line">此时如果要兼容seo就需要使用SSR了。</span><br><span class="line">预渲染也不适用大量的路由页面，比如成千上百个路由，因为此时打包后预渲染将会非常慢。</span><br><span class="line">而SSR并没有这些问题。</span><br><span class="line"></span><br><span class="line">预渲染最好的应用场景是需要seo的活动页面。预渲染也可以配置骨架屏，当ajax获取到数据之后把骨架屏替换掉，可以减少白屏时间。</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
       
     </entry>
     
@@ -229,6 +255,25 @@
     
     
     <entry>
+      <title>关于ftp无法链接服务器的问题</title>
+      <link href="/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>有时候，我们使用ftp软件连接远程ftp，会发现有的软件能连上，有的则连不上。究其原因，可能是软件设置的问题，毕竟链接的是同一个服务器上的ftp，相对来讲，服务器环境是稳定的。</p><p><code>本文环境：macOS Catalina 10.15.7，ftp软件 filezila 3.51.0</code></p><h3 id="错误代码227"><a href="#错误代码227" class="headerlink" title="错误代码227"></a>错误代码227</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来讲，将服务器的链接模式改为被动  即可</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/1.png" alt="alt"></p><h3 id="错误代码220"><a href="#错误代码220" class="headerlink" title="错误代码220"></a>错误代码220</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很可能是服务器不支持FTP over TLS的连接方式。解决方式就是在该站点内 加密方式  使用明文</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/2.png" alt="alt"></p><p><br></p><p><strong>特别声明：本次链接的网站是使用的宝塔面板，ftp也是宝塔生成，所以才可能会存在这个问题，不代表只要是服务器上的ftp一定会存在该问题</strong><br><img src="/image/ftp/3.png" alt="alt"><br><img src="/image/ftp/4.png" alt="alt"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用nuxt创建站点</title>
       <link href="/2021/07/30/%E4%BD%BF%E7%94%A8nuxt%E5%88%9B%E5%BB%BA%E7%AB%99%E7%82%B9/"/>
       <url>/2021/07/30/%E4%BD%BF%E7%94%A8nuxt%E5%88%9B%E5%BB%BA%E7%AB%99%E7%82%B9/</url>
@@ -254,19 +299,13 @@
     
     
     <entry>
-      <title>关于ftp无法链接服务器的问题</title>
-      <link href="/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-      <url>/2021/07/30/%E5%85%B3%E4%BA%8Eftp%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <title>vue-element-admin详解1 permission.js</title>
+      <link href="/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/"/>
+      <url>/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/</url>
       
-        <content type="html"><![CDATA[<p>有时候，我们使用ftp软件连接远程ftp，会发现有的软件能连上，有的则连不上。究其原因，可能是软件设置的问题，毕竟链接的是同一个服务器上的ftp，相对来讲，服务器环境是稳定的。</p><p><code>本文环境：macOS Catalina 10.15.7，ftp软件 filezila 3.51.0</code></p><h3 id="错误代码227"><a href="#错误代码227" class="headerlink" title="错误代码227"></a>错误代码227</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来讲，将服务器的链接模式改为被动  即可</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/1.png" alt="alt"></p><h3 id="错误代码220"><a href="#错误代码220" class="headerlink" title="错误代码220"></a>错误代码220</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很可能是服务器不支持FTP over TLS的连接方式。解决方式就是在该站点内 加密方式  使用明文</span><br></pre></td></tr></table></figure><p><img src="/image/ftp/2.png" alt="alt"></p><p><br></p><p><strong>特别声明：本次链接的网站是使用的宝塔面板，ftp也是宝塔生成，所以才可能会存在这个问题，不代表只要是服务器上的ftp一定会存在该问题</strong><br><img src="/image/ftp/3.png" alt="alt"><br><img src="/image/ftp/4.png" alt="alt"></p>]]></content>
+        <content type="html"><![CDATA[<p><code>vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。</code></p><p><strong>代码解析</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">import router from &#39;.&#x2F;router&#39;</span><br><span class="line">import store from &#39;.&#x2F;store&#39;</span><br><span class="line">import &#123; Message &#125; from &#39;element-ui&#39;</span><br><span class="line">import NProgress from &#39;nprogress&#39; </span><br><span class="line">import &#39;nprogress&#x2F;nprogress.css&#39; </span><br><span class="line">&#x2F;&#x2F;auth文件主要依赖js-cookie模块，把getToken，setToken，removeToken设置在这里</span><br><span class="line">import &#123; getToken &#125; from &#39;@&#x2F;utils&#x2F;auth&#39; </span><br><span class="line">&#x2F;&#x2F;get-page-title文件主要是网站的标题，get-page-title通过依赖setting.js里的title变量修改网站标题</span><br><span class="line">&#x2F;&#x2F;如果需要更改网站的标题，可以直接到setting.js修改title属性</span><br><span class="line">import getPageTitle from &#39;@&#x2F;utils&#x2F;get-page-title&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;NProgress是封装的进度条，基本不用动</span><br><span class="line">NProgress.configure(&#123; showSpinner: false &#125;) </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;路由白名单列表，把路由添加到这个数组，不用登陆也可以访问</span><br><span class="line">const whiteList &#x3D; [&#39;&#x2F;login&#39;] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">router.beforeEach(async(to, from, next) &#x3D;&gt; &#123; </span><br><span class="line">  &#x2F;&#x2F; 请求路由时进度条开始</span><br><span class="line">  NProgress.start()</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 设置标题</span><br><span class="line">  document.title &#x3D; getPageTitle(to.meta.title)</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 这里的getToken()就是在上面导入的auth.js里的getToken()方法</span><br><span class="line">  const hasToken &#x3D; getToken()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;如果存在token，即存在已登陆的令牌</span><br><span class="line">  if (hasToken) &#123;</span><br><span class="line">  &#x2F;&#x2F;如果用户存在令牌的情况请求登录页面，就让用户直接跳转到首页，避免存在重复登录的情况</span><br><span class="line">    if (to.path &#x3D;&#x3D;&#x3D; &#39;&#x2F;login&#39;) &#123;</span><br><span class="line">      &#x2F;&#x2F; 直接跳转到首页，当然取决于你的路由重定向到哪里</span><br><span class="line">      next(&#123; path: &#39;&#x2F;&#39; &#125;)</span><br><span class="line">      &#x2F;&#x2F;一定要关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F;如果已经有令牌的用户请求的不是登录页，是其他页面</span><br><span class="line">      &#x2F;&#x2F;就从Vuex里拿到用户的信息，这里也证明用户不是第一次登录了</span><br><span class="line">      const hasGetUserInfo &#x3D; store.getters.name</span><br><span class="line">      if (hasGetUserInfo) &#123;</span><br><span class="line">      &#x2F;&#x2F;信息拿到后，用户请求哪就跳转哪</span><br><span class="line">        next()</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果有令牌，但是没有用户信息，证明用户是第一次登录，通过Vuex设置用户信息</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;getInfo&#39;)</span><br><span class="line">        &#x2F;&#x2F;设置好了之后，依然可以请求哪就跳转哪</span><br><span class="line">          next()</span><br><span class="line">        &#125; catch (error) &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果出错了，把令牌去掉，并让用户重新去到登录页面</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;resetToken&#39;)</span><br><span class="line">          Message.error(error || &#39;Has Error&#39;)</span><br><span class="line">          next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">          &#x2F;&#x2F;关闭进度条</span><br><span class="line">          NProgress.done()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F;这里是没有令牌的情况</span><br><span class="line">    &#x2F;&#x2F;还记得上面的白名单吗，现在起作用了</span><br><span class="line">    &#x2F;&#x2F;whiteList.indexOf(to.path) !&#x3D;&#x3D; -1)判断用户请求的路由是否在白名单里</span><br><span class="line">    if (whiteList.indexOf(to.path) !&#x3D;&#x3D; -1) &#123;</span><br><span class="line">      &#x2F;&#x2F; 不是-1就证明存在白名单里，不管你有没有令牌，都直接去到白名单路由对应的页面</span><br><span class="line">      next()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F; 如果这个页面不在白名单里，直接跳转到登录页面</span><br><span class="line">      next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">      &#x2F;&#x2F;关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F;每次请求结束后都需要关闭进度条</span><br><span class="line">  NProgress.done()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>]]></content>
       
       
-      
-        <tags>
-            
-            <tag> 服务器 </tag>
-            
-        </tags>
       
     </entry>
     
@@ -278,19 +317,6 @@
       <url>/2021/07/30/vue-router/</url>
       
         <content type="html"><![CDATA[<p>官方网址：<a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><code>安装有3中方式</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1、js网址链接</span><br><span class="line">先引入vue，再引入vue-router</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;path&#x2F;to&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;path&#x2F;to&#x2F;vue-router.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">2、NPM</span><br><span class="line">npm install vue-router</span><br><span class="line">如果在一个模块化工程中使用它，必须要通过 Vue.use() 明确地安装路由功能：</span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import VueRouter from &#39;vue-router&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line">3、在vue cli项目内用插件的方式</span><br><span class="line">vue add router</span><br></pre></td></tr></table></figure></p><p><code>vue-router是基于路由和组件的路由用于设定访问路径，将路径和组件映射起来。在vue-router的单页面应用中, 页面的路径的改变就是组件的切换。</code></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>vue-element-admin详解1 permission.js</title>
-      <link href="/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/"/>
-      <url>/2021/07/30/vue-element-admin%E8%AF%A6%E8%A7%A31-permission/</url>
-      
-        <content type="html"><![CDATA[<p><code>vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。</code></p><p><strong>代码解析</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">import router from &#39;.&#x2F;router&#39;</span><br><span class="line">import store from &#39;.&#x2F;store&#39;</span><br><span class="line">import &#123; Message &#125; from &#39;element-ui&#39;</span><br><span class="line">import NProgress from &#39;nprogress&#39; </span><br><span class="line">import &#39;nprogress&#x2F;nprogress.css&#39; </span><br><span class="line">&#x2F;&#x2F;auth文件主要依赖js-cookie模块，把getToken，setToken，removeToken设置在这里</span><br><span class="line">import &#123; getToken &#125; from &#39;@&#x2F;utils&#x2F;auth&#39; </span><br><span class="line">&#x2F;&#x2F;get-page-title文件主要是网站的标题，get-page-title通过依赖setting.js里的title变量修改网站标题</span><br><span class="line">&#x2F;&#x2F;如果需要更改网站的标题，可以直接到setting.js修改title属性</span><br><span class="line">import getPageTitle from &#39;@&#x2F;utils&#x2F;get-page-title&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;NProgress是封装的进度条，基本不用动</span><br><span class="line">NProgress.configure(&#123; showSpinner: false &#125;) </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;路由白名单列表，把路由添加到这个数组，不用登陆也可以访问</span><br><span class="line">const whiteList &#x3D; [&#39;&#x2F;login&#39;] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">router.beforeEach(async(to, from, next) &#x3D;&gt; &#123; </span><br><span class="line">  &#x2F;&#x2F; 请求路由时进度条开始</span><br><span class="line">  NProgress.start()</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 设置标题</span><br><span class="line">  document.title &#x3D; getPageTitle(to.meta.title)</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 这里的getToken()就是在上面导入的auth.js里的getToken()方法</span><br><span class="line">  const hasToken &#x3D; getToken()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;如果存在token，即存在已登陆的令牌</span><br><span class="line">  if (hasToken) &#123;</span><br><span class="line">  &#x2F;&#x2F;如果用户存在令牌的情况请求登录页面，就让用户直接跳转到首页，避免存在重复登录的情况</span><br><span class="line">    if (to.path &#x3D;&#x3D;&#x3D; &#39;&#x2F;login&#39;) &#123;</span><br><span class="line">      &#x2F;&#x2F; 直接跳转到首页，当然取决于你的路由重定向到哪里</span><br><span class="line">      next(&#123; path: &#39;&#x2F;&#39; &#125;)</span><br><span class="line">      &#x2F;&#x2F;一定要关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F;如果已经有令牌的用户请求的不是登录页，是其他页面</span><br><span class="line">      &#x2F;&#x2F;就从Vuex里拿到用户的信息，这里也证明用户不是第一次登录了</span><br><span class="line">      const hasGetUserInfo &#x3D; store.getters.name</span><br><span class="line">      if (hasGetUserInfo) &#123;</span><br><span class="line">      &#x2F;&#x2F;信息拿到后，用户请求哪就跳转哪</span><br><span class="line">        next()</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果有令牌，但是没有用户信息，证明用户是第一次登录，通过Vuex设置用户信息</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;getInfo&#39;)</span><br><span class="line">        &#x2F;&#x2F;设置好了之后，依然可以请求哪就跳转哪</span><br><span class="line">          next()</span><br><span class="line">        &#125; catch (error) &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果出错了，把令牌去掉，并让用户重新去到登录页面</span><br><span class="line">          await store.dispatch(&#39;user&#x2F;resetToken&#39;)</span><br><span class="line">          Message.error(error || &#39;Has Error&#39;)</span><br><span class="line">          next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">          &#x2F;&#x2F;关闭进度条</span><br><span class="line">          NProgress.done()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F;这里是没有令牌的情况</span><br><span class="line">    &#x2F;&#x2F;还记得上面的白名单吗，现在起作用了</span><br><span class="line">    &#x2F;&#x2F;whiteList.indexOf(to.path) !&#x3D;&#x3D; -1)判断用户请求的路由是否在白名单里</span><br><span class="line">    if (whiteList.indexOf(to.path) !&#x3D;&#x3D; -1) &#123;</span><br><span class="line">      &#x2F;&#x2F; 不是-1就证明存在白名单里，不管你有没有令牌，都直接去到白名单路由对应的页面</span><br><span class="line">      next()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      &#x2F;&#x2F; 如果这个页面不在白名单里，直接跳转到登录页面</span><br><span class="line">      next(&#96;&#x2F;login?redirect&#x3D;$&#123;to.path&#125;&#96;)</span><br><span class="line">      &#x2F;&#x2F;关闭进度条</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F;每次请求结束后都需要关闭进度条</span><br><span class="line">  NProgress.done()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>]]></content>
       
       
       
@@ -369,32 +395,6 @@
     
     
     <entry>
-      <title>nuxt内使用vant框架</title>
-      <link href="/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/"/>
-      <url>/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="nuxt目录介绍"><a href="#nuxt目录介绍" class="headerlink" title="nuxt目录介绍"></a>nuxt目录介绍</h1><p>1、<code>assets: 资源目录，用来组织未编译的静态资源</code><br>2、<code>layouts</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">布局文件目录，里面可以放些全局可用的布局，例如default、error。</span><br><span class="line">default表示默认布局，error可以用来展示404。</span><br><span class="line">如果没有默认布局的要求，直接放置一个error即可。</span><br><span class="line"></span><br><span class="line">注：并不需要特殊路由设置，在nuxt框架下，如果访问的路径不存在，(并且有error布局的情况下)则会直接使用该布局。</span><br></pre></td></tr></table></figure></p><h1 id="nuxt内使用vant（或者说是nuxt内使用第三方框架）"><a href="#nuxt内使用vant（或者说是nuxt内使用第三方框架）" class="headerlink" title="nuxt内使用vant（或者说是nuxt内使用第三方框架）"></a>nuxt内使用vant（或者说是nuxt内使用第三方框架）</h1><p>1、在plugins目录下新建vant.js文件，并引入vue和vant以及vant的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;;</span><br><span class="line">import Vant from &#39;vant&#39;;</span><br><span class="line">import &#39;vant&#x2F;lib&#x2F;index.css&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Vant)</span><br></pre></td></tr></table></figure><br>2、在nuxt.config.js下引入vant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    &#123;src: &#39;~&#x2F;plugins&#x2F;vant.js&#39;, ssr: true&#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>process.env.NODE_ENV</title>
-      <link href="/2021/07/30/process-env-NODE-ENV/"/>
-      <url>/2021/07/30/process-env-NODE-ENV/</url>
-      
-        <content type="html"><![CDATA[<p>1、在node当中，全局变量process代表的是node当中的进程。 process.env包含着关于系统环境的信息，<code>但是并不包含NODE_ENV这个属性</code></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>nodejs打开浏览器</title>
       <link href="/2021/07/30/nodejs%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
       <url>/2021/07/30/nodejs%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
@@ -416,6 +416,32 @@
             <tag> 代码片段 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nuxt内使用vant框架</title>
+      <link href="/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/"/>
+      <url>/2021/07/30/nuxt%E5%86%85%E4%BD%BF%E7%94%A8vant%E6%A1%86%E6%9E%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="nuxt目录介绍"><a href="#nuxt目录介绍" class="headerlink" title="nuxt目录介绍"></a>nuxt目录介绍</h1><p>1、<code>assets: 资源目录，用来组织未编译的静态资源</code><br>2、<code>layouts</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">布局文件目录，里面可以放些全局可用的布局，例如default、error。</span><br><span class="line">default表示默认布局，error可以用来展示404。</span><br><span class="line">如果没有默认布局的要求，直接放置一个error即可。</span><br><span class="line"></span><br><span class="line">注：并不需要特殊路由设置，在nuxt框架下，如果访问的路径不存在，(并且有error布局的情况下)则会直接使用该布局。</span><br></pre></td></tr></table></figure></p><h1 id="nuxt内使用vant（或者说是nuxt内使用第三方框架）"><a href="#nuxt内使用vant（或者说是nuxt内使用第三方框架）" class="headerlink" title="nuxt内使用vant（或者说是nuxt内使用第三方框架）"></a>nuxt内使用vant（或者说是nuxt内使用第三方框架）</h1><p>1、在plugins目录下新建vant.js文件，并引入vue和vant以及vant的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;;</span><br><span class="line">import Vant from &#39;vant&#39;;</span><br><span class="line">import &#39;vant&#x2F;lib&#x2F;index.css&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Vant)</span><br></pre></td></tr></table></figure><br>2、在nuxt.config.js下引入vant<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    &#123;src: &#39;~&#x2F;plugins&#x2F;vant.js&#39;, ssr: true&#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>process.env.NODE_ENV</title>
+      <link href="/2021/07/30/process-env-NODE-ENV/"/>
+      <url>/2021/07/30/process-env-NODE-ENV/</url>
+      
+        <content type="html"><![CDATA[<p>1、在node当中，全局变量process代表的是node当中的进程。 process.env包含着关于系统环境的信息，<code>但是并不包含NODE_ENV这个属性</code></p>]]></content>
+      
+      
       
     </entry>
     
@@ -462,6 +488,19 @@
     
     
     <entry>
+      <title>node</title>
+      <link href="/2021/07/30/node/"/>
+      <url>/2021/07/30/node/</url>
+      
+        <content type="html"><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="node原生引入的http创建的服务器解决跨域问题"><a href="#node原生引入的http创建的服务器解决跨域问题" class="headerlink" title="node原生引入的http创建的服务器解决跨域问题"></a>node原生引入的http创建的服务器解决跨域问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">http.createServer((req,res)&#x3D;&gt;&#123;</span><br><span class="line">    res.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);&#x2F;&#x2F;跨域</span><br><span class="line">    res.end(&#39;12&#39;)</span><br><span class="line">&#125;).listen(&#39;3000&#39;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>node canvas生成图片并保存</title>
       <link href="/2021/07/30/node-canvas%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E5%B9%B6%E4%BF%9D%E5%AD%98/"/>
       <url>/2021/07/30/node-canvas%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E5%B9%B6%E4%BF%9D%E5%AD%98/</url>
@@ -483,19 +522,6 @@
             <tag> node </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>node</title>
-      <link href="/2021/07/30/node/"/>
-      <url>/2021/07/30/node/</url>
-      
-        <content type="html"><![CDATA[<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="node原生引入的http创建的服务器解决跨域问题"><a href="#node原生引入的http创建的服务器解决跨域问题" class="headerlink" title="node原生引入的http创建的服务器解决跨域问题"></a>node原生引入的http创建的服务器解决跨域问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">http.createServer((req,res)&#x3D;&gt;&#123;</span><br><span class="line">    res.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);&#x2F;&#x2F;跨域</span><br><span class="line">    res.end(&#39;12&#39;)</span><br><span class="line">&#125;).listen(&#39;3000&#39;)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
       
     </entry>
     
