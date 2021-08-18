@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/archive/">
               
-              标签
+              归档
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/tags/">
               
-              归档
+              标签
               
               
             </a>
@@ -452,15 +452,17 @@
   <!-- top end -->
   
 
-  <a href="/cn/nodejs打开浏览器/">
+  <a href="/cn/nodeCanvas渲染/">
     <h2 class="post-title">
-      nodejs打开浏览器
+      nodeCanvas渲染
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      1234const open = require('open')let url = 'http://www.xxx.com'open(url)...
+      近期项目涉及地理系统，使用的框架是mars3d
+mars3d本身提供了加载geojson、图片以及模型的API，但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，在服务器直接生成png图片，在需要使用的时候直接加载图片。由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。
+`......
     </div>
   </a>
   
@@ -470,9 +472,37 @@
   </p>
   <div class="tags">
     
-    <a href="/tags/#node" title="node">node</a>
-    
-    <a href="/tags/#代码片段" title="代码片段">代码片段</a>
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/live-server使用/">
+    <h2 class="post-title">
+      live-server使用
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      本文适用于使用cnpm下载的live-server，使用npm或者其他方式下载的安装包未做测试
+1234567与http-server比，live-server是一种自动热更新的工具包。但是在启动http-server的时候，会自动启动127.0.0.1与本机ip地址两个链接以供访问，这就使得内网内的设备都能访问。但是live-server默认只会启动127.0.0.1（在没有修改包文件内i......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
   </div>
   
@@ -522,16 +552,16 @@
   <!-- top end -->
   
 
-  <a href="/cn/live-server使用/">
+  <a href="/cn/macOS安装homebrew/">
     <h2 class="post-title">
-      live-server使用
+      macOS安装homebrew
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      本文适用于使用cnpm下载的live-server，使用npm或者其他方式下载的安装包未做测试
-1234567与http-server比，live-server是一种自动热更新的工具包。但是在启动http-server的时候，会自动启动127.0.0.1与本机ip地址两个链接以供访问，这就使得内网内的设备都能访问。但是live-server默认只会启动127.0.0.1（在没有修改包文件内i......
+      Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
+官方安装方式(https://brew.sh/index_zh-cn)1/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho......
     </div>
   </a>
   
@@ -540,6 +570,8 @@
     2021-08-18
   </p>
   <div class="tags">
+    
+    <a href="/tags/#macOS" title="macOS">macOS</a>
     
   </div>
   
@@ -591,40 +623,6 @@
   <!-- top end -->
   
 
-  <a href="/cn/macOS安装homebrew/">
-    <h2 class="post-title">
-      macOS安装homebrew
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
-官方安装方式(https://brew.sh/index_zh-cn)1/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 寒霜 on
-    2021-08-18
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#macOS" title="macOS">macOS</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
   <a href="/cn/js根据url一次性打开多个窗口/">
     <h2 class="post-title">
       js根据url一次性打开多个窗口
@@ -646,6 +644,38 @@
   <div class="tags">
     
     <a href="/tags/#技巧" title="技巧">技巧</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/js设计模式/">
+    <h2 class="post-title">
+      js设计模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      面向对象的三大特征封装声明一个函数，保存在一个首字母大写的变量里
+通过this添加属性或者方法12345678let Student = function(id,name,age)&#123;    this.id = id;  //通过this添加属性或者方法    this.name = name;    this.age = age;    this.print = function(......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
   </div>
   
@@ -693,16 +723,15 @@
   <!-- top end -->
   
 
-  <a href="/cn/js设计模式/">
+  <a href="/cn/genkins/">
     <h2 class="post-title">
-      js设计模式
+      genkins
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      面向对象的三大特征封装声明一个函数，保存在一个首字母大写的变量里
-通过this添加属性或者方法12345678let Student = function(id,name,age)&#123;    this.id = id;  //通过this添加属性或者方法    this.name = name;    this.age = age;    this.print = function(......
+      安装构建前端项目安装nodejs插件...
     </div>
   </a>
   
@@ -737,37 +766,6 @@
 克隆git clone 仓库地址注意：如果配置了多个git账户，则需要区分仓库地址使用的事git还是https，要依据自己配置的config文件进行确定
 添加（暂存）git add .注意：后面的 . 不能省略，. 代表的是将所有的更改都暂存起来
 填写提交信息git commit -m &#39;提......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 寒霜 on
-    2021-08-18
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/genkins/">
-    <h2 class="post-title">
-      genkins
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      安装构建前端项目安装nodejs插件...
     </div>
   </a>
   
@@ -839,15 +837,11 @@
     
     
     
-    <a href="/tags/#canvas" title="canvas" rel="1">canvas</a>
-    
-    
-    
     <a href="/tags/#技巧" title="技巧" rel="1">技巧</a>
     
     
     
-    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
+    <a href="/tags/#canvas" title="canvas" rel="1">canvas</a>
     
     
     
@@ -855,7 +849,11 @@
     
     
     
-    <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
+    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
+    
+    
+    
+    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
     
     
     
@@ -867,11 +865,11 @@
     
     
     
+    <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
+    
+    
+    
     <a href="/tags/#node" title="node" rel="2">node</a>
-    
-    
-    
-    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
     
     
     
@@ -883,11 +881,11 @@
     
     
     
-    <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
-    
-    
-    
     <a href="/tags/#nuxt" title="nuxt" rel="1">nuxt</a>
+    
+    
+    
+    <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
     
     
     
@@ -993,16 +991,16 @@
       <li>终端命令</li>
     </a>
     
-    <a href="../../cn/%E8%A7%A3%E6%9E%90URL/">
-      <li>解析URL</li>
+    <a href="../../cn/%E9%97%AD%E5%8C%85/">
+      <li>闭包</li>
     </a>
     
     <a href="../../cn/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">
       <li>节流和防抖</li>
     </a>
     
-    <a href="../../cn/%E9%97%AD%E5%8C%85/">
-      <li>闭包</li>
+    <a href="../../cn/%E8%A7%A3%E6%9E%90URL/">
+      <li>解析URL</li>
     </a>
     
   </ul>
@@ -1053,12 +1051,12 @@
       <li>可视化</li>
     </a>
     
-    <a href="/categories/#命令行">
-      <li>命令行</li>
-    </a>
-    
     <a href="/categories/#概念">
       <li>概念</li>
+    </a>
+    
+    <a href="/categories/#命令行">
+      <li>命令行</li>
     </a>
     
     <a href="/categories/#框架">
@@ -1073,12 +1071,12 @@
       <li>开发工具</li>
     </a>
     
-    <a href="/categories/#思想">
-      <li>思想</li>
-    </a>
-    
     <a href="/categories/#实战应用">
       <li>实战应用</li>
+    </a>
+    
+    <a href="/categories/#思想">
+      <li>思想</li>
     </a>
     
     <a href="/categories/#浏览器">

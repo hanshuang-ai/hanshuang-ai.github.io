@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/archive/">
               
-              标签
+              归档
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/tags/">
               
-              归档
+              标签
               
               
             </a>
@@ -519,15 +519,17 @@ macifconfig
   <!-- top end -->
   
 
-  <a href="/cn/解析URL/">
+  <a href="/cn/闭包/">
     <h2 class="post-title">
-      解析URL
+      闭包
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      先根据 ？ 或者 &amp; 符进行将url分割成数组，再遍历数据，根据数组内每项的 = 号，分别取值赋给 key 和 value。最后将 key 和 value 组合成一个对象12345678910111213// 解析URLlet url = window.location.href;let reg = /[?&amp;][^?&amp;]+=[^?&amp;]+/g;let arr =......
+      函数代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。
+定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。形参是作为局部变量使用的12345function sayHello(name)&#123;    console.log('hello'+name);//局部变量，外界无法访问&#125;sayHello('小明')
+如果函数挂载在对象上，那......
     </div>
   </a>
   
@@ -536,8 +538,6 @@ macifconfig
     2021-08-18
   </p>
   <div class="tags">
-    
-    <a href="/tags/#代码片段" title="代码片段">代码片段</a>
     
   </div>
   
@@ -584,17 +584,81 @@ macifconfig
   <!-- top end -->
   
 
-  <a href="/cn/闭包/">
+  <a href="/cn/解析URL/">
     <h2 class="post-title">
-      闭包
+      解析URL
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      函数代码中只定义一次，但可能被执行多次或调用任意次的代码块都应当被封装起来作为函数。
-定义需要传参的函数时，需要一个形参，在使用的时候，传入一个实参。形参是作为局部变量使用的12345function sayHello(name)&#123;    console.log('hello'+name);//局部变量，外界无法访问&#125;sayHello('小明')
-如果函数挂载在对象上，那......
+      先根据 ？ 或者 &amp; 符进行将url分割成数组，再遍历数据，根据数组内每项的 = 号，分别取值赋给 key 和 value。最后将 key 和 value 组合成一个对象12345678910111213// 解析URLlet url = window.location.href;let reg = /[?&amp;][^?&amp;]+=[^?&amp;]+/g;let arr =......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#代码片段" title="代码片段">代码片段</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/微信小程序/">
+    <h2 class="post-title">
+      微信小程序页面不同状态下的数据情况
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      微信小程序页面不同状态下的数据情况微信小程序页面生命周期1234567891011121314onload  监听页面加载onready 监听页面初次加载完成onshow  监听页面显示onhide  监听页面隐藏onUnload  监听页面卸载，卸载本页跳转到其他页面onshow会在onready之前加载小程序wx.navigateTo只会触发（页面隐藏事件）onhide，不会触发（页面卸......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/服务端渲染与预渲染/">
+    <h2 class="post-title">
+      服务端渲染与预渲染
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      123服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现预渲染是直接接服务器内完整的静态页面发送给浏览器呈现
+
+实现方式不同：1234567SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于se......
     </div>
   </a>
   
@@ -627,37 +691,6 @@ macifconfig
     <div class="post-content-preview">
       测试
 ...
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 寒霜 on
-    2021-08-18
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/微信小程序/">
-    <h2 class="post-title">
-      微信小程序页面不同状态下的数据情况
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      微信小程序页面不同状态下的数据情况微信小程序页面生命周期1234567891011121314onload  监听页面加载onready 监听页面初次加载完成onshow  监听页面显示onhide  监听页面隐藏onUnload  监听页面卸载，卸载本页跳转到其他页面onshow会在onready之前加载小程序wx.navigateTo只会触发（页面隐藏事件）onhide，不会触发（页面卸......
     </div>
   </a>
   
@@ -715,48 +748,15 @@ macifconfig
   <!-- top end -->
   
 
-  <a href="/cn/服务端渲染与预渲染/">
+  <a href="/cn/基于rgb原理制作渐变色生成器/">
     <h2 class="post-title">
-      服务端渲染与预渲染
+      基于rgb原理制作渐变色生成器
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      123服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现预渲染是直接接服务器内完整的静态页面发送给浏览器呈现
-
-实现方式不同：1234567SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于se......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 寒霜 on
-    2021-08-18
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/命令行查看本机ip/">
-    <h2 class="post-title">
-      命令行查看本机ip
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      ifconfig
+      基于rgb原理制作渐变色生成器
 ...
     </div>
   </a>
@@ -825,15 +825,11 @@ macifconfig
     
     
     
-    <a href="/tags/#canvas" title="canvas" rel="1">canvas</a>
-    
-    
-    
     <a href="/tags/#技巧" title="技巧" rel="1">技巧</a>
     
     
     
-    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
+    <a href="/tags/#canvas" title="canvas" rel="1">canvas</a>
     
     
     
@@ -841,7 +837,11 @@ macifconfig
     
     
     
-    <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
+    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
+    
+    
+    
+    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
     
     
     
@@ -853,11 +853,11 @@ macifconfig
     
     
     
+    <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
+    
+    
+    
     <a href="/tags/#node" title="node" rel="2">node</a>
-    
-    
-    
-    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
     
     
     
@@ -869,11 +869,11 @@ macifconfig
     
     
     
-    <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
-    
-    
-    
     <a href="/tags/#nuxt" title="nuxt" rel="1">nuxt</a>
+    
+    
+    
+    <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
     
     
     
@@ -979,16 +979,16 @@ macifconfig
       <li>终端命令</li>
     </a>
     
-    <a href="cn/%E8%A7%A3%E6%9E%90URL/">
-      <li>解析URL</li>
+    <a href="cn/%E9%97%AD%E5%8C%85/">
+      <li>闭包</li>
     </a>
     
     <a href="cn/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">
       <li>节流和防抖</li>
     </a>
     
-    <a href="cn/%E9%97%AD%E5%8C%85/">
-      <li>闭包</li>
+    <a href="cn/%E8%A7%A3%E6%9E%90URL/">
+      <li>解析URL</li>
     </a>
     
   </ul>
@@ -1039,12 +1039,12 @@ macifconfig
       <li>可视化</li>
     </a>
     
-    <a href="/categories/#命令行">
-      <li>命令行</li>
-    </a>
-    
     <a href="/categories/#概念">
       <li>概念</li>
+    </a>
+    
+    <a href="/categories/#命令行">
+      <li>命令行</li>
     </a>
     
     <a href="/categories/#框架">
@@ -1059,12 +1059,12 @@ macifconfig
       <li>开发工具</li>
     </a>
     
-    <a href="/categories/#思想">
-      <li>思想</li>
-    </a>
-    
     <a href="/categories/#实战应用">
       <li>实战应用</li>
+    </a>
+    
+    <a href="/categories/#思想">
+      <li>思想</li>
     </a>
     
     <a href="/categories/#浏览器">
