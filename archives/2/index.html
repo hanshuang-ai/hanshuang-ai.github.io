@@ -1,690 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Head tag -->
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="baidu-site-verification" content="093lY4ziMu" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description" content="个人博客">
-    <meta name="keyword"  content="个人博客">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
-    <title>
-        
-          个人博客
-        
-    </title>
+  <!-- Google Analytics -->
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxx-xx"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
 
-    <link rel="canonical" href="https://dusign.net/archives/2/">
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
+      gtag('config', 'UA-xxxxxx-xx');
+    </script>
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="It&#39;s an IT blog..."/>
+  <meta name="keyword" content="v-vincen,v-vincen,livemylife,IT  blog,Blog"/>
+  <link rel="shortcut icon" href="/img/avatar/roguerabbit.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
     <!-- Bootstrap Core CSS -->
-    
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
 
-    <!-- Custom CSS --> 
-    
-        
-<link rel="stylesheet" href="/css/dusign-dark.css">
-
-        
-<link rel="stylesheet" href="/css/dusign-common-dark.css">
-
-        
-<link rel="stylesheet" href="/css/font-awesome.css">
-
-        
-<link rel="stylesheet" href="/css/toc.css">
-
-    
-    
     <!-- Pygments Highlight CSS -->
-    
-<link rel="stylesheet" href="/css/highlight.css">
-
-
-    
-<link rel="stylesheet" href="/css/widget.css">
-
-
-    
-<link rel="stylesheet" href="/css/rocket.css">
-
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
 
     
-<link rel="stylesheet" href="/css/signature.css">
-
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
 
     
-<link rel="stylesheet" href="/css/fonts.googleapis.css">
-
-
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <!-- photography -->
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
     
-<link rel="stylesheet" href="/css/photography.css">
 
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite-url/archives/2/">
+  <title>
+    
+      寒霜
+    
+  </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 
 <!-- hack iOS CSS :active style -->
-<body ontouchstart="">
 
-    <!-- background effects start -->
-    
-    <!-- background effects end -->
+	<body ontouchstart="" class="body--light body--light">
 
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
 <style type="text/css">
-    header.intro-header{
-        
-            
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/img/header_img/home-bg-1-dark.jpg') 
-                /*config*/
-            
-        
-    }
-    
-    #signature{
-        background-image: url('/img/signature/dusign.png');
-    }
-    
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
 </style>
-
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="site-heading">
-                        <h1>Super Snail</h1>
-                        <!--<hr class="small">-->
-                        <span id="subdusi" class="subheading">At the bottom of the well, it is destined to see only the sky at the wellhead. However, the starting point only affects the process of reaching your peak and does not determine the height you reach.</span>
-                    </div>
-                
-
-                </div>
-            </div>
-        </div>      
-    </div>
-
-    
-    <div class="waveWrapper">
-        <div class="wave wave_before" style="background-image: url('/img/wave-dark.png')"></div>
-        <div class="wave wave_after" style="background-image: url('/img/wave-dark.png')"></div>
-    </div>
-    
-</header>
-
-	
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Super Snail</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">Categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/photography/">Photography</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                    
-                    <li>
-                        <a href="YOUR_CHINESE_BLOG_URL" target="_blank">Chinese Blog</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
 <script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">寒霜</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
         }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
     }
+  }
 </script>
 
 
-    <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
 
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*config*/
+        background-image: var(--intro-header-background-image-url-home);
+        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+      
+    }
+
+    
+      #signature {/*signature*/
+        background-image: url('/img/signature/vincent-white.png');
+      }
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="site-heading">
+            <h1>寒霜</h1>
+            <!--<hr class="small">-->
+            <span class="subheading">古道西风瘦马，断肠人在天涯</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
     <!-- Post Container -->
-            <div class="
+    <div class="
                 col-lg-8 col-lg-offset-1
                 col-md-8 col-md-offset-1
                 col-sm-12
                 col-xs-12
                 post-container
             ">
-                <!-- Top -->
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+      <!-- Main Content -->
 
 
 
-<!-- Main Content -->
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/服务端渲染与预渲染/">
-                <h2 class="post-title">
-                    服务端渲染与预渲染
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    123服务端渲染（ssr）是在服务器内通过程序将页面片段拼接为完整的页面，然后再发送给浏览器呈现预渲染是直接接服务器内完整的静态页面发送给浏览器呈现
-
-实现方式不同：1234567SSR:服务端(node.js)通过一些包(vue-server-renderer)把html页面转换成字符串之后吐给前端。Google 和 Bing 可以很好对同步 web 应用程序进行索引,所以此处称有利于se......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/基于rgb原理制作渐变色生成器/">
-                <h2 class="post-title">
-                    基于rgb原理制作渐变色生成器
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    基于rgb原理制作渐变色生成器
+  <a href="/cn/基于rgb原理制作渐变色生成器/">
+    <h2 class="post-title">
+      基于rgb原理制作渐变色生成器
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      基于rgb原理制作渐变色生成器
 ...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/同一台电脑配置多个git密匙/">
+    <h2 class="post-title">
+      同一台电脑配置多个git密匙
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      首先由于需要配置多个git账户，可能是github、gitlab、gitee等等，所以不需要global email和username直接使用随便一个值覆盖即可。
+
+覆盖global email和userName后，需要3步
+1、 生成不同的github密匙生成的时候一定要注意密匙名称，因为同名会被覆盖另外，名称最好见名知意，不一定要id_rsa开头
+2、 将对应的公匙放入对应的平台gith......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+    <a href="/tags/#实战" title="实战">实战</a>
+    
+  </div>
+  
 
-        <div class="post-preview">
+</div>
+<hr>
 
-            <a href="/2021/07/30/前端应对高并发/">
-                <h2 class="post-title">
-                    前端应对高并发
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    什么是高并发高并发指的是软件系统在一段时间内能够处理大量的请求。
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/前端应对高并发/">
+    <h2 class="post-title">
+      前端应对高并发
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      什么是高并发高并发指的是软件系统在一段时间内能够处理大量的请求。
 高并发时经历了什么高并发的基础是请求，所以可以在请求阶段做优化1、DNS解析2、s
 每个阶段的优化...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
-    
+</div>
+<hr>
 
-        <div class="post-preview">
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
 
-            <a href="/2021/07/30/同一台电脑配置多个git密匙/">
-                <h2 class="post-title">
-                    同一台电脑配置多个git密匙
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    
-title :’同一台电脑配置多个git密匙’1、 生成对应的github密匙2、 ssh-add 生成的密匙名称
-但是这样的话可能重启电脑或者换个文件夹就会失效
-...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/命令行查看本机ip/">
-                <h2 class="post-title">
-                    命令行查看本机ip
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    ifconfig
-...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/30/前后端分离的思考/">
-                <h2 class="post-title">
-                    前后端分离的思考
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    本文是偶然间在微信公众号(业余草)上发现的，感觉说的很好，特此转载记录一下，只为记录，别无他做。如原文作者感觉被侵犯了权益，则删除。
+  <a href="/cn/前后端分离的思考/">
+    <h2 class="post-title">
+      前后端分离的思考
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      本文是偶然间在微信公众号(业余草)上发现的，感觉说的很好，特此转载记录一下，只为记录，别无他做。如原文作者感觉被侵犯了权益，则删除。
 文章基本上说明了前后端开发的历史，但不涉及具体的技术，可以帮助入行不久的人了解一些开发流程。
 1、背景前后端分离已成为互联网项目开发的业界标准使用方式，通过nginx+tomcat的方式（也可以中间加一个nodejs）有效的进行解耦，并且前后端分离会为以后的大......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/同一台机器配置多个git账号/">
+    <h2 class="post-title">
+      同一台机器配置多个git账号.md
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      不论是出于何种需要，我们有时候会有配置多个git账号的需求，下面是我个人实践的一种方式。（网上有许多可以实现的方法，但个人感觉它们都缺乏逻辑，不好记忆。）
+123456总的来说分以下几步：1、 删除已经配置的全局账号（如果还没有配置全局账号则可省略）2、 命令行生成不同的密匙（注意密匙文件不能同名，最好放在默认目录下）3、 在默认目录下添加config文件（文件名就是config，没有后缀）......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
-        <div class="post-preview">
+</div>
+<hr>
 
-            <a href="/2021/07/30/vue/">
-                <h2 class="post-title">
-                    vue
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    ...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
 
-        </div>
-        <hr>
-
+  <a href="/cn/vue/">
+    <h2 class="post-title">
+      vue
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      ...
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/vue-router/">
+    <h2 class="post-title">
+      vue-router
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      官方网址：https://router.vuejs.org/zh/
+安装安装有3中方式1234567891011121314151、js网址链接先引入vue，再引入vue-router&lt;script src="/path/to/vue.js"&gt;&lt;/script&gt;&lt;script src="/path/to/vue-router.js"&gt;&lt;/script......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
+  </div>
+  
 
-        <div class="post-preview">
+</div>
+<hr>
 
-            <a href="/2021/07/30/关于ftp无法链接服务器的问题/">
-                <h2 class="post-title">
-                    关于ftp无法链接服务器的问题
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    有时候，我们使用ftp软件连接远程ftp，会发现有的软件能连上，有的则连不上。究其原因，可能是软件设置的问题，毕竟链接的是同一个服务器上的ftp，相对来讲，服务器环境是稳定的。
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/使用nuxt创建站点/">
+    <h2 class="post-title">
+      使用nuxt创建站点
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      nuxt使用了Vue，但是令人兴奋的地方是支持seo，另外还具有自己的静态站点生成器，非常适合web站的开发。nuxt中文官网链接：https://www.nuxtjs.cn/
+安装与创建项目安装nuxt12
+创建项目nuxt可以使用yarn、npx、npm三种方式创建项目123456781、yarnyarn create nuxt-app &lt;project-name&gt;2、npx......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#nuxt" title="nuxt">nuxt</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/关于ftp无法链接服务器的问题/">
+    <h2 class="post-title">
+      关于ftp无法链接服务器的问题
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      有时候，我们使用ftp软件连接远程ftp，会发现有的软件能连上，有的则连不上。究其原因，可能是软件设置的问题，毕竟链接的是同一个服务器上的ftp，相对来讲，服务器环境是稳定的。
 本文环境：macOS Catalina 10.15.7，ftp软件 filezila 3.51.0
 错误代码2271一般来讲，将服务器的链接模式改为被动  即可
 
 错误代码2201很可能是服务器不支持FTP over......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#服务器" title="服务器">服务器</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
-
+    <a href="/tags/#服务器" title="服务器">服务器</a>
     
+  </div>
+  
 
-        <div class="post-preview">
+</div>
+<hr>
 
-            <a href="/2021/07/30/使用nuxt创建站点/">
-                <h2 class="post-title">
-                    使用nuxt创建站点
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    nuxt使用了Vue，但是令人兴奋的地方是支持seo，另外还具有自己的静态站点生成器，非常适合web站的开发。nuxt中文官网链接：https://www.nuxtjs.cn/
-安装与创建项目安装nuxt12
-创建项目nuxt可以使用yarn、npx、npm三种方式创建项目123456781、yarnyarn create nuxt-app &lt;project-name&gt;2、npx......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#nuxt" title="nuxt">nuxt</a>
-                    
-                </div>
-            
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
 
-        </div>
-        <hr>
-
+  <a href="/cn/sublime内使用终端/">
+    <h2 class="post-title">
+      sublime内使用终端
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      安装终端插件cmd+shift+P组合键，在弹框内输入package，选择Package Control:Install Package
+然后在弹框内输入terminus，等待完成安装。
+运行插件cmd+shift+P组合键，在弹框内输入terminus，选择Terminus:Toggle Panel即可
+...
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
     
-
+    <a href="/tags/#sublime" title="sublime">sublime</a>
     
+  </div>
+  
 
-        <div class="post-preview">
+</div>
+<hr>
 
-            <a href="/2021/07/30/vue-element-admin详解1-permission/">
-                <h2 class="post-title">
-                    vue-element-admin详解1 permission.js
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。
-代码解析12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Dusign on
-                    2021-07-30
-                </p>
-                <div class="tags">
-                    
-                </div>
-            
 
-        </div>
-        <hr>
-
+  <!-- Pager -->
+  <ul class="pager">
     
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-        <li class="previous">
-            <a href="/">&larr; Newer Posts</a>
-        </li>
+    <li class="previous">
+      <a href="/">&larr; 上一页</a>
+    </li>
     
     
-        <li class="next">
-            <a href="/archives/3/">Older Posts &rarr;</a>
-        </li>
+    <li class="next">
+      <a href="/archives/3/">下一页 &rarr;</a>
+    </li>
     
-</ul>
+  </ul>
 
 
-            </div>
+      <!-- 如果开启评论功能 -->
+      
+    </div>
 
-            <!-- Sidebar Container -->
+    <!-- Sidebar Container -->
 <div class="
     col-lg-3 col-lg-offset-0
     col-md-3 col-md-offset-0
@@ -693,390 +812,792 @@ title :’同一台电脑配置多个git密匙’1、 生成对应的github密�
     sidebar-container
 ">
     
-        
-<!--
-<h5>SEARCH</h5>
-<div class="search-article" class="tags">
-	<input id="search-kw" type="text" name="search_article" placeholder="Enter keywords for search" />
-	<div class="search-img">
-		<img 
-			src="/img/search.png" 
-			alt="search" 
-			onMouseOver="this.src='/img/search-focus.png'" 
-			onMouseOut="this.src='/img/search.png'"/>
-	</div>
-</div>-->
+        <!-- Visitors -->
+<h5><a href="/">来访者</a></h5>
 
-<h5>SEARCH</h5>
-<div id="site_search">
-	<div class="form-group">
-		<input type="text" id="local-search-input" name="q" results="0" placeholder="search" class="st-search-input st-default-search-input form-control"/>
-	</div>  
-	<div id="local-search-result"></div>
+<div class="widget">
+  <span>
+    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
+  </span>
+  <br />
+  <span>
+    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
+  </span>
 </div>
+
 
         <hr>
     
         <!-- Featured Tags -->
 
 <section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-        
-            
-            <a href="/tags/#可视化" title="可视化" rel="3">可视化</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#node" title="node" rel="2">node</a>
-            
-        
-            
-            <a href="/tags/#代码片段" title="代码片段" rel="2">代码片段</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </div>
+  <h5><a href="/tags/">特色标签</a></h5>
+  <div class="tags">
+    
+    
+    <a href="/tags/#canvas" title="canvas" rel="1">canvas</a>
+    
+    
+    
+    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
+    
+    
+    
+    <a href="/tags/#面向对象" title="面向对象" rel="1">面向对象</a>
+    
+    
+    
+    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
+    
+    
+    
+    <a href="/tags/#技巧" title="技巧" rel="1">技巧</a>
+    
+    
+    
+    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
+    
+    
+    
+    <a href="/tags/#可视化" title="可视化" rel="2">可视化</a>
+    
+    
+    
+    <a href="/tags/#node" title="node" rel="2">node</a>
+    
+    
+    
+    <a href="/tags/#mars3d" title="mars3d" rel="1">mars3d</a>
+    
+    
+    
+    <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
+    
+    
+    
+    <a href="/tags/#代码片段" title="代码片段" rel="2">代码片段</a>
+    
+    
+    
+    <a href="/tags/#sublime" title="sublime" rel="1">sublime</a>
+    
+    
+    
+    <a href="/tags/#nuxt" title="nuxt" rel="1">nuxt</a>
+    
+    
+    
+    <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
+    
+    
+    
+    <a href="/tags/#实战" title="实战" rel="1">实战</a>
+    
+    
+    
+    <a href="/tags/#测试" title="测试" rel="1">测试</a>
+    
+    
+  </div>
 </section>
+
 
         <hr>
     
         <!-- Short About -->
 <section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
+  <h5><a href="/about/">关于自己</a></h5>
+  <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/ironman-draw.png" />
-        
-
-        
-            <p>欢迎来到 hanshuang-ai 的个人博客</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/hanshuang-ai">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-
-            
-
-            
-
-            
-
-            
-
-            
-
-        </ul>
-    </div>
-</section>
-        <hr>
     
-        
-  <h5>VISITORS</h5>
-  <div class="widget">
-    <span>
-    	Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-	</span>
-	<br/>
-	<span>
-		<b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-	</span>
-  </div>
-
-        <hr>
+    <img id="avatar_pic" src="/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
     
-        
-  <h5>RECENT POSTS</h5>
-  <div class="widget">
-    <ul>
+
+    
+    <p>Fat people have no future, either thin or die...</p>
+    
+
+    <!-- SNS Link -->
+    <ul class="list-inline">
       
-        <li>
-          <a href="/2021/08/13/%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E6%8A%80%E5%B7%A7/">编辑器常用搜索匹配技巧</a>
-        </li>
+
       
-        <li>
-          <a href="/2021/08/04/cesium%E4%B8%93%E9%A2%98/">cesium专题</a>
-        </li>
+      <li>
+        <a target="_blank" href="https://github.com/V-Vincen">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
       
-        <li>
-          <a href="/2021/08/02/%E5%90%8C%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E5%8F%B7/">同一台机器配置多个git账号.md</a>
-        </li>
+
       
-        <li>
-          <a href="/2021/07/30/%E6%B5%8B%E8%AF%95/">ceshi</a>
-        </li>
+      <li>
+        <a target="_blank" href="https://twitter.com/V_Vincen_">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
       
-        <li>
-          <a href="/2021/07/30/%E9%97%AD%E5%8C%85/">闭包</a>
-        </li>
+
       
+      <li>
+        <a target="_blank" href="https://www.instagram.com/v_vincen_">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a target="_blank" href="http://weibo.com/WVincen">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
     </ul>
   </div>
+</section>
+
+        <hr>
+    
+        <!-- RECENT POSTS -->
+
+<h5><a href="/">最近博文</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="../../cn/canvas%E7%BB%98%E5%9B%BE/">
+      <li>canvas绘图</li>
+    </a>
+    
+    <a href="../../cn/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">
+      <li>终端命令</li>
+    </a>
+    
+    <a href="../../cn/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">
+      <li>节流和防抖</li>
+    </a>
+    
+    <a href="../../cn/%E8%A7%A3%E6%9E%90URL/">
+      <li>解析URL</li>
+    </a>
+    
+    <a href="../../cn/%E9%97%AD%E5%8C%85/">
+      <li>闭包</li>
+    </a>
+    
+  </ul>
+</div>
+
 
         <hr>
     
         <!-- Friends Blog -->
 
-<h5>FRIENDS</h5>
+<h5><a href="/">链友</a></h5>
 <ul class="list-inline">
-
-    
-        <li><a href="https://hanshuang-ai.github.io" target="_blank">个人简历</a></li>
-    
+  
+  <li><a href="https://v-vincen.life/" target="_blank">V_Vincen</a></li>
+  
+  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
+  
+  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+  
+  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
+  
 </ul>
+
 
         <hr>
     
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
+        <!-- Archives -->
+
+<h5><a href="/archives/">archives</a></h5>
+<div class="widget">
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
+</div>
+
 
         <hr>
     
         <!-- Categories -->
 
-    <h5>categories</h5>
-    <div class="widget">
-      <ul>
-        
-          <a href="categories/#hexo"><li>hexo</li></a>
-        
-          <a href="categories/#框架"><li>框架</li></a>
-        
-          <a href="categories/#概念"><li>概念</li></a>
-        
-          <a href="categories/#服务器"><li>服务器</li></a>
-        
-          <a href="categories/#开发工具"><li>开发工具</li></a>
-        
-          <a href="categories/#实战应用"><li>实战应用</li></a>
-        
-          <a href="categories/#思想"><li>思想</li></a>
-        
-          <a href="categories/#浏览器"><li>浏览器</li></a>
-        
-      </ul>
-    </div>
+<h5><a href="/categories/">categories</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="/categories/#可视化">
+      <li>可视化</li>
+    </a>
+    
+    <a href="/categories/#Hexo-Theme-LiveMyLife">
+      <li>Hexo-Theme-LiveMyLife</li>
+    </a>
+    
+    <a href="/categories/#命令行">
+      <li>命令行</li>
+    </a>
+    
+    <a href="/categories/#概念">
+      <li>概念</li>
+    </a>
+    
+    <a href="/categories/#框架">
+      <li>框架</li>
+    </a>
+    
+    <a href="/categories/#服务器">
+      <li>服务器</li>
+    </a>
+    
+    <a href="/categories/#开发工具">
+      <li>开发工具</li>
+    </a>
+    
+    <a href="/categories/#实战应用">
+      <li>实战应用</li>
+    </a>
+    
+    <a href="/categories/#思想">
+      <li>思想</li>
+    </a>
+    
+    <a href="/categories/#浏览器">
+      <li>浏览器</li>
+    </a>
+    
+  </ul>
+</div>
+
 
         <hr>
     
 </div>
 
-        
-    </div>
+
+    
+  </div>
 </div>
 
 
-    <!-- Footer -->
-    <!-- Footer -->
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
 
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/hanshuang-ai">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+          
+            <li>
+              <a target="_blank" href="https://github.com/V-Vincen">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
 
-                
+          
+            <li>
+              <a target="_blank" href="https://twitter.com/V_Vincen_">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
 
-                
+          
+            <li>
+              <a target="_blank" href="https://www.instagram.com/v_vincen_">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
 
-                
+          
 
-                
+          
 
-                
+          
 
-                
+          
+            <li>
+              <a target="_blank" href="http://weibo.com/WVincen">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Dusign 2021 
-                    <br>
-                    Powered by 
-                    <a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">
-                        <i>hexo-theme-snail</i>
-                    </a> | 
-                    <iframe name="star" style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0"
-                        width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=dusign&repo=hexo-theme-snail&type=star&count=true">
-                    </iframe>
-                </p>
-            </div>
-        </div>
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          寒霜
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/" target="_blank" rel="noopener">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
     </div>
-
+  </div>
 </footer>
 
-<!-- jQuery -->
-
-<script src="/js/jquery.min.js"></script>
+<a id="rocket" href="#top" class=""></a>
 
 
-<!-- Bootstrap Core JavaScript -->
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-<script src="/js/bootstrap.min.js"></script>
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='The first step is as good as half over...,Laugh and grow fat...,Man proposes God disposes...,When all else is lost the future still remains...,Wasting time is robbing oneself...,Sharp tools make good work...,Cease to struggle and you cease to live...,A friend in need is a friend indeed...,Faith can move mountains...' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
 
 
-<!-- Custom Theme JavaScript -->
-
-<script src="/js/hux-blog.min.js"></script>
 
 
-<!-- Search -->
-
-<script src="/js/search.js"></script>
 
 
-<!-- async load function -->
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
 <script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
     }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
 </script>
 
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("https://dusign.net/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite-url/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
     }
-</script>
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
 
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
 
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'yoursite';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-<!-- Search -->
-
-    <script type="text/javascript">      
-        var search_path = "search.xml";
-        if (search_path.length == 0) {
-            search_path = "search.xml";
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
         }
-    var path = "/" + search_path;
-    searchFunc(path, 'local-search-input', 'local-search-result');
-    </script>
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
 
 
-<!-- busuanzi -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
 
 
-
-
-
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-
-    
-        <!-- background effects line -->
-        
-
-        
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🌱&quot;,&quot;just do it&quot;,&quot;🍀&quot;]' color='[&quot;rgb(121,93,179)&quot; ,&quot;rgb(76,180,231)&quot; ,&quot;rgb(184,90,154)&quot;]'></script>
-        
-
-        <!-- background effects end -->
-    
-
-    <!--<script size="50" alpha='0.3' zIndex="-999" src="/js/ribbonStatic.js"></script>-->
-    
-        <script src="/js/ribbonDynamic.js"></script>
-    
-<script type="text/x-mathjax-config">
+		
+	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -1092,5 +1613,4 @@ title :’同一台电脑配置多个git密匙’1、 生成对应的github密�
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
-
 </html>
