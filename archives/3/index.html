@@ -247,28 +247,6 @@
           
           
           <li>
-            <a href="/categories/">
-              
-              分类
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              归档
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/about/">
               
               关于
@@ -280,9 +258,31 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/tags/">
               
               标签
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
               
               
             </a>
@@ -488,38 +488,6 @@
   <!-- top end -->
   
 
-  <a href="/cn/vue-element-admin详解1 permission/">
-    <h2 class="post-title">
-      vue-element-admin详解1 permission.js
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。
-代码解析12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 寒霜 on
-    2021-08-18
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
   <a href="/cn/uniapp/">
     <h2 class="post-title">
       uniapp
@@ -552,16 +520,16 @@
   <!-- top end -->
   
 
-  <a href="/cn/process.env.NODE_ENV/">
+  <a href="/cn/vue-element-admin详解1 permission/">
     <h2 class="post-title">
-      process.env.NODE_ENV
+      vue-element-admin详解1 permission.js
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      1、在node当中，全局变量process代表的是node当中的进程。 process.env包含着关于系统环境的信息，但是并不包含NODE_ENV这个属性
-...
+      vue-element-admin 内permission主要负责全局路由守卫和登录判断。在后台返回权限的时候，配合前端路由进行动态显示，可以使在url内输入的没有权限的页面不展示。
+代码解析12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455......
     </div>
   </a>
   
@@ -593,6 +561,38 @@
     </h3>
     <div class="post-content-preview">
       nuxt目录介绍1、assets: 资源目录，用来组织未编译的静态资源2、layouts:12345布局文件目录，里面可以放些全局可用的布局，例如default、error。default表示默认布局，error可以用来展示404。如果没有默认布局的要求，直接放置一个error即可。注：并不需要特殊路由设置，在nuxt框架下，如果访问的路径不存在，(并且有error布局的情况下)则会直接使用......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 寒霜 on
+    2021-08-18
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/cn/process.env.NODE_ENV/">
+    <h2 class="post-title">
+      process.env.NODE_ENV
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      1、在node当中，全局变量process代表的是node当中的进程。 process.env包含着关于系统环境的信息，但是并不包含NODE_ENV这个属性
+...
     </div>
   </a>
   
@@ -723,15 +723,17 @@
   <!-- top end -->
   
 
-  <a href="/cn/node/">
+  <a href="/cn/nodeCanvas渲染/">
     <h2 class="post-title">
-      node
+      nodeCanvas渲染
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      跨域node原生引入的http创建的服务器解决跨域问题12345const http = require('http');http.createServer((req,res)=&gt;&#123;    res.setHeader("Access-Control-Allow-Origin", "*");//跨域    res.end('12')&#125;).listen('3000')...
+      近期项目涉及地理系统，使用的框架是mars3d
+mars3d本身提供了加载geojson、图片以及模型的API，但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，在服务器直接生成png图片，在需要使用的时候直接加载图片。由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。
+`......
     </div>
   </a>
   
@@ -754,17 +756,15 @@
   <!-- top end -->
   
 
-  <a href="/cn/nodeCanvas渲染/">
+  <a href="/cn/node/">
     <h2 class="post-title">
-      nodeCanvas渲染
+      node
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      近期项目涉及地理系统，使用的框架是mars3d
-mars3d本身提供了加载geojson、图片以及模型的API，但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，在服务器直接生成png图片，在需要使用的时候直接加载图片。由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。
-`......
+      跨域node原生引入的http创建的服务器解决跨域问题12345const http = require('http');http.createServer((req,res)=&gt;&#123;    res.setHeader("Access-Control-Allow-Origin", "*");//跨域    res.end('12')&#125;).listen('3000')...
     </div>
   </a>
   
@@ -840,11 +840,11 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
     
     
     
-    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
-    
-    
-    
     <a href="/tags/#技巧" title="技巧" rel="1">技巧</a>
+    
+    
+    
+    <a href="/tags/#jQuery" title="jQuery" rel="1">jQuery</a>
     
     
     
@@ -853,10 +853,6 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
     
     
     <a href="/tags/#jenkins" title="jenkins" rel="1">jenkins</a>
-    
-    
-    
-    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
     
     
     
@@ -872,6 +868,10 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
     
     
     
+    <a href="/tags/#macOS" title="macOS" rel="1">macOS</a>
+    
+    
+    
     <a href="/tags/#代码片段" title="代码片段" rel="2">代码片段</a>
     
     
@@ -880,11 +880,11 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
     
     
     
-    <a href="/tags/#nuxt" title="nuxt" rel="1">nuxt</a>
-    
-    
-    
     <a href="/tags/#服务器" title="服务器" rel="1">服务器</a>
+    
+    
+    
+    <a href="/tags/#nuxt" title="nuxt" rel="1">nuxt</a>
     
     
     
@@ -990,12 +990,12 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
       <li>终端命令</li>
     </a>
     
-    <a href="../../cn/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">
-      <li>节流和防抖</li>
-    </a>
-    
     <a href="../../cn/%E8%A7%A3%E6%9E%90URL/">
       <li>解析URL</li>
+    </a>
+    
+    <a href="../../cn/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">
+      <li>节流和防抖</li>
     </a>
     
     <a href="../../cn/%E9%97%AD%E5%8C%85/">
@@ -1070,12 +1070,12 @@ mars3d本身提供了加载geojson、图片以及模型的API，但是在加载�
       <li>开发工具</li>
     </a>
     
-    <a href="/categories/#实战应用">
-      <li>实战应用</li>
-    </a>
-    
     <a href="/categories/#思想">
       <li>思想</li>
+    </a>
+    
+    <a href="/categories/#实战应用">
+      <li>实战应用</li>
     </a>
     
     <a href="/categories/#浏览器">
