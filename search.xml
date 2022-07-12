@@ -303,19 +303,6 @@
     
     
     <entry>
-      <title>nodeCanvas渲染</title>
-      <link href="/2022/07/05/nodecanvas-xuan-ran/"/>
-      <url>/2022/07/05/nodecanvas-xuan-ran/</url>
-      
-        <content type="html"><![CDATA[<p>近期项目涉及地理系统，使用的框架是mars3d</p><p>mars3d本身提供了加载<a href="http://baidu.com/">geojson</a>、图片以及模型的API，<br>但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。<br>经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，<br>在服务器直接生成png图片，在需要使用的时候直接加载图片。<br>由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。</p><p>`凡是引用包的地方，都需要先加载包，但是node canvas直接使用哪个npm引用有很大的几率会出现问题</p><p>`</p><h1 id="node加载数据"><a href="#node加载数据" class="headerlink" title="node加载数据"></a>node加载数据</h1><p>node加载数据使用的是自带的fs模块</p><pre class="line-numbers language-none"><code class="language-none">let fs &#x3D; require(&#39;fs&#39;)let data &#x3D; fs.readFileSync(&#39;XXX.json&#39;)let obj &#x3D; JSON.parse(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="使用node-canvas将数据绘制到canvas上"><a href="#使用node-canvas将数据绘制到canvas上" class="headerlink" title="使用node canvas将数据绘制到canvas上"></a>使用node canvas将数据绘制到canvas上</h1><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; canvasconst width &#x3D; 2000const height &#x3D; 2000const canvas &#x3D; createCanvas(width,height)const context &#x3D; canvas.getContext(&#39;2d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="处理node-canvas生成的base64数据，生成png"><a href="#处理node-canvas生成的base64数据，生成png" class="headerlink" title="处理node canvas生成的base64数据，生成png"></a>处理node canvas生成的base64数据，生成png</h1><h1 id="将png保存到本地"><a href="#将png保存到本地" class="headerlink" title="将png保存到本地"></a>将png保存到本地</h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>node canvas生成图片并保存</title>
       <link href="/2022/07/05/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/"/>
       <url>/2022/07/05/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/</url>
@@ -337,6 +324,19 @@
             <tag> node </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nodeCanvas渲染</title>
+      <link href="/2022/07/05/nodecanvas-xuan-ran/"/>
+      <url>/2022/07/05/nodecanvas-xuan-ran/</url>
+      
+        <content type="html"><![CDATA[<p>近期项目涉及地理系统，使用的框架是mars3d</p><p>mars3d本身提供了加载<a href="http://baidu.com/">geojson</a>、图片以及模型的API，<br>但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。<br>经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，<br>在服务器直接生成png图片，在需要使用的时候直接加载图片。<br>由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。</p><p>`凡是引用包的地方，都需要先加载包，但是node canvas直接使用哪个npm引用有很大的几率会出现问题</p><p>`</p><h1 id="node加载数据"><a href="#node加载数据" class="headerlink" title="node加载数据"></a>node加载数据</h1><p>node加载数据使用的是自带的fs模块</p><pre class="line-numbers language-none"><code class="language-none">let fs &#x3D; require(&#39;fs&#39;)let data &#x3D; fs.readFileSync(&#39;XXX.json&#39;)let obj &#x3D; JSON.parse(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="使用node-canvas将数据绘制到canvas上"><a href="#使用node-canvas将数据绘制到canvas上" class="headerlink" title="使用node canvas将数据绘制到canvas上"></a>使用node canvas将数据绘制到canvas上</h1><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; canvasconst width &#x3D; 2000const height &#x3D; 2000const canvas &#x3D; createCanvas(width,height)const context &#x3D; canvas.getContext(&#39;2d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="处理node-canvas生成的base64数据，生成png"><a href="#处理node-canvas生成的base64数据，生成png" class="headerlink" title="处理node canvas生成的base64数据，生成png"></a>处理node canvas生成的base64数据，生成png</h1><h1 id="将png保存到本地"><a href="#将png保存到本地" class="headerlink" title="将png保存到本地"></a>将png保存到本地</h1>]]></content>
+      
+      
       
     </entry>
     
