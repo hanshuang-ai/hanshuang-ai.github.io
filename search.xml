@@ -324,19 +324,6 @@
     
     
     <entry>
-      <title>nodeCanvas渲染</title>
-      <link href="/2022/07/05/nodecanvas-xuan-ran/"/>
-      <url>/2022/07/05/nodecanvas-xuan-ran/</url>
-      
-        <content type="html"><![CDATA[<p>近期项目涉及地理系统，使用的框架是mars3d</p><p>mars3d本身提供了加载<a href="http://baidu.com/">geojson</a>、图片以及模型的API，<br>但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。<br>经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，<br>在服务器直接生成png图片，在需要使用的时候直接加载图片。<br>由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。</p><p>`凡是引用包的地方，都需要先加载包，但是node canvas直接使用哪个npm引用有很大的几率会出现问题</p><p>`</p><h1 id="node加载数据"><a href="#node加载数据" class="headerlink" title="node加载数据"></a>node加载数据</h1><p>node加载数据使用的是自带的fs模块</p><pre class="line-numbers language-none"><code class="language-none">let fs &#x3D; require(&#39;fs&#39;)let data &#x3D; fs.readFileSync(&#39;XXX.json&#39;)let obj &#x3D; JSON.parse(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="使用node-canvas将数据绘制到canvas上"><a href="#使用node-canvas将数据绘制到canvas上" class="headerlink" title="使用node canvas将数据绘制到canvas上"></a>使用node canvas将数据绘制到canvas上</h1><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; canvasconst width &#x3D; 2000const height &#x3D; 2000const canvas &#x3D; createCanvas(width,height)const context &#x3D; canvas.getContext(&#39;2d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="处理node-canvas生成的base64数据，生成png"><a href="#处理node-canvas生成的base64数据，生成png" class="headerlink" title="处理node canvas生成的base64数据，生成png"></a>处理node canvas生成的base64数据，生成png</h1><h1 id="将png保存到本地"><a href="#将png保存到本地" class="headerlink" title="将png保存到本地"></a>将png保存到本地</h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>node canvas生成图片并保存</title>
       <link href="/2022/07/05/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/"/>
       <url>/2022/07/05/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/</url>
@@ -358,6 +345,19 @@
             <tag> node </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nodeCanvas渲染</title>
+      <link href="/2022/07/05/nodecanvas-xuan-ran/"/>
+      <url>/2022/07/05/nodecanvas-xuan-ran/</url>
+      
+        <content type="html"><![CDATA[<p>近期项目涉及地理系统，使用的框架是mars3d</p><p>mars3d本身提供了加载<a href="http://baidu.com/">geojson</a>、图片以及模型的API，<br>但是在加载这些资源的时候，尤其是涉及到计算量比较大的时候，浏览器承担过重。<br>经过测试，该框架加载本地图片资源的时候速度有明显提升，所以就需要性能优化，<br>在服务器直接生成png图片，在需要使用的时候直接加载图片。<br>由于项目对geojson数据，尤其是边界线精度要求较高，暂时未生成图片。</p><p>`凡是引用包的地方，都需要先加载包，但是node canvas直接使用哪个npm引用有很大的几率会出现问题</p><p>`</p><h1 id="node加载数据"><a href="#node加载数据" class="headerlink" title="node加载数据"></a>node加载数据</h1><p>node加载数据使用的是自带的fs模块</p><pre class="line-numbers language-none"><code class="language-none">let fs &#x3D; require(&#39;fs&#39;)let data &#x3D; fs.readFileSync(&#39;XXX.json&#39;)let obj &#x3D; JSON.parse(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="使用node-canvas将数据绘制到canvas上"><a href="#使用node-canvas将数据绘制到canvas上" class="headerlink" title="使用node canvas将数据绘制到canvas上"></a>使用node canvas将数据绘制到canvas上</h1><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; canvasconst width &#x3D; 2000const height &#x3D; 2000const canvas &#x3D; createCanvas(width,height)const context &#x3D; canvas.getContext(&#39;2d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="处理node-canvas生成的base64数据，生成png"><a href="#处理node-canvas生成的base64数据，生成png" class="headerlink" title="处理node canvas生成的base64数据，生成png"></a>处理node canvas生成的base64数据，生成png</h1><h1 id="将png保存到本地"><a href="#将png保存到本地" class="headerlink" title="将png保存到本地"></a>将png保存到本地</h1>]]></content>
+      
+      
       
     </entry>
     
@@ -442,6 +442,19 @@
     
     
     <entry>
+      <title>es6</title>
+      <link href="/2022/07/05/es6/"/>
+      <url>/2022/07/05/es6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p><code>从数组和对象中提取值，对变量进行赋值，这被称为解构</code></p><h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><pre class="line-numbers language-none"><code class="language-none">let [a,b,c] &#x3D; [1,2,3];console.log(a,b,c);&#x2F;&#x2F; 1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><code>解构不成功，变量的值为undefined</code></p><pre class="line-numbers language-none"><code class="language-none">let [a,b] &#x3D; [1];console.log(a,b);&#x2F;&#x2F; 1 undefinedlet [a,b] &#x3D; &#39;1&#39;;console.log(a,b);&#x2F;&#x2F; 1 undefined<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>如果等号右边不是可遍历的结构，会报错</strong></p><p>会报错的常见形式：</p><p>1、 数字</p><p>2、 布尔</p><p>3、 NaN</p><p>4、 undefined</p><p>5、null</p><p>6、{}  对象</p><h2 id="解构赋值的应用"><a href="#解构赋值的应用" class="headerlink" title="解构赋值的应用"></a>解构赋值的应用</h2><pre class="line-numbers language-none"><code class="language-none">假设下面是某个请求的返回值，形参是res&#123;    &quot;status&quot;: 200,    &quot;msg&quot;: &quot;成功&quot;,    &quot;data&quot;: &#123;        &quot;pageNum&quot;: 1,        &quot;pageSize&quot;: 99,        &quot;size&quot;: 49,    &#125;&#125;1、不用解构赋值let data &#x3D; res;if(data.data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;写起来比较繁琐2、使用解构赋值let &#123;data&#125; &#x3D; res;if(data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>这里需要注意的一点就是：声明的变量必须是返回值里面的某个属性， 也就是说：返回值内必须包含被声明的这个变量字段。</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git命令</title>
       <link href="/2022/07/05/git-ming-ling/"/>
       <url>/2022/07/05/git-ming-ling/</url>
@@ -454,19 +467,6 @@
           <category> 命令行 </category>
           
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>es6</title>
-      <link href="/2022/07/05/es6/"/>
-      <url>/2022/07/05/es6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p><code>从数组和对象中提取值，对变量进行赋值，这被称为解构</code></p><h2 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h2><pre class="line-numbers language-none"><code class="language-none">let [a,b,c] &#x3D; [1,2,3];console.log(a,b,c);&#x2F;&#x2F; 1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><code>解构不成功，变量的值为undefined</code></p><pre class="line-numbers language-none"><code class="language-none">let [a,b] &#x3D; [1];console.log(a,b);&#x2F;&#x2F; 1 undefinedlet [a,b] &#x3D; &#39;1&#39;;console.log(a,b);&#x2F;&#x2F; 1 undefined<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>如果等号右边不是可遍历的结构，会报错</strong></p><p>会报错的常见形式：</p><p>1、 数字</p><p>2、 布尔</p><p>3、 NaN</p><p>4、 undefined</p><p>5、null</p><p>6、{}  对象</p><h2 id="解构赋值的应用"><a href="#解构赋值的应用" class="headerlink" title="解构赋值的应用"></a>解构赋值的应用</h2><pre class="line-numbers language-none"><code class="language-none">假设下面是某个请求的返回值，形参是res&#123;    &quot;status&quot;: 200,    &quot;msg&quot;: &quot;成功&quot;,    &quot;data&quot;: &#123;        &quot;pageNum&quot;: 1,        &quot;pageSize&quot;: 99,        &quot;size&quot;: 49,    &#125;&#125;1、不用解构赋值let data &#x3D; res;if(data.data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;写起来比较繁琐2、使用解构赋值let &#123;data&#125; &#x3D; res;if(data.pageNum!&#x3D;&#x3D;1)&#123;...&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>这里需要注意的一点就是：声明的变量必须是返回值里面的某个属性， 也就是说：返回值内必须包含被声明的这个变量字段。</code></p>]]></content>
-      
       
       
     </entry>
