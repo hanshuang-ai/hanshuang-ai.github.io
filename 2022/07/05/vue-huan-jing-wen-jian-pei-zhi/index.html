@@ -31,7 +31,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -588,7 +588,7 @@
   <span class="token property">"browserslist"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"> 1%"</span><span class="token punctuation">,</span> <span class="token string">"last 2 versions"</span><span class="token punctuation">,</span> <span class="token string">"not dead"</span><span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="项目目录结构如下："><a href="#项目目录结构如下：" class="headerlink" title="项目目录结构如下："></a>项目目录结构如下：</h2><p><img src="/2022/07/05/vue-huan-jing-wen-jian-pei-zhi/WX20211229-142309.png" alt="项目配置目录"></p>
+<h2 id="项目目录结构如下："><a href="#项目目录结构如下：" class="headerlink" title="项目目录结构如下："></a>项目目录结构如下：</h2><p><img src="WX20211229-142309.png" alt="项目配置目录"></p>
 <h2 id="环境文件"><a href="#环境文件" class="headerlink" title="环境文件"></a>环境文件</h2><h3 id="env-dev"><a href="#env-dev" class="headerlink" title=".env.dev"></a>.env.dev</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">"development"</span><span class="token punctuation">;</span>
 <span class="token comment">//指定当前环境模式</span>
 <span class="token constant">VUE_APP_CURRENTMODE</span> <span class="token operator">=</span> <span class="token string">"dev"</span><span class="token punctuation">;</span>
@@ -613,8 +613,8 @@
 <span class="token punctuation">&#125;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@vue/cli-plugin-babel/preset"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span>prodPlugins<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@vue/cli-plugin-babel/preset"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span>prodPlugins<span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="打包时添加时间戳"><a href="#打包时添加时间戳" class="headerlink" title="打包时添加时间戳"></a>打包时添加时间戳</h2><p><code>在vue.config.js内进行配置</code></p>
@@ -627,11 +627,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">.*(.&#123;8&#125;)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">publicPath</span><span class="token operator">:</span> <span class="token string">"./"</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">configureWebpack</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">js/[name].</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Version<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-      <span class="token literal-property property">chunkFilename</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">js/[name].</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Version<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  publicPath<span class="token operator">:</span> <span class="token string">"./"</span><span class="token punctuation">,</span>
+  configureWebpack<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      filename<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">js/[name].</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Version<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      chunkFilename<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">js/[name].</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Version<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>

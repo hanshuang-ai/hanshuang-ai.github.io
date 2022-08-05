@@ -35,7 +35,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -505,17 +505,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><code>vue项目内</code></p>
-<h3 id="1、插件安装"><a href="#1、插件安装" class="headerlink" title="1、插件安装"></a>1、插件安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> amfe-flexible postcss-px2rem -S<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1、插件安装"><a href="#1、插件安装" class="headerlink" title="1、插件安装"></a>1、插件安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install amfe-flexible postcss-px2rem -S<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="2、引入使用（main-js）"><a href="#2、引入使用（main-js）" class="headerlink" title="2、引入使用（main.js）"></a>2、引入使用（main.js）</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token string">"amfe-flexible"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="3、配置（vue-config-js）"><a href="#3、配置（vue-config-js）" class="headerlink" title="3、配置（vue.config.js）"></a>3、配置（vue.config.js）</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">css</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">loaderOptions</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">postcss</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+  css<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    loaderOptions<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      postcss<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
           <span class="token comment">// 设计稿宽度的1/10，一般为192,设计稿为1920</span>
-          <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"postcss-px2rem"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">remUnit</span><span class="token operator">:</span> <span class="token number">192</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"postcss-px2rem"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> remUnit<span class="token operator">:</span> <span class="token number">192</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>

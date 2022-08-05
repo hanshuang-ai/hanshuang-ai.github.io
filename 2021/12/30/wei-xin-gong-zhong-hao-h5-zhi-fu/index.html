@@ -35,7 +35,7 @@ le">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -524,7 +524,7 @@ le">
 axios
   <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>
     <span class="token string">"https://tapi.levacp.com/sjsvoice/h5/sys/wechat/jssdk/config/query"</span><span class="token punctuation">,</span>
-    qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">url</span><span class="token operator">:</span> url <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> url<span class="token operator">:</span> url <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
   <span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>code <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -533,12 +533,12 @@ axios
       <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">//配置调试信息</span>
       wx<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">debug</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span>
-        <span class="token literal-property property">appId</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span> <span class="token comment">// 必填，公众号的唯一标识</span>
-        <span class="token literal-property property">timestamp</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>timestamp<span class="token punctuation">,</span> <span class="token comment">// 必填，生成签名的时间戳</span>
-        <span class="token literal-property property">nonceStr</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>nonceStr<span class="token punctuation">,</span> <span class="token comment">// 必填，生成签名的随机串</span>
-        <span class="token literal-property property">signature</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>signature<span class="token punctuation">,</span> <span class="token comment">// 必填，签名</span>
-        <span class="token literal-property property">jsApiList</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"chooseWXPay"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 必填，需要使用的JS接口列表</span>
+        debug<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span>
+        appId<span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span> <span class="token comment">// 必填，公众号的唯一标识</span>
+        timestamp<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>timestamp<span class="token punctuation">,</span> <span class="token comment">// 必填，生成签名的时间戳</span>
+        nonceStr<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>nonceStr<span class="token punctuation">,</span> <span class="token comment">// 必填，生成签名的随机串</span>
+        signature<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jsSdkConfig<span class="token punctuation">.</span>signature<span class="token punctuation">,</span> <span class="token comment">// 必填，签名</span>
+        jsApiList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"chooseWXPay"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 必填，需要使用的JS接口列表</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
       window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d5c3d16592f8f3f&amp;redirect_uri=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
@@ -569,7 +569,7 @@ axios
 <span class="token punctuation">&#125;</span>
 <span class="token comment">//根据code获取用户openid</span>
 axios
-  <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"URL"</span><span class="token punctuation">,</span> qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">code</span><span class="token operator">:</span> params<span class="token punctuation">.</span>code <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"URL"</span><span class="token punctuation">,</span> qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> code<span class="token operator">:</span> params<span class="token punctuation">.</span>code <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token string">"获取用户Token"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>code <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -583,10 +583,10 @@ axios
       <span class="token comment">//    支付</span>
       <span class="token comment">// const obj = &#123; uid: that.userId, goodsId: this.goodsId, openid: accessToken.openid, quantity: this.quantity &#125;</span>
       <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">uid</span><span class="token operator">:</span> params<span class="token punctuation">.</span>userID<span class="token punctuation">,</span>
-        <span class="token literal-property property">goodsId</span><span class="token operator">:</span> params<span class="token punctuation">.</span>goodsId<span class="token punctuation">,</span>
-        <span class="token literal-property property">openid</span><span class="token operator">:</span> accessToken<span class="token punctuation">.</span>openid<span class="token punctuation">,</span>
-        <span class="token literal-property property">quantity</span><span class="token operator">:</span> params<span class="token punctuation">.</span>number<span class="token punctuation">,</span>
+        uid<span class="token operator">:</span> params<span class="token punctuation">.</span>userID<span class="token punctuation">,</span>
+        goodsId<span class="token operator">:</span> params<span class="token punctuation">.</span>goodsId<span class="token punctuation">,</span>
+        openid<span class="token operator">:</span> accessToken<span class="token punctuation">.</span>openid<span class="token punctuation">,</span>
+        quantity<span class="token operator">:</span> params<span class="token punctuation">.</span>number<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
       <span class="token comment">//传输openid，请求支付接口</span>
@@ -595,9 +595,9 @@ axios
           that<span class="token punctuation">.</span>baseURL <span class="token operator">+</span> <span class="token string">"/sjsvoice/h5/sys/create/wx/pay"</span><span class="token punctuation">,</span>
           qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">,</span>
           <span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-              <span class="token literal-property property">channel</span><span class="token operator">:</span> <span class="token string">"wxH5"</span><span class="token punctuation">,</span>
-              <span class="token literal-property property">app_type</span><span class="token operator">:</span> <span class="token string">"4"</span><span class="token punctuation">,</span>
+            headers<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              channel<span class="token operator">:</span> <span class="token string">"wxH5"</span><span class="token punctuation">,</span>
+              app_type<span class="token operator">:</span> <span class="token string">"4"</span><span class="token punctuation">,</span>
             <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
           <span class="token punctuation">&#125;</span>
         <span class="token punctuation">)</span>
@@ -611,12 +611,12 @@ axios
             WeixinJSBridge<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>
               <span class="token string">"getBrandWCPayRequest"</span><span class="token punctuation">,</span>
               <span class="token punctuation">&#123;</span>
-                <span class="token literal-property property">appId</span><span class="token operator">:</span> <span class="token string">"appid"</span><span class="token punctuation">,</span> <span class="token comment">//公众号ID，由商户传入</span>
-                <span class="token literal-property property">timeStamp</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>timeStamp<span class="token punctuation">,</span> <span class="token comment">//时间戳，自1970年以来的秒数</span>
-                <span class="token literal-property property">nonceStr</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>nonceStr<span class="token punctuation">,</span> <span class="token comment">//随机串</span>
+                appId<span class="token operator">:</span> <span class="token string">"appid"</span><span class="token punctuation">,</span> <span class="token comment">//公众号ID，由商户传入</span>
+                timeStamp<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>timeStamp<span class="token punctuation">,</span> <span class="token comment">//时间戳，自1970年以来的秒数</span>
+                nonceStr<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>nonceStr<span class="token punctuation">,</span> <span class="token comment">//随机串</span>
                 <span class="token keyword">package</span><span class="token operator">:</span> <span class="token string">"prepay_id="</span> <span class="token operator">+</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>package<span class="token punctuation">,</span> <span class="token comment">//一定要注意这个形式、一定要注意这个形式、一定要注意这个形式</span>
-                <span class="token literal-property property">signType</span><span class="token operator">:</span> <span class="token string">"RSA"</span><span class="token punctuation">,</span> <span class="token comment">//微信签名方式：</span>
-                <span class="token literal-property property">paySign</span><span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>paySign<span class="token punctuation">,</span> <span class="token comment">//微信签名</span>
+                signType<span class="token operator">:</span> <span class="token string">"RSA"</span><span class="token punctuation">,</span> <span class="token comment">//微信签名方式：</span>
+                paySign<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>paySign<span class="token punctuation">,</span> <span class="token comment">//微信签名</span>
               <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
               <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>err_msg <span class="token operator">==</span> <span class="token string">"get_brand_wcpay_request:ok"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>

@@ -30,7 +30,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -513,9 +513,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="加载卫星云图（同样使用polygon来加载）"><a href="#加载卫星云图（同样使用polygon来加载）" class="headerlink" title="加载卫星云图（同样使用polygon来加载）"></a>加载卫星云图（同样使用polygon来加载）</h2><h3 id="设置好图片要显示的范围"><a href="#设置好图片要显示的范围" class="headerlink" title="设置好图片要显示的范围"></a>设置好图片要显示的范围</h3><h3 id="添加polygon"><a href="#添加polygon" class="headerlink" title="添加polygon"></a>添加polygon</h3><h2 id="卫星云图动图"><a href="#卫星云图动图" class="headerlink" title="卫星云图动图"></a>卫星云图动图</h2><h3 id="准备多张卫星云图图"><a href="#准备多张卫星云图图" class="headerlink" title="准备多张卫星云图图"></a>准备多张卫星云图图</h3><h3 id="使用CallbackProperty动态material赋值"><a href="#使用CallbackProperty动态material赋值" class="headerlink" title="使用CallbackProperty动态material赋值"></a>使用CallbackProperty动态material赋值</h3><h3 id="定时器轮流改变i值"><a href="#定时器轮流改变i值" class="headerlink" title="定时器轮流改变i值"></a>定时器轮流改变i值</h3><p><em><code>如果卫星云图颜色过深，遮盖住了地球表面，可以在material里面设置一个透明度</code></em></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">color</span><span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Color<span class="token punctuation">.</span><span class="token constant">WHITE</span><span class="token punctuation">.</span><span class="token function">withAlpha</span><span class="token punctuation">(</span><span class="token number">0.6</span><span class="token punctuation">)</span> <span class="token comment">// 这里的颜色不会对图片材质造成影像</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">color<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Color<span class="token punctuation">.</span><span class="token constant">WHITE</span><span class="token punctuation">.</span><span class="token function">withAlpha</span><span class="token punctuation">(</span><span class="token number">0.6</span><span class="token punctuation">)</span> <span class="token comment">// 这里的颜色不会对图片材质造成影像</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -549,14 +549,14 @@
 
     	<span class="token comment">// 创建地球底图</span>
         <span class="token keyword">var</span> viewer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Viewer</span><span class="token punctuation">(</span><span class="token string">'cesiumContainer'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">imageryProvider</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>UrlTemplateImageryProvider</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-                <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'http://www.google.cn/maps/vt?lyrs=s@716&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;'</span>
+            imageryProvider<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>UrlTemplateImageryProvider</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                url<span class="token operator">:</span> <span class="token string">'http://www.google.cn/maps/vt?lyrs=s@716&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;'</span>
             <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token comment">// 设置视角</span>
         viewer<span class="token punctuation">.</span>camera<span class="token punctuation">.</span><span class="token function">setView</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">destination</span><span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Rectangle<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">89.5</span><span class="token punctuation">,</span> <span class="token number">20.4</span><span class="token punctuation">,</span> <span class="token number">110.4</span><span class="token punctuation">,</span> <span class="token number">61.2</span><span class="token punctuation">)</span>
+            destination<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Rectangle<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">89.5</span><span class="token punctuation">,</span> <span class="token number">20.4</span><span class="token punctuation">,</span> <span class="token number">110.4</span><span class="token punctuation">,</span> <span class="token number">61.2</span><span class="token punctuation">)</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">var</span> urls <span class="token operator">=</span> <span class="token punctuation">[</span>
@@ -578,11 +578,11 @@
         <span class="token comment">// 添加云图</span>
         <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         viewer<span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">polygon</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                <span class="token literal-property property">hierarchy</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>PolygonHierarchy</span><span class="token punctuation">(</span>positions<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">heightReference</span><span class="token operator">:</span> Cesium<span class="token punctuation">.</span>HeightReference<span class="token punctuation">.</span><span class="token constant">CLAMP_TO_GROUND</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">material</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>ImageMaterialProperty</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-                    <span class="token literal-property property">image</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>CallbackProperty</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            polygon<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                hierarchy<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>PolygonHierarchy</span><span class="token punctuation">(</span>positions<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                heightReference<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>HeightReference<span class="token punctuation">.</span><span class="token constant">CLAMP_TO_GROUND</span><span class="token punctuation">,</span>
+                material<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>ImageMaterialProperty</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                    image<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>CallbackProperty</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                         <span class="token keyword">return</span> urls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
                     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
                 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>

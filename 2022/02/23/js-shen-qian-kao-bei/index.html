@@ -32,7 +32,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -499,7 +499,7 @@
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="https://github.com/hanshuang-ai/code/blob/master/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D.html">示例代码</a></p>
 <h3 id="1、基础概念"><a href="#1、基础概念" class="headerlink" title="1、基础概念"></a>1、基础概念</h3><h4 id="1-1-浅拷贝"><a href="#1-1-浅拷贝" class="headerlink" title="1.1 浅拷贝"></a>1.1 浅拷贝</h4><blockquote>
-<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。<br><img src="/2022/02/23/js-shen-qian-kao-bei/qian.jpg" alt="浅拷贝"></p>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。<br><img src="qian.jpg" alt="浅拷贝"></p>
 </blockquote>
 <p><code>浅拷贝在拷贝基本类型的时候，只是用了基本类型的值，其他的与该基本类型都没有关系</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -508,14 +508,14 @@ b <span class="token operator">=</span> <span class="token number">2</span><span
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  1  2</span>
 
 <span class="token keyword">let</span> aa <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"12"</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">"12"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> bb <span class="token operator">=</span> aa<span class="token punctuation">;</span>
 bb<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"13"</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>aa<span class="token punctuation">,</span> bb<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;name:"13"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="1-2-深拷贝"><a href="#1-2-深拷贝" class="headerlink" title="1.2 深拷贝"></a>1.2 深拷贝</h4><blockquote>
-<p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象<br><img src="/2022/02/23/js-shen-qian-kao-bei/shen.jpg" alt="深拷贝"></p>
+<p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象<br><img src="shen.jpg" alt="深拷贝"></p>
 </blockquote>
 <h3 id="手写深拷贝"><a href="#手写深拷贝" class="headerlink" title="手写深拷贝"></a>手写深拷贝</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> mapTag <span class="token operator">=</span> <span class="token string">"[object Map]"</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> setTag <span class="token operator">=</span> <span class="token string">"[object Set]"</span><span class="token punctuation">;</span>
@@ -593,17 +593,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">function</span> <span class="token function">cloneOtherType</span><span class="token punctuation">(</span><span class="token parameter">targe<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> Ctor <span class="token operator">=</span> targe<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">boolTag</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">numberTag</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">stringTag</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">errorTag</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">dateTag</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> boolTag<span class="token operator">:</span>
+    <span class="token keyword">case</span> numberTag<span class="token operator">:</span>
+    <span class="token keyword">case</span> stringTag<span class="token operator">:</span>
+    <span class="token keyword">case</span> errorTag<span class="token operator">:</span>
+    <span class="token keyword">case</span> dateTag<span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Ctor</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">regexpTag</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> regexpTag<span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token function">cloneReg</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">symbolTag</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> symbolTag<span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token function">cloneSymbol</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token literal-property property">funcTag</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> funcTag<span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token function">cloneFunction</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">default</span><span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>

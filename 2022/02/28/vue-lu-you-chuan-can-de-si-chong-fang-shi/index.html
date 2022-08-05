@@ -38,7 +38,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -503,7 +503,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="/2022/02/28/vue-lu-you-chuan-can-de-si-chong-fang-shi/1.png" alt="vue路由传参的四种方式"></p>
+                <p><img src="1.png" alt="vue路由传参的四种方式"></p>
 <h3 id="1、router-link"><a href="#1、router-link" class="headerlink" title="1、router-link"></a>1、router-link</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 父组件传值</span>
 <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/room"</span><span class="token operator">></span>
 
@@ -512,10 +512,10 @@
 
 <h3 id="2、-router-push"><a href="#2、-router-push" class="headerlink" title="2、$router.push"></a>2、$router.push</h3><h4 id="2-1、path"><a href="#2-1、path" class="headerlink" title="2.1、path"></a>2.1、path</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 父组件传值</span>
 <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"deliverParams(123)"</span><span class="token operator">></span>push传参<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token function">deliverParams</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/d/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+        path<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/d/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
@@ -529,9 +529,9 @@
 <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"deliverByName()"</span><span class="token operator">></span>params传参<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token function">deliverByName</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'B'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-          <span class="token literal-property property">sometext</span><span class="token operator">:</span> <span class="token string">'一只羊出没'</span>
+        name<span class="token operator">:</span> <span class="token string">'B'</span><span class="token punctuation">,</span>
+        params<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          sometext<span class="token operator">:</span> <span class="token string">'一只羊出没'</span>
         <span class="token punctuation">&#125;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span>
@@ -548,9 +548,9 @@
 <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"deliverQuery()"</span><span class="token operator">></span>query传参<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token function">deliverQuery</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/c'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-          <span class="token literal-property property">sometext</span><span class="token operator">:</span> <span class="token string">'这是小羊同学'</span>
+        path<span class="token operator">:</span> <span class="token string">'/c'</span><span class="token punctuation">,</span>
+        query<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          sometext<span class="token operator">:</span> <span class="token string">'这是小羊同学'</span>
         <span class="token punctuation">&#125;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span>
