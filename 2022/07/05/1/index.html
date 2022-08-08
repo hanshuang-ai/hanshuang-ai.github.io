@@ -510,7 +510,7 @@
         alert(JSON.stringify(res));
     }
  </script>
-<p>服务端返回如下（返回时即执行全局函数）：</p>
+</p><p>服务端返回如下（返回时即执行全局函数）：</p>
 <p>handleCallback({“success”: true, “user”: “admin”})<br>2）jquery Ajax实现：</p>
 <p>$.ajax({<br>    url: ‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>,<br>    type: ‘get’,<br>    dataType: ‘jsonp’,  // 请求方式为jsonp<br>    jsonpCallback: “handleCallback”,  // 自定义回调函数名<br>    data: {}<br>});<br>3）Vue axios实现：</p>
 <p>this.$http = axios;<br>this.$http.jsonp(‘<a target="_blank" rel="noopener" href="http://www.domain2.com:8080/login&#39;">http://www.domain2.com:8080/login&#39;</a>, {<br>    params: {},<br>    jsonp: ‘handleCallback’<br>}).then((res) =&gt; {<br>    console.log(res);<br>})<br>后端node.js代码：</p>
@@ -654,7 +654,7 @@ function onCallback(res) &#123;
     alert(&#39;data from c.html ---&gt; &#39; + res);
 &#125;
 </code></pre>
-<p></script><br>2）b.html：(<a target="_blank" rel="noopener" href="http://www.domain2.com/b.html">http://www.domain2.com/b.html</a>)</p>
+<p></script><br>2）b.html：(<a target="_blank" rel="noopener" href="http://www.domain2.com/b.html">http://www.domain2.com/b.html</a>)<p></p>
 <iframe id="iframe" src="http://www.domain1.com/c.html" style="display:none;"></iframe>
 <script>
     var iframe = document.getElementById('iframe');
@@ -664,7 +664,7 @@ window.onhashchange = function () &#123;
     iframe.src = iframe.src + location.hash;
 &#125;;
 </code></pre>
-<p></script><br>3）c.html：(<a target="_blank" rel="noopener" href="http://www.domain1.com/c.html">http://www.domain1.com/c.html</a>)</p>
+<p></script><br>3）c.html：(<a target="_blank" rel="noopener" href="http://www.domain1.com/c.html">http://www.domain1.com/c.html</a>)<p></p>
 <script>
     // 监听b.html传来的hash值
     window.onhashchange = function () {
@@ -728,7 +728,7 @@ window.addEventListener(&#39;message&#39;, function(e) &#123;
     alert(&#39;data from domain2 ---&gt; &#39; + e.data);
 &#125;, false);
 </code></pre>
-<p></script><br>2）b.html：(<a target="_blank" rel="noopener" href="http://www.domain2.com/b.html">http://www.domain2.com/b.html</a>)</p>
+<p></script><br>2）b.html：(<a target="_blank" rel="noopener" href="http://www.domain2.com/b.html">http://www.domain2.com/b.html</a>)<p></p>
 <script>
     // 接收domain1的数据
     window.addEventListener('message', function(e) {
@@ -757,7 +757,7 @@ socket.on(&#39;disconnect&#39;, function() &#123;
 &#125;);
 </code></pre>
 <p>});</p>
-<p>document.getElementsByTagName(‘input’)[0].onblur = function() {<br>    socket.send(this.value);<br>};<br></script><br>2）Nodejs socket后台：</p>
+<p>document.getElementsByTagName(‘input’)[0].onblur = function() {<br>    socket.send(this.value);<br>};<br></script><br>2）Nodejs socket后台：<p></p>
 <p>var http = require(‘http’);<br>var socket = require(‘socket.io’);</p>
 <p>// 启http服务<br>var server = http.createServer(function(req, res) {<br>    res.writeHead(200, {<br>        ‘Content-type’: ‘text/html’<br>    });<br>    res.end();<br>});</p>
 <p>server.listen(‘8080’);<br>console.log(‘Server is running at port 8080…’);</p>
