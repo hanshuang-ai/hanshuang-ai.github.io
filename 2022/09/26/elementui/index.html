@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="将base64转为文件, MyBlog">
-    <meta name="description" content="//将base64转换为文件
-export function dataURLtoFile(dataurl, filename) &amp;#123;
-  let arr = dataurl.split(&#34;,&#34;),
-    mime = arr[0]">
+    <meta name="keywords" content="elementUI, MyBlog">
+    <meta name="description" content="1、表格表头居中// :header-cell-style=&#34;&amp;#123; textAlign: &#39;center&#39; &amp;#125;&#34;  表头居中
+// :cell-style=&#34;&amp;#123; textAlign: &#39;center&#39;&amp;#125;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>将base64转为文件 | MyBlog</title>
+    <title>elementUI | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -290,12 +288,12 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">将base64转为文件</h1>
+                    <h1 class="description center-align post-title">elementUI</h1>
                 </div>
             </div>
         </div>
@@ -411,8 +409,8 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                <span class="chip bg-color">实战</span>
+                            <a href="/tags/elementUI/">
+                                <span class="chip bg-color">elementUI</span>
                             </a>
                         
                     </div>
@@ -427,21 +425,21 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    53
+                    125
                 </div>
                 
 
@@ -476,20 +474,18 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//将base64转换为文件</span>
-<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">dataURLtoFile</span><span class="token punctuation">(</span><span class="token parameter">dataurl<span class="token punctuation">,</span> filename</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">let</span> arr <span class="token operator">=</span> dataurl<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    mime <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">:(.*?);</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token keyword">let</span> bstr <span class="token operator">=</span> <span class="token function">atob</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    n <span class="token operator">=</span> bstr<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
-    u8arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    u8arr<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> bstr<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token punctuation">[</span>u8arr<span class="token punctuation">]</span><span class="token punctuation">,</span> filename<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">type</span><span class="token operator">:</span> mime
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="1、表格表头居中"><a href="#1、表格表头居中" class="headerlink" title="1、表格表头居中"></a>1、表格表头居中</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// :header-cell-style="&#123; textAlign: 'center' &#125;"  表头居中</span>
+<span class="token comment">// :cell-style="&#123; textAlign: 'center'&#125;"  单元格居中</span>
+<span class="token operator">&lt;</span>el<span class="token operator">-</span>table <span class="token operator">:</span>data<span class="token operator">=</span><span class="token string">"tableData"</span> border style<span class="token operator">=</span><span class="token string">"width: 100%;margin-top: 40px;"</span> height<span class="token operator">=</span><span class="token string">"650"</span> <span class="token literal-property property">stripe</span> <span class="token operator">:</span>header<span class="token operator">-</span>cell<span class="token operator">-</span>style<span class="token operator">=</span><span class="token string">"&#123; textAlign: 'center' &#125;"</span> <span class="token operator">:</span>cell<span class="token operator">-</span>style<span class="token operator">=</span><span class="token string">"&#123; textAlign: 'center'&#125;"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column prop<span class="token operator">=</span><span class="token string">"date"</span> label<span class="token operator">=</span><span class="token string">"表头"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column fixed<span class="token operator">=</span><span class="token string">"right"</span> label<span class="token operator">=</span><span class="token string">"操作"</span> width<span class="token operator">=</span><span class="token string">"100"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>template slot<span class="token operator">-</span>scope<span class="token operator">=</span><span class="token string">"scope"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>el<span class="token operator">-</span>button @click<span class="token operator">=</span><span class="token string">"handleClick(scope.row)"</span> type<span class="token operator">=</span><span class="token string">"text"</span> size<span class="token operator">=</span><span class="token string">"small"</span><span class="token operator">></span>查看<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+                <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"text"</span> size<span class="token operator">=</span><span class="token string">"small"</span> @click<span class="token operator">=</span><span class="token string">"edit()"</span><span class="token operator">></span>编辑<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -515,7 +511,7 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2022/09/08/jiang-base64-zhuan-wei-wen-jian/">https://hanshuang-ai.github.io/2022/09/08/jiang-base64-zhuan-wei-wen-jian/</a>
+                    <a href="https://hanshuang-ai.github.io/2022/09/26/elementui/">https://hanshuang-ai.github.io/2022/09/26/elementui/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,8 +549,8 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                    <span class="chip bg-color">实战</span>
+                                <a href="/tags/elementUI/">
+                                    <span class="chip bg-color">elementUI</span>
                                 </a>
                             
                         </div>
@@ -723,17 +719,18 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/09/16/leetcode-zhuan-ti/">
+                <a href="/2022/09/26/elementui/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="leetcode专题">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="elementUI">
                         
-                        <span class="card-title">leetcode专题</span>
+                        <span class="card-title">elementUI</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -743,26 +740,23 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-26
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/elementUI/">
+                        <span class="chip bg-color">elementUI</span>
                     </a>
                     
                 </div>
@@ -776,13 +770,13 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/08/jie-xi-url/">
+                <a href="/2022/09/26/git-ji-ben-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="解析URL">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git基本命令">
                         
-                        <span class="card-title">解析URL</span>
+                        <span class="card-title">git基本命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -793,7 +787,7 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-26
                             </span>
                         <span class="publish-author">
                             
@@ -806,8 +800,12 @@ export function dataURLtoFile(dataurl, filename) &amp;#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">实战</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">基本命令</span>
                     </a>
                     
                 </div>
