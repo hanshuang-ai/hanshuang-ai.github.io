@@ -439,14 +439,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    683
+                    839
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -594,6 +594,31 @@
   <span class="token operator">:</span>props<span class="token operator">=</span><span class="token string">"&#123; expandTrigger: 'hover',label:'name',value:'id',children:'childFunctionList' &#125;"</span>
   @change<span class="token operator">=</span><span class="token string">"handleChangeSelect"</span><span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>cascader<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5、级联选择器-change-失效的问题"><a href="#5、级联选择器-change-失效的问题" class="headerlink" title="5、级联选择器@change 失效的问题"></a>5、级联选择器@change 失效的问题</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>el<span class="token operator">-</span>cascader filterable
+                       v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"value12"</span>
+                       <span class="token operator">:</span>options<span class="token operator">=</span><span class="token string">"options"</span>
+                       <span class="token operator">:</span>props<span class="token operator">=</span><span class="token string">"&#123; expandTrigger: 'hover'&#125;"</span>
+                       @change<span class="token operator">=</span><span class="token string">"handleChangeSelect"</span>
+                       style<span class="token operator">=</span><span class="token string">"width: 600px"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>cascader<span class="token operator">></span>
+
+<span class="token comment">// 绝大部分情况下，@change失效都是由于我们的数据格式错误，虽然可以显示，但是与官网案例不符，我们需要自己改造</span>
+<span class="token comment">// 尤其需要注意的是children没有下一级的时候需要删除该key</span>
+
+    <span class="token function">changeKey</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// arr[i].value = arr[i].id</span>
+        <span class="token comment">// arr[i].label = arr[i].name</span>
+        <span class="token comment">// arr[i].children = arr[i].childFunctionList</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>childFunctionList<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">changeKey</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>childFunctionList<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">delete</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>childFunctionList
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">return</span> arr
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1099,7 +1124,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.8k</span>
+                        class="white-color">2k</span>
             
             
             
