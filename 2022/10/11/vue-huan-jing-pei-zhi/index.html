@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解析URL, MyBlog">
-    <meta name="description" content="在日常研发过程中，我们通常会根据URL地址以及参数进行业务判断，所以做了一下封装，方便使用
-// 解析URL
-export function analysisURL() &amp;#123;
-  let url = window.location.">
+    <meta name="keywords" content="vue环境配置, MyBlog">
+    <meta name="description" content="
+根据项目需求创建.env.XXX 环境文件文件内使用package.json 文件 javascript 配置运行
+
+本文使用开发、测试、生产3种环境
+1、根据项目需求创建.env.XXX 环境文件根据VUE_APP_CURRENTMOD">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@ export function analysisURL() &amp;#123;
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解析URL | MyBlog</title>
+    <title>vue环境配置 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -290,12 +291,12 @@ export function analysisURL() &amp;#123;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解析URL</h1>
+                    <h1 class="description center-align post-title">vue环境配置</h1>
                 </div>
             </div>
         </div>
@@ -411,8 +412,8 @@ export function analysisURL() &amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                <span class="chip bg-color">实战</span>
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -427,21 +428,21 @@ export function analysisURL() &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-10-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-10-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    96
+                    231
                 </div>
                 
 
@@ -476,23 +477,59 @@ export function analysisURL() &amp;#123;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在日常研发过程中，我们通常会根据URL地址以及参数进行业务判断，所以做了一下封装，方便使用</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 解析URL</span>
-<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">analysisURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">let</span> url <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-  <span class="token keyword">let</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[?&amp;][^?&amp;]+=[^?&amp;]+</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
-  <span class="token keyword">let</span> arr <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">let</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> tempArr <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> key <span class="token operator">=</span> tempArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> val <span class="token operator">=</span> tempArr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-      params<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <blockquote>
+<p>根据项目需求创建.env.XXX 环境文件<br>文件内使用<br>package.json 文件 javascript 配置运行</p>
+</blockquote>
+<p><code>本文使用开发、测试、生产3种环境</code></p>
+<h2 id="1、根据项目需求创建-env-XXX-环境文件"><a href="#1、根据项目需求创建-env-XXX-环境文件" class="headerlink" title="1、根据项目需求创建.env.XXX 环境文件"></a>1、根据项目需求创建.env.XXX 环境文件</h2><p><code>根据VUE_APP_CURRENTMODE进行package.json javascript运行配置</code><br><code>根据NODE_ENV进行环境判断</code></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 开发环境</span>
+<span class="token comment">// .env.development</span>
+<span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">"development"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_CURRENTMODE</span> <span class="token operator">=</span> <span class="token string">"dev"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_BASE_URL</span> <span class="token operator">=</span> <span class="token string">"https://xxx.com"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 测试环境</span>
+<span class="token comment">// .env.test</span>
+<span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_CURRENTMODE</span> <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_BASE_URL</span> <span class="token operator">=</span> <span class="token string">"https://xxx.com"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 生产环境</span>
+<span class="token comment">// .env.production</span>
+<span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">"production"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_CURRENTMODE</span> <span class="token operator">=</span> <span class="token string">"prod"</span><span class="token punctuation">;</span>
+<span class="token constant">VUE_APP_BASE_URL</span> <span class="token operator">=</span> <span class="token string">"https://xxx.com"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2、文件内使用"><a href="#2、文件内使用" class="headerlink" title="2、文件内使用"></a>2、文件内使用</h2><p>举例在 vueStore 内定义 baseURL</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">baseURL</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VUE_APP_BASE_URL</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">callBackURL</span><span class="token operator">:</span>
+      process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">"production"</span>
+        <span class="token operator">?</span> <span class="token string">"xxx"</span>
+        <span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> store<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3、package-json-文件-javascript-配置运行"><a href="#3、package-json-文件-javascript-配置运行" class="headerlink" title="3、package.json 文件 javascript 配置运行"></a>3、package.json 文件 javascript 配置运行</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"serve"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service serve --mode development"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"serve:dev"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service serve --mode dev"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"build"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service build"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"build:test"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service build --mode test"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"build:pro"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service build --mode prod"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"build:dev"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service build --mode dev"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"lint"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service lint"</span>
   <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> params<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -518,7 +555,7 @@ export function analysisURL() &amp;#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2022/09/08/jie-xi-url/">https://hanshuang-ai.github.io/2022/09/08/jie-xi-url/</a>
+                    <a href="https://hanshuang-ai.github.io/2022/10/11/vue-huan-jing-pei-zhi/">https://hanshuang-ai.github.io/2022/10/11/vue-huan-jing-pei-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,8 +593,8 @@ export function analysisURL() &amp;#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                    <span class="chip bg-color">实战</span>
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -730,13 +767,13 @@ export function analysisURL() &amp;#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/16/leetcode-zhuan-ti/">
+                <a href="/2022/10/11/vue-da-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="leetcode专题">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue打包">
                         
-                        <span class="card-title">leetcode专题</span>
+                        <span class="card-title">vue打包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -747,16 +784,12 @@ export function analysisURL() &amp;#123;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
                             
                         </span>
                     </div>
@@ -764,8 +797,8 @@ export function analysisURL() &amp;#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -779,13 +812,13 @@ export function analysisURL() &amp;#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/31/microapp-chu-tan/">
+                <a href="/2022/10/11/vue-guo-lu-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="microApp初探">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue过滤器">
                         
-                        <span class="card-title">microApp初探</span>
+                        <span class="card-title">vue过滤器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -796,7 +829,7 @@ export function analysisURL() &amp;#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
                             </span>
                         <span class="publish-author">
                             
@@ -809,12 +842,8 @@ export function analysisURL() &amp;#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                        <span class="chip bg-color">微服务</span>
-                    </a>
-                    
-                    <a href="/tags/microApp/">
-                        <span class="chip bg-color">microApp</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
