@@ -4,6 +4,59 @@
   
     
     <entry>
+      <title>编辑器正则表达式搜索</title>
+      <link href="/2022/10/12/bian-ji-qi-zheng-ze-biao-da-shi-sou-suo/"/>
+      <url>/2022/10/12/bian-ji-qi-zheng-ze-biao-da-shi-sou-suo/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、-js单行替换"><a href="#1、-js单行替换" class="headerlink" title="1、 js单行替换"></a>1、 js单行替换</h2><p><code>//[\s\S]*?\n</code></p><blockquote><p>// 使用 //(?!._.._.).*\n 可以避免将网址等也替换掉</p></blockquote><h2 id="2、-js多行替换"><a href="#2、-js多行替换" class="headerlink" title="2、 js多行替换"></a>2、 js多行替换</h2><p><code>/\*(.|\r\n|\n)*?\*/</code></p><h2 id="3、html无换行注释"><a href="#3、html无换行注释" class="headerlink" title="3、html无换行注释"></a>3、html无换行注释</h2><p><code>&lt;!--(.*?)--&gt;</code></p><h2 id="4、-html有换行注释"><a href="#4、-html有换行注释" class="headerlink" title="4、 html有换行注释"></a>4、 html有换行注释</h2><p><code>&lt;!--([\s\S|\r]*?)--&gt;</code></p><h2 id="5、编辑器内所有空行"><a href="#5、编辑器内所有空行" class="headerlink" title="5、编辑器内所有空行"></a>5、编辑器内所有空行</h2><p><code>^\s*(?=\r?$)\n</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 正则 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小程序使用环信</title>
+      <link href="/2022/10/12/xiao-cheng-xu-shi-yong-huan-xin/"/>
+      <url>/2022/10/12/xiao-cheng-xu-shi-yong-huan-xin/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+            <tag> 环信 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小程序使用svga</title>
+      <link href="/2022/10/12/xiao-cheng-xu-shi-yong-svga/"/>
+      <url>/2022/10/12/xiao-cheng-xu-shi-yong-svga/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信小程序分包</title>
       <link href="/2022/10/12/wei-xin-xiao-cheng-xu-fen-bao/"/>
       <url>/2022/10/12/wei-xin-xiao-cheng-xu-fen-bao/</url>
