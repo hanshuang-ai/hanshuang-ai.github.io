@@ -445,14 +445,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-10-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    322
+                    267
                 </div>
                 
 
@@ -489,51 +489,51 @@
             <div id="articleContent">
                 <p><code>canvas可以将画布转为base64，而base64就是该图片的信息，但是node保存文件的时候需要buffer格式的信息，所以只需要将canvas转成的base64处理成buffer，就可以保存</code></p>
 <p>总结如下：<br><em><strong>1、将画布信息转为base64</strong></em><br><em><strong>2、处理base64为buffer，进行保存</strong></em></p>
-<h3 id="引入canvas模块"><a href="#引入canvas模块" class="headerlink" title="引入canvas模块"></a>引入canvas模块</h3><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; require(&#39;canvas&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="1、引入canvas模块"><a href="#1、引入canvas模块" class="headerlink" title="1、引入canvas模块"></a>1、引入canvas模块</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span>createCanvas<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="canvas绘图"><a href="#canvas绘图" class="headerlink" title="canvas绘图"></a>canvas绘图</h3><pre class="line-numbers language-none"><code class="language-none">const canvas &#x3D; createCanvas(200,200)
-const ctx &#x3D; canvas.getContext(&#39;2d&#39;)
+<h2 id="2、canvas绘图"><a href="#2、canvas绘图" class="headerlink" title="2、canvas绘图"></a>2、canvas绘图</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> canvas <span class="token operator">=</span> <span class="token function">createCanvas</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'2d'</span><span class="token punctuation">)</span>
 
-ctx.font &#x3D; &#39;30px&#39;
-ctx.rotate(0.1)
-ctx.fillText(&#39;Hello&#39;,50,100)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ctx<span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token string">'30px'</span>
+ctx<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+ctx<span class="token punctuation">.</span><span class="token function">fillText</span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="将画布信息转为base64"><a href="#将画布信息转为base64" class="headerlink" title="将画布信息转为base64"></a>将画布信息转为base64</h3><pre class="line-numbers language-none"><code class="language-none">const dataURl &#x3D; canvas.toDataURL(&#39;image&#x2F;png&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3、将画布信息转为base64"><a href="#3、将画布信息转为base64" class="headerlink" title="3、将画布信息转为base64"></a>3、将画布信息转为base64</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> dataURl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">'image/png'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="处理base64为buffer"><a href="#处理base64为buffer" class="headerlink" title="处理base64为buffer"></a>处理base64为buffer</h3><pre class="line-numbers language-none"><code class="language-none">const base64Data &#x3D; dataURl.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-const bufferData &#x3D; new Buffer(base64Data,&#39;base64&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="4、处理base64为buffer"><a href="#4、处理base64为buffer" class="headerlink" title="4、处理base64为buffer"></a>4、处理base64为buffer</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> base64Data <span class="token operator">=</span> dataURl<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span><span class="token string">'base64'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="保存buffer为图片格式"><a href="#保存buffer为图片格式" class="headerlink" title="保存buffer为图片格式"></a>保存buffer为图片格式</h3><pre class="line-numbers language-none"><code class="language-none">fs.writeFile(&#39;2.png&#39;,bufferData,function (err)&#123;
-    if (err)&#123;
-        console.log(err)
-    &#125;else &#123;
-        console.log(&#39;图片保存成功&#39;)
-    &#125;
-&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5、保存buffer为图片格式"><a href="#5、保存buffer为图片格式" class="headerlink" title="5、保存buffer为图片格式"></a>5、保存buffer为图片格式</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'2.png'</span><span class="token punctuation">,</span>bufferData<span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'图片保存成功'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class="line-numbers language-none"><code class="language-none">const &#123;createCanvas&#125; &#x3D; require(&#39;canvas&#39;)
-const fs &#x3D; require(&#39;fs&#39;)
+<h2 id="6、完整代码"><a href="#6、完整代码" class="headerlink" title="6、完整代码"></a>6、完整代码</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span>createCanvas<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
 
-const canvas &#x3D; createCanvas(200,200)
-const ctx &#x3D; canvas.getContext(&#39;2d&#39;)
+<span class="token keyword">const</span> canvas <span class="token operator">=</span> <span class="token function">createCanvas</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'2d'</span><span class="token punctuation">)</span>
 
-ctx.font &#x3D; &#39;30px&#39;
-ctx.rotate(0.1)
-ctx.fillText(&#39;Hello&#39;,50,100)
+ctx<span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token string">'30px'</span>
+ctx<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+ctx<span class="token punctuation">.</span><span class="token function">fillText</span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
 
-const dataURl &#x3D; canvas.toDataURL(&#39;image&#x2F;png&#39;)
-console.log(dataURl)
+<span class="token keyword">const</span> dataURl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">'image/png'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dataURl<span class="token punctuation">)</span>
 
-const base64Data &#x3D; dataURl.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-console.log(base64Data)
-const bufferData &#x3D; new Buffer(base64Data,&#39;base64&#39;)
-fs.writeFile(&#39;2.png&#39;,bufferData,function (err)&#123;
-    if (err)&#123;
-        console.log(err)
-    &#125;else &#123;
-        console.log(&#39;图片保存成功&#39;)
-    &#125;
-&#125;)
+<span class="token keyword">const</span> base64Data <span class="token operator">=</span> dataURl<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">)</span>
+<span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span><span class="token string">'base64'</span><span class="token punctuation">)</span>
+fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'2.png'</span><span class="token punctuation">,</span>bufferData<span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'图片保存成功'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
@@ -1031,7 +1031,7 @@ fs.writeFile(&#39;2.png&#39;,bufferData,function (err)&#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.6k</span>
+                        class="white-color">24.2k</span>
             
             
             

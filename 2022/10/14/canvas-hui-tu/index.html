@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="canvas绘图, MyBlog">
-    <meta name="description" content="canvas点连线生成图片canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点其余点使用lineTo进行连接，当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作注意：如果需要绘制的图形铺满整个画布，">
+    <meta name="description" content="1、canvas点连线生成图片canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点其余点使用lineTo进行连接，当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作注意：如果需要绘制的图形铺满整个画">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -440,21 +440,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-10-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    10 分
                 </div>
                 
 
@@ -482,7 +482,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="canvas点连线生成图片"><a href="#canvas点连线生成图片" class="headerlink" title="canvas点连线生成图片"></a>canvas点连线生成图片</h1><p>canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点<br>其余点使用lineTo进行连接，<br><code>当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作</code><br><strong>注意：如果需要绘制的图形铺满整个画布，则需要先计算出所有坐标点的极值点<br>，即最大最小的x、y，再结合画布width和height，算出每个方向上的缩放<br>倍率scaleX和scaleY，moveTo和lineTo的时候需要将缩放倍率计算进去</strong></p>
+                <h2 id="1、canvas点连线生成图片"><a href="#1、canvas点连线生成图片" class="headerlink" title="1、canvas点连线生成图片"></a>1、canvas点连线生成图片</h2><p>canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点<br>其余点使用lineTo进行连接，<br><code>当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作</code><br><strong>注意：如果需要绘制的图形铺满整个画布，则需要先计算出所有坐标点的极值点<br>，即最大最小的x、y，再结合画布width和height，算出每个方向上的缩放<br>倍率scaleX和scaleY，moveTo和lineTo的时候需要将缩放倍率计算进去</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">let xmin, xmax;
 let ymin, ymax;
 let xArr &#x3D; [];
@@ -613,207 +613,207 @@ function drawChina() &#123;
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="canvas颜色的填充"><a href="#canvas颜色的填充" class="headerlink" title="canvas颜色的填充"></a>canvas颜色的填充</h1><p>canvas在绘制等值线（或者说是闭合区域的时候）往往需要在区域内填色，根据<br>globalCompositeOperation的不同属性值，会得到不同的结果，具体需要填色的情况<br>选择不同的属性值<br><code>在有要求的情况下，可以根据闭合区域不同的高度值（假如是等高线）进行不同的填色</code></p>
-<pre class="line-numbers language-none"><code class="language-none">function drawOther() &#123;
-  let colors &#x3D; &#123;
-    zuigaowen: [
-      &#123; Value_Min: 10, Value_Max: 15, color: &quot;#F3BF48&quot; &#125;,
-      &#123; Value_Min: 15, Value_Max: 20, color: &quot;#FFAF41&quot; &#125;,
-      &#123; Value_Min: 20, Value_Max: 25, color: &quot;#F98E20&quot; &#125;,
-      &#123; Value_Min: 25, Value_Max: 30, color: &quot;#FF760A&quot; &#125;,
-      &#123; Value_Min: 30, Value_Max: 35, color: &quot;#EC5418&quot; &#125;,
-      &#123; Value_Min: 35, Value_Max: 40, color: &quot;#EE0D20&quot; &#125;,
-      &#123; Value_Min: 40, Value_Max: 45, color: &quot;#C70321&quot; &#125;,
-    ],
-    dibiaowendushikuang: [
-      &#123; Value_Min: 10, Value_Max: 20, color: &quot;#A7DC32&quot; &#125;,
-      &#123; Value_Min: 20, Value_Max: 30, color: &quot;#F0C828&quot; &#125;,
-      &#123; Value_Min: 30, Value_Max: 40, color: &quot;#F09D29&quot; &#125;,
-      &#123; Value_Min: 40, Value_Max: 50, color: &quot;#F06429&quot; &#125;,
-      &#123; Value_Min: 50, Value_Max: 60, color: &quot;#DF3418&quot; &#125;,
-      &#123; Value_Min: 60, Value_Max: 70, color: &quot;#C20D0D&quot; &#125;,
-      &#123; Value_Min: 70, Value_Max: 80, color: &quot;#890323&quot; &#125;,
-    ],
-    bianwen: [
-      &#123; Value_Min: -6, Value_Max: -4, color: &quot;#66A6FF&quot; &#125;,
-      &#123; Value_Min: -4, Value_Max: -2, color: &quot;#80CFFF&quot; &#125;,
-      &#123; Value_Min: -2, Value_Max: 0, color: &quot;#9AF9FF&quot; &#125;,
-      &#123; Value_Min: 0, Value_Max: 2, color: &quot;#FFFB87&quot; &#125;,
-      &#123; Value_Min: 2, Value_Max: 4, color: &quot;#FCDF76&quot; &#125;,
-      &#123; Value_Min: 4, Value_Max: 6, color: &quot;#F8BE5C&quot; &#125;,
-    ],
-    jiangshui: [
-      &#x2F;&#x2F; &#123; Value_Min: -10, Value_Max: 0.1, color: &quot;rgba(0,0,0,0)&quot; &#125;,
-      &#123; Value_Min: -10, Value_Max: 0.1, color: &quot;rgba(0,0,0,0)&quot; &#125;,
-      &#123; Value_Min: 0.1, Value_Max: 10, color: &quot;#7DF0FF&quot; &#125;,
-      &#123; Value_Min: 10, Value_Max: 50, color: &quot;#0E3FD9&quot; &#125;,
-      &#123; Value_Min: 50, Value_Max: 75, color: &quot;#072586&quot; &#125;,
-    ],
-    fourteen: &#123;
-      zhongshu: &#123;
-        zs3: &quot;#EB9700&quot;,
-        zs4: &quot;#DC521E&quot;,
-        zs5: &quot;#B00808&quot;,
-      &#125;,
-    &#125;,
-  &#125;;
+<h2 id="2、canvas颜色的填充"><a href="#2、canvas颜色的填充" class="headerlink" title="2、canvas颜色的填充"></a>2、canvas颜色的填充</h2><p>canvas在绘制等值线（或者说是闭合区域的时候）往往需要在区域内填色，根据<br>globalCompositeOperation的不同属性值，会得到不同的结果，具体需要填色的情况<br>选择不同的属性值<br><code>在有要求的情况下，可以根据闭合区域不同的高度值（假如是等高线）进行不同的填色</code></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">drawOther</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> colors <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">zuigaowen</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F3BF48"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FFAF41"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F98E20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FF760A"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#EC5418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#EE0D20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#C70321"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dibiaowendushikuang</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#A7DC32"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F0C828"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F09D29"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F06429"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#DF3418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#C20D0D"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#890323"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">bianwen</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#66A6FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#80CFFF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#9AF9FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FFFB87"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FCDF76"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F8BE5C"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">jiangshui</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// &#123; Value_Min: -10, Value_Max: 0.1, color: "rgba(0,0,0,0)" &#125;,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"rgba(0,0,0,0)"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#7DF0FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#0E3FD9"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#072586"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">fourteen</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">zhongshu</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">zs3</span><span class="token operator">:</span> <span class="token string">"#EB9700"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">zs4</span><span class="token operator">:</span> <span class="token string">"#DC521E"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">zs5</span><span class="token operator">:</span> <span class="token string">"#B00808"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-  let name &#x3D; &quot;.&#x2F;1.json&quot;;
-  fs.readFile(name, (err, result) &#x3D;&gt; &#123;
-    if (err) &#123;
-    &#125; else &#123;
-      let object &#x3D; JSON.parse(result);
-      let &#123; CLOSED_CONTOURS &#125; &#x3D; object;
-      let arr &#x3D; [];
-      let color &#x3D; &quot;&quot;;
-      let leixing &#x3D; &quot;fourteen&quot;;
-      let leixing_child &#x3D; &quot;zhongshu&quot;;
-      for (let i &#x3D; 0; i &lt; CLOSED_CONTOURS.length; i++) &#123;
-        let CLOSED_CONTOURS_i &#x3D; CLOSED_CONTOURS[i];
-        let &#123; linePoint &#125; &#x3D; CLOSED_CONTOURS_i;
-        let &#123; markName &#125; &#x3D; CLOSED_CONTOURS_i.lineMark;
-        console.log(colors[leixing][leixing_child][markName]);
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"./1.json"</span><span class="token punctuation">;</span>
+  fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> object <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token constant">CLOSED_CONTOURS</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> object<span class="token punctuation">;</span>
+      <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> color <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> leixing <span class="token operator">=</span> <span class="token string">"fourteen"</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> leixing_child <span class="token operator">=</span> <span class="token string">"zhongshu"</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token constant">CLOSED_CONTOURS</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> CLOSED_CONTOURS_i <span class="token operator">=</span> <span class="token constant">CLOSED_CONTOURS</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> linePoint <span class="token punctuation">&#125;</span> <span class="token operator">=</span> CLOSED_CONTOURS_i<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> markName <span class="token punctuation">&#125;</span> <span class="token operator">=</span> CLOSED_CONTOURS_i<span class="token punctuation">.</span>lineMark<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colors<span class="token punctuation">[</span>leixing<span class="token punctuation">]</span><span class="token punctuation">[</span>leixing_child<span class="token punctuation">]</span><span class="token punctuation">[</span>markName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        arr.push(linePoint);
-        for (let m &#x3D; 0; m &lt; arr.length; m++) &#123;
-          drawPolygon(
-            arr[m],
-            scalex,
-            scaley,
-            colors[leixing][leixing_child][markName]
-          );
-        &#125;
-      &#125;
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>linePoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> m <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> m<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token function">drawPolygon</span><span class="token punctuation">(</span>
+            arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">,</span>
+            scalex<span class="token punctuation">,</span>
+            scaley<span class="token punctuation">,</span>
+            colors<span class="token punctuation">[</span>leixing<span class="token punctuation">]</span><span class="token punctuation">[</span>leixing_child<span class="token punctuation">]</span><span class="token punctuation">[</span>markName<span class="token punctuation">]</span>
+          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
 
-      const image &#x3D; canvas.toDataURL(&quot;image&#x2F;png&quot;);
-      const base64Data &#x3D; image.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-      const bufferData &#x3D; new Buffer(base64Data, &quot;base64&quot;);
-      fs.writeFile(
-        &quot;.&#x2F;result&#x2F;img&#x2F;&quot; + new Date().getTime() + &quot;.png&quot;,
-        bufferData,
-        function (err) &#123;
-          if (err) &#123;
-          &#125; else &#123;
-            console.log(&quot;图片保存成功&quot;);
-          &#125;
-        &#125;
-      );
-    &#125;
-  &#125;);
+      <span class="token keyword">const</span> image <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> base64Data <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span> <span class="token string">"base64"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>
+        <span class="token string">"./result/img/"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".png"</span><span class="token punctuation">,</span>
+        bufferData<span class="token punctuation">,</span>
+        <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"图片保存成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  function drawPolygon(points, scalex, scaley, color) &#123;
-    &#x2F;&#x2F; console.log(scalex, scaley);
-    ctx.beginPath();
-    for (let i &#x3D; 0; i &lt; points.length; i++) &#123;
-      let point &#x3D; points[i];
-      &#x2F;&#x2F;   console.log(point);
-      let x &#x3D; Number(point[&quot;lot&quot;]);
-      let y &#x3D; Number(point[&quot;lat&quot;]);
-      &#x2F;&#x2F;   console.log(x, y);
-      let l &#x3D; (x - xmin) &#x2F; scalex;
-      let t &#x3D; height - (y - ymin) &#x2F; scaley;
-      &#x2F;&#x2F;   console.log(l, t);
-      if (i &#x3D;&#x3D;&#x3D; 0) &#123;
-        ctx.moveTo(l, t);
-      &#125; else &#123;
-        ctx.lineTo(l, t);
-      &#125;
-    &#125;
-    &#x2F;&#x2F; ctx.globalCompositeOperation &#x3D; &quot;destination-over&quot;;
-    ctx.fillStyle &#x3D; color;
-    ctx.strokeStyle &#x3D; &quot;#fff&quot;;
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-  &#125;
-&#125;
+  <span class="token keyword">function</span> <span class="token function">drawPolygon</span><span class="token punctuation">(</span><span class="token parameter">points<span class="token punctuation">,</span> scalex<span class="token punctuation">,</span> scaley<span class="token punctuation">,</span> color</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// console.log(scalex, scaley);</span>
+    ctx<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> point <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment">//   console.log(point);</span>
+      <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>point<span class="token punctuation">[</span><span class="token string">"lot"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>point<span class="token punctuation">[</span><span class="token string">"lat"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">//   console.log(x, y);</span>
+      <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> xmin<span class="token punctuation">)</span> <span class="token operator">/</span> scalex<span class="token punctuation">;</span>
+      <span class="token keyword">let</span> t <span class="token operator">=</span> height <span class="token operator">-</span> <span class="token punctuation">(</span>y <span class="token operator">-</span> ymin<span class="token punctuation">)</span> <span class="token operator">/</span> scaley<span class="token punctuation">;</span>
+      <span class="token comment">//   console.log(l, t);</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// ctx.globalCompositeOperation = "destination-over";</span>
+    ctx<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> color<span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>strokeStyle <span class="token operator">=</span> <span class="token string">"#fff"</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="canvas图形形状的截取"><a href="#canvas图形形状的截取" class="headerlink" title="canvas图形形状的截取"></a>canvas图形形状的截取</h1><p>canvas形状的截取，尤其是既包含填色，又包含截取（按另一个图形的形状截取）的情况下，<br>强烈建议分两步</p>
-<h2 id="首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"><a href="#首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。" class="headerlink" title="首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"></a>首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。</h2><h2 id="然后将两张图片进行叠加截图"><a href="#然后将两张图片进行叠加截图" class="headerlink" title="然后将两张图片进行叠加截图"></a>然后将两张图片进行叠加截图</h2><p><strong>node环境为例</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+<h2 id="3、canvas图形形状的截取"><a href="#3、canvas图形形状的截取" class="headerlink" title="3、canvas图形形状的截取"></a>3、canvas图形形状的截取</h2><p>canvas形状的截取，尤其是既包含填色，又包含截取（按另一个图形的形状截取）的情况下，<br>强烈建议分两步</p>
+<h3 id="3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"><a href="#3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。" class="headerlink" title="3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"></a>3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。</h3><h3 id="3-2然后将两张图片进行叠加截图"><a href="#3-2然后将两张图片进行叠加截图" class="headerlink" title="3.2然后将两张图片进行叠加截图"></a>3.2然后将两张图片进行叠加截图</h3><p><strong>node环境为例</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * 测试canvas图像截取
  * 先画元素图
  * 再画中国地图
  * 再截取
- *&#x2F;
-const fs &#x3D; require(&quot;fs&quot;);
-const &#123;createCanvas, loadImage&#125; &#x3D; require(&quot;canvas&quot;);
-const width &#x3D; 800;
-const height &#x3D; 800;
-const canvas &#x3D; createCanvas(width, height);
-const ctx &#x3D; canvas.getContext(&quot;2d&quot;);
+ */</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span>createCanvas<span class="token punctuation">,</span> loadImage<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"canvas"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> width <span class="token operator">=</span> <span class="token number">800</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> height <span class="token operator">=</span> <span class="token number">800</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> canvas <span class="token operator">=</span> <span class="token function">createCanvas</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-&#x2F;&#x2F;降雨使用的方法(或者说是没有铺满中国的元素图的截取方法)
-function a()&#123;
-    loadImage(&#39;.&#x2F;result&#x2F;img&#x2F;new&#x2F;14&#x2F;gaowen.png&#39;).then((yuansu) &#x3D;&gt; &#123;&#x2F;&#x2F;加载元素图
-        console.log(&#39;yuansu&#39;,yuansu)
-        ctx.drawImage(yuansu, 0, 0, width, height)
-        loadImage(&#39;.&#x2F;result&#x2F;img&#x2F;china.png&#39;).then((china)&#x3D;&gt;&#123;&#x2F;&#x2F;加载中国地图
-            console.log(&#39;china&#39;,china)
-            ctx.globalCompositeOperation &#x3D; &quot;destination-in&quot;;
-            ctx.drawImage(china,0,0,width,height)
-            function result() &#123;
-                const image &#x3D; canvas.toDataURL(&quot;image&#x2F;png&quot;);
-                const base64Data &#x3D; image.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-                const bufferData &#x3D; new Buffer(base64Data, &quot;base64&quot;);
-                fs.writeFile(
-                    &quot;.&#x2F;result&#x2F;img&#x2F;&quot; + new Date().getTime() + &quot;.png&quot;,
-                    bufferData,
-                    function (err) &#123;
-                        if (err) &#123;
-                        &#125; else &#123;
-                            console.log(&quot;图片保存成功&quot;);
-                        &#125;
-                    &#125;
-                );
-            &#125;
-            &#x2F;&#x2F; setTimeout(function ()&#123;result()&#125;,1000)
-            result()
-        &#125;)
-    &#125;)
-&#125;
-
-
+<span class="token comment">//降雨使用的方法(或者说是没有铺满中国的元素图的截取方法)</span>
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">loadImage</span><span class="token punctuation">(</span><span class="token string">'./result/img/new/14/gaowen.png'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">yuansu</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token comment">//加载元素图</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'yuansu'</span><span class="token punctuation">,</span>yuansu<span class="token punctuation">)</span>
+        ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>yuansu<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+        <span class="token function">loadImage</span><span class="token punctuation">(</span><span class="token string">'./result/img/china.png'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">china</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span><span class="token comment">//加载中国地图</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'china'</span><span class="token punctuation">,</span>china<span class="token punctuation">)</span>
+            ctx<span class="token punctuation">.</span>globalCompositeOperation <span class="token operator">=</span> <span class="token string">"destination-in"</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>china<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+            <span class="token keyword">function</span> <span class="token function">result</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">const</span> image <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> base64Data <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span> <span class="token string">"base64"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>
+                    <span class="token string">"./result/img/"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".png"</span><span class="token punctuation">,</span>
+                    bufferData<span class="token punctuation">,</span>
+                    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"图片保存成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// setTimeout(function ()&#123;result()&#125;,1000)</span>
+            <span class="token function">result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
 
 
-function b()&#123;
-    loadImage(&#39;.&#x2F;result&#x2F;img&#x2F;china2.png&#39;).then((china) &#x3D;&gt; &#123;&#x2F;&#x2F;加载中国地图
-        console.log(&#39;china&#39;,china)
-        ctx.drawImage(china, 0, 0, width, height)
-        loadImage(&#39;.&#x2F;result&#x2F;img&#x2F;new&#x2F;14&#x2F;gaowen.png&#39;).then((yuansu)&#x3D;&gt;&#123;&#x2F;&#x2F;加载元素图
-            console.log(&#39;yuansu&#39;,yuansu)
-            &#x2F;&#x2F;todo:目前除去降雨数据，其他的都用下面的属性
-            &#x2F;&#x2F; ctx.globalCompositeOperation &#x3D; &quot;source-atop&quot;
-            &#x2F;&#x2F;降雨时属性
-            &#x2F;&#x2F; ctx.globalCompositeOperation &#x3D; &quot;destination-in&quot;;
-            ctx.drawImage(yuansu,0,0,width,height)
-            function result() &#123;
-                const image &#x3D; canvas.toDataURL(&quot;image&#x2F;png&quot;);
-                const base64Data &#x3D; image.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-                const bufferData &#x3D; new Buffer(base64Data, &quot;base64&quot;);
-                fs.writeFile(
-                    &quot;.&#x2F;result&#x2F;img&#x2F;&quot; + new Date().getTime() + &quot;.png&quot;,
-                    bufferData,
-                    function (err) &#123;
-                        if (err) &#123;
-                        &#125; else &#123;
-                            console.log(&quot;图片保存成功&quot;);
-                        &#125;
-                    &#125;
-                );
-            &#125;
-            &#x2F;&#x2F; setTimeout(function ()&#123;result()&#125;,1000)
-            result()
-        &#125;)
-    &#125;)
-&#125;
 
-a()
-&#x2F;&#x2F; b()
+
+<span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">loadImage</span><span class="token punctuation">(</span><span class="token string">'./result/img/china2.png'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">china</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token comment">//加载中国地图</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'china'</span><span class="token punctuation">,</span>china<span class="token punctuation">)</span>
+        ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>china<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+        <span class="token function">loadImage</span><span class="token punctuation">(</span><span class="token string">'./result/img/new/14/gaowen.png'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">yuansu</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span><span class="token comment">//加载元素图</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'yuansu'</span><span class="token punctuation">,</span>yuansu<span class="token punctuation">)</span>
+            <span class="token comment">//todo:目前除去降雨数据，其他的都用下面的属性</span>
+            <span class="token comment">// ctx.globalCompositeOperation = "source-atop"</span>
+            <span class="token comment">//降雨时属性</span>
+            <span class="token comment">// ctx.globalCompositeOperation = "destination-in";</span>
+            ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>yuansu<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+            <span class="token keyword">function</span> <span class="token function">result</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">const</span> image <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> base64Data <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span> <span class="token string">"base64"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>
+                    <span class="token string">"./result/img/"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".png"</span><span class="token punctuation">,</span>
+                    bufferData<span class="token punctuation">,</span>
+                    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"图片保存成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// setTimeout(function ()&#123;result()&#125;,1000)</span>
+            <span class="token function">result</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// b()</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><em><code>总结： 在绘制闭合区域（只有数组没有顺序）的时候，需要注意canvas涂色覆盖的问题， 同时，需要截取复杂图形的时候， 不建议直接在一个canvas对象内使用，可以使用两张图片叠加的形式。 本文所使用的的环境是node，可以直接生成图片保存在本地，然后进行读取。 可以猜想，利用不同变量保存每个canvas生成的base64也可以直接在浏览器生成类似效果， 但本人未做尝试，只是猜想。 另外，本文没有使用clip属性进行截图操作，因为没有思路。 在颜色填充部分本文尝试使用save和restore属性，但是产生的结果与未使用时一致， 如各位了解该如何使用上述属性或有兴趣技术沟通，可直接与我联系 </code></em></p>
+<p><em><code>总结：在绘制闭合区域（只有数组没有顺序）的时候，需要注意canvas涂色覆盖的问题，同时，需要截取复杂图形的时候，不建议直接在一个canvas对象内使用，可以使用两张图片叠加的形式。本文所使用的的环境是node，可以直接生成图片保存在本地，然后进行读取。可以猜想，利用不同变量保存每个canvas生成的base64也可以直接在浏览器生成类似效果，但本人未做尝试，只是猜想。另外，本文没有使用clip属性进行截图操作，因为没有思路。在颜色填充部分本文尝试使用save和restore属性，但是产生的结果与未使用时一致，如各位了解该如何使用上述属性或有兴趣技术沟通，可直接与我联系</code></em></p>
 
                 
             </div>
@@ -1339,7 +1339,7 @@ a()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.6k</span>
+                        class="white-color">24.2k</span>
             
             
             

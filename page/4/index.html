@@ -346,90 +346,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/09/26/git-ji-ben-ming-ling/">
+                    <a href="/2022/10/12/xiao-cheng-xu-guo-lu-qi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git基本命令">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="小程序过滤器">
                             
-                            <span class="card-title">git基本命令</span>
+                            <span class="card-title">小程序过滤器</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、查看项目远程仓库地址// 第一种方式
-git remote -v
-
-// 第二种方式
-git remote get-url origin
-
-// 第三种方式
-直接在该项目.git目录下config文件内查看
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
-                                    实战
-                                </a>
-                                
-                                <a href="/categories/%E5%AE%9E%E6%88%98/git/" class="post-category">
-                                    git
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/git/">
-                            <span class="chip bg-color">git</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
-                            <span class="chip bg-color">基本命令</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/12/bian-ji-qi-zheng-ze-biao-da-shi-sou-suo/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="编辑器正则表达式搜索">
-                            
-                            <span class="card-title">编辑器正则表达式搜索</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、 js单行替换//[\s\S]*?\n
-
-// 使用 //(?!._.._.).*\n 可以避免将网址等也替换掉
-
-2、 js多行替换/\*(.|\r\n|\n)*?\*/
-3、html无换行注释&lt;!--(.*?)--&gt;
-4
+                                1、创建 wxs 文件// indexOf.wxs
+function indexOf11(a, b) &#123;
+  if (a.indexOf(b) >= 0) &#123;
+    return true;
+  &#125; else
                             
                         </div>
                         <div class="publish-info">
@@ -440,8 +374,8 @@ git remote get-url origin
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/" class="post-category">
-                                    编辑器
+                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    小程序
                                 </a>
                                 
                                 
@@ -452,12 +386,12 @@ git remote get-url origin
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
-                            <span class="chip bg-color">基本命令</span>
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
                         </a>
                         
-                        <a href="/tags/%E6%AD%A3%E5%88%99/">
-                            <span class="chip bg-color">正则</span>
+                        <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                            <span class="chip bg-color">过滤器</span>
                         </a>
                         
                     </div>
@@ -469,27 +403,29 @@ git remote get-url origin
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/09/28/base64-zhuan-wen-jian/">
+                    <a href="/2022/10/11/vue-da-bao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="base64转文件">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue打包">
                             
-                            <span class="card-title">base64转文件</span>
+                            <span class="card-title">vue打包</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                export function dataURLtoFile(dataurl, filename) &#123;
-  let arr = dataurl.split(","),
-    mime = arr[0].match(/:(.*?);
+                                1、生产环境的项目，我们隐藏 log 信息
+引入 babel-plugin-transform-remove-console 插件vue 项目内创建 babel.config.js 文件
+
+// babel.config.js
+const 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
                             </span>
                             <span class="publish-author">
                                 
@@ -499,6 +435,10 @@ git remote get-url origin
                                     实战
                                 </a>
                                 
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
+                                </a>
+                                
                                 
                             </span>
                         </div>
@@ -507,8 +447,12 @@ git remote get-url origin
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/base64/">
-                            <span class="chip bg-color">base64</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%93%E5%8C%85/">
+                            <span class="chip bg-color">打包</span>
                         </a>
                         
                     </div>
@@ -520,28 +464,28 @@ git remote get-url origin
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/09/08/jie-xi-url/">
+                    <a href="/2022/08/31/microapp-chu-tan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="解析URL">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="microApp初探">
                             
-                            <span class="card-title">解析URL</span>
+                            <span class="card-title">microApp初探</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在日常研发过程中，我们通常会根据URL地址以及参数进行业务判断，所以做了一下封装，方便使用
-// 解析URL
-export function analysisURL() &#123;
-  let url = window.location.
+                                本项目采用microApp进行前端微服务的搭建，父应用采用的是vue3，子应用有2个，分别为vue2和vue3
+项目代码地址：https://github.com/hanshuang-ai/testMicroApp
+
+1、创建父应用2、创建
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
                             </span>
                             <span class="publish-author">
                                 
@@ -551,6 +495,10 @@ export function analysisURL() &#123;
                                     实战
                                 </a>
                                 
+                                <a href="/categories/%E5%AE%9E%E6%88%98/%E5%BE%AE%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    微前端
+                                </a>
+                                
                                 
                             </span>
                         </div>
@@ -559,8 +507,12 @@ export function analysisURL() &#123;
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%AE%9E%E6%88%98/">
-                            <span class="chip bg-color">实战</span>
+                        <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
+                            <span class="chip bg-color">微前端</span>
+                        </a>
+                        
+                        <a href="/tags/microApp/">
+                            <span class="chip bg-color">microApp</span>
                         </a>
                         
                     </div>
@@ -572,32 +524,40 @@ export function analysisURL() &#123;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/10/14/canvas-hui-tu/">
+                    <a href="/2022/08/30/vue2-he-3-yu-vue-router-de-da-pei/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="canvas绘图">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue2和3与vue-router的搭配">
                             
-                            <span class="card-title">canvas绘图</span>
+                            <span class="card-title">vue2和3与vue-router的搭配</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                canvas点连线生成图片canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点其余点使用lineTo进行连接，当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作注意：如果需要绘制的图形铺满整个画布，
+                                1、vue21.1 安装vur-router由于最新版本暴露的变量名发生了改变，建议安装3.x版本
+npm install vue-router@3
+
+1.2 在App.vue文件下添加router-view&lt;template>
+  
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    可视化
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
                                 </a>
                                 
                                 
@@ -608,8 +568,12 @@ export function analysisURL() &#123;
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/canvas/">
-                            <span class="chip bg-color">canvas</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/vue-router/">
+                            <span class="chip bg-color">vue-router</span>
                         </a>
                         
                     </div>
@@ -621,33 +585,40 @@ export function analysisURL() &#123;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/12/html-ji-chu/">
+                    <a href="/2022/10/11/vue-huan-jing-pei-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="HTML基础">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue环境配置">
                             
-                            <span class="card-title">HTML基础</span>
+                            <span class="card-title">vue环境配置</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、浏览器基础1、从输入 url 到页面显示经历的过程
-1、浏览器接收 url，开启线程对 URL 使用的协议进行判断2、分析加载 URL3、DNS 解析、获取 IP、连同浏览器信息进行 get 请求（对 IP 发起）4、http 会话、发
+                                
+根据项目需求创建.env.XXX 环境文件文件内使用package.json 文件 javascript 配置运行
+
+本文使用开发、测试、生产3种环境
+1、根据项目需求创建.env.XXX 环境文件根据VUE_APP_CURRENTMOD
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    基础
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
                                 </a>
                                 
                                 
@@ -658,8 +629,70 @@ export function analysisURL() &#123;
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/HTML%E5%9F%BA%E7%A1%80/">
-                            <span class="chip bg-color">HTML基础</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/11/vue-guo-lu-qi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue过滤器">
+                            
+                            <span class="card-title">vue过滤器</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、全局过滤器
+单起一个 js 文件，编写函数main.js 内进行配置组件内使用
+
+// filter.js
+let random30 = (number) => &#123;
+  if (parseInt(number) &lt; 30
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                            <span class="chip bg-color">过滤器</span>
                         </a>
                         
                     </div>
@@ -717,7 +750,7 @@ export function analysisURL() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.6k</span>
+                        class="white-color">24.2k</span>
             
             
             
