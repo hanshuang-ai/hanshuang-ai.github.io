@@ -7,10 +7,13 @@
     <meta name="keywords" content="编辑器正则表达式搜索, MyBlog">
     <meta name="description" content="1、 js单行替换//[\s\S]*?\n
 
+
 // 使用 //(?!._.._.).*\n 可以避免将网址等也替换掉
 
 2、 js多行替换/\*(.|\r\n|\n)*?\*/
-3、html无换行注释&amp;lt;!--(.*?)--&amp;gt;
+
+3、html无换行注释&amp;lt;!--(.*?)--&gt;
+
 4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -450,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-12
+                    2022-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    90
+                    88
                 </div>
                 
 
@@ -492,17 +495,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、-js单行替换"><a href="#1、-js单行替换" class="headerlink" title="1、 js单行替换"></a>1、 js单行替换</h2><p><code>//[\s\S]*?\n</code></p>
+                <h2 id="1、-js单行替换"><a href="#1、-js单行替换" class="headerlink" title="1、 js单行替换"></a>1、 js单行替换</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//[\s\S]*?\n</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <blockquote>
 <p>// 使用 //(?!._.._.).*\n 可以避免将网址等也替换掉</p>
 </blockquote>
-<h2 id="2、-js多行替换"><a href="#2、-js多行替换" class="headerlink" title="2、 js多行替换"></a>2、 js多行替换</h2><p><code>/\*(.|\r\n|\n)*?\*/</code></p>
-<h2 id="3、html无换行注释"><a href="#3、html无换行注释" class="headerlink" title="3、html无换行注释"></a>3、html无换行注释</h2><p><code>&lt;!--(.*?)--&gt;</code></p>
-<h2 id="4、-html有换行注释"><a href="#4、-html有换行注释" class="headerlink" title="4、 html有换行注释"></a>4、 html有换行注释</h2><p><code>&lt;!--([\s\S|\r]*?)--&gt;</code></p>
+<h2 id="2、-js多行替换"><a href="#2、-js多行替换" class="headerlink" title="2、 js多行替换"></a>2、 js多行替换</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\*(.|\r\n|\n)*?\*</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3、html无换行注释"><a href="#3、html无换行注释" class="headerlink" title="3、html无换行注释"></a>3、html无换行注释</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--(.*?)--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="4、-html有换行注释"><a href="#4、-html有换行注释" class="headerlink" title="4、 html有换行注释"></a>4、 html有换行注释</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--([\s\S|\r]*?)--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <!--([\s\S|\r]*?)--> 也可以匹配到html无换行注释，所以只用这一个也可以
 </blockquote>
-<h2 id="5、编辑器内所有空行"><a href="#5、编辑器内所有空行" class="headerlink" title="5、编辑器内所有空行"></a>5、编辑器内所有空行</h2><p><code>^\s*(?=\r?$)\n</code></p>
+<h2 id="5、编辑器内所有空行"><a href="#5、编辑器内所有空行" class="headerlink" title="5、编辑器内所有空行"></a>5、编辑器内所有空行</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">^</span>\s<span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">?</span><span class="token operator">=</span>\r<span class="token operator">?</span>$<span class="token punctuation">)</span>\n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1024,7 +1031,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.2k</span>
+                        class="white-color">25k</span>
             
             
             
