@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>算法</title>
+      <link href="/2022/12/27/suan-fa/"/>
+      <url>/2022/12/27/suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、js-树逆向查找"><a href="#1、js-树逆向查找" class="headerlink" title="1、js 树逆向查找"></a>1、js 树逆向查找</h2><p><code>利用递归，当最后找到当前节点后再一层层返回上来拿到整棵树从当前节点到根节点的id</code></p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">findParentArr</span><span class="token punctuation">(</span><span class="token parameter">targetId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token keyword">const</span> ids <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token keyword">function</span> <span class="token function">getParent</span><span class="token punctuation">(</span><span class="token parameter">sources</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>sources<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>      <span class="token keyword">return</span> sources<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elm</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>        <span class="token keyword">let</span> rs <span class="token operator">=</span> <span class="token function">getParent</span><span class="token punctuation">(</span>elm<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>rs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>          ids<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>elm<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">&#125;</span>        <span class="token keyword">return</span> rs<span class="token punctuation">;</span>      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>sources<span class="token punctuation">.</span>id <span class="token operator">===</span> targetId<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>sources<span class="token punctuation">.</span>childFunctionList<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>      <span class="token keyword">return</span> <span class="token function">getParent</span><span class="token punctuation">(</span>sources<span class="token punctuation">.</span>childFunctionList<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>  <span class="token punctuation">&#125;</span>  <span class="token function">getParent</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">return</span> ids<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实战 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实战 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信小程序云开发</title>
       <link href="/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/"/>
       <url>/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/</url>
