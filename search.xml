@@ -874,7 +874,7 @@
       <link href="/2022/04/23/shu-ru-url-dao-ye-mian-xian-shi-jing-li-de-shi/"/>
       <url>/2022/04/23/shu-ru-url-dao-ye-mian-xian-shi-jing-li-de-shi/</url>
       
-        <content type="html"><![CDATA[<blockquote><ol><li>开启线程处理请求，分析url，根据协议处理</li><li>调用引擎对应的方法（例如：lodUrl），分析并加载url地址</li><li>通过DNS解析获取对应的ip地址，查询后连同cookie、userAgent等信息向ip发出get请求</li><li>进行http会话，浏览器发送报文到服务器</li><li>服务器处理请求</li><li>服务器进入应用程序，找到相应逻辑进行处理（读取缓存或者查询数据等）</li><li>服务器返回报文（如果有缓存返回304，否则查询返回200或404）</li><li>浏览器开始处理（200时下载文档，304时下载文档）</li><li>浏览器解析dom，同时设置缓存</li><li>渲染dom</li></ol></blockquote><p><img src="1.png" alt="输入url到页面显示经历的事"></p>]]></content>
+        <content type="html"><![CDATA[<blockquote><ol><li>开启线程处理请求，分析url，根据协议处理</li><li>调用引擎对应的方法（例如：loadUrl），分析并加载url地址</li><li>通过DNS解析获取对应的ip地址，查询后连同cookie、userAgent等信息向ip发出get请求</li><li>进行http会话，浏览器发送报文到服务器</li><li>服务器处理请求</li><li>服务器进入应用程序，找到相应逻辑进行处理（读取缓存或者查询数据等）</li><li>服务器返回报文（如果有缓存返回304，否则查询返回200或404）</li><li>浏览器开始处理（200或304）</li><li>浏览器解析dom，同时设置缓存</li><li>渲染dom</li></ol></blockquote><p><img src="1.png" alt="输入url到页面显示经历的事"></p>]]></content>
       
       
       
