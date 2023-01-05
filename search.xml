@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>命令行</title>
+      <link href="/2023/01/05/ming-ling-xing/"/>
+      <url>/2023/01/05/ming-ling-xing/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、windows命令行"><a href="#1、windows命令行" class="headerlink" title="1、windows命令行"></a>1、windows命令行</h2><h3 id="1-1-打开文件或文件夹"><a href="#1-1-打开文件或文件夹" class="headerlink" title="1.1 打开文件或文件夹"></a>1.1 打开文件或文件夹</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//在当前目录下打开本目录下的BLOG</span><span class="token constant">C</span><span class="token operator">:</span>\Users\<span class="token constant">WTCL</span>\Desktop\博客<span class="token operator">></span> start <span class="token constant">BLOG</span><span class="token comment">//打开指定目录 不区分大小写</span>start <span class="token constant">C</span><span class="token operator">:</span>\Users\<span class="token constant">WTCL</span>\Desktop\博客\blogstart <span class="token constant">C</span><span class="token operator">:</span>\Users\<span class="token constant">WTCL</span>\Desktop\博客\<span class="token constant">BLOG</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 命令行 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文件管理</title>
       <link href="/2022/12/28/wen-jian-guan-li/"/>
       <url>/2022/12/28/wen-jian-guan-li/</url>
