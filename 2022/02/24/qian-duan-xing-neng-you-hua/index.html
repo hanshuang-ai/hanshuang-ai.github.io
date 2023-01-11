@@ -449,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-24
+                    2022-10-25
                 </div>
                 
 
@@ -567,10 +567,10 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 </ul>
 <p>图片懒加载在一些图片密集型的网站中运用比较多，通过图片懒加载可以让一些不可视的图片不去加载，避免一次性加载过多的图片导致请求阻塞（浏览器一般对同一域名下的并发请求的连接数有限制），这样就可以提高网站的加载速度，提高用户体验。</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><code>将页面中的 img 标签 src 指向一张小图片或者 src 为空，然后定义 data-src（这个属性可以自定义命名，我才用 data-src）属性指向真实的图片。src 指向一张默认的图片，否则当 src 为空时也会向服务器发送一次请求。可以指向 loading 的地址。注意，图片要指定宽高。</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>666.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>666.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>当载入页面时，先把可视区域内的 img 标签的 data-src 属性值负给 src，然后监听滚动事件，把用户即将看到的图片加载。这样便实现了懒加载。<br>实例</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
@@ -625,7 +625,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 <li>大量减少内存占用，减少事件注册。</li>
 <li>新增元素实现动态绑定事件<br>例如有一个列表需要绑定点击事件，每一个列表项的点击都需要返回不同的结果。<br>传统写法：</li>
 </ol>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>red<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>yellow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>blue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
@@ -648,7 +648,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>传统方法会利用 for 循环遍历列表为每一个列表元素绑定点击事件，当列表中元素数量非常庞大时，需要绑定大量的点击事件，这种方式就会产生性能问题。这种情况下利用事件委托就能很好的解决这个问题。<br>改用事件委托：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>red<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>yellow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>blue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
@@ -720,18 +720,18 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
 <h3 id="利用-Object-freeze-提升性能"><a href="#利用-Object-freeze-提升性能" class="headerlink" title="利用 Object.freeze()提升性能"></a>利用 Object.freeze()提升性能</h3><p>Object.freeze() 可以冻结一个对象，冻结之后不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。<br>当你把一个普通的 JavaScript 对象传给 Vue 实例的 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter，这些<br>getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 追踪依赖，在属性被访问和修改时通知变化。<br>但 Vue 在遇到像 Object.freeze() 这样被设置为不可配置之后的对象属性时，不会为对象加上 setter getter 等数据劫持的方法。 参考 Vue 源码<br>由于 Object.freeze() 会把对象冻结，所以比较适合展示类的场景，如果你的数据属性需要改变，可以重新替换成一个新的 Object.freeze()的对象。</p>
 <h3 id="扁平化-Store-数据结构"><a href="#扁平化-Store-数据结构" class="headerlink" title="扁平化 Store 数据结构"></a>扁平化 Store 数据结构</h3><p>很多时候，我们会发现接口返回的信息是如下的深层嵌套的树形结构：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
-<span class="token string-property property">"id"</span><span class="token operator">:</span> <span class="token string">"123"</span>，
-<span class="token string-property property">"author"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token string-property property">"id"</span><span class="token operator">:</span> <span class="token string">"1"</span>，
-<span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"Paul"</span>
+<span class="token string">"id"</span><span class="token operator">:</span> <span class="token string">"123"</span>，
+<span class="token string">"author"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<span class="token string">"id"</span><span class="token operator">:</span> <span class="token string">"1"</span>，
+<span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Paul"</span>
 <span class="token punctuation">&#125;</span>，
-<span class="token string-property property">"title"</span><span class="token operator">:</span> <span class="token string">"My awesome blog post"</span>，
-<span class="token string-property property">"comments"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+<span class="token string">"title"</span><span class="token operator">:</span> <span class="token string">"My awesome blog post"</span>，
+<span class="token string">"comments"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
 <span class="token punctuation">&#123;</span>
-<span class="token string-property property">"id"</span><span class="token operator">:</span> <span class="token string">"324"</span>，
-<span class="token string-property property">"commenter"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-<span class="token string-property property">"id"</span><span class="token operator">:</span> <span class="token string">"2"</span>，
-<span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"Nicole"</span>
+<span class="token string">"id"</span><span class="token operator">:</span> <span class="token string">"324"</span>，
+<span class="token string">"commenter"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<span class="token string">"id"</span><span class="token operator">:</span> <span class="token string">"2"</span>，
+<span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Nicole"</span>
 <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token punctuation">]</span>

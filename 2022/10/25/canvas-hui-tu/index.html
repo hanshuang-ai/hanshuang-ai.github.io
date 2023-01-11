@@ -433,14 +433,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-14
+                    2022-10-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-24
+                    2022-10-25
                 </div>
                 
 
@@ -616,44 +616,44 @@ function drawChina() &#123;
 <h2 id="2、canvas颜色的填充"><a href="#2、canvas颜色的填充" class="headerlink" title="2、canvas颜色的填充"></a>2、canvas颜色的填充</h2><p>canvas在绘制等值线（或者说是闭合区域的时候）往往需要在区域内填色，根据<br>globalCompositeOperation的不同属性值，会得到不同的结果，具体需要填色的情况<br>选择不同的属性值<br><code>在有要求的情况下，可以根据闭合区域不同的高度值（假如是等高线）进行不同的填色</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">drawOther</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> colors <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">zuigaowen</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F3BF48"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FFAF41"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F98E20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FF760A"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#EC5418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#EE0D20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#C70321"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    zuigaowen<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F3BF48"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#FFAF41"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F98E20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#FF760A"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#EC5418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">35</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#EE0D20"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">45</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#C70321"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">dibiaowendushikuang</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#A7DC32"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F0C828"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F09D29"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F06429"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#DF3418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#C20D0D"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#890323"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    dibiaowendushikuang<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#A7DC32"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F0C828"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F09D29"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F06429"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#DF3418"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#C20D0D"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">70</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#890323"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">bianwen</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#66A6FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#80CFFF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#9AF9FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FFFB87"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#FCDF76"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#F8BE5C"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    bianwen<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#66A6FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#80CFFF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#9AF9FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#FFFB87"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#FCDF76"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#F8BE5C"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">jiangshui</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    jiangshui<span class="token operator">:</span> <span class="token punctuation">[</span>
       <span class="token comment">// &#123; Value_Min: -10, Value_Max: 0.1, color: "rgba(0,0,0,0)" &#125;,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"rgba(0,0,0,0)"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#7DF0FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#0E3FD9"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span> <span class="token literal-property property">Value_Min</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">Value_Max</span><span class="token operator">:</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"#072586"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"rgba(0,0,0,0)"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#7DF0FF"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#0E3FD9"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> Value_Min<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> Value_Max<span class="token operator">:</span> <span class="token number">75</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">"#072586"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">fourteen</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">zhongshu</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">zs3</span><span class="token operator">:</span> <span class="token string">"#EB9700"</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">zs4</span><span class="token operator">:</span> <span class="token string">"#DC521E"</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">zs5</span><span class="token operator">:</span> <span class="token string">"#B00808"</span><span class="token punctuation">,</span>
+    fourteen<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      zhongshu<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        zs3<span class="token operator">:</span> <span class="token string">"#EB9700"</span><span class="token punctuation">,</span>
+        zs4<span class="token operator">:</span> <span class="token string">"#DC521E"</span><span class="token punctuation">,</span>
+        zs5<span class="token operator">:</span> <span class="token string">"#B00808"</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -840,7 +840,7 @@ function drawChina() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2022/10/14/canvas-hui-tu/">https://hanshuang-ai.github.io/2022/10/14/canvas-hui-tu/</a>
+                    <a href="https://hanshuang-ai.github.io/2022/10/25/canvas-hui-tu/">https://hanshuang-ai.github.io/2022/10/25/canvas-hui-tu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1052,13 +1052,13 @@ function drawChina() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/14/cesium-hui-zhi-wei-xing-yun-tu/">
+                <a href="/2022/10/25/tcp-san-ci-wo-shou-he-si-ci-hui-shou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="cesium绘制卫星云图">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="tcp三次握手和四次挥手">
                         
-                        <span class="card-title">cesium绘制卫星云图</span>
+                        <span class="card-title">tcp三次握手和四次挥手</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1069,35 +1069,15 @@ function drawChina() &#123;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/gis/" class="post-category">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    可视化
-                                </a>
-                            
-                            <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/3d/" class="post-category">
-                                    3d
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/cesium/">
-                        <span class="chip bg-color">cesium</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1109,13 +1089,13 @@ function drawChina() &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/14/js-wang-ye-da-yin/">
+                <a href="/2022/10/25/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="js网页打印">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="node canvas生成图片并保存">
                         
-                        <span class="card-title">js网页打印</span>
+                        <span class="card-title">node canvas生成图片并保存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1126,18 +1106,14 @@ function drawChina() &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
-                                </a>
-                            
-                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
-                                    代码片段
+                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    框架
                                 </a>
                             
                             
@@ -1147,12 +1123,12 @@ function drawChina() &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">开发</span>
+                    <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                        <span class="chip bg-color">可视化</span>
                     </a>
                     
-                    <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-                        <span class="chip bg-color">代码片段</span>
+                    <a href="/tags/node/">
+                        <span class="chip bg-color">node</span>
                     </a>
                     
                 </div>
