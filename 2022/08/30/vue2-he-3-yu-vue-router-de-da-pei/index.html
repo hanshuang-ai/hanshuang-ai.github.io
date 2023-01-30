@@ -509,22 +509,22 @@ npm install vue-router@3
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
-        path<span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
-        name<span class="token operator">:</span> <span class="token string">"Index"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Index"</span><span class="token punctuation">,</span>
         <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-            title<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-            content<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                keywords<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
-                description<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">meta</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token literal-property property">keywords</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
             <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-             requireAuth<span class="token operator">:</span> <span class="token boolean">true</span>
+             <span class="token literal-property property">requireAuth</span><span class="token operator">:</span> <span class="token boolean">true</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">]</span>
 
 <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    mode<span class="token operator">:</span> <span class="token string">"history"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">"history"</span><span class="token punctuation">,</span>
     routes
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 
@@ -546,11 +546,11 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <h3 id="2-3-在src目录下创建router文件夹，并在该文件夹下创建index-js"><a href="#2-3-在src目录下创建router文件夹，并在该文件夹下创建index-js" class="headerlink" title="2.3 在src目录下创建router文件夹，并在该文件夹下创建index.js"></a>2.3 在src目录下创建router文件夹，并在该文件夹下创建index.js</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>createRouter<span class="token punctuation">,</span> createWebHashHistory<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue-router/dist/vue-router"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span>path<span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span> name<span class="token operator">:</span><span class="token string">"Index"</span><span class="token punctuation">,</span> <span class="token function-variable function">component</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Index'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#123;</span><span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"Index"</span><span class="token punctuation">,</span> <span class="token function-variable function">component</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Index'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
 <span class="token punctuation">]</span>
 
 <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    history<span class="token operator">:</span> <span class="token function">createWebHashHistory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">history</span><span class="token operator">:</span> <span class="token function">createWebHashHistory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     routes
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 
@@ -1081,7 +1081,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.8k</span>
+                        class="white-color">26.6k</span>
             
             
             

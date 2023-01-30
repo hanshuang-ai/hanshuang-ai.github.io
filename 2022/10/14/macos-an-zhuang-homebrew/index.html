@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="cesium绘制卫星云图, MyBlog">
-    <meta name="description" content="步骤加载卫星云图（同样使用polygon来加载）设置好图片要显示的范围添加polygon卫星云图动图准备多张卫星云图图使用CallbackProperty动态material赋值定时器轮流改变i值如果卫星云图颜色过深，遮盖住了地球表面，可以">
+    <meta name="keywords" content="macOS安装homebrew, MyBlog">
+    <meta name="description" content="Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
+官方安装方式(https://brew.sh">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>cesium绘制卫星云图 | MyBlog</title>
+    <title>macOS安装homebrew | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -287,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">cesium绘制卫星云图</h1>
+                    <h1 class="description center-align post-title">macOS安装homebrew</h1>
                 </div>
             </div>
         </div>
@@ -408,31 +409,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/cesium/">
-                                <span class="chip bg-color">cesium</span>
+                            <a href="/tags/macOS/">
+                                <span class="chip bg-color">macOS</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/gis/" class="post-category">
-                                gis
-                            </a>
-                        
-                            <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                可视化
-                            </a>
-                        
-                            <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/3d/" class="post-category">
-                                3d
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -441,28 +425,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-21
+                    2022-10-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-21
+                    2022-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    432
+                    220
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -490,95 +474,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="加载卫星云图（同样使用polygon来加载）"><a href="#加载卫星云图（同样使用polygon来加载）" class="headerlink" title="加载卫星云图（同样使用polygon来加载）"></a>加载卫星云图（同样使用polygon来加载）</h2><h3 id="设置好图片要显示的范围"><a href="#设置好图片要显示的范围" class="headerlink" title="设置好图片要显示的范围"></a>设置好图片要显示的范围</h3><h3 id="添加polygon"><a href="#添加polygon" class="headerlink" title="添加polygon"></a>添加polygon</h3><h2 id="卫星云图动图"><a href="#卫星云图动图" class="headerlink" title="卫星云图动图"></a>卫星云图动图</h2><h3 id="准备多张卫星云图图"><a href="#准备多张卫星云图图" class="headerlink" title="准备多张卫星云图图"></a>准备多张卫星云图图</h3><h3 id="使用CallbackProperty动态material赋值"><a href="#使用CallbackProperty动态material赋值" class="headerlink" title="使用CallbackProperty动态material赋值"></a>使用CallbackProperty动态material赋值</h3><h3 id="定时器轮流改变i值"><a href="#定时器轮流改变i值" class="headerlink" title="定时器轮流改变i值"></a>定时器轮流改变i值</h3><p><em><code>如果卫星云图颜色过深，遮盖住了地球表面，可以在material里面设置一个透明度</code></em></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">color<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Color<span class="token punctuation">.</span><span class="token constant">WHITE</span><span class="token punctuation">.</span><span class="token function">withAlpha</span><span class="token punctuation">(</span><span class="token number">0.6</span><span class="token punctuation">)</span> <span class="token comment">// 这里的颜色不会对图片材质造成影像</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p>
+<h2 id="官方安装方式-https-brew-sh-index-zh-cn"><a href="#官方安装方式-https-brew-sh-index-zh-cn" class="headerlink" title="官方安装方式(https://brew.sh/index_zh-cn)"></a>官方安装方式(<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">https://brew.sh/index_zh-cn</a>)</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<p><code>官方安装方法在国内很多时候都是无法直接安装问题的，因为网络问题，解决方法也有很多，这里就不一一介绍了，这里就介绍最简单的方法</code></p>
+<h2 id="国内快速安装"><a href="#国内快速安装" class="headerlink" title="国内快速安装"></a>国内快速安装</h2><p><code>这里只推荐安装最全的方式，我一般选中科大的源</code></p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;zsh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;gitee.com&#x2F;cunkai&#x2F;HomebrewCN&#x2F;raw&#x2F;master&#x2F;Homebrew.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=Edge,chrome=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span>
-        <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>卫星图<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cesiumjs.org/releases/1.57/Build/Cesium/Cesium.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cesiumjs.org/releases/1.57/Build/Cesium/Widgets/widgets.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-        <span class="token selector">html,
-        body,
-        #cesiumContainer</span> <span class="token punctuation">&#123;</span>
-            <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-            <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-            <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-            <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-            <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-            <span class="token property">background-color</span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cesiumContainer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-
-    	<span class="token comment">// 创建地球底图</span>
-        <span class="token keyword">var</span> viewer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Viewer</span><span class="token punctuation">(</span><span class="token string">'cesiumContainer'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-            imageryProvider<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>UrlTemplateImageryProvider</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-                url<span class="token operator">:</span> <span class="token string">'http://www.google.cn/maps/vt?lyrs=s@716&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;'</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 设置视角</span>
-        viewer<span class="token punctuation">.</span>camera<span class="token punctuation">.</span><span class="token function">setView</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-            destination<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Rectangle<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">89.5</span><span class="token punctuation">,</span> <span class="token number">20.4</span><span class="token punctuation">,</span> <span class="token number">110.4</span><span class="token punctuation">,</span> <span class="token number">61.2</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">var</span> urls <span class="token operator">=</span> <span class="token punctuation">[</span>
-            <span class="token string">"./sate/SATE_L1_F2G_VISSR_MWB_NOM_FDI-201906171300.HDF.png"</span><span class="token punctuation">,</span>
-            <span class="token string">"./sate/SATE_L1_F2G_VISSR_MWB_NOM_FDI-201906171400.HDF.png"</span><span class="token punctuation">,</span>
-            <span class="token string">"./sate/SATE_L1_F2G_VISSR_MWB_NOM_FDI-201906171500.HDF.png"</span><span class="token punctuation">,</span>
-            <span class="token string">"./sate/SATE_L1_F2G_VISSR_MWB_NOM_FDI-201906171600.HDF.png"</span><span class="token punctuation">,</span>
-            <span class="token comment">// "./sate/SATE_L1_F2G_VISSR_MWB_NOM_FDI-201906171700.HDF.png"</span>
-        <span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 设置云图范围</span>
-        <span class="token keyword">var</span> positions <span class="token operator">=</span> <span class="token punctuation">[</span>
-            Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">145</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">145</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span>
-        <span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 添加云图</span>
-        <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        viewer<span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-            polygon<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                hierarchy<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>PolygonHierarchy</span><span class="token punctuation">(</span>positions<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                heightReference<span class="token operator">:</span> Cesium<span class="token punctuation">.</span>HeightReference<span class="token punctuation">.</span><span class="token constant">CLAMP_TO_GROUND</span><span class="token punctuation">,</span>
-                material<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>ImageMaterialProperty</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-                    image<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>CallbackProperty</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                        <span class="token keyword">return</span> urls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 云图切换</span>
-        <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> urls<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -604,7 +506,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2022/10/21/cesium-hui-zhi-wei-xing-yun-tu/">https://hanshuang-ai.github.io/2022/10/21/cesium-hui-zhi-wei-xing-yun-tu/</a>
+                    <a href="https://hanshuang-ai.github.io/2022/10/14/macos-an-zhuang-homebrew/">https://hanshuang-ai.github.io/2022/10/14/macos-an-zhuang-homebrew/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,8 +544,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/cesium/">
-                                    <span class="chip bg-color">cesium</span>
+                                <a href="/tags/macOS/">
+                                    <span class="chip bg-color">macOS</span>
                                 </a>
                             
                         </div>
@@ -816,7 +718,60 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/21/live-server-shi-yong/">
+                <a href="/2022/10/14/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="node canvas生成图片并保存">
+                        
+                        <span class="card-title">node canvas生成图片并保存</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    框架
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                        <span class="chip bg-color">可视化</span>
+                    </a>
+                    
+                    <a href="/tags/node/">
+                        <span class="chip bg-color">node</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/14/live-server-shi-yong/">
                     <div class="card-image">
                         
                         
@@ -832,9 +787,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -842,63 +797,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/14/js-wang-ye-da-yin/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="js网页打印">
-                        
-                        <span class="card-title">js网页打印</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
-                                </a>
-                            
-                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
-                                    代码片段
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">开发</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-                        <span class="chip bg-color">代码片段</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1083,7 +981,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.8k</span>
+                        class="white-color">26.6k</span>
             
             
             

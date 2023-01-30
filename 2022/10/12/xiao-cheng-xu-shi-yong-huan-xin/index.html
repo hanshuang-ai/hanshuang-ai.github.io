@@ -510,8 +510,8 @@
     chatRecordList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
     chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>idd <span class="token operator">=</span> <span class="token string">'id'</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      chatRecordList<span class="token operator">:</span> chatRecordList<span class="token punctuation">,</span>
-      toVview<span class="token operator">:</span> <span class="token string">'id'</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id
+      <span class="token literal-property property">chatRecordList</span><span class="token operator">:</span> chatRecordList<span class="token punctuation">,</span>
+      <span class="token literal-property property">toVview</span><span class="token operator">:</span> <span class="token string">'id'</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -520,7 +520,7 @@
 <br>
 <hr>
 
-<h2 id="7、部分代码"><a href="#7、部分代码" class="headerlink" title="7、部分代码"></a>7、部分代码</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>wxs</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../utils/indexOf.wxs<span class="token punctuation">"</span></span> <span class="token attr-name">module</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>str<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<h2 id="7、部分代码"><a href="#7、部分代码" class="headerlink" title="7、部分代码"></a>7、部分代码</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>wxs</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../utils/indexOf.wxs<span class="token punctuation">"</span></span> <span class="token attr-name">module</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>str<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token selector">padding-top:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>top<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>px<span class="token punctuation">;</span><span class="token property">height</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>top<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>px<span class="token punctuation">;</span><span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span>
     <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top<span class="token punctuation">"</span></span>
@@ -582,7 +582,7 @@
               <span class="token attr-name"><span class="token namespace">wx:</span>for-index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>index_<span class="token punctuation">"</span></span>
               <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cccc<span class="token punctuation">"</span></span>
             <span class="token punctuation">></span></span>
-              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name"><span class="token namespace">wx:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123;str.indexOf11(item_,<span class="token punctuation">'</span>./faces/ee_<span class="token punctuation">'</span>)?false:true&#125;&#125;<span class="token punctuation">"</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name"><span class="token namespace">wx:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123;str.indexOf11(item_,'./faces/ee_')?false:true&#125;&#125;<span class="token punctuation">"</span></span>
                 <span class="token punctuation">></span></span>&#123;&#123;item_&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span>
               <span class="token punctuation">></span></span>
               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123;item_&#125;&#125;<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">wx:</span>else</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>emoemoemo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">></span></span>
@@ -623,16 +623,16 @@
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">getApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> WebIM <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"../../utils/WebIM/WebIM"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>WebIM<span class="token punctuation">;</span>
 <span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-  data<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    userInfo<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    chatRecordList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    myemchatId<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    toVview<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    myAvatar<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userAvatarUrl<span class="token punctuation">,</span>
-    navigationBar<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    top<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    top1<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    inputValue<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">userInfo</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">chatRecordList</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">myemchatId</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">toVview</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">myAvatar</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userAvatarUrl<span class="token punctuation">,</span>
+    <span class="token literal-property property">navigationBar</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">top1</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">inputValue</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token comment">//   发送消息，需要注意消息的组合格式</span>
   <span class="token function">PrivateClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -640,27 +640,27 @@
     <span class="token keyword">let</span> value <span class="token operator">=</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>inputValue<span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       wx<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        title<span class="token operator">:</span> <span class="token string">"请输入内容"</span><span class="token punctuation">,</span>
-        icon<span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"请输入内容"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">icon</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">let</span> userInfo <span class="token operator">=</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">;</span>
       <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-        nickName<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>nickName<span class="token punctuation">,</span>
-        userIcon<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>userIcon<span class="token punctuation">,</span>
-        userId<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>userId<span class="token punctuation">,</span>
-        emId<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>emchat<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
+        <span class="token literal-property property">nickName</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>nickName<span class="token punctuation">,</span>
+        <span class="token literal-property property">userIcon</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>userIcon<span class="token punctuation">,</span>
+        <span class="token literal-property property">userId</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>userId<span class="token punctuation">,</span>
+        <span class="token literal-property property">emId</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>userInfoAll<span class="token punctuation">.</span>emchat<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> id <span class="token operator">=</span> WebIM<span class="token punctuation">.</span>conn<span class="token punctuation">.</span><span class="token function">getUniqueId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> msg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebIM<span class="token punctuation">.</span>message</span><span class="token punctuation">(</span><span class="token string">"txt"</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> set_options <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-        msg<span class="token operator">:</span> value<span class="token punctuation">,</span>
-        data<span class="token operator">:</span> value<span class="token punctuation">,</span>
-        to<span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
-        chatType<span class="token operator">:</span> <span class="token string">"singleChat"</span><span class="token punctuation">,</span>
-        ext<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-          userExt<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">msg</span><span class="token operator">:</span> value<span class="token punctuation">,</span>
+        <span class="token literal-property property">data</span><span class="token operator">:</span> value<span class="token punctuation">,</span>
+        <span class="token literal-property property">to</span><span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
+        <span class="token literal-property property">chatType</span><span class="token operator">:</span> <span class="token string">"singleChat"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">ext</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">userExt</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
         <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -669,7 +669,7 @@
       msg<span class="token punctuation">.</span>body<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>userExt <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>body<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>userExt<span class="token punctuation">)</span><span class="token punctuation">;</span>
       that<span class="token punctuation">.</span><span class="token function">updateMessage</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
       that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        inputValue<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">inputValue</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -677,7 +677,7 @@
   <span class="token function">getInputValue</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      inputValue<span class="token operator">:</span> e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+      <span class="token literal-property property">inputValue</span><span class="token operator">:</span> e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token comment">//   更新消息，有最新消息时自动定位到最新消息</span>
@@ -688,15 +688,15 @@
     chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>idd <span class="token operator">=</span>
       <span class="token string">"id"</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token punctuation">;</span>
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      chatRecordList<span class="token operator">:</span> chatRecordList<span class="token punctuation">,</span>
-      toVview<span class="token operator">:</span> <span class="token string">"id"</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+      <span class="token literal-property property">chatRecordList</span><span class="token operator">:</span> chatRecordList<span class="token punctuation">,</span>
+      <span class="token literal-property property">toVview</span><span class="token operator">:</span> <span class="token string">"id"</span> <span class="token operator">+</span> chatRecordList<span class="token punctuation">[</span>chatRecordList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      userInfo<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>userInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
-      myemchatId<span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>emchat<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
+      <span class="token literal-property property">userInfo</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>userInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">myemchatId</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>emchat<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     wx<span class="token punctuation">.</span><span class="token function">getSystemInfo</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
       <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -710,15 +710,15 @@
     <span class="token keyword">const</span> top <span class="token operator">=</span> that<span class="token punctuation">.</span>systemBar<span class="token punctuation">;</span>
     <span class="token keyword">const</span> top1 <span class="token operator">=</span> that<span class="token punctuation">.</span>navigationBar<span class="token punctuation">;</span>
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      top<span class="token operator">:</span> top<span class="token punctuation">,</span>
-      top1<span class="token operator">:</span> top1<span class="token punctuation">,</span>
+      <span class="token literal-property property">top</span><span class="token operator">:</span> top<span class="token punctuation">,</span>
+      <span class="token literal-property property">top1</span><span class="token operator">:</span> top1<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// 获取环信历史消息，需要注意的是历史记录保存时间和数量是和环信套餐有关的</span>
     WebIM<span class="token punctuation">.</span>conn<span class="token punctuation">.</span>mr_cache <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     WebIM<span class="token punctuation">.</span>conn<span class="token punctuation">.</span><span class="token function">fetchHistoryMessages</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      queue<span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
-      isGroup<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-      count<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token comment">//请求最近历史消息数</span>
+      <span class="token literal-property property">queue</span><span class="token operator">:</span> that<span class="token punctuation">.</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">.</span>emId<span class="token punctuation">,</span>
+      <span class="token literal-property property">isGroup</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token comment">//请求最近历史消息数</span>
       <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         res<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
           <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> item<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>userExt <span class="token operator">==</span> <span class="token string">"string"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -726,7 +726,7 @@
           <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-          chatRecordList<span class="token operator">:</span> res<span class="token punctuation">,</span>
+          <span class="token literal-property property">chatRecordList</span><span class="token operator">:</span> res<span class="token punctuation">,</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
       <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -741,42 +741,42 @@
       <span class="token function-variable function">onClosed</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
       <span class="token function-variable function">onTextMessage</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">let</span> eObj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-          <span class="token string">"[):]"</span><span class="token operator">:</span> <span class="token string">"ee_1.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:D]"</span><span class="token operator">:</span> <span class="token string">"ee_2.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[;)]"</span><span class="token operator">:</span> <span class="token string">"ee_3.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:-o]"</span><span class="token operator">:</span> <span class="token string">"ee_4.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:p]"</span><span class="token operator">:</span> <span class="token string">"ee_5.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(H)]"</span><span class="token operator">:</span> <span class="token string">"ee_6.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:@]"</span><span class="token operator">:</span> <span class="token string">"ee_7.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:s]"</span><span class="token operator">:</span> <span class="token string">"ee_8.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:$]"</span><span class="token operator">:</span> <span class="token string">"ee_9.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:(]"</span><span class="token operator">:</span> <span class="token string">"ee_10.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:'(]"</span><span class="token operator">:</span> <span class="token string">"ee_11.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[&lt;o)]"</span><span class="token operator">:</span> <span class="token string">"ee_12.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(a)]"</span><span class="token operator">:</span> <span class="token string">"ee_13.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[8o|]"</span><span class="token operator">:</span> <span class="token string">"ee_14.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[8-|]"</span><span class="token operator">:</span> <span class="token string">"ee_15.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[+o(]"</span><span class="token operator">:</span> <span class="token string">"ee_16.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[|-)]"</span><span class="token operator">:</span> <span class="token string">"ee_17.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:|]"</span><span class="token operator">:</span> <span class="token string">"ee_18.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[*-)]"</span><span class="token operator">:</span> <span class="token string">"ee_19.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:-#]"</span><span class="token operator">:</span> <span class="token string">"ee_20.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[^o)]"</span><span class="token operator">:</span> <span class="token string">"ee_21.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[:-*]"</span><span class="token operator">:</span> <span class="token string">"ee_22.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[8-)]"</span><span class="token operator">:</span> <span class="token string">"ee_23.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[del]"</span><span class="token operator">:</span> <span class="token string">"btn_del.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(|)]"</span><span class="token operator">:</span> <span class="token string">"ee_24.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(u)]"</span><span class="token operator">:</span> <span class="token string">"ee_25.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(S)]"</span><span class="token operator">:</span> <span class="token string">"ee_26.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(*)]"</span><span class="token operator">:</span> <span class="token string">"ee_27.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(#)]"</span><span class="token operator">:</span> <span class="token string">"ee_28.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(R)]"</span><span class="token operator">:</span> <span class="token string">"ee_29.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(&#123;)]"</span><span class="token operator">:</span> <span class="token string">"ee_30.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(&#125;)]"</span><span class="token operator">:</span> <span class="token string">"ee_31.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(k)]"</span><span class="token operator">:</span> <span class="token string">"ee_32.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(F)]"</span><span class="token operator">:</span> <span class="token string">"ee_33.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(W)]"</span><span class="token operator">:</span> <span class="token string">"ee_34.png"</span><span class="token punctuation">,</span>
-          <span class="token string">"[(D)]"</span><span class="token operator">:</span> <span class="token string">"ee_35.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[):]"</span><span class="token operator">:</span> <span class="token string">"ee_1.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:D]"</span><span class="token operator">:</span> <span class="token string">"ee_2.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[;)]"</span><span class="token operator">:</span> <span class="token string">"ee_3.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:-o]"</span><span class="token operator">:</span> <span class="token string">"ee_4.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:p]"</span><span class="token operator">:</span> <span class="token string">"ee_5.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(H)]"</span><span class="token operator">:</span> <span class="token string">"ee_6.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:@]"</span><span class="token operator">:</span> <span class="token string">"ee_7.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:s]"</span><span class="token operator">:</span> <span class="token string">"ee_8.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:$]"</span><span class="token operator">:</span> <span class="token string">"ee_9.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:(]"</span><span class="token operator">:</span> <span class="token string">"ee_10.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:'(]"</span><span class="token operator">:</span> <span class="token string">"ee_11.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[&lt;o)]"</span><span class="token operator">:</span> <span class="token string">"ee_12.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(a)]"</span><span class="token operator">:</span> <span class="token string">"ee_13.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[8o|]"</span><span class="token operator">:</span> <span class="token string">"ee_14.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[8-|]"</span><span class="token operator">:</span> <span class="token string">"ee_15.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[+o(]"</span><span class="token operator">:</span> <span class="token string">"ee_16.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[|-)]"</span><span class="token operator">:</span> <span class="token string">"ee_17.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:|]"</span><span class="token operator">:</span> <span class="token string">"ee_18.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[*-)]"</span><span class="token operator">:</span> <span class="token string">"ee_19.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:-#]"</span><span class="token operator">:</span> <span class="token string">"ee_20.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[^o)]"</span><span class="token operator">:</span> <span class="token string">"ee_21.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[:-*]"</span><span class="token operator">:</span> <span class="token string">"ee_22.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[8-)]"</span><span class="token operator">:</span> <span class="token string">"ee_23.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[del]"</span><span class="token operator">:</span> <span class="token string">"btn_del.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(|)]"</span><span class="token operator">:</span> <span class="token string">"ee_24.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(u)]"</span><span class="token operator">:</span> <span class="token string">"ee_25.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(S)]"</span><span class="token operator">:</span> <span class="token string">"ee_26.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(*)]"</span><span class="token operator">:</span> <span class="token string">"ee_27.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(#)]"</span><span class="token operator">:</span> <span class="token string">"ee_28.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(R)]"</span><span class="token operator">:</span> <span class="token string">"ee_29.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(&#123;)]"</span><span class="token operator">:</span> <span class="token string">"ee_30.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(&#125;)]"</span><span class="token operator">:</span> <span class="token string">"ee_31.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(k)]"</span><span class="token operator">:</span> <span class="token string">"ee_32.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(F)]"</span><span class="token operator">:</span> <span class="token string">"ee_33.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(W)]"</span><span class="token operator">:</span> <span class="token string">"ee_34.png"</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"[(D)]"</span><span class="token operator">:</span> <span class="token string">"ee_35.png"</span><span class="token punctuation">,</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
         message<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>userExt <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>userExt<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">let</span> emojs <span class="token operator">=</span> message<span class="token punctuation">.</span>data<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\[(.+?)\]</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -812,9 +812,9 @@
       <span class="token function-variable function">onVideoMessage</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">var</span> node <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"privateVideo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-          url<span class="token operator">:</span> message<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
-          headers<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-            Accept<span class="token operator">:</span> <span class="token string">"audio/mp4"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">url</span><span class="token operator">:</span> message<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+          <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">Accept</span><span class="token operator">:</span> <span class="token string">"audio/mp4"</span><span class="token punctuation">,</span>
           <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
           <span class="token function-variable function">onFileDownloadComplete</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">var</span> objectURL <span class="token operator">=</span> WebIM<span class="token punctuation">.</span>utils<span class="token punctuation">.</span><span class="token function">parseDownloadResponse</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>
@@ -847,7 +847,7 @@
   <span class="token function">onUnload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
     that<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      chatRecordList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">chatRecordList</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token function">onPullDownRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -1375,7 +1375,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.8k</span>
+                        class="white-color">26.6k</span>
             
             
             

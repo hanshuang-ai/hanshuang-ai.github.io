@@ -346,27 +346,28 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/12/31/wei-xin-pc-sao-ma-zhi-fu/">
+                    <a href="/2022/10/14/js-wang-ye-da-yin/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="微信PC扫码支付">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="js网页打印">
                             
-                            <span class="card-title">微信PC扫码支付</span>
+                            <span class="card-title">js网页打印</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                首先需要准备一个 dom 作为容器，放置 URL 转换的二维码&lt;!--微信支付二维码-->
-&lt;el-dialog :visible.sync="dialogVisible" title="乐哇">
-  &lt;!-- 将URL转
+                                1、打印网页window.print();
+
+2、打印部分页面通过css媒体查询将要打印的页面暴露出来，不需要打印的隐藏起来，同时对暴露出来的部分可以自定义样式
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
                             </span>
                             <span class="publish-author">
                                 
@@ -374,6 +375,10 @@
                                 
                                 <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
                                     日常开发
+                                </a>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
+                                    代码片段
                                 </a>
                                 
                                 
@@ -384,16 +389,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%94%AF%E4%BB%98/">
-                            <span class="chip bg-color">支付</span>
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">开发</span>
                         </a>
                         
-                        <a href="/tags/%E5%BE%AE%E4%BF%A1/">
-                            <span class="chip bg-color">微信</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%AB%E7%A0%81/">
-                            <span class="chip bg-color">扫码</span>
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                            <span class="chip bg-color">代码片段</span>
                         </a>
                         
                     </div>
@@ -405,30 +406,32 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/12/30/wei-xin-gong-zhong-hao-h5-zhi-fu/">
+                    <a href="/2022/03/01/liu-lan-qi-huan-jing-pan-duan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="微信公众号H5支付">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="浏览器环境判断">
                             
-                            <span class="card-title">微信公众号H5支付</span>
+                            <span class="card-title">浏览器环境判断</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                微信商户平台，微信支付开发文档微信公众号登录授权文档微信 JSapi 支付 sdk 链接
-登录授权
-wx.config 在回跳地址时不会输出自己携带的参数，但是确实是传输过去了，可以使用 alert 打印
+                                
+根据浏览器的userAgent进行判断
 
-// 准备好了页面回跳地址
-le
+let isMobil, mobilInfo, isWx;
+
+// 判断是在手机还是电脑
+function isMobile_pc() &#123;
+  let flag = navigator.
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
                             </span>
                             <span class="publish-author">
                                 
@@ -436,6 +439,10 @@ le
                                 
                                 <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
                                     日常开发
+                                </a>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
+                                    代码片段
                                 </a>
                                 
                                 
@@ -446,12 +453,129 @@ le
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%94%AF%E4%BB%98/">
-                            <span class="chip bg-color">支付</span>
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">开发</span>
                         </a>
                         
-                        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/">
-                            <span class="chip bg-color">微信公众号</span>
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                            <span class="chip bg-color">代码片段</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/14/san-fang-deng-lu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="三方登录">
+                            
+                            <span class="card-title">三方登录</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、微信登录function WXLogin() &#123;
+  let url = "需要跳转回的URL";
+  //这里有登录之前的协议阅读限制，项目不同，要求也不一样
+  if (this.check_) &#123;
+    co
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/" class="post-category">
+                                    三方登录
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/">
+                            <span class="chip bg-color">三方登录</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/14/tong-yi-tai-dian-nao-pei-zhi-duo-ge-git-mi-chi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="同一台电脑配置多个git密匙">
+                            
+                            <span class="card-title">同一台电脑配置多个git密匙</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                首先由于需要配置多个git账户，可能是github、gitlab、gitee等等，所以不需要global email和username直接使用随便一个值覆盖即可。
+
+覆盖global email和userName后，需要3步
+1、 生成不同
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/git/" class="post-category">
+                                    git
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/git/">
+                            <span class="chip bg-color">git</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
                         </a>
                         
                     </div>
@@ -521,82 +645,32 @@ le
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/24/xiao-cheng-xu-de-bu-tong-ye-mian-jian-chuan-zhi/">
+                    <a href="/2022/09/16/leetcode-zhuan-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="小程序的不同页面间传值">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="leetcode专题">
                             
-                            <span class="card-title">小程序的不同页面间传值</span>
+                            <span class="card-title">leetcode专题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
+                                记录一些自己在leetcode上的解题方法
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/12/xiao-cheng-xu-shi-yong-svga/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="小程序使用svga">
-                            
-                            <span class="card-title">小程序使用svga</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-安装代码包代码内引入使用预备 canvas 画布开始播放
-
-1、安装代码包资源包
-2、代码内引入const &#123; Parser, Player &#125; = require("./js/svgaplayer.weapp.js"
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-16
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    小程序
+                                <a href="/categories/leetcode/" class="post-category">
+                                    leetcode
                                 </a>
                                 
                                 
@@ -607,72 +681,8 @@ le
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%8A%A8%E6%95%88/">
-                            <span class="chip bg-color">动效</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/14/tong-yi-tai-dian-nao-pei-zhi-duo-ge-git-mi-chi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="同一台电脑配置多个git密匙">
-                            
-                            <span class="card-title">同一台电脑配置多个git密匙</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                首先由于需要配置多个git账户，可能是github、gitlab、gitee等等，所以不需要global email和username直接使用随便一个值覆盖即可。
-
-覆盖global email和userName后，需要3步
-1、 生成不同
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
-                                    实战
-                                </a>
-                                
-                                <a href="/categories/%E5%AE%9E%E6%88%98/git/" class="post-category">
-                                    git
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/git/">
-                            <span class="chip bg-color">git</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%AE%9E%E6%88%98/">
-                            <span class="chip bg-color">实战</span>
+                        <a href="/tags/leetcode/">
+                            <span class="chip bg-color">leetcode</span>
                         </a>
                         
                     </div>
@@ -698,7 +708,7 @@ le
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 9</div>
+            <div class="center-align b-text-gray">4 / 10</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -730,7 +740,7 @@ le
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.8k</span>
+                        class="white-color">26.6k</span>
             
             
             
