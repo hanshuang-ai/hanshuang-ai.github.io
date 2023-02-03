@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>vue打包优化</title>
+      <link href="/2023/02/03/vue-da-bao-you-hua/"/>
+      <url>/2023/02/03/vue-da-bao-you-hua/</url>
+      
+        <content type="html"><![CDATA[<p><img src="1.png" alt="vue打包优化"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 进阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> 打包 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Http缓存</title>
       <link href="/2023/02/03/http-huan-cun/"/>
       <url>/2023/02/03/http-huan-cun/</url>
