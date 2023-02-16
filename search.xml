@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>electron项目关闭跨域</title>
+      <link href="/2023/02/16/electron-xiang-mu-guan-bi-kua-yu/"/>
+      <url>/2023/02/16/electron-xiang-mu-guan-bi-kua-yu/</url>
+      
+        <content type="html"><![CDATA[<p><code>在创建 electron 项目的时候，在 package.json 文件内指定入口文件是 background.js（任何名称都可以，确保引用正确就可以）</code></p><p><img src="1.png" alt="electron项目关闭跨域"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 进阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> electron </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>electron项目vue字体资源加载错误</title>
+      <link href="/2023/02/16/electron-xiang-mu-vue-zi-ti-zi-yuan-jia-zai-cuo-wu/"/>
+      <url>/2023/02/16/electron-xiang-mu-vue-zi-ti-zi-yuan-jia-zai-cuo-wu/</url>
+      
+        <content type="html"><![CDATA[<p><code>electron + Vue 项目运行的时候，一切正常。使用 electronBuilder打包后，Vue的字体资源会加载错误，解决方法如下：</code></p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//vue.config.js</span><span class="token literal-property property">pluginOptions</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>        <span class="token comment">//electronBuilder</span>        <span class="token literal-property property">electronBuilder</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>            <span class="token literal-property property">customFileProtocol</span><span class="token operator">:</span> <span class="token string">"./"</span>        <span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="1.png" alt="electron项目vue字体资源加载错误"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 进阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> electron </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue代理</title>
+      <link href="/2023/02/16/vue-dai-li/"/>
+      <url>/2023/02/16/vue-dai-li/</url>
+      
+        <content type="html"><![CDATA[<p><img src="1.png" alt="vue代理"><br><code>vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;</code></p><h2 id="1-vue-config-js-设置"><a href="#1-vue-config-js-设置" class="headerlink" title="1. vue.config.js 设置"></a>1. vue.config.js 设置</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// vue.config.js</span><span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>        <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>            <span class="token string-property property">"/api"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>                <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">"https://aaa/"</span><span class="token punctuation">,</span>                <span class="token literal-property property">secure</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                <span class="token literal-property property">pathRewrite</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>                    <span class="token string-property property">"^/api"</span><span class="token operator">:</span> <span class="token string">""</span>                <span class="token punctuation">&#125;</span>            <span class="token punctuation">&#125;</span>        <span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="2-页面内调用"><a href="#2-页面内调用" class="headerlink" title="2. 页面内调用"></a>2. 页面内调用</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/api/bbb"</span><span class="token punctuation">,</span> file<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token comment">// axios.post('https://tinypng.com/web/shrink', file, &#123;</span><span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token string-property property">"content-type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token function-variable function">onUploadProgress</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">ee</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token keyword">let</span> progress <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ee<span class="token punctuation">.</span>loaded <span class="token operator">/</span> ee<span class="token punctuation">.</span>total<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>that<span class="token punctuation">.</span>fileList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>item<span class="token punctuation">.</span>uid <span class="token operator">==</span> uid <span class="token operator">?</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>progress <span class="token operator">=</span> progress<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>that<span class="token punctuation">.</span><span class="token function">$forceUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token function-variable function">onDownloadProgress</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>output<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token keyword">let</span> <span class="token punctuation">&#123;</span> url <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>output<span class="token punctuation">;</span><span class="token keyword">let</span> uid <span class="token operator">=</span> res<span class="token punctuation">.</span>config<span class="token punctuation">.</span>data<span class="token punctuation">.</span>uid<span class="token punctuation">;</span><span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">size</span><span class="token operator">:</span> oldSize <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>input<span class="token punctuation">;</span><span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">size</span><span class="token operator">:</span> newSize <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>output<span class="token punctuation">;</span><span class="token comment">// console.log(((oldSize - newSize) / oldSize * 100))</span><span class="token keyword">let</span> radio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oldSize <span class="token operator">-</span> newSize<span class="token punctuation">)</span> <span class="token operator">/</span> oldSize<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>that<span class="token punctuation">.</span>fileList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>item<span class="token punctuation">.</span>uid <span class="token operator">==</span> uid <span class="token operator">?</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>downLink <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">;</span>item<span class="token punctuation">.</span>uid <span class="token operator">==</span> uid <span class="token operator">?</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>radio <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>radio<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>that<span class="token punctuation">.</span><span class="token function">$forceUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>fileList<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>that<span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 进阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> 代理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue打包优化</title>
       <link href="/2023/02/03/vue-da-bao-you-hua/"/>
       <url>/2023/02/03/vue-da-bao-you-hua/</url>
@@ -919,9 +998,9 @@
       
         <tags>
             
-            <tag> 实战 </tag>
-            
             <tag> vue </tag>
+            
+            <tag> 实战 </tag>
             
         </tags>
       
@@ -1010,9 +1089,9 @@
       
         <tags>
             
-            <tag> 自适应 </tag>
-            
             <tag> vue </tag>
+            
+            <tag> 自适应 </tag>
             
         </tags>
       
