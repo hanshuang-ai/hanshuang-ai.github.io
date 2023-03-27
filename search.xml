@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>终端输出乱码问题</title>
+      <link href="/2023/03/27/zhong-duan-shu-chu-luan-ma-wen-ti/"/>
+      <url>/2023/03/27/zhong-duan-shu-chu-luan-ma-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p><img src="11.png" alt="终端输出乱码问题"><br><img src="12.png" alt="终端输出结果"></p><p>终端默认936，如果出现乱码，我们可以通过<code>chcp 65001</code>来修复乱码。</p><p>如果关闭终端后，再次打开又出现乱码，我们可以将这个命令添加在package文件内<br><img src="13.png" alt="package.json"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 实战 </tag>
+            
+            <tag> 终端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端错误监控</title>
       <link href="/2023/03/01/qian-duan-cuo-wu-jian-kong/"/>
       <url>/2023/03/01/qian-duan-cuo-wu-jian-kong/</url>
