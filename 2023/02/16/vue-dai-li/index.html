@@ -5,8 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="vue代理, MyBlog">
-    <meta name="description" content="vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&amp;#39;&amp;#39;
-1. vue">
+    <meta name="description" content="
+vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&amp;#39;&amp;#39;
+1. vu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -445,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-16
+                    2023-06-02
                 </div>
                 
 
@@ -487,7 +488,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="1.png" alt="vue代理"><br><code>vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;</code></p>
+                <img src="/2023/02/16/vue-dai-li/1.png" class="" title="vue代理">
+<p><code>vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;</code></p>
 <h2 id="1-vue-config-js-设置"><a href="#1-vue-config-js-设置" class="headerlink" title="1. vue.config.js 设置"></a>1. vue.config.js 设置</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// vue.config.js</span>
 <span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
         <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
@@ -521,7 +523,7 @@
 			<span class="token keyword">let</span> uid <span class="token operator">=</span> res<span class="token punctuation">.</span>config<span class="token punctuation">.</span>data<span class="token punctuation">.</span>uid<span class="token punctuation">;</span>
 			<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">size</span><span class="token operator">:</span> oldSize <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>input<span class="token punctuation">;</span>
 			<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">size</span><span class="token operator">:</span> newSize <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>output<span class="token punctuation">;</span>
-			<span class="token comment">// console.log(((oldSize - newSize) / oldSize * 100))</span>
+			<span class="token comment">// console.log(((oldSize - newSize) / oldSize * 100)</span>
 			<span class="token keyword">let</span> radio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oldSize <span class="token operator">-</span> newSize<span class="token punctuation">)</span> <span class="token operator">/</span> oldSize<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 			that<span class="token punctuation">.</span>fileList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
 				item<span class="token punctuation">.</span>uid <span class="token operator">==</span> uid <span class="token operator">?</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>downLink <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
@@ -1056,7 +1058,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">31.2k</span>
+                        class="white-color">31.5k</span>
             
             
             

@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Http缓存, MyBlog">
     <meta name="description" content="
+
 1、缓存1.1 为什么需要缓存服务器需要处理 http 的请求，并且 http 去传输数据，需要带宽。而我们缓存，就是为了让服务器不去处理这个请求，客户端也可以拿到数据。
 1.2 什么资源需要缓存
-我们的缓存主要是针对 html,css,">
+我们的缓存主要是针对 html,css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -451,7 +452,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-03
+                    2023-06-02
                 </div>
                 
 
@@ -493,7 +494,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="1.png" alt="http缓存"></p>
+                <img src="/2023/02/03/http-huan-cun/1.png" class="" title="http缓存">
+
 <h2 id="1、缓存"><a href="#1、缓存" class="headerlink" title="1、缓存"></a>1、缓存</h2><h3 id="1-1-为什么需要缓存"><a href="#1-1-为什么需要缓存" class="headerlink" title="1.1 为什么需要缓存"></a>1.1 为什么需要缓存</h3><p>服务器需要处理 http 的请求，并且 http 去传输数据，需要带宽。而我们缓存，就是为了让服务器不去处理这个请求，客户端也可以拿到数据。</p>
 <h3 id="1-2-什么资源需要缓存"><a href="#1-2-什么资源需要缓存" class="headerlink" title="1.2 什么资源需要缓存"></a>1.2 什么资源需要缓存</h3><blockquote>
 <p>我们的缓存主要是针对 html,css,img 等静态资源，常规情况下，我们不会去缓存一些动态资源，因为缓存动态资源的话，数据的实时性就不会不太好，所以我们一般都只会去缓存一些不太容易被改变的静态资源。</p>
@@ -508,7 +510,8 @@
 <ul>
 <li>占内存</li>
 </ul>
-<h2 id="2、Http-缓存"><a href="#2、Http-缓存" class="headerlink" title="2、Http 缓存"></a>2、Http 缓存</h2><p><img src="2.png" alt="Http 缓存流程图"></p>
+<h2 id="2、Http-缓存"><a href="#2、Http-缓存" class="headerlink" title="2、Http 缓存"></a>2、Http 缓存</h2><img src="/2023/02/03/http-huan-cun/2.png" class="" title="Http 缓存流程图">
+
 <h3 id="2-1-强制缓存（简称强缓存）"><a href="#2-1-强制缓存（简称强缓存）" class="headerlink" title="2.1 强制缓存（简称强缓存）"></a>2.1 强制缓存（简称强缓存）</h3><p>从强制缓存的角度出发，判断浏览器请求的目标资源是否有效命中，如果命中，则可以直接从内存（硬盘）中读取目标资源，无需与服务器做任何通讯。</p>
 <h4 id="2-1-1-基于-Expires-字段实现的强缓存"><a href="#2-1-1-基于-Expires-字段实现的强缓存" class="headerlink" title="2.1.1 基于 Expires 字段实现的强缓存"></a>2.1.1 基于 Expires 字段实现的强缓存</h4><p>Expires 可以设置资源的过期时间（本地时间），如果请求在资源有效期内，直接从本地读取，反之，则重新在服务器拉取。</p>
 <p>比如说将某一资源设置响应头为:Expires:new Date(“2022-7-30 23:59:59”)；<br>那么，该资源在 2022-7-30 23:59:59 之前，都会去本地的磁盘（或内存）中读取，不会去服务器请求。</p>
@@ -519,7 +522,8 @@ res<span class="token punctuation">.</span><span class="token function">writeHea
 	<span class="token string-property property">"Cache-Control"</span><span class="token operator">:</span> <span class="token string">"max-age=10"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="3.jpg"></p>
+<img src="/2023/02/03/http-huan-cun/3.jpg" class="">
+
 <ul>
 <li>no-cache 的意思是强制进行协商缓存。如果某一资源的 Cache-control 中设置了 no-cache，那么该资源会直接跳过强缓存的校验，直接去服务器进行协商缓存</li>
 <li>no-store 就是禁止所有的缓存策略<blockquote>
@@ -545,7 +549,8 @@ res<span class="token punctuation">.</span><span class="token function">writeHea
 <li>将读出来的修改时间赋给响应头的 last-modified 字段</li>
 <li>最后设置 Cache-control:no-cache</li>
 </ol>
-<p><img src="5.png" alt="基于 last-modified 的协商缓存"></p>
+<img src="/2023/02/03/http-huan-cun/5.png" class="" title="基于 last-modified 的协商缓存">
+
 <p><code>使用以上方式的协商缓存已经存在两个非常明显的漏洞。这两个漏洞都是基于文件是通过比较修改时间来判断是否更改而产生的。</code><br><code>1.因为是更具文件修改时间来判断的，所以，在文件内容本身不修改的情况下，依然有可能更新文件修改时间（比如修改文件名再改回来），这样，就有可能文件内容明明没有修改，但是缓存依然失效了。</code><br><code>2.当文件在极短时间内完成修改的时候（比如几百毫秒）。因为文件修改时间记录的最小单位是秒，所以，如果文件在几百毫秒内完成修改的话，文件修改时间不会改变，这样，即使文件内容修改了，依然不会 返回新的文件。</code></p>
 <h4 id="2-2-2-基础-ETag-的协商缓存"><a href="#2-2-2-基础-ETag-的协商缓存" class="headerlink" title="2.2.2 基础 ETag 的协商缓存"></a>2.2.2 基础 ETag 的协商缓存</h4><p><code>ETag就是将原先协商缓存的比较时间戳的形式修改成了比较文件指纹</code><br><strong>文件指纹:根据文件内容计算出的唯一哈希值。文件内容一旦改变则指纹改变。</strong></p>
 <ol>
@@ -553,7 +558,8 @@ res<span class="token punctuation">.</span><span class="token function">writeHea
 <li>第二次请求某资源的时候，客户端自动从缓存中读取出上一次服务端返回的 ETag 也就是文件指纹。并赋给请求头的 if-None-Match 字段，让上一次的文件指纹跟随请求一起回到服务端。</li>
 <li>服务端拿到请求头中的 is-None-Match 字段值（也就是上一次的文件指纹），并再次读取目标资源并生成文件指纹，两个指纹做对比。如果两个文件指纹完全吻合，说明文件没有被改变，则直接返回 304 状态码和一个空的响应体并 return。如果两个文件指纹不吻合，则说明文件被更改，那么将新的文件指纹重新存储到响应头的 ETag 中并返回给客户端</li>
 </ol>
-<p><img src="6.png" alt="基于 last-modified 的协商缓存"></p>
+<img src="/2023/02/03/http-huan-cun/6.png" class="" title="基于 last-modified 的协商缓存">
+
 <blockquote>
 <p>从校验流程上来说，协商缓存的修改时间比对和文件指纹比对，几乎是一样的</p>
 </blockquote>
@@ -1078,7 +1084,7 @@ res<span class="token punctuation">.</span><span class="token function">writeHea
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">31.2k</span>
+                        class="white-color">31.5k</span>
             
             
             
