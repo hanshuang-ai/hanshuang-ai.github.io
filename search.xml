@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>微信小程序父组件监听子组件值的变化</title>
+      <link href="/2023/06/02/wei-xin-xiao-cheng-xu-fu-zu-jian-jian-ting-zi-zu-jian-zhi-de-bian-hua/"/>
+      <url>/2023/06/02/wei-xin-xiao-cheng-xu-fu-zu-jian-jian-ting-zi-zu-jian-zhi-de-bian-hua/</url>
+      
+        <content type="html"><![CDATA[<p><code>微信小程序组件间通信可分为 3 种，本文值介绍第 2 种---“事件”</code></p><p><img src="3.png" alt="组件间通信"></p><p>具体可参考<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html">官方文档</a></p><p><img src="2.png" alt="事件通信"></p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 子组件</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">triggerEvent</span><span class="token punctuation">(</span><span class="token string">"showCode"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">isShowCode</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><img src="1.png"></p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 父组件</span><span class="token comment">// 父组件内bind 子组件注册的字符串（showCode），并自定义一个方法，来处理相应逻辑</span><span class="token comment">// 此处是onGetValue</span> <span class="token operator">&lt;</span>vehicle<span class="token operator">-</span>speed isWhole<span class="token operator">=</span><span class="token string">"&#123;&#123;true&#125;&#125;"</span> isLockText<span class="token operator">=</span><span class="token string">"&#123;&#123;false&#125;&#125;"</span> showTextLock<span class="token operator">=</span><span class="token string">"&#123;&#123;false&#125;&#125;"</span> <span class="token literal-property property">bind</span><span class="token operator">:</span>showCode<span class="token operator">=</span><span class="token string">"onGetValue"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>vehicle<span class="token operator">-</span>speed<span class="token operator">></span><span class="token comment">//  父组件js</span><span class="token comment">// 通过触发父组件自定义的方法，进行逻辑处理</span> <span class="token function">onGetValue</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>isShowCode<span class="token punctuation">,</span> <span class="token string">'监听走行限制弹窗关闭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>      <span class="token literal-property property">isShowCode</span><span class="token operator">:</span> e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>isShowCode    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>webstorm设置默认终端</title>
       <link href="/2023/05/29/webstorm-she-zhi-mo-ren-zhong-duan/"/>
       <url>/2023/05/29/webstorm-she-zhi-mo-ren-zhong-duan/</url>
