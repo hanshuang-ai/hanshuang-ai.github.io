@@ -111,17 +111,6 @@ function indexOf11(a, b) &amp;#123;
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -197,17 +186,6 @@ function indexOf11(a, b) &amp;#123;
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -746,10 +724,10 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/zhifubao.png" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/zfb.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/weixin.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wx.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -883,12 +861,12 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
-                        <span class="chip bg-color">基本命令</span>
-                    </a>
-                    
                     <a href="/tags/%E6%AD%A3%E5%88%99/">
                         <span class="chip bg-color">正则</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">基本命令</span>
                     </a>
                     
                 </div>
@@ -901,43 +879,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: MyBlog<br />'
-            + '文章作者: 寒霜<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
