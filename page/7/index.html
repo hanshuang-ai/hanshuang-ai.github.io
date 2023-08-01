@@ -324,85 +324,22 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/02/20/qian-duan-da-bao-xia-zai/">
+                    <a href="/2023/02/16/electron-xiang-mu-guan-bi-kua-yu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="前端打包下载">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="electron项目关闭跨域">
                             
-                            <span class="card-title">前端打包下载</span>
+                            <span class="card-title">electron项目关闭跨域</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                本文代码以图片作为示例，进行文件批量下载
+                                在创建 electron 项目的时候，在 package.json 文件内指定入口文件是 background.js（任何名称都可以，确保引用正确就可以）
 
-安装 axios，FileSaver，JSZip 三个插件初始化 new JSZip获取所有图片链接，并根据链接利用 axios 进行数据获取，blob 格式每条数据获取成功后，利用 zip.fi
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
-                                </a>
-                                
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
-                                    代码片段
-                                </a>
-                                
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E8%BF%9B%E9%98%B6/" class="post-category">
-                                    进阶
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E4%B8%8B%E8%BD%BD/">
-                            <span class="chip bg-color">下载</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD/">
-                            <span class="chip bg-color">打包下载</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/02/16/vue-dai-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue代理">
-                            
-                            <span class="card-title">vue代理</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;
-1. vu
                             
                         </div>
                         <div class="publish-info">
@@ -425,12 +362,8 @@ vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/%E4%BB%A3%E7%90%86/">
-                            <span class="chip bg-color">代理</span>
+                        <a href="/tags/electron/">
+                            <span class="chip bg-color">electron</span>
                         </a>
                         
                     </div>
@@ -442,40 +375,41 @@ vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时�
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/14/feng-zhuang-qing-qiu-he-lan-jie/">
+                    <a href="/2022/10/24/taro-xiao-cheng-xu-nei-shi-yong-rem/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="请求封装">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="taro小程序内使用rem">
                             
-                            <span class="card-title">请求封装</span>
+                            <span class="card-title">taro小程序内使用rem</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                axios1、封装与拦截import axios from "axios";
-import &#123; Message &#125; from "element-ui";
-import router from "@/router";
+                                taro 官网说明taro官网明确表示暂时不支持rem
 
-e
+
+由于项目内使用的 less，所以我们采用 less 变量声明的方式，曲线救国
+// base.less
+//基准的font-size是根据项目确定的，如果是老项目，则需要根据老代码
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%B0%81%E8%A3%85/" class="post-category">
-                                    封装
+                                <a href="/categories/taro/" class="post-category">
+                                    taro
                                 </a>
                                 
-                                <a href="/categories/%E5%B0%81%E8%A3%85/%E6%97%A5%E5%B8%B8%E4%BB%A3%E7%A0%81/" class="post-category">
-                                    日常代码
+                                <a href="/categories/taro/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    小程序
                                 </a>
                                 
                                 
@@ -486,24 +420,12 @@ e
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/axios/">
-                            <span class="chip bg-color">axios</span>
+                        <a href="/tags/taro/">
+                            <span class="chip bg-color">taro</span>
                         </a>
                         
-                        <a href="/tags/%E5%B0%81%E8%A3%85/">
-                            <span class="chip bg-color">封装</span>
-                        </a>
-                        
-                        <a href="/tags/http/">
-                            <span class="chip bg-color">http</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%AF%B7%E6%B1%82/">
-                            <span class="chip bg-color">请求</span>
-                        </a>
-                        
-                        <a href="/tags/uniapp/">
-                            <span class="chip bg-color">uniapp</span>
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
                         </a>
                         
                     </div>
@@ -515,129 +437,20 @@ e
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/29/load-he-ready/">
+                    <a href="/2022/10/14/js-ji-chu-cao-zuo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="load和ready">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="js基础操作">
                             
-                            <span class="card-title">load和ready</span>
+                            <span class="card-title">js基础操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-
-执行时间编写个数不同简化写法
-
-执行时间
-window.onload ：必须等到页面内包括图片的所有元素加载完毕后才能执行。
-$(document).ready()：DOM 结构绘制完毕后就执行，不必等到加载完毕。
-
-编写个数不同
-w
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/jquery/">
-                            <span class="chip bg-color">jquery</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/02/01/vue-yi-jian-huan-fu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="vue一键换肤">
-                            
-                            <span class="card-title">vue一键换肤</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-本文只涉及到颜色主题和icon更换
-1、颜色更换通过class解决，包含字体、字号、字体颜色、背景颜色等，css控制
-2、icon 更换2.1 通过 css background 控制配置多个css文件，通过覆盖的方式进行控制
-//默认
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/14/tcp-san-ci-wo-shou-he-si-ci-hui-shou/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="tcp三次握手和四次挥手">
-                            
-                            <span class="card-title">tcp三次握手和四次挥手</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                三次握手客户端和服务端通信前要进行连接，“3次握手”的作用就是双方都能明确自己和对方的收、发能力是正常的。
-
-
-1、第一次握手：客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。
-2、第二次
+                                js代码封装
                             
                         </div>
                         <div class="publish-info">
@@ -646,6 +459,69 @@ w
                             </span>
                             <span class="publish-author">
                                 
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
+                                    代码片段
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">开发</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                            <span class="chip bg-color">代码片段</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/04/vue-lu-you-shou-wei/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="vue路由守卫">
+                            
+                            <span class="card-title">vue路由守卫</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                vue 路由守卫
+1、vue 路由守卫
+1 全局守卫2 路由独享守卫3 组件内守卫
+
+
+
+2、完整的导航解析流程
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-04
+                            </span>
+                            <span class="publish-author">
+                                
                                 <i class="fas fa-user fa-fw"></i>
                                 寒霜
                                 
@@ -653,6 +529,106 @@ w
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/05/18/js-zheng-ze/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="js正则">
+                            
+                            <span class="card-title">js正则</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                正则内保存匹配的对象，进行替换，如：将15vh内的数字替换成calc(var(--heightsize) *数字，并把vh去掉
+(\d+\.\d+|\d+)就是将匹配到的数字做暂存，在表达式内用$1进行引用
+let data = "marg
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%AD%A3%E5%88%99/">
+                            <span class="chip bg-color">正则</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/04/vuex-de-chi-jiu-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vuex的持久化">
+                            
+                            <span class="card-title">vuex的持久化</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                vuex的持久化解决的就是页面刷新时vuex数据还原的问题
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-04
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -675,7 +651,7 @@ w
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 15</div>
+            <div class="center-align b-text-gray">7 / 16</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -707,7 +683,7 @@ w
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">36k</span>
+                        class="white-color">38.4k</span>
             
             
             
