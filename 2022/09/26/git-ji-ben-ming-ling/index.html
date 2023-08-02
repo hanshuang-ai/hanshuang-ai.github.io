@@ -444,14 +444,14 @@ git remote get-url origin
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    800
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -511,6 +511,38 @@ git remote get<span class="token operator">-</span>url origin
 <li>子模块指向的是特定版本，不会自动跟随子模块的远程仓库更新，需要手动同步。</li>
 </ol>
 <p>总之，Git 子模块是一个有用的工具，可以帮助项目管理复杂的依赖关系，并在合适的情况下使用它来使项目组织更加清晰和模块化。</p>
+<h3 id="4、-git-tag"><a href="#4、-git-tag" class="headerlink" title="4、 git tag"></a>4、 git tag</h3><p>在 Git 中打标签（Tag）是为了标记某个特定的提交（Commit）或里程碑，以便于日后更容易回溯和查找。你可以使用以下命令在 Git 中打标签：</p>
+<ol>
+<li><p>打附注标签（Annotated Tag）：</p>
+<pre class="line-numbers language-none"><code class="language-none">git tag -a 标签名 -m &quot;标签描述信息&quot; 提交ID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>其中，<code>标签名</code>是你为标签指定的名称，<code>标签描述信息</code>是关于该标签的一些说明文字，<code>提交ID</code>是你想要标记的特定提交的 SHA-1 值。</p>
+</li>
+<li><p>打轻量标签（Lightweight Tag）：</p>
+<pre class="line-numbers language-none"><code class="language-none">git tag 标签名 提交ID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用这个命令可以快速在某个提交上打上标签，但它不会保存额外的信息。</p>
+</li>
+<li><p>查看标签：</p>
+<pre class="line-numbers language-none"><code class="language-none">git tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这个命令会列出所有已经存在的标签。</p>
+</li>
+<li><p>查看某个特定标签的信息：</p>
+<pre class="line-numbers language-none"><code class="language-none">git show 标签名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用此命令可以查看特定标签的详细信息和关联的提交。</p>
+</li>
+<li><p>推送标签到远程仓库：</p>
+<pre class="line-numbers language-none"><code class="language-none">git push origin 标签名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果你希望将本地的标签推送到远程仓库，可以使用此命令。</p>
+</li>
+<li><p>推送所有标签到远程仓库：</p>
+<pre class="line-numbers language-none"><code class="language-none">git push origin --tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果你想一次性推送所有本地标签到远程仓库，可以使用此命令。</p>
+</li>
+</ol>
 
                 
             </div>
@@ -983,7 +1015,7 @@ git remote get<span class="token operator">-</span>url origin
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">39.2k</span>
+                        class="white-color">39.6k</span>
             
             
             
