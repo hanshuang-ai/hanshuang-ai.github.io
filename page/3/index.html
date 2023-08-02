@@ -324,30 +324,30 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/07/25/dong-tai-yin-ru-less/">
+                    <a href="/2023/03/27/zhong-duan-shu-chu-luan-ma-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="动态引入less">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="终端输出乱码问题">
                             
-                            <span class="card-title">动态引入less</span>
+                            <span class="card-title">终端输出乱码问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                动态引入css（less/sass）文件，在保证功能不变的前提下，适配不同的UI。
+                                
 
 
-代码结构如图所示，我们可以根据配置文件(config.js)内的变量值，动态添加不同文件名的css(less/sass)文件即可
-// 核心代码
-imp
+终端默认936，如果出现乱码，我们可以通过chcp 65001来修复乱码。
+如果关闭终端后，再次打开又出现乱码，我们可以将这个命令添加在package文件内
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-27
                             </span>
                             <span class="publish-author">
                                 
@@ -365,6 +365,10 @@ imp
                             <span class="chip bg-color">实战</span>
                         </a>
                         
+                        <a href="/tags/%E7%BB%88%E7%AB%AF/">
+                            <span class="chip bg-color">终端</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -374,108 +378,264 @@ imp
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/07/14/css-sass-scss-less-zhuan-ti/">
+                    <a href="/2022/12/28/wen-jian-guan-li/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="css/sass/scss/less专题">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="文件管理">
                             
-                            <span class="card-title">css/sass/scss/less专题</span>
+                            <span class="card-title">文件管理</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/07/14/che-ji-zhuan-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="车机专题">
-                            
-                            <span class="card-title">车机专题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                车机系统前端应用问题合集
+                                1、el-upload formDat 上传header根据项目需求有所不同，本项目采用的是Cookie，另外，该封装内没有判断文件类型
+import Cookies from "_js-cookie@2.2.1@js-cookie";
+i
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/07/14/che-ji-xi-tong-qian-duan-ying-yong-bo-fang-yin-shi-pin-jiao-dian-wen-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="车机系统前端应用播放音视频焦点问题">
-                            
-                            <span class="card-title">车机系统前端应用播放音视频焦点问题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-背景
-车机系统前端应用需要在程序进入后台 或者 被蓝牙打断时暂停播放，进入前台 或者 蓝牙结束时，保持暂停状态
-现状
-车机前端应用进入后台时，手动调用暂停功能，视频暂停，车机进入前台后，保持暂停状态。√车机前端应用视频播放中，此时蓝牙电
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-28
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-category">
+                                    文件管理
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">日常开发</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                            <span class="chip bg-color">文件管理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/05/25/liu-lan-qi-body-bei-jing-se/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="浏览器body背景色">
+                            
+                            <span class="card-title">浏览器body背景色</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                我们给 body 设置背景色，实际我们看见的未必是 body 上的背景色：
+
+当 html 标签没有设置背景色时，我们看见的是作用在浏览器画布上的背景色，不是 body 上的；
+当 html 标签被设置了背景色时，我们看见的是真正作用在 b
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                            <span class="chip bg-color">浏览器</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/01/05/cao-zuo-xi-tong-ming-ling-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="命令行">
+                            
+                            <span class="card-title">命令行</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、windows 命令行1.1 打开文件或文件夹//在当前目录下打开本目录下的BLOG
+C:\Users\WTCL\Desktop\博客> start BLOG
+
+//打开指定目录 不区分大小写
+start C:\Users\WTCL\D
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                            <span class="chip bg-color">命令行</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/12/31/zhi-fu-bao-dian-nao-zhi-fu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="支付宝电脑支付">
+                            
+                            <span class="card-title">支付宝电脑支付</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                开发文档
+
+1、封装请求后台的接口2、在其他页面使用接口，后端返回支付宝生成的 form 表单3、打开表单（直接在返回接口的回调中使用即可）
+
+封装请求后台的接口// 先封装请求后端的接口(promise)
+/**
+ * 支付宝支付
+ * 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98/">
+                            <span class="chip bg-color">支付</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%AB%E7%A0%81/">
+                            <span class="chip bg-color">扫码</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/">
+                            <span class="chip bg-color">支付宝</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/12/wei-xin-xiao-cheng-xu-fen-bao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="微信小程序分包">
+                            
+                            <span class="card-title">微信小程序分包</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                &#123;
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/serviceH5/serviceH5",
+    "pages/Rech
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    小程序
+                                </a>
+                                
+                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%AE%9E%E6%88%98/" class="post-category">
                                     实战
                                 </a>
                                 
@@ -487,8 +647,8 @@ imp
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%BD%A6%E6%9C%BA/">
-                            <span class="chip bg-color">车机</span>
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
                         </a>
                         
                     </div>
@@ -500,31 +660,32 @@ imp
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/07/11/react-ji-chu/">
+                    <a href="/2023/06/02/wei-xin-xiao-cheng-xu-fu-zu-jian-jian-ting-zi-zu-jian-zhi-de-bian-hua/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="react基础">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="微信小程序父组件监听子组件值的变化">
                             
-                            <span class="card-title">react基础</span>
+                            <span class="card-title">微信小程序父组件监听子组件值的变化</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                组件命名组件的名称必须以大写字母开头，否则它们将无法运行！
-组件return如果你的标签和 return 关键字不在同一行，则必须把它包裹在一对括号中
+                                微信小程序组件间通信可分为 3 种，本文值介绍第 2 种---“事件”
 
 
-use client参考链接
-事件处理参考链接
+具体可参考官方文档
 
+
+// 子组件
+this.triggerEvent("showCode", &#123; isShowCode: false &#125;);
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-02
                             </span>
                             <span class="publish-author">
                                 
@@ -538,8 +699,8 @@ use client参考链接
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/react/">
-                            <span class="chip bg-color">react</span>
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
                         </a>
                         
                     </div>
@@ -551,30 +712,40 @@ use client参考链接
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/07/11/react-zhuan-ti/">
+                    <a href="/2022/12/05/wei-xin-xiao-cheng-xu-nei-shi-yong-echart/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="react专题">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="微信小程序内使用echart">
                             
-                            <span class="card-title">react专题</span>
+                            <span class="card-title">微信小程序内使用echart</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                react
+                                
+
+1、下载代码后，拷贝ec-canvas到项目里
+
+2、在需要使用的页面内引入import * as echarts from '../../components/ec-canvas/echarts';
+
+3、定义方法和实例化let ch
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-05
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                寒霜
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
                                 
                             </span>
                         </div>
@@ -583,8 +754,242 @@ use client参考链接
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/react/">
-                            <span class="chip bg-color">react</span>
+                        <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                            <span class="chip bg-color">可视化</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="微信小程序云开发">
+                            
+                            <span class="card-title">微信小程序云开发</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+微信小程序开发最主要的就是编写云函数、使用微信提供的功能与数据库，在存储与鉴权方面存在一定便利。实现方式最主要云函数的编写与调用，wx.cloud.callFunction(&#123;&#125;)
+1、定义云函数假如我们要在微信小程
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BA%91%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">云开发</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/12/31/wei-xin-pc-sao-ma-zhi-fu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="微信PC扫码支付">
+                            
+                            <span class="card-title">微信PC扫码支付</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                首先需要准备一个 dom 作为容器，放置 URL 转换的二维码&lt;!--微信支付二维码-->
+&lt;el-dialog :visible.sync="dialogVisible" title="乐哇">
+  &lt;!-- 将URL转
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98/">
+                            <span class="chip bg-color">支付</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%BE%AE%E4%BF%A1/">
+                            <span class="chip bg-color">微信</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%AB%E7%A0%81/">
+                            <span class="chip bg-color">扫码</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/12/xiao-cheng-xu-guo-lu-qi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="小程序过滤器">
+                            
+                            <span class="card-title">小程序过滤器</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、创建 wxs 文件// indexOf.wxs
+function indexOf11(a, b) &#123;
+  if (a.indexOf(b) >= 0) &#123;
+    return true;
+  &#125; else
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    小程序
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                            <span class="chip bg-color">过滤器</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/12/30/wei-xin-gong-zhong-hao-h5-zhi-fu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="微信公众号H5支付">
+                            
+                            <span class="card-title">微信公众号H5支付</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                微信商户平台，微信支付开发文档微信公众号登录授权文档微信 JSapi 支付 sdk 链接
+登录授权
+wx.config 在回跳地址时不会输出自己携带的参数，但是确实是传输过去了，可以使用 alert 打印
+
+// 准备好了页面回跳地址
+le
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
+                                    日常开发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98/">
+                            <span class="chip bg-color">支付</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/">
+                            <span class="chip bg-color">微信公众号</span>
                         </a>
                         
                     </div>
@@ -610,7 +1015,7 @@ use client参考链接
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">3 / 16</div>
+            <div class="center-align b-text-gray">3 / 8</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -642,7 +1047,7 @@ use client参考链接
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">38.4k</span>
+                        class="white-color">39.2k</span>
             
             
             

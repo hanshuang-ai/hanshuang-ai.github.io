@@ -324,42 +324,40 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/02/20/qian-duan-da-bao-xia-zai/">
+                    <a href="/2023/06/20/cesium-hui-zhi-wei-xing-yun-tu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="前端打包下载">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="cesium绘制卫星云图">
                             
-                            <span class="card-title">前端打包下载</span>
+                            <span class="card-title">cesium绘制卫星云图</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                本文代码以图片作为示例，进行文件批量下载
-
-安装 axios，FileSaver，JSZip 三个插件初始化 new JSZip获取所有图片链接，并根据链接利用 axios 进行数据获取，blob 格式每条数据获取成功后，利用 zip.fi
+                                步骤加载卫星云图（同样使用polygon来加载）设置好图片要显示的范围添加polygon卫星云图动图准备多张卫星云图图使用CallbackProperty动态material赋值定时器轮流改变i值如果卫星云图颜色过深，遮盖住了地球表面，可以
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-20
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
+                                <a href="/categories/gis/" class="post-category">
+                                    gis
                                 </a>
                                 
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
-                                    代码片段
+                                <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
+                                    可视化
                                 </a>
                                 
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E8%BF%9B%E9%98%B6/" class="post-category">
-                                    进阶
+                                <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/3d/" class="post-category">
+                                    3d
                                 </a>
                                 
                                 
@@ -370,12 +368,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%B8%8B%E8%BD%BD/">
-                            <span class="chip bg-color">下载</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD/">
-                            <span class="chip bg-color">打包下载</span>
+                        <a href="/tags/cesium/">
+                            <span class="chip bg-color">cesium</span>
                         </a>
                         
                     </div>
@@ -387,13 +381,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/02/16/vue-dai-li/">
+                    <a href="/2023/02/03/http-huan-cun/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue代理">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Http缓存">
                             
-                            <span class="card-title">vue代理</span>
+                            <span class="card-title">Http缓存</span>
                         </div>
                     </a>
 
@@ -401,13 +395,15 @@
                         <div class="summary block-with-text">
                             
                                 
-vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;
-1. vu
+
+1、缓存1.1 为什么需要缓存服务器需要处理 http 的请求，并且 http 去传输数据，需要带宽。而我们缓存，就是为了让服务器不去处理这个请求，客户端也可以拿到数据。
+1.2 什么资源需要缓存
+我们的缓存主要是针对 html,css
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-03
                             </span>
                             <span class="publish-author">
                                 
@@ -425,12 +421,16 @@ vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
+                        <a href="/tags/%E7%BC%93%E5%AD%98/">
+                            <span class="chip bg-color">缓存</span>
                         </a>
                         
-                        <a href="/tags/%E4%BB%A3%E7%90%86/">
-                            <span class="chip bg-color">代理</span>
+                        <a href="/tags/%E5%AD%98%E5%82%A8/">
+                            <span class="chip bg-color">存储</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                            <span class="chip bg-color">浏览器</span>
                         </a>
                         
                     </div>
@@ -442,40 +442,33 @@ vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时�
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/14/feng-zhuang-qing-qiu-he-lan-jie/">
+                    <a href="/2022/02/12/html-ji-chu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="请求封装">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="HTML基础">
                             
-                            <span class="card-title">请求封装</span>
+                            <span class="card-title">HTML基础</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                axios1、封装与拦截import axios from "axios";
-import &#123; Message &#125; from "element-ui";
-import router from "@/router";
-
-e
+                                1、浏览器基础1、从输入 url 到页面显示经历的过程
+1、浏览器接收 url，开启线程对 URL 使用的协议进行判断2、分析加载 URL3、DNS 解析、获取 IP、连同浏览器信息进行 get 请求（对 IP 发起）4、http 会话、发
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%B0%81%E8%A3%85/" class="post-category">
-                                    封装
-                                </a>
-                                
-                                <a href="/categories/%E5%B0%81%E8%A3%85/%E6%97%A5%E5%B8%B8%E4%BB%A3%E7%A0%81/" class="post-category">
-                                    日常代码
+                                <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                                 
                                 
@@ -486,24 +479,8 @@ e
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/axios/">
-                            <span class="chip bg-color">axios</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%B0%81%E8%A3%85/">
-                            <span class="chip bg-color">封装</span>
-                        </a>
-                        
-                        <a href="/tags/http/">
-                            <span class="chip bg-color">http</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%AF%B7%E6%B1%82/">
-                            <span class="chip bg-color">请求</span>
-                        </a>
-                        
-                        <a href="/tags/uniapp/">
-                            <span class="chip bg-color">uniapp</span>
+                        <a href="/tags/HTML%E5%9F%BA%E7%A1%80/">
+                            <span class="chip bg-color">HTML基础</span>
                         </a>
                         
                     </div>
@@ -515,35 +492,27 @@ e
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/29/load-he-ready/">
+                    <a href="/2023/06/20/imagemogr2/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="load和ready">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="imagemogr2">
                             
-                            <span class="card-title">load和ready</span>
+                            <span class="card-title">imagemogr2</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-
-执行时间编写个数不同简化写法
-
-执行时间
-window.onload ：必须等到页面内包括图片的所有元素加载完毕后才能执行。
-$(document).ready()：DOM 结构绘制完毕后就执行，不必等到加载完毕。
-
-编写个数不同
-w
+                                参考链接参考链接
+记录一次因为图片参数导致的图片不显示的问题
+事情是这样的，由于之前接触的都是oss，知道在图片后面拼接参数可以利用oss服务对图片进行处理（不拼接参数也可以访问），但是https://p0.pipi.cn/mmdb/fb7
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-20
                             </span>
                             <span class="publish-author">
                                 
@@ -557,8 +526,8 @@ w
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/jquery/">
-                            <span class="chip bg-color">jquery</span>
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
                         </a>
                         
                     </div>
@@ -570,30 +539,103 @@ w
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/02/01/vue-yi-jian-huan-fu/">
+                    <a href="/2023/06/14/localstorage-cun-chu-zai-shi-me-di-fang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="vue一键换肤">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="localstorage存储在什么地方">
                             
-                            <span class="card-title">vue一键换肤</span>
+                            <span class="card-title">localstorage存储在什么地方</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-本文只涉及到颜色主题和icon更换
-1、颜色更换通过class解决，包含字体、字号、字体颜色、背景颜色等，css控制
-2、icon 更换2.1 通过 css background 控制配置多个css文件，通过覆盖的方式进行控制
-//默认
+                                只读的localStorage 属性允许你访问一个Document 源（origin）的对象 Storage；存储的数据将保存在浏览器会话中。localStorage 类似 sessionStorage，但其区别在于：存储在 localSt
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/06/14/css-position/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="css position">
+                            
+                            <span class="card-title">css position</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                参考链接
+
+
+1、static该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+2、relative该关键字下，元素先放置在未添加
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/06/05/ji-lu-yi-ci-she-bei-xiang-su-bi-zao-cheng-de-shi-gu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="记录一次设备像素比造成的事故">
+                            
+                            <span class="card-title">记录一次设备像素比造成的事故</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                事情的起因是这样：项目是加载在android的webview上面，由于andriod端更改了dpi，由160改成了200，造成pixelRatio变成了1.25，而项目内使用的css单位是Px进行的适配，造成整体页面也被放大了1.25倍，导
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-05
                             </span>
                             <span class="publish-author">
                                 
@@ -607,8 +649,8 @@ w
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
                         </a>
                         
                     </div>
@@ -620,29 +662,25 @@ w
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/10/14/tcp-san-ci-wo-shou-he-si-ci-hui-shou/">
+                    <a href="/2023/06/02/hexo-yi-ci-quan-ju-ti-huan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="tcp三次握手和四次挥手">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hexo一次全局替换">
                             
-                            <span class="card-title">tcp三次握手和四次挥手</span>
+                            <span class="card-title">hexo一次全局替换</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                三次握手客户端和服务端通信前要进行连接，“3次握手”的作用就是双方都能明确自己和对方的收、发能力是正常的。
-
-
-1、第一次握手：客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。
-2、第二次
+                                hexo内引入图片使用![]()的方式，但是在hexo里，会有一个与文档title同名的目录（如果title没改的话）,在hexo里()内不用写目录，直接写图片名称+后缀即可。以本文档为例，名为“hexo一次全局替换”，图片链接就可以写为!
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-02
                             </span>
                             <span class="publish-author">
                                 
@@ -653,6 +691,14 @@ w
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%AD%A3%E5%88%99/">
+                            <span class="chip bg-color">正则</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -675,12 +721,11 @@ w
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">8 / 16</div>
+            <div class="center-align b-text-gray">8 / 8</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a href="/page/9/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
+            <a class="right btn-floating btn-large disabled">
                 <i class="fas fa-angle-right"></i>
             </a>
             
@@ -707,7 +752,7 @@ w
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">38.4k</span>
+                        class="white-color">39.2k</span>
             
             
             

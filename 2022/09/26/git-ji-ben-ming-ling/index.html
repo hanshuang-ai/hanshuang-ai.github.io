@@ -437,21 +437,21 @@ git remote get-url origin
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-28
+                    2023-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    355
+                    800
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -496,6 +496,21 @@ git remote get<span class="token operator">-</span>url origin
 
 <h3 id="2-3-显示暂存区和工作区的差异-git-diff-file"><a href="#2-3-显示暂存区和工作区的差异-git-diff-file" class="headerlink" title="2.3 显示暂存区和工作区的差异: git diff [file]"></a>2.3 显示暂存区和工作区的差异: git diff [file]</h3><h3 id="2-4-显示暂存区和上一次提交-commit-的差异-git-diff-–cached-file-或者-git-diff-–staged-file"><a href="#2-4-显示暂存区和上一次提交-commit-的差异-git-diff-–cached-file-或者-git-diff-–staged-file" class="headerlink" title="2.4 显示暂存区和上一次提交(commit)的差异: git diff –cached [file] 或者 git diff –staged [file]"></a>2.4 显示暂存区和上一次提交(commit)的差异: git diff –cached [file] 或者 git diff –staged [file]</h3><h3 id="2-5-显示两次提交之间的差异-git-diff-first-branch-…-second-branch"><a href="#2-5-显示两次提交之间的差异-git-diff-first-branch-…-second-branch" class="headerlink" title="2.5 显示两次提交之间的差异: git diff [first-branch]…[second-branch]"></a>2.5 显示两次提交之间的差异: git diff [first-branch]…[second-branch]</h3><h3 id="3、git-clone-–recursive"><a href="#3、git-clone-–recursive" class="headerlink" title="3、git clone –recursive"></a>3、git clone –recursive</h3><h4 id="3-1-git-clone"><a href="#3-1-git-clone" class="headerlink" title="3.1 git clone"></a>3.1 git clone</h4><p><code>git clone --recursive</code> 是一个 Git 命令，用于克隆一个包含子模块（submodule）的仓库。子模块是指在一个 Git 仓库中嵌套的另外一个独立的 Git 仓库。当你在一个 Git 仓库中使用子模块时，你可以将外部仓库作为你的主仓库的一部分，这对于管理项目的依赖或者将公共代码库嵌入到你的项目中是非常有用的。使用 git clone –recursive 命令时，Git 会在克隆主仓库的同时递归地克隆所有子模块的仓库，使得你能够获得完整的项目代码，包括所有子模块的代码。</p>
 <h4 id="3-2-已经克隆了一个仓库但没有使用-–recursive，可以使用以下命令来初始化和更新子模块"><a href="#3-2-已经克隆了一个仓库但没有使用-–recursive，可以使用以下命令来初始化和更新子模块" class="headerlink" title="3.2 已经克隆了一个仓库但没有使用 –recursive，可以使用以下命令来初始化和更新子模块"></a>3.2 已经克隆了一个仓库但没有使用 –recursive，可以使用以下命令来初始化和更新子模块</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git submodule update <span class="token operator">--</span>init <span class="token operator">--</span>recursive<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="3-3-git-submoudle"><a href="#3-3-git-submoudle" class="headerlink" title="3.3 git submoudle"></a>3.3 git submoudle</h4><p>Git 子模块（submodule）是 Git 中用于管理项目依赖的一种机制。它允许将一个 Git 仓库作为另一个仓库的子目录，使得一个仓库可以引用另一个仓库的特定版本，而不是将其完整地复制到主仓库中。</p>
+<p>使用子模块，可以轻松地将外部项目或库集成到主项目中，同时保持各个项目的独立性和版本控制。</p>
+<p>在添加子模块时，可以使用 <code>git submodule add</code> 命令指定子模块的远程仓库地址和在主项目中的存放路径。例如：</p>
+<pre class="line-numbers language-none"><code class="language-none">git submodule add https:&#x2F;&#x2F;github.com&#x2F;example&#x2F;submodule.git path&#x2F;to&#x2F;submodule<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>之后，主项目会记录子模块的信息，并在主项目的提交中包含子模块的快照。其他人在克隆主项目时，可以通过 <code>git submodule update --init</code> 命令初始化并下载子模块的内容。</p>
+<p>要更新子模块到最新版本，可以使用 <code>git submodule update --remote</code> 命令。</p>
+<p>子模块虽然提供了便利的依赖管理机制，但也需要注意一些注意事项。主要包括：</p>
+<ol>
+<li>注意及时更新子模块，以确保使用最新版本。</li>
+<li>如果主项目依赖的子模块有更新，需要在主项目中提交子模块的更新，并通知其他开发者及时更新子模块。</li>
+<li>子模块指向的是特定版本，不会自动跟随子模块的远程仓库更新，需要手动同步。</li>
+</ol>
+<p>总之，Git 子模块是一个有用的工具，可以帮助项目管理复杂的依赖关系，并在合适的情况下使用它来使项目组织更加清晰和模块化。</p>
 
                 
             </div>
@@ -968,7 +983,7 @@ git remote get<span class="token operator">-</span>url origin
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">38.4k</span>
+                        class="white-color">39.2k</span>
             
             
             
