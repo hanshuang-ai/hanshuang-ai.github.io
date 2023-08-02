@@ -1340,7 +1340,7 @@ thead {
     position: relative;
     width: 80px;
     height: 80px;
-    margin: 10px 0 50px -20px;
+    margin: 50px 0 50px -20px;
     padding: 21px 10px;
     background-color: #ff5722;
     color: #fff;
@@ -1394,6 +1394,7 @@ thead {
     height: 100%;
     width: 4px;
     background: #0f9d58;
+    display: none;
 }
 
 @media only screen and (min-width: 900px) {
@@ -1408,7 +1409,7 @@ thead {
     }
 
     #cd-timeline .year {
-        margin: 10px 0 50px -40px;
+        margin: 50px 0 50px -40px;
         padding: 22px 11px;
     }
 
@@ -1465,7 +1466,8 @@ thead {
     .cd-timeline-img {
         width: 40px;
         height: 40px;
-        left: 50%;
+        /* left: 50%; */
+        left: 0;
         margin-left: -20px;
         /* Force Hardware Acceleration in WebKit */
         -webkit-transform: translateZ(0);
@@ -1514,6 +1516,7 @@ thead {
     margin-left: 2px;
     margin-right: 2px;
     border: 1px dashed #ffa726;
+    display: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1533,9 +1536,9 @@ thead {
 
 @media only screen and (min-width: 900px) {
     .cd-timeline-content {
-        margin-left: 0;
+        margin-left: 40px;
         padding: 0;
-        width: 45%;
+        /* width: 45%; */
 
     }
 
@@ -1549,7 +1552,7 @@ thead {
     }
 
     .cd-timeline-block:nth-child(even) .cd-timeline-content {
-        float: right;
+        /* float: right; */
     }
 
     .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
@@ -2142,4 +2145,13 @@ p.search-result-summary{
     height: 50px;
     padding: 0;
     margin: 0;
+}
+._card-title_{
+  position: relative!important;
+  padding: 0 0 0 20px!important;
+  font-size: 20px!important;
+}
+._card-image_{
+  height: 40px;
+  line-height: 40px;
 }
