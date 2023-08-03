@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>sass变量不能在calc里面使用</title>
+      <link href="/2023/08/03/sass-bian-liang-bu-neng-zai-calc-li-mian-shi-yong/"/>
+      <url>/2023/08/03/sass-bian-liang-bu-neng-zai-calc-li-mian-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-css" data-language="css"><code class="language-css">$<span class="token property">fontSize</span><span class="token punctuation">:</span> 1.4rem<span class="token punctuation">;</span><span class="token selector">.scroll</span><span class="token punctuation">&#123;</span>  <span class="token comment">/* 必须要用 #&#123;&#125;把变量包起来 */</span>  <span class="token selector">calc(100% - #</span><span class="token punctuation">&#123;</span>$fontSize<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> 实战 </tag>
+            
+            <tag> scss </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js中load事件</title>
       <link href="/2023/08/02/js-zhong-load-shi-jian/"/>
       <url>/2023/08/02/js-zhong-load-shi-jian/</url>
