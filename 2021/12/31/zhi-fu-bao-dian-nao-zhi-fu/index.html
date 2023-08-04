@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -479,7 +479,7 @@
 <blockquote>
 <p>1、封装请求后台的接口<br>2、在其他页面使用接口，后端返回支付宝生成的 form 表单<br>3、打开表单（直接在返回接口的回调中使用即可）</p>
 </blockquote>
-<h2 id="封装请求后台的接口"><a href="#封装请求后台的接口" class="headerlink" title="封装请求后台的接口"></a>封装请求后台的接口</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 先封装请求后端的接口(promise)</span>
+<h3 id="封装请求后台的接口"><a href="#封装请求后台的接口" class="headerlink" title="封装请求后台的接口"></a>封装请求后台的接口</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 先封装请求后端的接口(promise)</span>
 <span class="token comment">/**
  * 支付宝支付
  * @param goodsId  1为自定义
@@ -504,7 +504,7 @@
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="在其他页面使用接口"><a href="#在其他页面使用接口" class="headerlink" title="在其他页面使用接口"></a>在其他页面使用接口</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在其他页面引入后使用</span>
+<h3 id="在其他页面使用接口"><a href="#在其他页面使用接口" class="headerlink" title="在其他页面使用接口"></a>在其他页面使用接口</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在其他页面引入后使用</span>
 <span class="token function">zhifubao</span><span class="token punctuation">(</span>payTtype<span class="token punctuation">,</span> number<span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -523,7 +523,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="支付宝返回的-form-表单数据"><a href="#支付宝返回的-form-表单数据" class="headerlink" title="支付宝返回的 form 表单数据"></a>支付宝返回的 form 表单数据</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>
+<h3 id="支付宝返回的-form-表单数据"><a href="#支付宝返回的-form-表单数据" class="headerlink" title="支付宝返回的 form 表单数据"></a>支付宝返回的 form 表单数据</h3><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>
   <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>punchout_form<span class="token punctuation">"</span></span>
   <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span>
   <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://openapi.alipay.com/gateway.do?charset=utf-8&amp;method=alipay.trade.page.pay&amp;sign=L6ZgaCz2Mz9RSAxC7UCNVD%2BY1BraRJjm6yAmrHeMxXMJwhs28PYawG3xbTWciO%2FAcz2lj6QRuh%2BKy27Q2Lm%2BKs6HKRHM%2Bbdgfwwypdm%2FL3d70W3jkzYsn58a4OjfGZkjyfdNBsOAczWLmYpKQ2b4JBwlodiqOX%2BsYcG%2Bk2KLw4f4S9LnMYqRP0ZyoVr%2Bc8lhGVqga%2FX4JebUrSxcHpo40QK9%2F%2Fc%2Fzaw9p%2FCh39ondJLpoiEQdLdgobzkWCT3EtvO4dFjKSTsy70lhWu4CKAGjjKOo0DxDCalFVevr7l4XIrIG68zdcDbTUUP9hKNNJ%2Fl7tAG0TALfTWIDlp2OVRp5w%3D%3D&amp;return_url=https%3A%2F%2Fg.levacp.com%2FRecharge&amp;notify_url=https%3A%2F%2Ftapi.levacp.com%2Fsjsvoice%2Fcallback%2Faliyun%2Fzfb%2Fpay&amp;version=1.0&amp;app_id=2021002190691523&amp;sign_type=RSA2&amp;timestamp=2021-12-31+17%3A45%3A19&amp;alipay_sdk=alipay-sdk-java-dynamicVersionNo&amp;format=json<span class="token punctuation">"</span></span>
@@ -1034,7 +1034,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

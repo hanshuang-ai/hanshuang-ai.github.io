@@ -428,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -472,11 +472,11 @@
             <div id="articleContent">
                 <img src="/2022/12/05/wei-xin-xiao-cheng-xu-nei-shi-yong-echart/1.png" class="" title="微信小程序内使用echart">
 
-<h2 id="1、下载代码后，拷贝ec-canvas到项目里"><a href="#1、下载代码后，拷贝ec-canvas到项目里" class="headerlink" title="1、下载代码后，拷贝ec-canvas到项目里"></a>1、下载代码后，拷贝ec-canvas到项目里</h2><img src="/2022/12/05/wei-xin-xiao-cheng-xu-nei-shi-yong-echart/2.png" class="" title="下载代码后，拷贝ec-canvas到项目里">
+<h3 id="1、下载代码后，拷贝ec-canvas到项目里"><a href="#1、下载代码后，拷贝ec-canvas到项目里" class="headerlink" title="1、下载代码后，拷贝ec-canvas到项目里"></a>1、下载代码后，拷贝ec-canvas到项目里</h3><img src="/2022/12/05/wei-xin-xiao-cheng-xu-nei-shi-yong-echart/2.png" class="" title="下载代码后，拷贝ec-canvas到项目里">
 
-<h2 id="2、在需要使用的页面内引入"><a href="#2、在需要使用的页面内引入" class="headerlink" title="2、在需要使用的页面内引入"></a>2、在需要使用的页面内引入</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> echarts <span class="token keyword">from</span> <span class="token string">'../../components/ec-canvas/echarts'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、在需要使用的页面内引入"><a href="#2、在需要使用的页面内引入" class="headerlink" title="2、在需要使用的页面内引入"></a>2、在需要使用的页面内引入</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> echarts <span class="token keyword">from</span> <span class="token string">'../../components/ec-canvas/echarts'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="3、定义方法和实例化"><a href="#3、定义方法和实例化" class="headerlink" title="3、定义方法和实例化"></a>3、定义方法和实例化</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> chart <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<h3 id="3、定义方法和实例化"><a href="#3、定义方法和实例化" class="headerlink" title="3、定义方法和实例化"></a>3、定义方法和实例化</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> chart <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> option <span class="token operator">=</span> <span class="token string">''</span>
 <span class="token keyword">function</span> <span class="token function">initChart</span><span class="token punctuation">(</span><span class="token parameter">canvas<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> dpr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> dpr<span class="token punctuation">,</span> <span class="token string">'canvas, width, height, dpr'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -490,7 +490,7 @@
   chart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> chart<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4、异步获取数据，进行表格设置"><a href="#4、异步获取数据，进行表格设置" class="headerlink" title="4、异步获取数据，进行表格设置"></a>4、异步获取数据，进行表格设置</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// pages/index/index.js</span>
+<h3 id="4、异步获取数据，进行表格设置"><a href="#4、异步获取数据，进行表格设置" class="headerlink" title="4、异步获取数据，进行表格设置"></a>4、异步获取数据，进行表格设置</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// pages/index/index.js</span>
 <span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
 
   <span class="token comment">/**
@@ -1116,7 +1116,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

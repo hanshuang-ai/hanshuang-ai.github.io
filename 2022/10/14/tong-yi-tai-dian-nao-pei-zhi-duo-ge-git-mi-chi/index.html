@@ -429,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -474,18 +474,18 @@
                 <p>首先由于需要配置多个git账户，可能是github、gitlab、gitee等等，所以<br><em><strong><code>不需要global email和username</code></strong></em><br>直接使用随便一个值覆盖即可。</p>
 <hr>
 <p>覆盖global email和userName后，需要3步</p>
-<h2 id="1、-生成不同的github密匙"><a href="#1、-生成不同的github密匙" class="headerlink" title="1、 生成不同的github密匙"></a>1、 生成不同的github密匙</h2><p><code>生成的时候一定要注意密匙名称，因为同名会被覆盖</code><br><code>另外，名称最好见名知意，不一定要id_rsa开头</code></p>
+<h3 id="1、-生成不同的github密匙"><a href="#1、-生成不同的github密匙" class="headerlink" title="1、 生成不同的github密匙"></a>1、 生成不同的github密匙</h3><p><code>生成的时候一定要注意密匙名称，因为同名会被覆盖</code><br><code>另外，名称最好见名知意，不一定要id_rsa开头</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa  <span class="token operator">-</span>f <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span><span class="token constant">XXX</span>   <span class="token comment">//使用-f 来命名生成的文件名</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="2、-将对应的公匙放入对应的平台"><a href="#2、-将对应的公匙放入对应的平台" class="headerlink" title="2、 将对应的公匙放入对应的平台"></a>2、 将对应的公匙放入对应的平台</h2><p>github、gitlab、gitee操作都是大同小异的，将本地的公匙复制好放进去即可。</p>
+<h3 id="2、-将对应的公匙放入对应的平台"><a href="#2、-将对应的公匙放入对应的平台" class="headerlink" title="2、 将对应的公匙放入对应的平台"></a>2、 将对应的公匙放入对应的平台</h3><p>github、gitlab、gitee操作都是大同小异的，将本地的公匙复制好放进去即可。</p>
 <p>假如本地有个github密匙名称是github_one，(公匙与私匙的区别就是公匙后面带.pub)，所以我们将github_one.pub里面的内容复制好放入网络平台即可。</p>
-<h2 id="3、配置本地密匙"><a href="#3、配置本地密匙" class="headerlink" title="3、配置本地密匙"></a>3、配置本地密匙</h2><p>这里有两种方法：</p>
-<h3 id="3-1比较麻烦的方法"><a href="#3-1比较麻烦的方法" class="headerlink" title="3.1比较麻烦的方法"></a>3.1比较麻烦的方法</h3><p>将生成的密匙以ssh-add的方法添加入本地</p>
+<h3 id="3、配置本地密匙"><a href="#3、配置本地密匙" class="headerlink" title="3、配置本地密匙"></a>3、配置本地密匙</h3><p>这里有两种方法：</p>
+<h4 id="3-1比较麻烦的方法"><a href="#3-1比较麻烦的方法" class="headerlink" title="3.1比较麻烦的方法"></a>3.1比较麻烦的方法</h4><p>将生成的密匙以ssh-add的方法添加入本地</p>
 <p>还是以github_one为例，所以我们需要在<code>密匙所在目录下运行命令行</code>ssh-add github_one</p>
 <p>一般会提示<code>Identity added: github_one (你生成该密匙时使用的邮箱)</code></p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p><code>但是这样的话可能重启电脑就会失效</code>，在使用的时候需要重新ssh-add下</p>
+<p><strong>注意</strong><br><code>但是这样的话可能重启电脑就会失效</code>，在使用的时候需要重新ssh-add下</p>
 <p>但是我觉得这样问题也不大，熟悉了就好</p>
-<h3 id="3-2一劳永逸的方法"><a href="#3-2一劳永逸的方法" class="headerlink" title="3.2一劳永逸的方法"></a>3.2一劳永逸的方法</h3><p><code>另一种方法就是在密匙所在目录下配置config文件</code></p>
+<h4 id="3-2一劳永逸的方法"><a href="#3-2一劳永逸的方法" class="headerlink" title="3.2一劳永逸的方法"></a>3.2一劳永逸的方法</h4><p><code>另一种方法就是在密匙所在目录下配置config文件</code></p>
 <p>一般情况下，保存密匙的文件夹下不会存在config文件，这时我们需要自己创建。</p>
 <p><code>注意：文件名就叫config，不需要任何后缀</code></p>
 <p>创建config文件后，我们队不同的密匙进行分别配置，示例如下</p>
@@ -989,7 +989,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

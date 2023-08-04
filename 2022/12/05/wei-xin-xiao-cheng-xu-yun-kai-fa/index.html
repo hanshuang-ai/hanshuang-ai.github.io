@@ -425,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -470,7 +470,7 @@
                 <img src="/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/0.png" class="">
 
 <p>微信小程序开发最主要的就是编写云函数、使用微信提供的功能与数据库，在存储与鉴权方面存在一定便利。<br><code>实现方式最主要云函数的编写与调用，wx.cloud.callFunction(&#123;&#125;)</code></p>
-<h2 id="1、定义云函数"><a href="#1、定义云函数" class="headerlink" title="1、定义云函数"></a>1、定义云函数</h2><p>假如我们要在微信小程序内获取用户运动步数，首先要在 cloudfunctions 文件夹内定义函数</p>
+<h3 id="1、定义云函数"><a href="#1、定义云函数" class="headerlink" title="1、定义云函数"></a>1、定义云函数</h3><p>假如我们要在微信小程序内获取用户运动步数，首先要在 cloudfunctions 文件夹内定义函数</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 云函数入口文件</span>
 <span class="token keyword">const</span> cloud <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"wx-server-sdk"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -485,7 +485,7 @@ exports<span class="token punctuation">.</span><span class="token function-varia
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="2、调用云函数"><a href="#2、调用云函数" class="headerlink" title="2、调用云函数"></a>2、调用云函数</h2><p>封装调用</p>
+<h3 id="2、调用云函数"><a href="#2、调用云函数" class="headerlink" title="2、调用云函数"></a>2、调用云函数</h3><p>封装调用</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">getWeRunData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         <span class="token comment">// 检测用户授权</span>
@@ -513,12 +513,12 @@ exports<span class="token punctuation">.</span><span class="token function-varia
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3、业务内使用"><a href="#3、业务内使用" class="headerlink" title="3、业务内使用"></a>3、业务内使用</h2><p>我们的业务内需要页面展示的时候就调用一次接口，所以写在了 onshow 内</p>
+<h3 id="3、业务内使用"><a href="#3、业务内使用" class="headerlink" title="3、业务内使用"></a>3、业务内使用</h3><p>我们的业务内需要页面展示的时候就调用一次接口，所以写在了 onshow 内</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token function">onShow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">let</span> list <span class="token operator">=</span> <span class="token keyword">await</span> utils<span class="token punctuation">.</span>utils<span class="token punctuation">.</span><span class="token function">getWeRunData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span><span class="token keyword">return</span> r<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">rr</span><span class="token operator">=></span><span class="token punctuation">&#123;</span><span class="token keyword">return</span> rr<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="4、代码示例"><a href="#4、代码示例" class="headerlink" title="4、代码示例"></a>4、代码示例</h2><img src="/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/1.png" class="" title="代码示例">
+<h3 id="4、代码示例"><a href="#4、代码示例" class="headerlink" title="4、代码示例"></a>4、代码示例</h3><img src="/2022/12/05/wei-xin-xiao-cheng-xu-yun-kai-fa/1.png" class="" title="代码示例">
 
 <p><code>其他函数同理，包含数据库函数，值得注意的是，数据库内保存的函数都会有一个唯一的_id，这个_id就是用户的openid</code></p>
 
@@ -1009,7 +1009,7 @@ exports<span class="token punctuation">.</span><span class="token function-varia
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

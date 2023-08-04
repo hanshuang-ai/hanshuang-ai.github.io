@@ -426,7 +426,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -472,7 +472,7 @@
 <p>根据项目需求创建.env.XXX 环境文件<br>文件内使用<br>package.json 文件 javascript 配置运行</p>
 </blockquote>
 <p><code>本文使用开发、测试、生产3种环境</code></p>
-<h2 id="1、根据项目需求创建-env-XXX-环境文件"><a href="#1、根据项目需求创建-env-XXX-环境文件" class="headerlink" title="1、根据项目需求创建.env.XXX 环境文件"></a>1、根据项目需求创建.env.XXX 环境文件</h2><p><code>根据VUE_APP_CURRENTMODE进行package.json javascript运行配置</code><br><code>根据NODE_ENV进行环境判断</code></p>
+<h3 id="1、根据项目需求创建-env-XXX-环境文件"><a href="#1、根据项目需求创建-env-XXX-环境文件" class="headerlink" title="1、根据项目需求创建.env.XXX 环境文件"></a>1、根据项目需求创建.env.XXX 环境文件</h3><p><code>根据VUE_APP_CURRENTMODE进行package.json javascript运行配置</code><br><code>根据NODE_ENV进行环境判断</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 开发环境</span>
 <span class="token comment">// .env.development</span>
 <span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">"development"</span><span class="token punctuation">;</span>
@@ -491,7 +491,7 @@
 <span class="token constant">VUE_APP_CURRENTMODE</span> <span class="token operator">=</span> <span class="token string">"prod"</span><span class="token punctuation">;</span>
 <span class="token constant">VUE_APP_BASE_URL</span> <span class="token operator">=</span> <span class="token string">"https://xxx.com"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="2、文件内使用"><a href="#2、文件内使用" class="headerlink" title="2、文件内使用"></a>2、文件内使用</h2><p>举例在 vueStore 内定义 baseURL</p>
+<h3 id="2、文件内使用"><a href="#2、文件内使用" class="headerlink" title="2、文件内使用"></a>2、文件内使用</h3><p>举例在 vueStore 内定义 baseURL</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
 
@@ -508,7 +508,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> store<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3、package-json-文件-javascript-配置运行"><a href="#3、package-json-文件-javascript-配置运行" class="headerlink" title="3、package.json 文件 javascript 配置运行"></a>3、package.json 文件 javascript 配置运行</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+<h3 id="3、package-json-文件-javascript-配置运行"><a href="#3、package-json-文件-javascript-配置运行" class="headerlink" title="3、package.json 文件 javascript 配置运行"></a>3、package.json 文件 javascript 配置运行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
   <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token string-property property">"serve"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service serve --mode development"</span><span class="token punctuation">,</span>
     <span class="token string-property property">"serve:dev"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service serve --mode dev"</span><span class="token punctuation">,</span>
@@ -1008,7 +1008,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

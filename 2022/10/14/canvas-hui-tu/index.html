@@ -418,21 +418,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
 
@@ -460,138 +460,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、canvas点连线生成图片"><a href="#1、canvas点连线生成图片" class="headerlink" title="1、canvas点连线生成图片"></a>1、canvas点连线生成图片</h2><p>canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点<br>其余点使用lineTo进行连接，<br><code>当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作</code><br><strong>注意：如果需要绘制的图形铺满整个画布，则需要先计算出所有坐标点的极值点<br>，即最大最小的x、y，再结合画布width和height，算出每个方向上的缩放<br>倍率scaleX和scaleY，moveTo和lineTo的时候需要将缩放倍率计算进去</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">let xmin, xmax;
-let ymin, ymax;
-let xArr &#x3D; [];
-let yArr &#x3D; [];
-let scalex, scaley;
+                <h3 id="1、canvas点连线生成图片"><a href="#1、canvas点连线生成图片" class="headerlink" title="1、canvas点连线生成图片"></a>1、canvas点连线生成图片</h3><p>canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点<br>其余点使用lineTo进行连接，<br><code>当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作</code><br><strong>注意：如果需要绘制的图形铺满整个画布，则需要先计算出所有坐标点的极值点<br>，即最大最小的x、y，再结合画布width和height，算出每个方向上的缩放<br>倍率scaleX和scaleY，moveTo和lineTo的时候需要将缩放倍率计算进去</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> xmin<span class="token punctuation">,</span> xmax<span class="token punctuation">;</span>
+<span class="token keyword">let</span> ymin<span class="token punctuation">,</span> ymax<span class="token punctuation">;</span>
+<span class="token keyword">let</span> xArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> yArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> scalex<span class="token punctuation">,</span> scaley<span class="token punctuation">;</span>
 
-function drawChina() &#123;
-  &#x2F;&#x2F; 解析边界线
-  let obj &#x3D; fs.readFileSync(&quot;.&#x2F;data&#x2F;china.json&quot;);
-  let object &#x3D; JSON.parse(obj);
-  let features &#x3D; object.features;
+<span class="token keyword">function</span> <span class="token function">drawChina</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 解析边界线</span>
+  <span class="token keyword">let</span> obj <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">"./data/china.json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> object <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> features <span class="token operator">=</span> object<span class="token punctuation">.</span>features<span class="token punctuation">;</span>
   
-  &#x2F;&#x2F; 计算极值
-  for (let i &#x3D; 0; i &lt; features.length; i++) &#123;
-    let geo &#x3D; features[i].geometry;
-    let coor &#x3D; geo.coordinates;
-    for (let j &#x3D; 0; j &lt; coor.length; j++) &#123;
-      for (let m &#x3D; 0; m &lt; coor[j].length; m++) &#123;
-        for (let k &#x3D; 0; k &lt; coor[j][m].length; k++) &#123;
-          xArr.push(coor[j][m][k][0]);
-          yArr.push(coor[j][m][k][1]);
-        &#125;
-      &#125;
-    &#125;
-  &#125;
-  let b &#x3D; Array.from(new Set(xArr);
-  let num1, num2; &#x2F;&#x2F;最小值与最大值
-  num1 &#x3D; b[0];
-  num2 &#x3D; b[1];
-  for (let i &#x3D; 0; i &lt; b.length - 1; i++) &#123;
-    if (b[i] &lt; num1) &#123;
-      num1 &#x3D; b[i];
-    &#125;
-    if (b[i] &gt; num2) &#123;
-      num2 &#x3D; b[i];
-    &#125;
-  &#125;
-  &#x2F;&#x2F; console.log(num1, num2);
-  xmin &#x3D; num1;
-  xmax &#x3D; num2;
+  <span class="token comment">// 计算极值</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> features<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> geo <span class="token operator">=</span> features<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>geometry<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> coor <span class="token operator">=</span> geo<span class="token punctuation">.</span>coordinates<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> coor<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> m <span class="token operator">&lt;</span> coor<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> m<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> coor<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          xArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>coor<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          yArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>coor<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">let</span> b <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>xArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> num1<span class="token punctuation">,</span> num2<span class="token punctuation">;</span> <span class="token comment">//最小值与最大值</span>
+  num1 <span class="token operator">=</span> b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  num2 <span class="token operator">=</span> b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> num1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      num1 <span class="token operator">=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> num2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      num2 <span class="token operator">=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// console.log(num1, num2);</span>
+  xmin <span class="token operator">=</span> num1<span class="token punctuation">;</span>
+  xmax <span class="token operator">=</span> num2<span class="token punctuation">;</span>
 
-  let a &#x3D; Array.from(new Set(yArr);
-  let num3, num4; &#x2F;&#x2F;最小值与最大值
-  num3 &#x3D; a[0];
-  num4 &#x3D; a[1];
-  for (let i &#x3D; 0; i &lt; a.length - 1; i++) &#123;
-    if (a[i] &lt; num3) &#123;
-      num3 &#x3D; a[i];
-    &#125;
-    if (a[i] &gt; num4) &#123;
-      num4 &#x3D; a[i];
-    &#125;
-  &#125;
-  ymin &#x3D; num3;
-  ymax &#x3D; num4;
+  <span class="token keyword">let</span> a <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>yArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> num3<span class="token punctuation">,</span> num4<span class="token punctuation">;</span> <span class="token comment">//最小值与最大值</span>
+  num3 <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  num4 <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> num3<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      num3 <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> num4<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      num4 <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  ymin <span class="token operator">=</span> num3<span class="token punctuation">;</span>
+  ymax <span class="token operator">=</span> num4<span class="token punctuation">;</span>
 
-  &#x2F;&#x2F; 打印极值
-  console.log(xmin, xmax, ymin, ymax);
+  <span class="token comment">// 打印极值</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xmin<span class="token punctuation">,</span> xmax<span class="token punctuation">,</span> ymin<span class="token punctuation">,</span> ymax<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  &#x2F;&#x2F; 循环绘制
-  for (let i &#x3D; 0; i &lt; features.length; i++) &#123;
-    let feature &#x3D; features[i];
-    let geometry &#x3D; feature.geometry;
-    let type &#x3D; geometry.type;
-    let coordinates &#x3D; geometry.coordinates;
-    &#x2F;&#x2F; 得到不同方向上的倍率
-    scalex &#x3D; (xmax - xmin) &#x2F; width;
-    scaley &#x3D; (ymax - ymin) &#x2F; height;
-    if (type &#x3D;&#x3D;&#x3D; &quot;Polygon&quot;) &#123;
-      drawPolygon0(coordinates, scalex, scaley);
-    &#125; else if (type &#x3D;&#x3D;&#x3D; &quot;MultiPolygon&quot;) &#123;
-      for (let j &#x3D; 0; j &lt; coordinates.length; j++) &#123;
-        let polygon &#x3D; coordinates[j];
-        drawPolygon0(polygon, scalex, scaley);
-      &#125;
-    &#125;
-  &#125;
+  <span class="token comment">// 循环绘制</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> features<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> feature <span class="token operator">=</span> features<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> geometry <span class="token operator">=</span> feature<span class="token punctuation">.</span>geometry<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> type <span class="token operator">=</span> geometry<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> coordinates <span class="token operator">=</span> geometry<span class="token punctuation">.</span>coordinates<span class="token punctuation">;</span>
+    <span class="token comment">// 得到不同方向上的倍率</span>
+    scalex <span class="token operator">=</span> <span class="token punctuation">(</span>xmax <span class="token operator">-</span> xmin<span class="token punctuation">)</span> <span class="token operator">/</span> width<span class="token punctuation">;</span>
+    scaley <span class="token operator">=</span> <span class="token punctuation">(</span>ymax <span class="token operator">-</span> ymin<span class="token punctuation">)</span> <span class="token operator">/</span> height<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"Polygon"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">drawPolygon0</span><span class="token punctuation">(</span>coordinates<span class="token punctuation">,</span> scalex<span class="token punctuation">,</span> scaley<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"MultiPolygon"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> coordinates<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> polygon <span class="token operator">=</span> coordinates<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">drawPolygon0</span><span class="token punctuation">(</span>polygon<span class="token punctuation">,</span> scalex<span class="token punctuation">,</span> scaley<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
 
-  &#x2F;&#x2F; node环境保存图片，与绘制无关，可以不使用
-  function saveChina() &#123;
-    const image &#x3D; canvas.toDataURL(&quot;image&#x2F;png&quot;);
-    const base64Data &#x3D; image.replace(&#x2F;^data:image\&#x2F;\w+;base64,&#x2F;, &quot;&quot;);
-    const bufferData &#x3D; new Buffer(base64Data, &quot;base64&quot;);
-    fs.writeFile(
-      &quot;.&#x2F;result&#x2F;img&#x2F;&quot; + new Date().getTime() + &quot;.png&quot;,
-      bufferData,
-      function (err) &#123;
-        if (err) &#123;
-          &#x2F;&#x2F;&#x2F;&#x2F;console.log(err);
-        &#125; else &#123;
-          &#x2F;&#x2F;&#x2F;&#x2F;console.log(&quot;图片保存成功&quot;);
-        &#125;
-      &#125;
-    );
-  &#125;
+  <span class="token comment">// node环境保存图片，与绘制无关，可以不使用</span>
+  <span class="token keyword">function</span> <span class="token function">saveChina</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> image <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> base64Data <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^data:image\/\w+;base64,</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> bufferData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>base64Data<span class="token punctuation">,</span> <span class="token string">"base64"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>
+      <span class="token string">"./result/img/"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".png"</span><span class="token punctuation">,</span>
+      bufferData<span class="token punctuation">,</span>
+      <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">////console.log(err);</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">////console.log("图片保存成功");</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 
-  &#x2F;&#x2F; saveChina()
+  <span class="token comment">// saveChina()</span>
 
-  function drawPolygon0(polygon, scalex, scaley) &#123;
-    ctx.beginPath();
-    let points &#x3D; polygon[0];
-    for (let i &#x3D; 0; i &lt; points.length; i++) &#123;
-      let point &#x3D; points[i];
-      let x &#x3D; Number(point[0]);
-      let y &#x3D; Number(point[1]);
+  <span class="token keyword">function</span> <span class="token function">drawPolygon0</span><span class="token punctuation">(</span><span class="token parameter">polygon<span class="token punctuation">,</span> scalex<span class="token punctuation">,</span> scaley</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> points <span class="token operator">=</span> polygon<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> point <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>point<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>point<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       
-      &#x2F;&#x2F; 根据倍率移动点位置，进行满铺
-      &#x2F;&#x2F; 由于canvas坐标系左上角为顶点，越往下y值越大，所以需要翻转
-      let l &#x3D; (x - xmin) &#x2F; scalex;
-      let t &#x3D; height - (y - ymin) &#x2F; scaley;
-      if (t &#x3D;&#x3D; 0) &#123;
-        &#x2F;&#x2F; console.log(&quot;0&quot;);
-      &#125;
+      <span class="token comment">// 根据倍率移动点位置，进行满铺</span>
+      <span class="token comment">// 由于canvas坐标系左上角为顶点，越往下y值越大，所以需要翻转</span>
+      <span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> xmin<span class="token punctuation">)</span> <span class="token operator">/</span> scalex<span class="token punctuation">;</span>
+      <span class="token keyword">let</span> t <span class="token operator">=</span> height <span class="token operator">-</span> <span class="token punctuation">(</span>y <span class="token operator">-</span> ymin<span class="token punctuation">)</span> <span class="token operator">/</span> scaley<span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// console.log("0");</span>
+      <span class="token punctuation">&#125;</span>
 
-      if (i &#x3D;&#x3D;&#x3D; 0) &#123;
-        ctx.moveTo(l, t);
-      &#125; else &#123;
-        ctx.lineTo(l, t);
-      &#125;
-    &#125;
-    ctx.fillStyle &#x3D; &quot;rgba(255,255,255,1)&quot;;
-    ctx.strokeStyle &#x3D; &quot;rgba(255,0,0,1)&quot;;
-    ctx.lineWidth &#x3D; 2;
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-  &#125;
-&#125;
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    ctx<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token string">"rgba(255,255,255,1)"</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>strokeStyle <span class="token operator">=</span> <span class="token string">"rgba(255,0,0,1)"</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="2、canvas颜色的填充"><a href="#2、canvas颜色的填充" class="headerlink" title="2、canvas颜色的填充"></a>2、canvas颜色的填充</h2><p>canvas在绘制等值线（或者说是闭合区域的时候）往往需要在区域内填色，根据<br>globalCompositeOperation的不同属性值，会得到不同的结果，具体需要填色的情况<br>选择不同的属性值<br><code>在有要求的情况下，可以根据闭合区域不同的高度值（假如是等高线）进行不同的填色</code></p>
+<h3 id="2、canvas颜色的填充"><a href="#2、canvas颜色的填充" class="headerlink" title="2、canvas颜色的填充"></a>2、canvas颜色的填充</h3><p>canvas在绘制等值线（或者说是闭合区域的时候）往往需要在区域内填色，根据<br>globalCompositeOperation的不同属性值，会得到不同的结果，具体需要填色的情况<br>选择不同的属性值<br><code>在有要求的情况下，可以根据闭合区域不同的高度值（假如是等高线）进行不同的填色</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">drawOther</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> colors <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token literal-property property">zuigaowen</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -707,8 +707,8 @@ function drawChina() &#123;
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3、canvas图形形状的截取"><a href="#3、canvas图形形状的截取" class="headerlink" title="3、canvas图形形状的截取"></a>3、canvas图形形状的截取</h2><p>canvas形状的截取，尤其是既包含填色，又包含截取（按另一个图形的形状截取）的情况下，<br>强烈建议分两步</p>
-<h3 id="3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"><a href="#3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。" class="headerlink" title="3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"></a>3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。</h3><h3 id="3-2然后将两张图片进行叠加截图"><a href="#3-2然后将两张图片进行叠加截图" class="headerlink" title="3.2然后将两张图片进行叠加截图"></a>3.2然后将两张图片进行叠加截图</h3><p><strong>node环境为例</strong></p>
+<h3 id="3、canvas图形形状的截取"><a href="#3、canvas图形形状的截取" class="headerlink" title="3、canvas图形形状的截取"></a>3、canvas图形形状的截取</h3><p>canvas形状的截取，尤其是既包含填色，又包含截取（按另一个图形的形状截取）的情况下，<br>强烈建议分两步</p>
+<h4 id="3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"><a href="#3-1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。" class="headerlink" title="3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。"></a>3.1首先将目标canvas与源canvas生成图片，避免涂色相互影响的问题。</h4><h4 id="3-2然后将两张图片进行叠加截图"><a href="#3-2然后将两张图片进行叠加截图" class="headerlink" title="3.2然后将两张图片进行叠加截图"></a>3.2然后将两张图片进行叠加截图</h4><p><strong>node环境为例</strong></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * 测试canvas图像截取
  * 先画元素图
@@ -1280,7 +1280,7 @@ function drawChina() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             

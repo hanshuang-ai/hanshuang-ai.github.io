@@ -428,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
@@ -473,12 +473,12 @@
                 <blockquote>
 <p>安装代码包<br>代码内引入使用<br>预备 canvas 画布<br>开始播放</p>
 </blockquote>
-<h2 id="1、安装代码包"><a href="#1、安装代码包" class="headerlink" title="1、安装代码包"></a>1、安装代码包</h2><p><a href="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8svga/https://github.com/hanshuang-ai/svgaplayer-weapp">资源包</a></p>
+<h3 id="1、安装代码包"><a href="#1、安装代码包" class="headerlink" title="1、安装代码包"></a>1、安装代码包</h3><p><a href="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8svga/https://github.com/hanshuang-ai/svgaplayer-weapp">资源包</a></p>
 <img src="/2022/10/12/xiao-cheng-xu-shi-yong-svga/svga.png" class="" title="使用说明">
 
-<h2 id="2、代码内引入"><a href="#2、代码内引入" class="headerlink" title="2、代码内引入"></a>2、代码内引入</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> Parser<span class="token punctuation">,</span> Player <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./js/svgaplayer.weapp.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、代码内引入"><a href="#2、代码内引入" class="headerlink" title="2、代码内引入"></a>2、代码内引入</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> Parser<span class="token punctuation">,</span> Player <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./js/svgaplayer.weapp.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="3、预备-canvas-画布"><a href="#3、预备-canvas-画布" class="headerlink" title="3、预备 canvas 画布"></a>3、预备 canvas 画布</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 礼物特效组件 --></span>
+<h3 id="3、预备-canvas-画布"><a href="#3、预备-canvas-画布" class="headerlink" title="3、预备 canvas 画布"></a>3、预备 canvas 画布</h3><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 礼物特效组件 --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span>
   <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2d<span class="token punctuation">"</span></span>
   <span class="token attr-name"><span class="token namespace">wx:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123;showGiftCanvas&#125;&#125;<span class="token punctuation">"</span></span>
@@ -490,7 +490,7 @@
   <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>giftCanvas<span class="token punctuation">"</span></span>
 <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="4、加载资源开始使用"><a href="#4、加载资源开始使用" class="headerlink" title="4、加载资源开始使用"></a>4、加载资源开始使用</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//礼物弹幕</span>
+<h3 id="4、加载资源开始使用"><a href="#4、加载资源开始使用" class="headerlink" title="4、加载资源开始使用"></a>4、加载资源开始使用</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//礼物弹幕</span>
 <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">==</span> <span class="token string">"sendgift"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   textObj<span class="token punctuation">.</span>_type <span class="token operator">=</span> type<span class="token punctuation">;</span>
@@ -1033,7 +1033,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43k</span>
             
             
             
