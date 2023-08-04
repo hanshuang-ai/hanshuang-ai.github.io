@@ -11,7 +11,9 @@
 
 
 
-2、完整的导航解析流程">
+2、完整的导航解析流程
+
+3、路由守卫中next带参数和不带参数的区别假设参数是 &amp;#39;/login&amp;#39;在Vue.js, 路由守卫用于在路由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -415,14 +417,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-02
+                    2023-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    39
+                    428
                 </div>
                 
 
@@ -464,6 +466,32 @@
 <img src="/2022/03/04/vue-lu-you-shou-wei/1.png" class="" title="vue路由守卫">
 
 <h3 id="2、完整的导航解析流程"><a href="#2、完整的导航解析流程" class="headerlink" title="2、完整的导航解析流程"></a>2、完整的导航解析流程</h3><img src="/2022/03/04/vue-lu-you-shou-wei/2.png" class="" title="vue路由导航解析流程">
+
+<h3 id="3、路由守卫中next带参数和不带参数的区别"><a href="#3、路由守卫中next带参数和不带参数的区别" class="headerlink" title="3、路由守卫中next带参数和不带参数的区别"></a>3、路由守卫中next带参数和不带参数的区别</h3><p><code>假设参数是 &#39;/login&#39;</code><br>在Vue.js, 路由守卫用于在路由切换前或切换后执行特定的逻辑。<code>next()</code> 和 <code>next(&#39;/login&#39;)</code> 是两种不同的方式来控制路由守卫的行为。</p>
+<ol>
+<li><p><strong>next()</strong>:<br>当你在路由守卫中调用 <code>next()</code> 时，表示允许当前的路由切换继续进行。这通常用于在一个路由守卫中执行完必要的逻辑后，允许路由继续切换到下一个路由。例如，在一个验证用户登录状态的守卫中，如果用户已登录，你可以调用 <code>next()</code> 来允许切换到下一个路由。示例：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>userIsLoggedIn<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 用户已登录，允许继续路由切换</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 用户未登录，重定向到登录页面</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>next(‘/login’)</strong>:<br>当你调用 <code>next(&#39;/login&#39;)</code> 时，表示你希望中断当前的路由切换，并强制跳转到指定的路由（在这个例子中是登录页面）。这通常用于在某些情况下，你希望用户在未满足特定条件时被强制重定向到特定的页面。示例：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>userIsLoggedIn<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 用户已登录，允许继续路由切换</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 用户未登录，强制跳转到登录页面</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>总之，<code>next()</code> 允许路由继续切换，而 <code>next(&#39;/login&#39;)</code> 则中断当前切换并重定向到指定的路由。</p>
+
                 
             </div>
             <hr/>
@@ -927,7 +955,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">42.7k</span>
+                        class="white-color">43.1k</span>
             
             
             
