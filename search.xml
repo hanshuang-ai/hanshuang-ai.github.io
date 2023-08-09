@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>记录一次粗心造成的bug</title>
+      <link href="/2023/08/09/ji-lu-yi-ci-cu-xin-zao-cheng-de-bug/"/>
+      <url>/2023/08/09/ji-lu-yi-ci-cu-xin-zao-cheng-de-bug/</url>
+      
+        <content type="html"><![CDATA[<h3 id="v-if-与-v-show"><a href="#v-if-与-v-show" class="headerlink" title="v-if 与 v-show"></a>v-if 与 v-show</h3><p>有一个列表和弹窗的 UI，v-if 进行控制，</p><p>列表内每条 item 数据上有个按钮，按钮点击后列表消失，弹窗出现。点击弹窗内 X 号后，弹窗消失，列表出现。</p><p><code>bug：无论列表滚动到哪，弹窗消失后，列表都会回到顶部</code></p><p><strong>原因：v-if每次显示的时候都是重新渲染，当然会从头开始，此处应该用v-show</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sass变量不能在calc里面使用</title>
       <link href="/2023/08/03/sass-bian-liang-bu-neng-zai-calc-li-mian-shi-yong/"/>
       <url>/2023/08/03/sass-bian-liang-bu-neng-zai-calc-li-mian-shi-yong/</url>
