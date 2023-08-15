@@ -4,12 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="flex布局, MyBlog">
-    <meta name="description" content="1. align-items和align-content的区别align-items和align-content都是CSS中用于控制flex容器内部项目对齐的属性，它们之间有一些区别。
+    <meta name="keywords" content="css自定义滚动条, MyBlog">
+    <meta name="description" content="参考链接
 
-align-items：
-
-align-items是">
+::-webkit-scrollbar——整个滚动条。::-webkit-scrollbar-button——滚动条上的按钮（上下箭头）。::-webkit-scrollbar-thumb——滚动条上的滚动滑块。::-webki">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +19,7 @@ align-items是">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>flex布局 | MyBlog</title>
+    <title>css自定义滚动条 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -269,12 +267,12 @@ align-items是">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">flex布局</h1>
+                    <h1 class="description center-align post-title">css自定义滚动条</h1>
                 </div>
             </div>
         </div>
@@ -390,8 +388,12 @@ align-items是">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                <span class="chip bg-color">实战</span>
+                            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                                <span class="chip bg-color">浏览器</span>
+                            </a>
+                        
+                            <a href="/tags/css/">
+                                <span class="chip bg-color">css</span>
                             </a>
                         
                     </div>
@@ -406,21 +408,21 @@ align-items是">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    415
+                    185
                 </div>
                 
 
@@ -455,39 +457,23 @@ align-items是">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-align-items和align-content的区别"><a href="#1-align-items和align-content的区别" class="headerlink" title="1. align-items和align-content的区别"></a>1. align-items和align-content的区别</h3><p><code>align-items</code>和<code>align-content</code>都是CSS中用于控制flex容器内部项目对齐的属性，它们之间有一些区别。</p>
-<ol>
-<li><p><code>align-items</code>：</p>
-<ul>
-<li><code>align-items</code>是用来控制flex容器内部所有项目在交叉轴上的对齐方式。</li>
-<li>它可以接受的值包括：<ul>
-<li><code>flex-start</code>：将项目对齐到交叉轴的起始位置。</li>
-<li><code>flex-end</code>：将项目对齐到交叉轴的结束位置。</li>
-<li><code>center</code>：将项目在交叉轴上居中对齐。</li>
-<li><code>baseline</code>：将项目的基线对齐。</li>
-<li><code>stretch</code>：如果项目未设置固定的尺寸，将会拉伸以填充整个交叉轴空间。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>align-content</code>：</p>
-<ul>
-<li><code>align-content</code>是用来控制flex容器内部多行项目在交叉轴上的对齐方式。</li>
-<li>它只有在容器内有多行项目时才会生效，而当只有一行项目时，<code>align-items</code>会控制该行项目的对齐方式。</li>
-<li>它可以接受的值包括：<ul>
-<li><code>flex-start</code>：将多行项目对齐到交叉轴的起始位置。</li>
-<li><code>flex-end</code>：将多行项目对齐到交叉轴的结束位置。</li>
-<li><code>center</code>：将多行项目在交叉轴上居中对齐。</li>
-<li><code>space-between</code>：在每行项目之间均匀分布额外的空间。</li>
-<li><code>space-around</code>：在每行项目周围均匀分布额外的空间。</li>
-<li><code>stretch</code>：如果项目未设置固定的尺寸，将会拉伸以填充整个交叉轴空间。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>简而言之，<code>align-items</code>用于控制flex容器内部单行项目的对齐方式，而<code>align-content</code>用于控制flex容器内部多行项目的对齐方式。如果只有一行项目，两者之间的区别将不会显现。</p>
-<h3 id="2-flex布局里面的margin"><a href="#2-flex布局里面的margin" class="headerlink" title="2. flex布局里面的margin"></a>2. flex布局里面的margin</h3>
+                <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::-webkit-scrollbar">参考链接</a></p>
+<blockquote>
+<p>::-webkit-scrollbar——整个滚动条。<br>::-webkit-scrollbar-button——滚动条上的按钮（上下箭头）。<br>::-webkit-scrollbar-thumb——滚动条上的滚动滑块。<br>::-webkit-scrollbar-track——滚动条轨道。<br>::-webkit-scrollbar-track-piece——滚动条没有滑块的轨道部分。<br>::-webkit-scrollbar-corner——当同时有垂直滚动条和水平滚动条时交汇的部分。通常是浏览器窗口的右下角。<br>::-webkit-resizer——出现在某些元素底角的可拖动调整大小的滑块。</p>
+</blockquote>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.look-more-content</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">overflow-y</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.look-more-content::-webkit-scrollbar</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.look-more-content::-webkit-scrollbar-thumb</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">background-color</span><span class="token punctuation">:</span> #888<span class="token punctuation">;</span>
+	<span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>由于该css特性是非标准的，所以pc端需慎用，但移动端都是基于webkit内核，所以可以使用</code></p>
+
                 
             </div>
             <hr/>
@@ -513,7 +499,7 @@ align-items是">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2023/08/01/flex-bu-ju/">https://hanshuang-ai.github.io/2023/08/01/flex-bu-ju/</a>
+                    <a href="https://hanshuang-ai.github.io/2023/08/15/css-zi-ding-yi-gun-dong-tiao/">https://hanshuang-ai.github.io/2023/08/15/css-zi-ding-yi-gun-dong-tiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,8 +537,12 @@ align-items是">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%9E%E6%88%98/">
-                                    <span class="chip bg-color">实战</span>
+                                <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                                    <span class="chip bg-color">浏览器</span>
+                                </a>
+                            
+                                <a href="/tags/css/">
+                                    <span class="chip bg-color">css</span>
                                 </a>
                             
                         </div>
@@ -721,17 +711,18 @@ align-items是">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/01/an-zhuo-yin-pin-jiao-dian/">
+                <a href="/2023/08/15/css-zi-ding-yi-gun-dong-tiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="安卓音频焦点">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="css自定义滚动条">
                         
-                        <span class="card-title">安卓音频焦点</span>
+                        <span class="card-title">css自定义滚动条</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -741,9 +732,9 @@ align-items是">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -752,11 +743,16 @@ align-items是">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">实战</span>
+                    <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                        <span class="chip bg-color">浏览器</span>
+                    </a>
+                    
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>
@@ -770,13 +766,13 @@ align-items是">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/01/tu-pian-ji-chu-zhi-shi-ji-bu-tong-ge-shi-de-te-dian-jie-shao/">
+                <a href="/2023/08/09/ji-lu-yi-ci-cu-xin-zao-cheng-de-bug/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="图片基础知识及不同格式的特点介绍">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="记录一次粗心造成的bug">
                         
-                        <span class="card-title">图片基础知识及不同格式的特点介绍</span>
+                        <span class="card-title">记录一次粗心造成的bug</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -787,7 +783,7 @@ align-items是">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
                             </span>
                         <span class="publish-author">
                             
@@ -800,8 +796,8 @@ align-items是">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">实战</span>
+                    <a href="/tags/bug/">
+                        <span class="chip bg-color">bug</span>
                     </a>
                     
                 </div>
