@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="前端跨页面通信, MyBlog">
-    <meta name="description" content="1、BroadcastChannelBroadcastChannel 接口代理了一个命名频道，可以让指定 origin 下的任意 browsing context 来订阅它。它允许同源的不同浏览器窗口，Tab页，frame 或者 ifram">
+    <meta name="keywords" content="vue插槽组件, MyBlog">
+    <meta name="description" content="// 滚动组件
+&amp;lt;view :style=&#34;&amp;#123; height: &#39;100%&#39;, width: &#39;100%&#39; &amp;#125;&#34;&gt;
+    &amp;lt;scroll-view :class=&#34;[&#39;wtListScrollColumn&#39;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>前端跨页面通信 | MyBlog</title>
+    <title>vue插槽组件 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -265,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">前端跨页面通信</h1>
+                    <h1 class="description center-align post-title">vue插槽组件</h1>
                 </div>
             </div>
         </div>
@@ -390,10 +392,6 @@
                                 <span class="chip bg-color">实战</span>
                             </a>
                         
-                            <a href="/tags/api/">
-                                <span class="chip bg-color">api</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -406,28 +404,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-06-05
+                    2023-10-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-10-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    265
+                    565
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -455,56 +453,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、BroadcastChannel"><a href="#1、BroadcastChannel" class="headerlink" title="1、BroadcastChannel"></a>1、BroadcastChannel</h3><p>BroadcastChannel 接口代理了一个命名频道，可以让指定 origin 下的任意 browsing context 来订阅它。它允许同源的不同浏览器窗口，Tab页，frame 或者 iframe 下的不同文档之间相互通信。通过触发一个 message 事件，消息可以广播到所有监听了该频道的BroadcastChannel 对象。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel">参考链接</a></p>
-<img src="/2023/06/05/qian-duan-kua-ye-mian-tong-xin/1.png" class="" title="BroadcastChannel">
+                <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 滚动组件</span>
+<span class="token operator">&lt;</span>view <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"&#123; height: '100%', width: '100%' &#125;"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>scroll<span class="token operator">-</span>view <span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"['wtListScrollColumn', isScroll ? '' : 'clsScroll']"</span>
+      <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"&#123; height: '100%', width: '100%', gap: about + 'Px', gridRowGap: cardDown + 'Px' &#125;"</span> <span class="token operator">:</span>scroll<span class="token operator">-</span>y<span class="token operator">=</span><span class="token string">"isScroll"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>block v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item, index) in listData"</span> <span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"index"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"scroll-list-card"</span> <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"&#123; width: cardWidth + 'Px', &#125;"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>slot name<span class="token operator">=</span><span class="token string">"cardContent"</span> <span class="token operator">:</span>cardData<span class="token operator">=</span><span class="token string">"item"</span> <span class="token operator">:</span>cardWidth<span class="token operator">=</span><span class="token string">"cardWidth"</span> ref<span class="token operator">=</span><span class="token string">"scroll-list-card"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>block<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>scroll<span class="token operator">-</span>view<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span>
-        <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ie=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>index<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>发送消息<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">closeBroadcastChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>关闭通道<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">let</span> base <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">bc</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">&#125;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"store-scroll"</span> v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"isShowH5ScrollView &amp;&amp; storeList.length > 0"</span> style<span class="token operator">=</span><span class="token string">"width: 1622Px;"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>wt<span class="token operator">-</span>list<span class="token operator">-</span>scroll<span class="token operator">-</span>column <span class="token operator">:</span>list<span class="token operator">-</span>data<span class="token operator">=</span><span class="token string">"storeList"</span> <span class="token operator">:</span>cardWidth<span class="token operator">=</span><span class="token string">"731"</span> <span class="token operator">:</span>cardDown<span class="token operator">=</span><span class="token string">"32"</span> <span class="token operator">:</span>about<span class="token operator">=</span><span class="token string">"32"</span><span class="token operator">></span>
 
-  <span class="token keyword">function</span> <span class="token function">initBroadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    base<span class="token punctuation">.</span>bc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BroadcastChannel</span><span class="token punctuation">(</span><span class="token string">"mode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    base<span class="token punctuation">.</span>bc<span class="token punctuation">.</span>onmessage <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'------------'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'page-city===onmessage:'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"接收广播"</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      base<span class="token punctuation">.</span>mode <span class="token operator">=</span> e<span class="token punctuation">.</span>data<span class="token punctuation">.</span>mode<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span>
+        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 关键点在这两行代码 cardContent是具名插槽的名称 cardData是插槽声明时的变量 sitem是card卡片里的props<span class="token operator">--</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>template #cardContent<span class="token operator">=</span><span class="token string">"&#123; cardData &#125;"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>card <span class="token operator">:</span>sitem<span class="token operator">=</span><span class="token string">"cardData"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-  <span class="token keyword">function</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"sendMessage**********"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"广播发送"</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    base<span class="token punctuation">.</span>bc<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token literal-property property">mode</span><span class="token operator">:</span> base<span class="token punctuation">.</span>mode<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>wt<span class="token operator">-</span>list<span class="token operator">-</span>scroll<span class="token operator">-</span>column<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-  <span class="token keyword">function</span> <span class="token function">closeBroadcastChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'通道已关闭'</span><span class="token punctuation">)</span>
-    base<span class="token punctuation">.</span>bc<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span>
-
-  <span class="token function">initBroadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img src="/2023/06/05/qian-duan-kua-ye-mian-tong-xin/2.png" class="" title="BroadcastChannel">
-<img src="/2023/06/05/qian-duan-kua-ye-mian-tong-xin/3.png" class="" title="BroadcastChannel">
-<img src="/2023/06/05/qian-duan-kua-ye-mian-tong-xin/4.png" class="" title="BroadcastChannel">
-<img src="/2023/06/05/qian-duan-kua-ye-mian-tong-xin/5.png" class="" title="BroadcastChannel">
-
-<h3 id="2、ServiceWorker"><a href="#2、ServiceWorker" class="headerlink" title="2、ServiceWorker"></a>2、ServiceWorker</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/ServiceWorker">参考链接</a></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// card组件</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"store-item-wrap"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"store-item"</span> @tap<span class="token operator">=</span><span class="token string">"handleStoreItem(sitem)"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-name"</span><span class="token operator">></span>
+        <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>name <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+      <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-detail-info"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 店铺大图 <span class="token operator">--</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-photo-wrap"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 营业状态 <span class="token operator">--</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>view v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"sitem.openinfo"</span> <span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span>"sitem<span class="token punctuation">.</span>openinfo <span class="token operator">===</span> <span class="token string">'休息中'</span>
+            <span class="token operator">?</span> <span class="token string">'index-store-status-close'</span>
+            <span class="token operator">:</span> <span class="token string">'index-store-status-open'</span>
+            <span class="token string">" class="</span>index<span class="token operator">-</span>store<span class="token operator">-</span>status"<span class="token operator">></span>
+            <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>openinfo <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span>image <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-front-img"</span> <span class="token operator">:</span>src<span class="token operator">=</span><span class="token string">"sitem.frontimg"</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 门店信息 <span class="token operator">--</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-info-wrap"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>view v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"sitem.avgscore &amp;&amp; sitem.avgscore !== 0"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-price-wrap"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-price"</span><span class="token operator">></span>
+              <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>avgscore <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>分
+            <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+            <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-score-wrap"</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>image v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"i in Math.floor(sitem.avgscore) || 0"</span> <span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"i * 0.01"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"star-common"</span>
+                src<span class="token operator">=</span><span class="token string">"@/static/images/full-star.png"</span> <span class="token operator">/</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>image
+                v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"Math.round((parseFloat(sitem.avgscore) - parseFloat(Math.floor(sitem.avgscore))) * 100) / 100 &lt; 0.6 &amp;&amp; Math.round((parseFloat(sitem.avgscore) - parseFloat(Math.floor(sitem.avgscore))) * 100) / 100 > 0"</span>
+                <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"star-common"</span> src<span class="token operator">=</span><span class="token string">"@/static/images/half-star.png"</span> <span class="token operator">/</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>image
+                v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"Math.round((parseFloat(sitem.avgscore) - parseFloat(Math.floor(sitem.avgscore))) * 100) / 100 > 0.5"</span>
+                <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"star-common"</span> src<span class="token operator">=</span><span class="token string">"@/static/images/full-star.png"</span> <span class="token operator">/</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>image v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"i in Math.floor(5 - sitem.avgscore) || 0"</span> <span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"i * 0.1"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"star-common"</span>
+                src<span class="token operator">=</span><span class="token string">"@/static/images/common-star.png"</span> <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span>view v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"sitem.avgprice || sitem.avgprice === 0"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"avgprice"</span><span class="token operator">></span>
+            ￥<span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>avgprice <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">/</span>人
+          <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-tag"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-tag-item"</span><span class="token operator">></span>
+              <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>area <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+            <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-tag-item"</span><span class="token operator">></span>
+              <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>subcate <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"index-store-detail-btn-wrap"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn-item"</span> hover<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"pressbtnCut"</span> @tap<span class="token punctuation">.</span>stop<span class="token operator">=</span><span class="token string">"navToStore(sitem)"</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>image <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn-img"</span> <span class="token operator">:</span>src<span class="token operator">=</span>"<span class="token constant">THEME</span><span class="token punctuation">.</span>colorStyle <span class="token operator">==</span> <span class="token string">'light'</span> <span class="token operator">?</span> navImgLight <span class="token operator">:</span> navImgDark
+                " <span class="token operator">/</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn-text"</span><span class="token operator">></span> 导航 <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+              <span class="token operator">&lt;</span>view <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn-text-mile"</span><span class="token operator">></span>
+                <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> sitem<span class="token punctuation">.</span>distasnce <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -531,7 +566,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanshuang-ai.github.io/2023/06/05/qian-duan-kua-ye-mian-tong-xin/">https://hanshuang-ai.github.io/2023/06/05/qian-duan-kua-ye-mian-tong-xin/</a>
+                    <a href="https://hanshuang-ai.github.io/2023/10/25/vue-cha-cao-zu-jian/">https://hanshuang-ai.github.io/2023/10/25/vue-cha-cao-zu-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,10 +606,6 @@
                             
                                 <a href="/tags/%E5%AE%9E%E6%88%98/">
                                     <span class="chip bg-color">实战</span>
-                                </a>
-                            
-                                <a href="/tags/api/">
-                                    <span class="chip bg-color">api</span>
                                 </a>
                             
                         </div>
@@ -743,17 +774,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/06/06/upload-zi-ding-yi-wen-jian-shang-chuan/">
+                <a href="/2023/10/25/vue-cha-cao-zu-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="upload自定义文件上传">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue插槽组件">
                         
-                        <span class="card-title">upload自定义文件上传</span>
+                        <span class="card-title">vue插槽组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -763,9 +795,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-06-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -774,15 +806,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E5%AE%9E%E6%88%98/">
                         <span class="chip bg-color">实战</span>
-                    </a>
-                    
-                    <a href="/tags/element/">
-                        <span class="chip bg-color">element</span>
                     </a>
                     
                 </div>
@@ -796,13 +825,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/06/05/ji-lu-yi-ci-she-bei-xiang-su-bi-zao-cheng-de-shi-gu/">
+                <a href="/2023/10/25/taro3.2.0-huan-jing-env/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="记录一次设备像素比造成的事故">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="taro3.2.0环境env">
                         
-                        <span class="card-title">记录一次设备像素比造成的事故</span>
+                        <span class="card-title">taro3.2.0环境env</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -813,7 +842,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-25
                             </span>
                         <span class="publish-author">
                             
@@ -828,10 +857,6 @@
                     
                     <a href="/tags/%E5%AE%9E%E6%88%98/">
                         <span class="chip bg-color">实战</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BD%A6%E6%9C%BA/">
-                        <span class="chip bg-color">车机</span>
                     </a>
                     
                 </div>
