@@ -324,39 +324,41 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/10/14/js-wang-ye-da-yin/">
+                    <a href="/2022/10/11/vue-guo-lu-qi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="js网页打印">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue过滤器">
                             
-                            <span class="card-title">js网页打印</span>
+                            <span class="card-title">vue过滤器</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、打印网页window.print();
+                                1、全局过滤器
+单起一个 js 文件，编写函数main.js 内进行配置组件内使用
 
-2、打印部分页面通过css媒体查询将要打印的页面暴露出来，不需要打印的隐藏起来，同时对暴露出来的部分可以自定义样式
-
+// filter.js
+let random30 = (number) => &#123;
+  if (parseInt(number) &lt; 30
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
                                 </a>
                                 
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-category">
-                                    代码片段
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
                                 </a>
                                 
                                 
@@ -367,12 +369,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%BC%80%E5%8F%91/">
-                            <span class="chip bg-color">开发</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
                         </a>
                         
-                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-                            <span class="chip bg-color">代码片段</span>
+                        <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                            <span class="chip bg-color">过滤器</span>
                         </a>
                         
                     </div>
@@ -384,27 +386,260 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/06/20/imagemogr2/">
+                    <a href="/2023/02/16/vue-dai-li/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="imagemogr2">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue代理">
                             
-                            <span class="card-title">imagemogr2</span>
+                            <span class="card-title">vue代理</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考链接参考链接
-记录一次因为图片参数导致的图片不显示的问题
-事情是这样的，由于之前接触的都是oss，知道在图片后面拼接参数可以利用oss服务对图片进行处理（不拼接参数也可以访问），但是https://p0.pipi.cn/mmdb/fb7
+                                
+vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;
+1. vu
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%BF%9B%E9%98%B6/" class="post-category">
+                                    进阶
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BB%A3%E7%90%86/">
+                            <span class="chip bg-color">代理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/02/03/vue-da-bao-you-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="vue打包优化">
+                            
+                            <span class="card-title">vue打包优化</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                vue打包优化
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%BF%9B%E9%98%B6/" class="post-category">
+                                    进阶
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%93%E5%8C%85/">
+                            <span class="chip bg-color">打包</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/11/vue-da-bao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue打包">
+                            
+                            <span class="card-title">vue打包</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、生产环境的项目，我们隐藏 log 信息
+引入 babel-plugin-transform-remove-console 插件vue 项目内创建 babel.config.js 文件
+
+// babel.config.js
+const 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%93%E5%8C%85/">
+                            <span class="chip bg-color">打包</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/30/vue2-he-3-yu-vue-router-de-da-pei/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue2和3与vue-router的搭配">
+                            
+                            <span class="card-title">vue2和3与vue-router的搭配</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、vue21.1 安装vur-router由于最新版本暴露的变量名发生了改变，建议安装3.x版本
+npm install vue-router@3
+
+1.2 在App.vue文件下添加router-view&lt;template>
+  
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/vue/" class="post-category">
+                                    vue
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
+                        </a>
+                        
+                        <a href="/tags/vue-router/">
+                            <span class="chip bg-color">vue-router</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/06/06/upload-zi-ding-yi-wen-jian-shang-chuan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="upload自定义文件上传">
+                            
+                            <span class="card-title">upload自定义文件上传</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、组件封装// 组件封装
+&lt;template>
+	&lt;div>
+		&lt;!--本地导入弹窗-->
+		&lt;div v-show="showLocalImport">
+			&lt;el-dialog title="数据导
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-06
                             </span>
                             <span class="publish-author">
                                 
@@ -422,54 +657,8 @@
                             <span class="chip bg-color">实战</span>
                         </a>
                         
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/26/elementui/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="elementUI">
-                            
-                            <span class="card-title">elementUI</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、表格表头居中// :header-cell-style="&#123; textAlign: 'center' &#125;"  表头居中
-// :cell-style="&#123; textAlign: 'center'&#125;
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/UI/" class="post-category">
-                                    UI
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/elementUI/">
-                            <span class="chip bg-color">elementUI</span>
+                        <a href="/tags/element/">
+                            <span class="chip bg-color">element</span>
                         </a>
                         
                     </div>
@@ -481,31 +670,25 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/24/css-he-mo-xing/">
+                    <a href="/2023/07/11/react-zhuan-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="css盒模型">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="react专题">
                             
-                            <span class="card-title">css盒模型</span>
+                            <span class="card-title">react专题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-盒模型：盒模型又称框模型（Box Model）,包含了
-
-元素内容（content）内边距（padding）边框（border）外边距（margin）
-
-ie模式IE模型元素宽度width = content + padding + b
+                                react
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
                             </span>
                             <span class="publish-author">
                                 
@@ -519,8 +702,8 @@ ie模式IE模型元素宽度width = content + padding + b
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/css/">
-                            <span class="chip bg-color">css</span>
+                        <a href="/tags/react/">
+                            <span class="chip bg-color">react</span>
                         </a>
                         
                     </div>
@@ -532,20 +715,72 @@ ie模式IE模型元素宽度width = content + padding + b
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/10/14/cesium-hui-zhi-wei-xing-yun-tu/">
+                    <a href="/2023/07/11/react-ji-chu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="cesium绘制卫星云图">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="react基础">
                             
-                            <span class="card-title">cesium绘制卫星云图</span>
+                            <span class="card-title">react基础</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                加载卫星云图（同样使用polygon来加载）设置好图片要显示的范围添加polygon卫星云图动图准备多张卫星云图图使用CallbackProperty动态material赋值定时器轮流改变i值如果卫星云图颜色过深，遮盖住了地球表面，可以在m
+                                组件命名组件的名称必须以大写字母开头，否则它们将无法运行！
+组件return如果你的标签和 return 关键字不在同一行，则必须把它包裹在一对括号中
+
+
+use client参考链接
+事件处理参考链接
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/react/">
+                            <span class="chip bg-color">react</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/14/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="node canvas生成图片并保存">
+                            
+                            <span class="card-title">node canvas生成图片并保存</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                canvas可以将画布转为base64，而base64就是该图片的信息，但是node保存文件的时候需要buffer格式的信息，所以只需要将canvas转成的base64处理成buffer，就可以保存
+总结如下：1、将画布信息转为base64
                             
                         </div>
                         <div class="publish-info">
@@ -556,16 +791,8 @@ ie模式IE模型元素宽度width = content + padding + b
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/gis/" class="post-category">
-                                    gis
-                                </a>
-                                
-                                <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    可视化
-                                </a>
-                                
-                                <a href="/categories/gis/%E5%8F%AF%E8%A7%86%E5%8C%96/3d/" class="post-category">
-                                    3d
+                                <a href="/categories/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    框架
                                 </a>
                                 
                                 
@@ -576,8 +803,12 @@ ie模式IE模型元素宽度width = content + padding + b
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/cesium/">
-                            <span class="chip bg-color">cesium</span>
+                        <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                            <span class="chip bg-color">可视化</span>
+                        </a>
+                        
+                        <a href="/tags/node/">
+                            <span class="chip bg-color">node</span>
                         </a>
                         
                     </div>
@@ -589,24 +820,126 @@ ie模式IE模型元素宽度width = content + padding + b
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/06/14/css-position/">
+                    <a href="/2022/08/31/microapp-chu-tan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="css position">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="microApp初探">
                             
-                            <span class="card-title">css position</span>
+                            <span class="card-title">microApp初探</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考链接
+                                本项目采用microApp进行前端微服务的搭建，父应用采用的是vue3，子应用有2个，分别为vue2和vue3
+项目代码地址：https://github.com/hanshuang-ai/testMicroApp
 
+1、创建父应用2、创建
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
+                                    实战
+                                </a>
+                                
+                                <a href="/categories/%E5%AE%9E%E6%88%98/%E5%BE%AE%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    微前端
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-1、static该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
-2、relative该关键字下，元素先放置在未添加
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
+                            <span class="chip bg-color">微前端</span>
+                        </a>
+                        
+                        <a href="/tags/microApp/">
+                            <span class="chip bg-color">microApp</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/14/macos-an-zhuang-homebrew/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="macOS安装homebrew">
+                            
+                            <span class="card-title">macOS安装homebrew</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
+官方安装方式(https://brew.sh
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/macOS/">
+                            <span class="chip bg-color">macOS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/06/14/localstorage-cun-chu-zai-shi-me-di-fang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="localstorage存储在什么地方">
+                            
+                            <span class="card-title">localstorage存储在什么地方</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                只读的localStorage 属性允许你访问一个Document 源（origin）的对象 Storage；存储的数据将保存在浏览器会话中。localStorage 类似 sessionStorage，但其区别在于：存储在 localSt
                             
                         </div>
                         <div class="publish-info">
@@ -622,355 +955,6 @@ ie模式IE模型元素宽度width = content + padding + b
                         </div>
                     </div>
 
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/14/canvas-hui-tu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="canvas绘图">
-                            
-                            <span class="card-title">canvas绘图</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、canvas点连线生成图片canvas点连线生成等值线就是将数组内索引为0的元素设置为起点，moveTo该点其余点使用lineTo进行连接，当涉及到多维数组的时候，需要进入到数组的最内部循环进行上述操作注意：如果需要绘制的图形铺满整个画
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    可视化
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/canvas/">
-                            <span class="chip bg-color">canvas</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/09/28/base64-zhuan-wen-jian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="base64转文件">
-                            
-                            <span class="card-title">base64转文件</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                base64 转文件export function dataURLtoFile(dataurl, filename) &#123;
-  let arr = dataurl.split(","),
-    mime = arr[0].matc
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E6%88%98/" class="post-category">
-                                    实战
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/base64/">
-                            <span class="chip bg-color">base64</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/12/31/zhi-fu-bao-dian-nao-zhi-fu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="支付宝电脑支付">
-                            
-                            <span class="card-title">支付宝电脑支付</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                开发文档
-
-1、封装请求后台的接口2、在其他页面使用接口，后端返回支付宝生成的 form 表单3、打开表单（直接在返回接口的回调中使用即可）
-
-封装请求后台的接口// 先封装请求后端的接口(promise)
-/**
- * 支付宝支付
- * 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    日常开发
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%94%AF%E4%BB%98/">
-                            <span class="chip bg-color">支付</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%AB%E7%A0%81/">
-                            <span class="chip bg-color">扫码</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/">
-                            <span class="chip bg-color">支付宝</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/12/xiao-cheng-xu-shi-yong-svga/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="小程序使用svga">
-                            
-                            <span class="card-title">小程序使用svga</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-安装代码包代码内引入使用预备 canvas 画布开始播放
-
-1、安装代码包资源包
-
-
-2、代码内引入const &#123; Parser, Player &#125; = require("./js/svgaplayer.weapp.j
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    小程序
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%8A%A8%E6%95%88/">
-                            <span class="chip bg-color">动效</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/12/xiao-cheng-xu-shi-yong-huan-xin/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="小程序使用环信">
-                            
-                            <span class="card-title">小程序使用环信</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-1、小程序内引入环信文件
-
-2、完善环信配置
-
-3、环信登录
-
-4、加载历史消息
-
-5、发送消息
-
-6、接收消息
-
-需要注意的是：发送消息的时候，需要在本地的消息列表内手动添加信息
-// 添加消息到消息列表，并自动滚动到该条消息
-  u
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    小程序
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%8E%AF%E4%BF%A1/">
-                            <span class="chip bg-color">环信</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/12/xiao-cheng-xu-guo-lu-qi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="小程序过滤器">
-                            
-                            <span class="card-title">小程序过滤器</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、创建 wxs 文件// indexOf.wxs
-function indexOf11(a, b) &#123;
-  if (a.indexOf(b) >= 0) &#123;
-    return true;
-  &#125; else
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    小程序
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">
-                            <span class="chip bg-color">过滤器</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -993,7 +977,7 @@ function indexOf11(a, b) &#123;
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 9</div>
+            <div class="center-align b-text-gray">4 / 11</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1017,7 +1001,7 @@ function indexOf11(a, b) &#123;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2019-2024</span>
             
             <a href="/about" target="_blank">寒霜</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
@@ -1025,7 +1009,7 @@ function indexOf11(a, b) &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">45.2k</span>
+                        class="white-color">50.6k</span>
             
             
             
