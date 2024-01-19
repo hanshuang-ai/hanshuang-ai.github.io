@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>python遍历检测git更改是否都已提交</title>
+      <link href="/2024/01/19/python-bian-li-jian-ce-git-geng-gai-shi-fou-du-yi-ti-jiao/"/>
+      <url>/2024/01/19/python-bian-li-jian-ce-git-geng-gai-shi-fou-du-yi-ti-jiao/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">import</span> subprocess<span class="token keyword">def</span> <span class="token function">check_git_status</span><span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment"># 执行`git status --porcelain`命令，如果所有的更改都已提交，则输出应为空</span>    result <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'git'</span><span class="token punctuation">,</span> <span class="token string">'status'</span><span class="token punctuation">,</span> <span class="token string">'--porcelain'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> cwd<span class="token operator">=</span>folder<span class="token punctuation">,</span> stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span>    <span class="token keyword">return</span> result<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">def</span> <span class="token function">walk_and_check</span><span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">for</span> root<span class="token punctuation">,</span> dirs<span class="token punctuation">,</span> _ <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">for</span> <span class="token builtin">dir</span> <span class="token keyword">in</span> dirs<span class="token punctuation">:</span>            dir_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token builtin">dir</span><span class="token punctuation">)</span>            <span class="token comment"># 检查文件夹是否包含.git目录，如果是，则视为Git仓库</span>            <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>dir_path<span class="token punctuation">,</span> <span class="token string">'.git'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                status <span class="token operator">=</span> check_git_status<span class="token punctuation">(</span>dir_path<span class="token punctuation">)</span>                <span class="token keyword">if</span> status<span class="token punctuation">:</span>                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'未提交的更改在 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dir_path<span class="token punctuation">&#125;</span></span><span class="token string">:'</span></span><span class="token punctuation">)</span>                    <span class="token keyword">print</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>    walk_and_check<span class="token punctuation">(</span><span class="token string">'E:\WT\gerritCode'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>addEventListener第三个参数</title>
       <link href="/2024/01/12/addeventlistener-di-san-ge-can-shu/"/>
       <url>/2024/01/12/addeventlistener-di-san-ge-can-shu/</url>
