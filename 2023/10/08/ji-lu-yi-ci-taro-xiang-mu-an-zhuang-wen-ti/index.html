@@ -378,6 +378,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BA%93/" class="post-category">
+                                库
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -472,7 +481,7 @@
 Module build <span class="token function">failed</span> <span class="token punctuation">(</span>from <span class="token punctuation">.</span><span class="token operator">/</span>node_modules<span class="token operator">/</span>@tarojs<span class="token operator">/</span>webpack<span class="token operator">-</span>runner<span class="token operator">/</span>node_modules<span class="token operator">/</span>@tarojs<span class="token operator">/</span>taro<span class="token operator">-</span>loader<span class="token operator">/</span>lib<span class="token operator">/</span>h5<span class="token punctuation">.</span>js<span class="token punctuation">)</span><span class="token operator">:</span>
 <span class="token literal-property property">TypeError</span><span class="token operator">:</span> Cannot read property <span class="token string">'creator'</span> <span class="token keyword">of</span> <span class="token keyword">undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>根据报错进入文件内查看显示<code>import &#123; $&#123;options.loaderMeta.creator&#125; &#125; from &#39;$&#123;options.loaderMeta.creatorLocation&#125;&#39;</code>，判断是版本错误。<br>运行<code>taro doctor</code>显示<img src="/2023/10/08/ji-lu-yi-ci-taro-xiang-mu-an-zhuang-wen-ti/1.png" class="" title="taro doctor结果">安装的@tarojs/webpack-runner 版本是 3.6.16，而实际项目中需要的是^3.3.14，重新 npm install @tarojs/<a href="mailto:&#119;&#x65;&#98;&#112;&#97;&#x63;&#107;&#x2d;&#114;&#x75;&#x6e;&#x6e;&#101;&#x72;&#x40;&#51;&#x2e;&#x33;&#46;&#x31;&#x34;">&#119;&#x65;&#98;&#112;&#97;&#x63;&#107;&#x2d;&#114;&#x75;&#x6e;&#x6e;&#101;&#x72;&#x40;&#51;&#x2e;&#x33;&#46;&#x31;&#x34;</a>，完美运行</p>
+<p>根据报错进入文件内查看显示<code>import &#123; $&#123;options.loaderMeta.creator&#125; &#125; from &#39;$&#123;options.loaderMeta.creatorLocation&#125;&#39;</code>，判断是版本错误。<br>运行<code>taro doctor</code>显示<img src="/2023/10/08/ji-lu-yi-ci-taro-xiang-mu-an-zhuang-wen-ti/1.png" class="" title="taro doctor结果">安装的@tarojs/webpack-runner 版本是 3.6.16，而实际项目中需要的是^3.3.14，重新 npm install @tarojs/<a href="mailto:&#119;&#101;&#98;&#112;&#x61;&#x63;&#107;&#45;&#x72;&#117;&#x6e;&#x6e;&#101;&#114;&#64;&#x33;&#x2e;&#51;&#46;&#49;&#52;">&#119;&#101;&#98;&#112;&#x61;&#x63;&#107;&#45;&#x72;&#117;&#x6e;&#x6e;&#101;&#114;&#64;&#x33;&#x2e;&#51;&#46;&#49;&#52;</a>，完美运行</p>
 
                 
             </div>
@@ -642,8 +651,12 @@ Module build <span class="token function">failed</span> <span class="token punct
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            寒霜
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                    大模型
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -689,8 +702,8 @@ Module build <span class="token function">failed</span> <span class="token punct
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%89%93%E5%8C%85/" class="post-category">
-                                    打包
+                            <a href="/categories/%E5%BA%93/" class="post-category">
+                                    库
                                 </a>
                             
                             
