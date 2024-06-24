@@ -241,7 +241,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #bbb5ac 0%, #e2e1e4 100%);
+    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
 .text-color {
@@ -257,7 +257,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to left, #ee3f4d 0%, #ee3f4d 100%);
+    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
     opacity: 0.8;
 }
 
@@ -1340,7 +1340,7 @@ thead {
     position: relative;
     width: 80px;
     height: 80px;
-    margin: 50px 0 50px -20px;
+    margin: 10px 0 50px -20px;
     padding: 21px 10px;
     background-color: #ff5722;
     color: #fff;
@@ -1394,7 +1394,6 @@ thead {
     height: 100%;
     width: 4px;
     background: #0f9d58;
-    display: none;
 }
 
 @media only screen and (min-width: 900px) {
@@ -1409,7 +1408,7 @@ thead {
     }
 
     #cd-timeline .year {
-        margin: 50px 0 50px -40px;
+        margin: 10px 0 50px -40px;
         padding: 22px 11px;
     }
 
@@ -1466,8 +1465,7 @@ thead {
     .cd-timeline-img {
         width: 40px;
         height: 40px;
-        /* left: 50%; */
-        left: 0;
+        left: 50%;
         margin-left: -20px;
         /* Force Hardware Acceleration in WebKit */
         -webkit-transform: translateZ(0);
@@ -1492,7 +1490,7 @@ thead {
     margin-left: 60px;
     padding: 0;
     border-radius: 5px;
-    /* background: #ffffff; */
+    background: #ffffff;
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
 }
 
@@ -1516,7 +1514,6 @@ thead {
     margin-left: 2px;
     margin-right: 2px;
     border: 1px dashed #ffa726;
-    display: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1536,9 +1533,9 @@ thead {
 
 @media only screen and (min-width: 900px) {
     .cd-timeline-content {
-        margin-left: 40px;
+        margin-left: 0;
         padding: 0;
-        /* width: 45%; */
+        width: 45%;
 
     }
 
@@ -1552,7 +1549,7 @@ thead {
     }
 
     .cd-timeline-block:nth-child(even) .cd-timeline-content {
-        /* float: right; */
+        float: right;
     }
 
     .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
@@ -2146,14 +2143,154 @@ p.search-result-summary{
     padding: 0;
     margin: 0;
 }
-._card-title_{
-  position: relative!important;
-  padding: 0 0 0 20px!important;
-  font-size: 16px!important;
+
+/* tag button */
+body.DarkMode .theme-btn {
+    background: #222;
+    border: 2px solid #555;
+    border-radius: 2px;
+    color: #ccc !important;
+    display: inline-block;
+    font-size: 0.875em;
+    line-height: 2;
+    padding: 0 5px !important;
+    text-decoration: unset !important;
+    transition: background-color 0.2s ease-in-out;
 }
-._card-image_{
-  height: 40px;
-  line-height: 40px;
-  background: #222;
-  border-radius: 12px;
+body.DarkMode .theme-btn:hover {
+    background: #666;
+    border-color: #666;
+    color: #ccc;
+}
+.theme-btn {
+    background: #fff;
+    border: 2px solid #222;
+    border-radius: 2px;
+    color: #555 !important;
+    display: inline-block;
+    font-size: 0.875em;
+    line-height: 2;
+    padding: 0 5px !important;
+    text-decoration: unset !important;
+    transition: background-color 0.2s ease-in-out;
+}
+.theme-btn:hover {
+    background: #222;
+    border-color: #222;
+    color: #fff;
+}
+.theme-btn + .theme-btn {
+    margin: 0 0 8px 8px;
+}
+.theme-btn .fa-fw {
+    text-align: left;
+    width: 1.285714285714286em;
+}
+/* tag note */
+.post-container .note {
+    border-radius: 0;
+    margin-bottom: 20px;
+    padding: 1em;
+    position: relative;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+}
+.post-container .note summary {
+    cursor: pointer;
+    outline: 0;
+}
+.post-container .note summary p {
+    display: inline;
+}
+.post-container .note h2, .post-container .note h3, .post-container .note h4, .post-container .note h5, .post-container .note h6 {
+    border-bottom: initial;
+    margin: 0;
+    padding-top: 0;
+}
+.post-container .note p:first-child, .post-container .note ul:first-child, .post-container .note ol:first-child, .post-container .note table:first-child, .post-container .note pre:first-child, .post-container .note blockquote:first-child, .post-container .note img:first-child {
+    margin-top: 0;
+}
+.post-container .note p:last-child, .post-container .note ul:last-child, .post-container .note ol:last-child, .post-container .note table:last-child, .post-container .note pre:last-child, .post-container .note blockquote:last-child, .post-container .note img:last-child {
+    margin-bottom: 0;
+}
+.post-container .note:not(.no-icon) {
+    padding-left: 2.5em;
+}
+.post-container .note:not(.no-icon)::before {
+    font-size: 1.5em;
+    left: 0.3em;
+    position: absolute;
+    top: calc(50% - 1em);
+}
+.post-container .note.default {
+    border-left-color: #777;
+}
+.post-container .note.default h2, .post-container .note.default h3, .post-container .note.default h4, .post-container .note.default h5, .post-container .note.default h6 {
+    color: #777;
+}
+.post-container .note.default:not(.no-icon)::before {
+    content:'\f0a9';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #777;
+}
+.post-container .note.primary {
+    border-left-color: #6f42c1;
+}
+.post-container .note.primary h2, .post-container .note.primary h3, .post-container .note.primary h4, .post-container .note.primary h5, .post-container .note.primary h6 {
+    color: #6f42c1;
+}
+.post-container .note.primary:not(.no-icon)::before {
+    content:'\f055';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #6f42c1;
+}
+.post-container .note.info {
+    border-left-color: #428bca;
+}
+.post-container .note.info h2, .post-container .note.info h3, .post-container .note.info h4, .post-container .note.info h5, .post-container .note.info h6 {
+    color: #428bca;
+}
+.post-container .note.info:not(.no-icon)::before {
+    content:'\f05a';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #428bca;
+}
+.post-container .note.success {
+    border-left-color: #5cb85c;
+}
+.post-container .note.success h2, .post-container .note.success h3, .post-container .note.success h4, .post-container .note.success h5, .post-container .note.success h6 {
+    color: #5cb85c;
+}
+.post-container .note.success:not(.no-icon)::before {
+    content:'\f058';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #5cb85c;
+}
+.post-container .note.warning {
+    border-left-color: #f0ad4e;
+}
+.post-container .note.warning h2, .post-container .note.warning h3, .post-container .note.warning h4, .post-container .note.warning h5, .post-container .note.warning h6 {
+    color: #f0ad4e;
+}
+.post-container .note.warning:not(.no-icon)::before {
+    content:'\f06a';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #f0ad4e;
+}
+.post-container .note.danger {
+    border-left-color: #d9534f;
+}
+.post-container .note.danger h2, .post-container .note.danger h3, .post-container .note.danger h4, .post-container .note.danger h5, .post-container .note.danger h6 {
+    color: #d9534f;
+}
+.post-container .note.danger:not(.no-icon)::before {
+    content:'\f056';
+    font-family:'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #d9534f;
 }
