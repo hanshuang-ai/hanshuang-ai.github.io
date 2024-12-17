@@ -332,11 +332,11 @@
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
-            <div class="title center-align">
+            <!-- <div class="title center-align">
                 
                     subtitle
                 
-            </div>
+            </div> -->
 
             <div class="description center-align">
                 
@@ -344,11 +344,11 @@
                 <script src="/libs/typed/typed.js"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: [ 
+                        strings: [
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "始于初,不应有憾,遇见皆惊喜",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "Starting from the beginning, there should be no regrets; every encounter is a delight.",
                             
                         ],
                         startDelay: 300,
@@ -392,6 +392,394 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/07/14/che-ji-xi-tong-qian-duan-ying-yong-bo-fang-yin-shi-pin-jiao-dian-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="车机系统前端应用播放音视频焦点问题">
+                            
+                            <span class="card-title">车机系统前端应用播放音视频焦点问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+背景
+车机系统前端应用需要在程序进入后台 或者 被蓝牙打断时暂停播放，进入前台 或者 蓝牙结束时，保持暂停状态
+现状
+车机前端应用进入后台时，手动调用暂停功能，视频暂停，车机进入前台后，保持暂停状态。√车机前端应用视频播放中，此时蓝牙电
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                    安卓
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%BD%A6%E6%9C%BA/">
+                            <span class="chip bg-color">车机</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/01/05/cao-zuo-xi-tong-ming-ling-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="命令行">
+                            
+                            <span class="card-title">命令行</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、windows 命令行1.1 打开文件或文件夹//在当前目录下打开本目录下的BLOG
+C:\Users\WTCL\Desktop\博客> start BLOG
+
+//打开指定目录 不区分大小写
+start C:\Users\WTCL\D
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                            <span class="chip bg-color">命令行</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/01/an-zhuo-yin-pin-jiao-dian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="安卓音频焦点">
+                            
+                            <span class="card-title">安卓音频焦点</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                安卓音频焦点是指在 Android 操作系统中，控制应用程序之间音频播放权的机制。当多个应用程序同时请求播放音频时，Android 会根据优先级和焦点类型来决定哪个应用程序将获得音频焦点。
+音频焦点分为以下四种类型：
+1. 安卓焦点分类
+短
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                    安卓
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/02/20/qian-duan-da-bao-xia-zai/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="前端打包下载">
+                            
+                            <span class="card-title">前端打包下载</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本文代码以图片作为示例，进行文件批量下载
+
+安装 axios，FileSaver，JSZip 三个插件初始化 new JSZip获取所有图片链接，并根据链接利用 axios 进行数据获取，blob 格式每条数据获取成功后，利用 zip.fi
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%96%87%E4%BB%B6/" class="post-category">
+                                    文件
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E4%B8%8B%E8%BD%BD/">
+                            <span class="chip bg-color">下载</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD/">
+                            <span class="chip bg-color">打包下载</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/10/14/js-wang-ye-da-yin/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="js网页打印">
+                            
+                            <span class="card-title">js网页打印</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、打印网页window.print();
+
+2、打印部分页面通过css媒体查询将要打印的页面暴露出来，不需要打印的隐藏起来，同时对暴露出来的部分可以自定义样式
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/js/" class="post-category">
+                                    js
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">开发</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                            <span class="chip bg-color">代码片段</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/10/08/flex-zi-gua-ying-bu-ju/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="flex自适应布局">
+                            
+                            <span class="card-title">flex自适应布局</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                先看下效果
+
+
+
+SetDynamicLayout();
+&#123;
+	// 获取屏幕宽度
+	// 屏幕宽度卡片取余
+	// 取余后看一行能放下几个卡片
+	// 将余数平均分配到每个卡片
+	// 如果余数平分后不会造成拥挤到下一行
+	//
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/css/" class="post-category">
+                                    css
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/01/audio-biao-qian-suo-you-shi-jian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="audio标签所有事件">
+                            
+                            <span class="card-title">audio标签所有事件</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+onplay：当音频开始播放时触发此事件。onpause：当音频暂停时触发此事件。onended：当音频播放完成时触发此事件。onvolumechange：当音量调整时触发此事件。ontimeupdate：当音频播放位置改变时触发此事件。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/js/" class="post-category">
+                                    js
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AE%9E%E6%88%98/">
+                            <span class="chip bg-color">实战</span>
+                        </a>
+                        
+                        <a href="/tags/%E9%9F%B3%E9%A2%91/">
+                            <span class="chip bg-color">音频</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -987,397 +1375,6 @@ let random30 = (number) => &#123;
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/02/16/vue-dai-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue代理">
-                            
-                            <span class="card-title">vue代理</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-vue-cli-service serve其实是开了一个node服务器，请求/api/bbb的时候，会被中转到https://aaa/bbb，简单理解就是根据vue.config.js的配置将/api替换为&#39;&#39;
-1. vu
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/%E4%BB%A3%E7%90%86/">
-                            <span class="chip bg-color">代理</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/02/03/vue-da-bao-you-hua/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="vue打包优化">
-                            
-                            <span class="card-title">vue打包优化</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                vue打包优化
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%93%E5%8C%85/">
-                            <span class="chip bg-color">打包</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/11/vue-da-bao/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue打包">
-                            
-                            <span class="card-title">vue打包</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、生产环境的项目，我们隐藏 log 信息
-引入 babel-plugin-transform-remove-console 插件vue 项目内创建 babel.config.js 文件
-
-// babel.config.js
-const 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%93%E5%8C%85/">
-                            <span class="chip bg-color">打包</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/30/vue2-he-3-yu-vue-router-de-da-pei/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue2和3与vue-router的搭配">
-                            
-                            <span class="card-title">vue2和3与vue-router的搭配</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、vue21.1 安装vur-router由于最新版本暴露的变量名发生了改变，建议安装3.x版本
-npm install vue-router@3
-
-1.2 在App.vue文件下添加router-view&lt;template>
-  
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/vue-router/">
-                            <span class="chip bg-color">vue-router</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/24/taro-xiao-cheng-xu-nei-shi-yong-rem/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="taro小程序内使用rem">
-                            
-                            <span class="card-title">taro小程序内使用rem</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                taro 官网说明taro官网明确表示暂时不支持rem
-
-
-由于项目内使用的 less，所以我们采用 less 变量声明的方式，曲线救国
-// base.less
-//基准的font-size是根据项目确定的，如果是老项目，则需要根据老代码
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    小程序
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/taro/">
-                            <span class="chip bg-color">taro</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/03/07/pc-duan-gao-fen-ping-zi-gua-ying/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="pc端高分屏自适应">
-                            
-                            <span class="card-title">pc端高分屏自适应</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                vue项目内
-1、插件安装npm install amfe-flexible postcss-px2rem -S
-
-2、引入使用（main.js）import "amfe-flexible";
-
-3、配置（vue.config.js）mod
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BA%93/" class="post-category">
-                                    库
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/vue/">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94/">
-                            <span class="chip bg-color">自适应</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/10/08/npm-cnpm-yarn-de-qu-bie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="npm/cnpm/yarn的区别">
-                            
-                            <span class="card-title">npm/cnpm/yarn的区别</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-npm 会根据 package.lock.json 文件进行包安装cnpm 只会根据 package.json 文件进行包安装
-
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BA%93/" class="post-category">
-                                    库
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AE%9E%E6%88%98/">
-                            <span class="chip bg-color">实战</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -1412,60 +1409,6 @@ npm 会根据 package.lock.json 文件进行包安装cnpm 只会根据 package.j
 
 
     <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
     
 
     <div class="container row center-align"
