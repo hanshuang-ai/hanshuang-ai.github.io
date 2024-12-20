@@ -262,21 +262,21 @@ docker images --digests
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-12-17
+                    2024-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -368,7 +368,11 @@ CMD <span class="token punctuation">[</span><span class="token string">"node"</s
 <p><code>-p 参数用于映射端口，3000:3000 表示将容器的3000端口映射到宿主机的3000端口。</code><br><code>-d 参数表示在后台运行容器。</code></p>
 <h3 id="查看-Docker-容器的实时日志"><a href="#查看-Docker-容器的实时日志" class="headerlink" title="查看 Docker 容器的实时日志"></a>查看 Docker 容器的实时日志</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> logs <span class="token parameter variable">-f</span> <span class="token operator">&lt;</span>container_id<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="通过名称来引用容器"><a href="#通过名称来引用容器" class="headerlink" title="通过名称来引用容器"></a>通过名称来引用容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--name</span> aitheme2img <span class="token parameter variable">-p</span> <span class="token number">10089</span>:10086 <span class="token parameter variable">-d</span> aitheme2img<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="通过名称来引用容器"><a href="#通过名称来引用容器" class="headerlink" title="通过名称来引用容器"></a>通过名称来引用容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--name</span> aitheme2img<span class="token punctuation">(</span>容器名<span class="token punctuation">)</span> <span class="token parameter variable">-p</span> <span class="token number">10089</span>:10086 -d<span class="token punctuation">(</span>分离模式”（detached mode）运行容器，即容器会在后台运行，不会占用当前的命令行终端<span class="token punctuation">)</span> aitheme2img<span class="token punctuation">(</span>镜像<span class="token punctuation">)</span>
+或者
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> aitheme2img<span class="token punctuation">(</span>容器名<span class="token punctuation">)</span> <span class="token parameter variable">-p</span> <span class="token number">10089</span>:10086 aitheme2img<span class="token punctuation">(</span>镜像<span class="token punctuation">)</span>
+或者
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">10089</span>:10086 <span class="token parameter variable">--name</span> aitheme2img<span class="token punctuation">(</span>容器名<span class="token punctuation">)</span> aitheme2img<span class="token punctuation">(</span>镜像<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="设置容器随-Docker-服务启动而自动启动"><a href="#设置容器随-Docker-服务启动而自动启动" class="headerlink" title="设置容器随 Docker 服务启动而自动启动"></a>设置容器随 Docker 服务启动而自动启动</h3><p>在 Docker 中，要设置容器随 Docker 服务启动而自动启动，你可以在创建容器时使用–restart 标志。这个标志允许你指定重启策略，以确保容器在退出后自动重启，或者在 Docker 服务重新启动时自动启动容器。</p>
 <blockquote>
@@ -378,6 +382,13 @@ CMD <span class="token punctuation">[</span><span class="token string">"node"</s
 
 <p><code>这些命令会创建一个新的容器，并设置其重启策略。如果你想要更新已经存在的容器的重启策略，你需要使用docker update命令：</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> update <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token operator">&lt;</span>container_id_or_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查看-docker-容器里面的所有文件"><a href="#查看-docker-容器里面的所有文件" class="headerlink" title="查看 docker 容器里面的所有文件"></a>查看 docker 容器里面的所有文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token operator">&lt;</span>container_id_or_name<span class="token operator">></span> /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>/bin/bash换成自己服务器用的终端，然后使用文件系统命令（如ls）来查看文件</code></p>
+<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> stop <span class="token operator">&lt;</span>container_id_or_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">rm</span> <span class="token operator">&lt;</span>container_id_or_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -687,7 +698,7 @@ CMD <span class="token punctuation">[</span><span class="token string">"node"</s
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">65.9k</span>
             
             
             
