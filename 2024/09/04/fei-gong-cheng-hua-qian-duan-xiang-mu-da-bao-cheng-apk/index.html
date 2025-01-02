@@ -262,14 +262,14 @@ cordova platform add android
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-04
+                    2025-01-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    89
+                    112
                 </div>
                 
 
@@ -311,7 +311,9 @@ cordova create MyApp
 cordova platform <span class="token function">add</span> android<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>将你已有的 HTML 文件复制到 www 目录中，确保 www 目录下有一个 index.html 文件，这是应用的入口文件</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cordova build android<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>构建完成后，你会在 platforms/android/app/build/outputs/apk/debug/ 目录下找到生成的 APK 文件</code></p>
+<p><code>构建完成后，你会在 platforms/android/app/build/outputs/apk/debug/ 目录下找到生成的 APK 文件</code><br><code>如果因为gradle环境问题，使用命令</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cordova prepare android
+gradle <span class="token parameter variable">-b</span> platforms/android/build.gradle build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -610,7 +612,7 @@ cordova platform <span class="token function">add</span> android<span aria-hidde
         <div class="col s12 m8 l8 copy-right">
             <!-- Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
              -->
             <!-- <a href="/about" target="_blank">寒霜</a> -->
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
