@@ -505,6 +505,7 @@ header .side-nav .social-link {
     top: 23vh;
     width: 100%;
     text-align: center;
+    display: none;
 }
 
 .cover-social-link a {
@@ -705,6 +706,7 @@ header .go-back i {
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: 700;
+    display: none;
 }
 
 .dream .text {
