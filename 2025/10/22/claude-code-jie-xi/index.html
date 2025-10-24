@@ -261,14 +261,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.6k
+                    13.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    57 分
+                    60 分
                 </div>
                 
 
@@ -297,7 +297,197 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/c_1378680688061952000">参考链接</a></p>
-<h5 id="1"><a href="#1" class="headerlink" title="1. "></a>1. <a href="/2025/10/23/claude-code-ji-chu-jia-gou/" title="claude-code基础架构">claude-code基础架构</a></h5><h5 id="2"><a href="#2" class="headerlink" title="2. "></a>2. <a href="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/" title="claude-code数据结构与消息架构">claude-code数据结构与消息架构</a></h5><h5 id="3"><a href="#3" class="headerlink" title="3. "></a>3. <a href="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/" title="claude-code控制流与编排引擎">claude-code控制流与编排引擎</a></h5><h5 id="4"><a href="#4" class="headerlink" title="4. "></a>4. <a href="/2025/10/23/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎">claude-code工具与执行引擎</a></h5><h5 id="5"><a href="#5" class="headerlink" title="5. "></a>5. <a href="/2025/10/23/claude-code-jia-gou-yin-qing-shi/" title="claude-code架构-引擎室">claude-code架构-引擎室</a></h5><h5 id="6"><a href="#6" class="headerlink" title="6. "></a>6. <a href="/2025/10/23/claude-code-xin-ying-de-zu-jian/" title="claude-code新颖的组件">claude-code新颖的组件</a></h5><h5 id="7"><a href="#7" class="headerlink" title="7. "></a>7. <a href="/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/" title="claude-code文件编辑-AI辅助的代码修改">claude-code文件编辑-AI辅助的代码修改</a></h5><h5 id="8"><a href="#8" class="headerlink" title="8. "></a>8. <a href="/2025/10/23/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/" title="claude-code提示词工程-指导AI的艺术">claude-code提示词工程-指导AI的艺术</a></h5><h5 id="9"><a href="#9" class="headerlink" title="9. "></a>9. <a href="/2025/10/23/claude-codellm-shi-jiao-shi-ji-jie-shou-zhi-ling-de-gan-jue/" title="claude-codeLLM视角-实际接收指令的感觉">claude-codeLLM视角-实际接收指令的感觉</a></h5><h2 id="从用户输入到大模型输出的详细流程分析"><a href="#从用户输入到大模型输出的详细流程分析" class="headerlink" title="从用户输入到大模型输出的详细流程分析"></a>从用户输入到大模型输出的详细流程分析</h2><p>基于对9篇Claude Code相关文档的深入分析，以下是从用户输入到大模型输出经历的完整流程：</p>
+<h5 id="1"><a href="#1" class="headerlink" title="1. "></a>1. <a href="/2025/10/23/claude-code-ji-chu-jia-gou/" title="claude-code基础架构">claude-code基础架构</a></h5><h5 id="2"><a href="#2" class="headerlink" title="2. "></a>2. <a href="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/" title="claude-code数据结构与消息架构">claude-code数据结构与消息架构</a></h5><h5 id="3"><a href="#3" class="headerlink" title="3. "></a>3. <a href="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/" title="claude-code控制流与编排引擎">claude-code控制流与编排引擎</a></h5><h5 id="4"><a href="#4" class="headerlink" title="4. "></a>4. <a href="/2025/10/23/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎">claude-code工具与执行引擎</a></h5><h5 id="5"><a href="#5" class="headerlink" title="5. "></a>5. <a href="/2025/10/23/claude-code-jia-gou-yin-qing-shi/" title="claude-code架构-引擎室">claude-code架构-引擎室</a></h5><h5 id="6"><a href="#6" class="headerlink" title="6. "></a>6. <a href="/2025/10/23/claude-code-xin-ying-de-zu-jian/" title="claude-code新颖的组件">claude-code新颖的组件</a></h5><h5 id="7"><a href="#7" class="headerlink" title="7. "></a>7. <a href="/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/" title="claude-code文件编辑-AI辅助的代码修改">claude-code文件编辑-AI辅助的代码修改</a></h5><h5 id="8"><a href="#8" class="headerlink" title="8. "></a>8. <a href="/2025/10/23/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/" title="claude-code提示词工程-指导AI的艺术">claude-code提示词工程-指导AI的艺术</a></h5><h5 id="9"><a href="#9" class="headerlink" title="9. "></a>9. <a href="/2025/10/23/claude-codellm-shi-jiao-shi-ji-jie-shou-zhi-ling-de-gan-jue/" title="claude-codeLLM视角-实际接收指令的感觉">claude-codeLLM视角-实际接收指令的感觉</a></h5><h2 id="Claude-Code系统架构思维导图"><a href="#Claude-Code系统架构思维导图" class="headerlink" title="Claude Code系统架构思维导图"></a>Claude Code系统架构思维导图</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">mindmap
+  root<span class="token text string">((Claude Code解析))</span>
+    基础架构
+      客户端-服务器架构
+      消息系统三层表示
+      CLI内部表示
+      API线路格式
+      流累加器
+    数据结构与消息架构
+      多态内容块系统
+      统一接口设计
+      性能优化策略
+      流式传输支持
+    控制流与编排引擎
+      状态管理器
+      消息路由系统
+      错误处理机制
+      中间件框架
+    工具与执行引擎
+      完整工具生态系统
+      文件操作类工具
+        ReadTool
+        EditTool
+        WriteTool
+      系统交互类工具
+        BashTool
+        搜索与分析类工具
+        GrepTool
+        GlobTool
+      网络与外部集成工具
+        WebFetchTool
+      高级任务管理工具
+        AgentTool
+        TaskTool
+      智能工具选择机制
+        向量能力匹配系统
+        多因素置信度评分
+        预测性工具推荐
+      工具循环使用模式
+        智能编排策略
+        并行/顺序混合执行
+        错误恢复和重试机制
+      MCP工具集成
+    架构-引擎室
+      核心处理引擎
+      插件系统
+      扩展机制
+    新颖的组件
+      Shell对象嵌入机制
+      斜杠命令系统
+      多模式输入处理
+      三层消息表示创新
+    文件编辑-AI辅助的代码修改
+      四阶段原子流程
+        读取与验证
+        操作排队
+        冲突检测
+        原子执行
+      增强型流式JSON解析器
+      并行工具执行与进度聚合
+    提示词工程-指导AI的艺术
+      多层提示词架构
+        基础指令层
+        安全防护层
+        行为塑造层
+        工具使用层
+        动态上下文层
+      六级优先级上下文组装
+        基础指令<span class="token text string">(~2KB)</span>
+        模型特定适配<span class="token text string">(~500B)</span>
+        CLAUDE.md内容<span class="token text string">(5-50KB)</span>
+        Git上下文<span class="token text string">(~1-5KB)</span>
+        目录结构<span class="token text string">(动态截断)</span>
+        工具规格<span class="token text string">(~10-20KB)</span>
+      分层CLAUDE.md加载系统
+      智能上下文截断算法
+      渐进式信息披露
+    LLM视角-实际接收指令的感觉
+      深度意图分析与任务分解
+        多层意图分析系统
+        智能任务分解算法
+        动态资源调度器
+      上下文构建与token管理
+        智能压缩与回收机制
+        动态token预算管理
+        预防性保护机制
+        实时流控制
+        缓存和优化机制
+      成本控制机制
+        实时成本计算
+        智能模型选择
+    上下文构建与token管理深度机制
+      六级优先级上下文组装系统
+      智能压缩与回收机制
+      动态token预算管理
+      预防性保护机制
+      实时流控制
+      缓存优化机制
+      模型特定优化策略
+      内存安全机制
+      弱引用缓存管理
+      自动垃圾回收
+      流背压管理
+    安全系统
+      多层安全验证系统
+        五级权限优先级系统
+        路径安全边界
+        动态沙盒模式
+      输入预处理
+        输入路由系统
+        多模式输入处理
+        Shell对象嵌入机制
+    性能优化与创新价值
+      技术突破点
+        三层消息表示创新
+        多态内容块系统
+        智能JSON解析器
+        弱引用缓存管理
+      工程实践价值
+        预防性控制
+        渐进式截断
+        动态适配
+        成本感知
+      实际应用效果
+        性能提升
+        用户满意度提升
+        系统稳定性增强
+    执行监控与错误处理
+      实时监控
+        执行状态跟踪
+        资源使用监控
+        超时控制
+      错误处理与恢复
+        异常捕获
+        错误分类
+        自动恢复
+    中间件处理
+      状态管理
+        文件状态缓存
+        操作历史记录
+        快照管理
+      数据流控制
+        消息路由
+        队列管理
+        并发控制
+    大模型推理
+      上下文构建
+        用户上下文
+        系统上下文
+        任务上下文
+      提示词组合
+      推理执行
+        token处理
+        注意力计算
+        概率生成
+    输出生成与响应返回
+      后处理与验证
+        格式验证
+        内容检查
+        结果验证
+      响应构建
+        主要响应
+        辅助信息
+        错误信息
+      输出格式化
+        多格式支持
+        结构化输出
+        视觉效果
+      状态同步
+        客户端状态更新
+        服务器状态更新
+        持久化操作
+    系统维护与优化
+      清理与回收
+        临时文件清理
+        内存回收
+        连接关闭
+      日志记录
+        操作日志
+        性能日志
+        安全日志
+      学习与适应
+        模式识别
+        性能优化
+        个性化适配
+      反馈循环
+        用户反馈收集
+        系统反馈分析
+        模型更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="从用户输入到大模型输出的详细流程分析"><a href="#从用户输入到大模型输出的详细流程分析" class="headerlink" title="从用户输入到大模型输出的详细流程分析"></a>从用户输入到大模型输出的详细流程分析</h2><p>基于对9篇Claude Code相关文档的深入分析，以下是从用户输入到大模型输出经历的完整流程：</p>
 <h3 id="1-用户输入阶段"><a href="#1-用户输入阶段" class="headerlink" title="1. 用户输入阶段"></a>1. 用户输入阶段</h3><h4 id="1-1-输入接收与智能预处理"><a href="#1-1-输入接收与智能预处理" class="headerlink" title="1.1 输入接收与智能预处理"></a>1.1 输入接收与智能预处理</h4><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
     <span class="token keyword">subgraph</span> <span class="token string">"输入预处理管道"</span>
         UserInput<span class="token text string">[用户输入]</span> <span class="token arrow operator">--></span> InputRouter<span class="token text string">&#123;输入路由器&#125;</span>
@@ -2864,7 +3054,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.4k</span>
+                        class="white-color">155.5k</span>
             
             
             
