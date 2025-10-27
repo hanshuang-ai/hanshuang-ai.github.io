@@ -40,6 +40,7 @@
 #toc-content {
     padding-bottom: 30px;
     overflow: auto;
+    height: calc(100vh - 200px);
 }
 
 #toc-content ol {

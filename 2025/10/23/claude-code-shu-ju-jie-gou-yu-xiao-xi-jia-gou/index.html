@@ -1,0 +1,1702 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="claude-code数据结构与消息架构, 我的博客">
+    <meta name="description" content="参考链接
+Data Structures &amp;amp; The Information Architecture数据结构与信息架构stateDiagram-v2
+    [*] --&gt; UserInput: User types/pastes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>claude-code数据结构与消息架构 | 我的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">我的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">我的博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">claude-code数据结构与消息架构</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-10-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-10-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://southbridge-research.notion.site/Data-Structures-The-Information-Architecture-2055fec70db1814ba2a7c5fa2879ac21">参考链接</a></p>
+<h1 id="Data-Structures-amp-The-Information-Architecture"><a href="#Data-Structures-amp-The-Information-Architecture" class="headerlink" title="Data Structures &amp; The Information Architecture"></a>Data Structures &amp; The Information Architecture</h1><h1 id="数据结构与信息架构"><a href="#数据结构与信息架构" class="headerlink" title="数据结构与信息架构"></a>数据结构与信息架构</h1><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> UserInput<span class="token operator">:</span> User types/pastes
+    UserInput <span class="token arrow operator">--></span> CliMessage<span class="token operator">:</span> CLI processes input
+    CliMessage <span class="token arrow operator">--></span> APIMessage<span class="token operator">:</span> Format for LLM
+    APIMessage <span class="token arrow operator">--></span> LLMStream<span class="token operator">:</span> API Request
+
+    LLMStream <span class="token arrow operator">--></span> StreamEvent<span class="token operator">:</span> Server sends chunks
+    StreamEvent <span class="token arrow operator">--></span> ContentBlockDelta<span class="token operator">:</span> Parse deltas
+    ContentBlockDelta <span class="token arrow operator">--></span> AccumulatedMessage<span class="token operator">:</span> Build message
+
+    AccumulatedMessage <span class="token arrow operator">--></span> ToolUseBlock<span class="token operator">:</span> Contains tool requests?
+    ToolUseBlock <span class="token arrow operator">--></span> ToolExecution<span class="token operator">:</span> Execute tools
+    ToolExecution <span class="token arrow operator">--></span> ToolProgress<span class="token operator">:</span> Yield progress
+    ToolProgress <span class="token arrow operator">--></span> CliMessage<span class="token operator">:</span> Progress updates
+    ToolExecution <span class="token arrow operator">--></span> ToolResult<span class="token operator">:</span> Complete execution
+    ToolResult <span class="token arrow operator">--></span> ToolResultBlock<span class="token operator">:</span> Format result
+    ToolResultBlock <span class="token arrow operator">--></span> CliMessage<span class="token operator">:</span> Tool result message
+
+    AccumulatedMessage <span class="token arrow operator">--></span> CliMessage<span class="token operator">:</span> Final assistant message
+    CliMessage <span class="token arrow operator">--></span> <span class="token text string">[*]</span><span class="token operator">:</span> Display to user
+
+    CliMessage <span class="token arrow operator">--></span> APIMessage<span class="token operator">:</span> Loop continues
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/1.svg" class="">
+<h2 id="The-Streaming-State-Machine-How-Messages-Transform"><a href="#The-Streaming-State-Machine-How-Messages-Transform" class="headerlink" title="The Streaming State Machine: How Messages Transform"></a>The Streaming State Machine: How Messages Transform</h2><h2 id="流式状态机：消息如何转换"><a href="#流式状态机：消息如何转换" class="headerlink" title="流式状态机：消息如何转换"></a>流式状态机：消息如何转换</h2><p>The most fascinating aspect of Claude Code’s data architecture is how it manages the transformation of data through multiple representations while maintaining streaming performance. Let’s start with the core innovation:<br>Claude Code数据架构最引人入胜的方面是它如何在保持流式性能的同时管理数据通过多种表示形式的转换。让我们从核心创新开始：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// The dual-representation message system (inferred from analysis)</span>
+<span class="token comment">// 双表示消息系统（从分析推断）</span>
+<span class="token keyword">interface</span> <span class="token class-name">MessageTransformPipeline</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Stage 1: CLI Internal Representation</span>
+  <span class="token comment">// 阶段1：CLI内部表示</span>
+  cliMessage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    type<span class="token operator">:</span> <span class="token string">"user"</span> <span class="token operator">|</span> <span class="token string">"assistant"</span> <span class="token operator">|</span> <span class="token string">"attachment"</span> <span class="token operator">|</span> <span class="token string">"progress"</span>
+    uuid<span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// CLI-specific tracking CLI特定跟踪</span>
+    timestamp<span class="token operator">:</span> <span class="token builtin">string</span>
+    message<span class="token operator">?</span><span class="token operator">:</span> APICompatibleMessage  <span class="token comment">// Only for user/assistant 仅用于用户/助手</span>
+    attachment<span class="token operator">?</span><span class="token operator">:</span> AttachmentContent   <span class="token comment">// Only for attachment 仅用于附件</span>
+    progress<span class="token operator">?</span><span class="token operator">:</span> ProgressUpdate        <span class="token comment">// Only for progress 仅用于进度</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// Stage 2: API Wire Format</span>
+  <span class="token comment">// 阶段2：API线路格式</span>
+  apiMessage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    role<span class="token operator">:</span> <span class="token string">"user"</span> <span class="token operator">|</span> <span class="token string">"assistant"</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> ContentBlock<span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment">// No CLI-specific fields</span>
+    <span class="token comment">// 无CLI特定字段</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// Stage 3: Streaming Accumulator</span>
+  <span class="token comment">// 阶段3：流累加器</span>
+  streamAccumulator<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    partial<span class="token operator">:</span> Partial<span class="token operator">&lt;</span>APIMessage<span class="token operator">></span>
+    deltas<span class="token operator">:</span> ContentBlockDelta<span class="token punctuation">[</span><span class="token punctuation">]</span>
+    buffers<span class="token operator">:</span> Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span>  <span class="token comment">// tool_use_id → accumulating JSON tool_use_id → 累积JSON</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Why This Matters</strong>: This three-stage representation allows Claude Code to maintain UI responsiveness while handling complex streaming protocols. The CLI can update progress indicators using <code>CliMessage</code> metadata while the actual LLM communication uses a clean <code>APIMessage</code> format.<br><strong>为何重要</strong>：这种三阶段表示允许Claude Code在处理复杂流式协议的同时保持UI响应性。CLI可以使用<code>CliMessage</code>元数据更新进度指示器，而实际的LLM通信使用干净的<code>APIMessage</code>格式。</p>
+<h2 id="ContentBlock-The-Polymorphic-Building-Block"><a href="#ContentBlock-The-Polymorphic-Building-Block" class="headerlink" title="ContentBlock: The Polymorphic Building Block"></a>ContentBlock: The Polymorphic Building Block</h2><h2 id="ContentBlock：多态构建块"><a href="#ContentBlock：多态构建块" class="headerlink" title="ContentBlock：多态构建块"></a>ContentBlock：多态构建块</h2><p>Based on decompilation analysis, Claude Code implements a sophisticated type system for content:<br>基于反编译分析，Claude Code为内容实现了一个复杂的类型系统：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// The ContentBlock discriminated union (reconstructed)</span>
+<span class="token comment">// ContentBlock判别联合体（重构）</span>
+<span class="token keyword">type</span> <span class="token class-name">ContentBlock</span> <span class="token operator">=</span>
+  <span class="token operator">|</span> TextBlock
+  <span class="token operator">|</span> ImageBlock
+  <span class="token operator">|</span> ToolUseBlock
+  <span class="token operator">|</span> ToolResultBlock
+  <span class="token operator">|</span> ThinkingBlock
+  <span class="token operator">|</span> DocumentBlock      <span class="token comment">// Platform-specific - 平台特定</span>
+  <span class="token operator">|</span> VideoBlock         <span class="token comment">// Platform-specific - 平台特定</span>
+  <span class="token operator">|</span> GuardContentBlock  <span class="token comment">// Platform-specific - 平台特定</span>
+  <span class="token operator">|</span> ReasoningBlock     <span class="token comment">// Platform-specific - 平台特定</span>
+  <span class="token operator">|</span> CachePointBlock    <span class="token comment">// Platform-specific - 平台特定</span>
+
+<span class="token comment">// Performance annotations based on inferred usage</span>
+<span class="token comment">// 基于推断用法的性能注释</span>
+<span class="token keyword">interface</span> <span class="token class-name">ContentBlockMetrics</span> <span class="token punctuation">&#123;</span>
+  TextBlock<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    memorySize<span class="token operator">:</span> <span class="token string">"O(text.length)"</span><span class="token punctuation">,</span>        <span class="token comment">// 内存大小</span>
+    parseTime<span class="token operator">:</span> <span class="token string">"O(1)"</span><span class="token punctuation">,</span>                   <span class="token comment">// 解析时间</span>
+    serializeTime<span class="token operator">:</span> <span class="token string">"O(n)"</span><span class="token punctuation">,</span>               <span class="token comment">// 序列化时间</span>
+    streamable<span class="token operator">:</span> <span class="token boolean">true</span>                     <span class="token comment">// 可流式传输</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  ImageBlock<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    memorySize<span class="token operator">:</span> <span class="token string">"O(1) + external"</span><span class="token punctuation">,</span>  <span class="token comment">// Reference to base64/S3 - 引用base64/S3</span>
+    parseTime<span class="token operator">:</span> <span class="token string">"O(1)"</span><span class="token punctuation">,</span>                   <span class="token comment">// 解析时间</span>
+    serializeTime<span class="token operator">:</span> <span class="token string">"O(size)"</span> <span class="token operator">|</span> <span class="token string">"O(1) for S3"</span><span class="token punctuation">,</span>  <span class="token comment">// 序列化时间</span>
+    streamable<span class="token operator">:</span> <span class="token boolean">false</span>                    <span class="token comment">// 不可流式传输</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  ToolUseBlock<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    memorySize<span class="token operator">:</span> <span class="token string">"O(JSON.stringify(input).length)"</span><span class="token punctuation">,</span>  <span class="token comment">// 内存大小</span>
+    parseTime<span class="token operator">:</span> <span class="token string">"O(n) for JSON parse"</span><span class="token punctuation">,</span>      <span class="token comment">// JSON解析时间</span>
+    serializeTime<span class="token operator">:</span> <span class="token string">"O(n)"</span><span class="token punctuation">,</span>                <span class="token comment">// 序列化时间</span>
+    streamable<span class="token operator">:</span> <span class="token boolean">true</span>                      <span class="token comment">// 可流式传输 - JSON可以流式传输</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="The-Streaming-JSON-Challenge"><a href="#The-Streaming-JSON-Challenge" class="headerlink" title="The Streaming JSON Challenge"></a>The Streaming JSON Challenge</h3><h3 id="流式JSON的挑战"><a href="#流式JSON的挑战" class="headerlink" title="流式JSON的挑战"></a>流式JSON的挑战</h3><p>One of Claude Code’s most clever innovations is handling streaming JSON for tool inputs:<br>Claude Code最巧妙的创新之一是处理工具输入的流式JSON：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Inferred implementation of streaming JSON parser</span>
+<span class="token comment">// 流式JSON解析器的推断实现</span>
+<span class="token keyword">class</span> <span class="token class-name">StreamingToolInputParser</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> buffer<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>      <span class="token comment">// 缓冲区</span>
+  <span class="token keyword">private</span> depth<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token comment">// JSON深度</span>
+  <span class="token keyword">private</span> inString<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 是否在字符串内</span>
+  <span class="token keyword">private</span> escape<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>   <span class="token comment">// 是否转义</span>
+
+  <span class="token function">addChunk</span><span class="token punctuation">(</span>chunk<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> ParseResult <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>buffer <span class="token operator">+=</span> chunk<span class="token punctuation">;</span>
+
+    <span class="token comment">// Track JSON structure depth - 跟踪JSON结构深度</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> char <span class="token keyword">of</span> chunk<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>inString<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>char <span class="token operator">===</span> <span class="token string">'&#123;'</span> <span class="token operator">||</span> char <span class="token operator">===</span> <span class="token string">'['</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>depth<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>char <span class="token operator">===</span> <span class="token string">'&#125;'</span> <span class="token operator">||</span> char <span class="token operator">===</span> <span class="token string">']'</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>depth<span class="token operator">--</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      <span class="token comment">// Track string boundaries - 跟踪字符串边界</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>char <span class="token operator">===</span> <span class="token string">'"'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>escape<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>inString <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>inString<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>escape <span class="token operator">=</span> <span class="token punctuation">(</span>char <span class="token operator">===</span> <span class="token string">'\\\\'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>escape<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Attempt parse at depth 0 - 在深度0时尝试解析</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>depth <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>buffer<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> complete<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>buffer<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// Try auto-closing unclosed strings - 尝试自动关闭未闭合的字符串</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>inString<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+              complete<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+              value<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>buffer <span class="token operator">+</span> <span class="token string">'"'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              repaired<span class="token operator">:</span> <span class="token boolean">true</span>    <span class="token comment">// 已修复</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> complete<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> error<span class="token operator">:</span> e <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> complete<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This parser can handle incremental JSON chunks from the LLM, attempting to parse as soon as the structure appears complete.<br>此解析器可以处理来自LLM的增量JSON块，在结构看起来完整时立即尝试解析。</p>
+<h2 id="Message-Lifecycle-From-User-Input-to-LLM-and-Back"><a href="#Message-Lifecycle-From-User-Input-to-LLM-and-Back" class="headerlink" title="Message Lifecycle: From User Input to LLM and Back"></a>Message Lifecycle: From User Input to LLM and Back</h2><h2 id="消息生命周期：从用户输入到LLM再返回"><a href="#消息生命周期：从用户输入到LLM再返回" class="headerlink" title="消息生命周期：从用户输入到LLM再返回"></a>消息生命周期：从用户输入到LLM再返回</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
+    <span class="token keyword">subgraph</span> <span class="token string">"Input Processing - 输入处理"</span>
+        UserText<span class="token text string">[User Text Input - 用户文本输入]</span>
+        SlashCmd<span class="token text string">["/command - 斜杠命令"]</span>
+        BashCmd<span class="token text string">[!shell command - Shell命令]</span>
+        MemoryCmd<span class="token text string">[#memory note - 内存笔记]</span>
+        PastedContent<span class="token text string">[Pasted Image/Text - 粘贴的图片/文本]</span>
+
+        UserText <span class="token arrow operator">--></span> NormalMessage<span class="token text string">[Create User CliMessage - 创建用户CliMessage]</span>
+        SlashCmd <span class="token arrow operator">--></span> CommandProcessor<span class="token text string">[Process Command - 处理命令]</span>
+        BashCmd <span class="token arrow operator">--></span> SyntheticTool<span class="token text string">[Synthetic BashTool Message - 合成BashTool消息]</span>
+        MemoryCmd <span class="token arrow operator">--></span> MemoryUpdate<span class="token text string">[Update CLAUDE.md - 更新CLAUDE.md]</span>
+        PastedContent <span class="token arrow operator">--></span> ContentDetection<span class="token text string">&#123;Detect Type - 检测类型&#125;</span>
+
+        ContentDetection <span class="token arrow operator">--></span><span class="token label property">|Image|</span> ImageBlock<span class="token text string">[Create ImageBlock - 创建ImageBlock]</span>
+        ContentDetection <span class="token arrow operator">--></span><span class="token label property">|Text|</span> TextBlock<span class="token text string">[Create TextBlock - 创建TextBlock]</span>
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Message Transformation - 消息转换"</span>
+        NormalMessage <span class="token arrow operator">--></span> StripMetadata<span class="token text string">[Remove CLI fields]</span>
+        SyntheticTool <span class="token arrow operator">--></span> StripMetadata
+        ImageBlock <span class="token arrow operator">--></span> StripMetadata
+        TextBlock <span class="token arrow operator">--></span> StripMetadata
+
+        StripMetadata <span class="token arrow operator">--></span> APIMessage<span class="token text string">[Clean API Message - 清洁的API消息]</span>
+        APIMessage <span class="token arrow operator">--></span> TokenCount<span class="token text string">&#123;Count Tokens - 计算令牌数&#125;</span>
+
+        TokenCount <span class="token arrow operator">--></span><span class="token label property">|Over Limit - 超过限制|</span> Compact<span class="token text string">[Compaction Process - 压缩过程]</span>
+        TokenCount <span class="token arrow operator">--></span><span class="token label property">|Under Limit - 未超限|</span> Send<span class="token text string">[Send to LLM - 发送到LLM]</span>
+
+        Compact <span class="token arrow operator">--></span> SummaryMessage<span class="token text string">[Summary Message - 摘要消息]</span>
+        SummaryMessage <span class="token arrow operator">--></span> Send
+    <span class="token keyword">end</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/2.svg" class="">
+<h3 id="The-CliMessage-Structure-More-Than-Meets-the-Eye"><a href="#The-CliMessage-Structure-More-Than-Meets-the-Eye" class="headerlink" title="The CliMessage Structure: More Than Meets the Eye"></a>The CliMessage Structure: More Than Meets the Eye</h3><h3 id="CliMessage结构：不仅仅是表面所见"><a href="#CliMessage结构：不仅仅是表面所见" class="headerlink" title="CliMessage结构：不仅仅是表面所见"></a>CliMessage结构：不仅仅是表面所见</h3><p>The <code>CliMessage</code> type serves as the central nervous system of the application:<br><code>CliMessage</code>类型作为应用程序的中枢神经系统：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">interface</span> <span class="token class-name">CliMessage</span> <span class="token punctuation">&#123;</span>
+  type<span class="token operator">:</span> <span class="token string">"user"</span> <span class="token operator">|</span> <span class="token string">"assistant"</span> <span class="token operator">|</span> <span class="token string">"attachment"</span> <span class="token operator">|</span> <span class="token string">"progress"</span>  <span class="token comment">// 消息类型</span>
+  uuid<span class="token operator">:</span> <span class="token builtin">string</span>                                           <span class="token comment">// 唯一标识符</span>
+  timestamp<span class="token operator">:</span> <span class="token builtin">string</span>                                      <span class="token comment">// 时间戳</span>
+
+  <span class="token comment">// For user/assistant messages only - 仅用于用户/助手消息</span>
+  message<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    role<span class="token operator">:</span> <span class="token string">"user"</span> <span class="token operator">|</span> <span class="token string">"assistant"</span>                           <span class="token comment">// 角色</span>
+    id<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>                    <span class="token comment">// LLM-provided ID - LLM提供的ID</span>
+    model<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>                 <span class="token comment">// Which model responded - 响应的模型</span>
+    stop_reason<span class="token operator">?</span><span class="token operator">:</span> StopReason       <span class="token comment">// Why generation stopped - 生成停止原因</span>
+    stop_sequence<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>         <span class="token comment">// Specific stop sequence hit - 命中的特定停止序列</span>
+    usage<span class="token operator">?</span><span class="token operator">:</span> TokenUsage             <span class="token comment">// Detailed token counts - 详细令牌计数</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> ContentBlock<span class="token punctuation">[</span><span class="token punctuation">]</span>                     <span class="token comment">// 内容</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// CLI-specific metadata - CLI特定元数据</span>
+  costUSD<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span>               <span class="token comment">// Calculated cost - 计算成本</span>
+  durationMs<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span>            <span class="token comment">// API call duration - API调用持续时间</span>
+  requestId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>             <span class="token comment">// For debugging - 用于调试</span>
+  isApiErrorMessage<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>    <span class="token comment">// Error display flag - 错误显示标志</span>
+  isMeta<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>              <span class="token comment">// System-generated message - 系统生成消息</span>
+
+  <span class="token comment">// Type-specific fields - 类型特定字段</span>
+  attachment<span class="token operator">?</span><span class="token operator">:</span> AttachmentContent                         <span class="token comment">// 附件内容</span>
+  progress<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    toolUseID<span class="token operator">:</span> <span class="token builtin">string</span>                                    <span class="token comment">// 工具使用ID</span>
+    parentToolUseID<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>   <span class="token comment">// For AgentTool sub-tools - 用于AgentTool子工具</span>
+    data<span class="token operator">:</span> <span class="token builtin">any</span>                  <span class="token comment">// Tool-specific progress - 工具特定进度</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Performance characteristics - 性能特征</span>
+<span class="token keyword">interface</span> <span class="token class-name">CliMessagePerformance</span> <span class="token punctuation">&#123;</span>
+  creation<span class="token operator">:</span> <span class="token string">"O(1)"</span><span class="token punctuation">,</span>                                     <span class="token comment">// 创建时间</span>
+  serialization<span class="token operator">:</span> <span class="token string">"O(content size)"</span><span class="token punctuation">,</span>                      <span class="token comment">// 序列化时间</span>
+  memoryRetention<span class="token operator">:</span> <span class="token string">"Weak references for large content"</span><span class="token punctuation">,</span>  <span class="token comment">// 大内容使用弱引用</span>
+  garbageCollection<span class="token operator">:</span> <span class="token string">"Eligible when removed from history array"</span>  <span class="token comment">// 从历史数组移除时可回收</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Mutation-Points-and-State-Transitions"><a href="#Mutation-Points-and-State-Transitions" class="headerlink" title="Mutation Points and State Transitions"></a>Mutation Points and State Transitions</h3><h3 id="变异点和状态转换"><a href="#变异点和状态转换" class="headerlink" title="变异点和状态转换"></a>变异点和状态转换</h3><p>Claude Code carefully controls where data structures can be modified:<br>Claude Code仔细控制数据结构可以被修改的位置：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Inferred mutation control patterns - 推断的变异控制模式</span>
+<span class="token keyword">class</span> <span class="token class-name">MessageMutationControl</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Mutation Point 1: Stream accumulation - 变异点1：流累积</span>
+  <span class="token keyword">static</span> <span class="token function">accumulateStreamDelta</span><span class="token punctuation">(</span>
+    message<span class="token operator">:</span> Partial<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span><span class="token punctuation">,</span>
+    delta<span class="token operator">:</span> ContentBlockDelta
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>delta<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'text_delta'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> lastBlock <span class="token operator">=</span> message<span class="token punctuation">.</span>content<span class="token punctuation">[</span>message<span class="token punctuation">.</span>content<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>lastBlock<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'text'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        lastBlock<span class="token punctuation">.</span>text <span class="token operator">+=</span> delta<span class="token punctuation">.</span>text<span class="token punctuation">;</span>  <span class="token comment">// MUTATION - 变异</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// Mutation Point 2: Tool result injection - 变异点2：工具结果注入</span>
+  <span class="token keyword">static</span> <span class="token function">injectToolResult</span><span class="token punctuation">(</span>
+    history<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    toolResult<span class="token operator">:</span> ToolResultBlock
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> newMessage<span class="token operator">:</span> CliMessage <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+      isMeta<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">// System-generated - 系统生成</span>
+      message<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        role<span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+        content<span class="token operator">:</span> <span class="token punctuation">[</span>toolResult<span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token comment">// ... other fields - 其他字段</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    history<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// MUTATION - 变异</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// Mutation Point 3: Cost calculation - 变异点3：成本计算</span>
+  <span class="token keyword">static</span> <span class="token function">updateCostMetadata</span><span class="token punctuation">(</span>
+    message<span class="token operator">:</span> CliMessage<span class="token punctuation">,</span>
+    usage<span class="token operator">:</span> TokenUsage
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    message<span class="token punctuation">.</span>costUSD <span class="token operator">=</span> <span class="token function">calculateCost</span><span class="token punctuation">(</span>usage<span class="token punctuation">,</span> message<span class="token punctuation">.</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// MUTATION - 变异</span>
+    message<span class="token punctuation">.</span>durationMs <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">parseISO</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span>timestamp<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// MUTATION - 变异</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="The-System-Prompt-Dynamic-Context-Assembly"><a href="#The-System-Prompt-Dynamic-Context-Assembly" class="headerlink" title="The System Prompt: Dynamic Context Assembly"></a>The System Prompt: Dynamic Context Assembly</h2><h2 id="系统提示：动态上下文组装"><a href="#系统提示：动态上下文组装" class="headerlink" title="系统提示：动态上下文组装"></a>系统提示：动态上下文组装</h2><p>Perhaps the most complex data structure is the dynamically assembled system prompt:<br>也许最复杂的数据结构是动态组装的系统提示：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// System prompt assembly pipeline (reconstructed) - 系统提示组装管道（重构）</span>
+<span class="token keyword">interface</span> <span class="token class-name">SystemPromptPipeline</span> <span class="token punctuation">&#123;</span>
+  sources<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    baseInstructions<span class="token operator">:</span> <span class="token builtin">string</span>        <span class="token comment">// Static base - 静态基础</span>
+    claudeMdContent<span class="token operator">:</span> ClaudeMdLayer<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// Hierarchical - 层次结构</span>
+    gitContext<span class="token operator">:</span> GitContextData       <span class="token comment">// Real-time - 实时</span>
+    directoryStructure<span class="token operator">:</span> TreeData     <span class="token comment">// Cached/fresh - 缓存/新鲜</span>
+    toolDefinitions<span class="token operator">:</span> ToolSpec<span class="token punctuation">[</span><span class="token punctuation">]</span>      <span class="token comment">// Available tools - 可用工具</span>
+    modelAdaptations<span class="token operator">:</span> ModelSpecificPrompt <span class="token comment">// Per-model - 每个模型</span>
+  <span class="token punctuation">&#125;</span>
+
+  assembly<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    order<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'base'</span><span class="token punctuation">,</span> <span class="token string">'model'</span><span class="token punctuation">,</span> <span class="token string">'claude.md'</span><span class="token punctuation">,</span> <span class="token string">'git'</span><span class="token punctuation">,</span> <span class="token string">'files'</span><span class="token punctuation">,</span> <span class="token string">'tools'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">// 组装顺序</span>
+    separators<span class="token operator">:</span> Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">,</span>  <span class="token comment">// Section delimiters - 部分分隔符</span>
+    sizeLimit<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>                <span class="token comment">// Token budget - 令牌预算</span>
+    prioritization<span class="token operator">:</span> <span class="token string">'recency'</span> <span class="token operator">|</span> <span class="token string">'relevance'</span>  <span class="token comment">// 优先级策略</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// The GitContext structure reveals real-time awareness - GitContext结构揭示实时感知</span>
+<span class="token keyword">interface</span> <span class="token class-name">GitContextData</span> <span class="token punctuation">&#123;</span>
+  currentBranch<span class="token operator">:</span> <span class="token builtin">string</span>                             <span class="token comment">// 当前分支</span>
+  status<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    modified<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                              <span class="token comment">// 已修改文件</span>
+    untracked<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                             <span class="token comment">// 未跟踪文件</span>
+    staged<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                                <span class="token comment">// 已暂存文件</span>
+  <span class="token punctuation">&#125;</span>
+  recentCommits<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token punctuation">&#123;</span>                            <span class="token comment">// 最近提交</span>
+    hash<span class="token operator">:</span> <span class="token builtin">string</span>                                    <span class="token comment">// 哈希值</span>
+    message<span class="token operator">:</span> <span class="token builtin">string</span>                                 <span class="token comment">// 提交消息</span>
+    author<span class="token operator">:</span> <span class="token builtin">string</span>                                  <span class="token comment">// 作者</span>
+    timestamp<span class="token operator">:</span> <span class="token builtin">string</span>                               <span class="token comment">// 时间戳</span>
+  <span class="token punctuation">&#125;</span><span class="token operator">></span>
+  uncommittedDiff<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// Expensive, conditional - 昂贵的，条件性的</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Memory-Layout-CLAUDE-md-Hierarchical-Loading"><a href="#Memory-Layout-CLAUDE-md-Hierarchical-Loading" class="headerlink" title="Memory Layout: CLAUDE.md Hierarchical Loading"></a>Memory Layout: <a target="_blank" rel="noopener" href="http://claude.md/">CLAUDE.md</a> Hierarchical Loading</h3><h3 id="内存布局：CLAUDE-md层次化加载"><a href="#内存布局：CLAUDE-md层次化加载" class="headerlink" title="内存布局：CLAUDE.md层次化加载"></a>内存布局：CLAUDE.md层次化加载</h3><pre class="line-numbers language-none"><code class="language-none">Project Root - 项目根目录
+├── .claude&#x2F;
+│   ├── CLAUDE.md (Local - highest priority - 本地 - 最高优先级)
+│   └── settings.json
+├── ~&#x2F;
+│   └── .claude&#x2F;
+│       └── CLAUDE.md (User - second priority - 用户 - 第二优先级)
+├── &lt;project-root&gt;&#x2F;
+│   └── .claude&#x2F;
+│       └── CLAUDE.md (Project - third priority - 项目 - 第三优先级)
+└── &#x2F;etc&#x2F;claude-code&#x2F;
+    └── CLAUDE.md (Managed - lowest priority - 托管 - 最低优先级)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>The loading mechanism implements an efficient merge strategy:<br>加载机制实现了高效的合并策略：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Inferred CLAUDE.md loading algorithm - 推断的CLAUDE.md加载算法</span>
+<span class="token keyword">class</span> <span class="token class-name">ClaudeMdLoader</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>content<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> mtime<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">&#125;</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">async</span> <span class="token function">loadMerged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> layers <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token string">'/etc/claude-code/CLAUDE.md'</span><span class="token punctuation">,</span>      <span class="token comment">// Managed - 托管</span>
+      <span class="token string">'~/.claude/CLAUDE.md'</span><span class="token punctuation">,</span>              <span class="token comment">// User - 用户</span>
+      <span class="token string">'&lt;project>/.claude/CLAUDE.md'</span><span class="token punctuation">,</span>      <span class="token comment">// Project - 项目</span>
+      <span class="token string">'.claude/CLAUDE.md'</span>                 <span class="token comment">// Local - 本地</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> contents <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>
+      layers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>path <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadWithCache</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Merge with override semantics - 使用覆盖语义合并</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">mergeWithOverrides</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token function">mergeWithOverrides</span><span class="token punctuation">(</span>contents<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Later layers override earlier ones - 后面的层覆盖前面的层</span>
+    <span class="token comment">// @override directive for explicit overrides - @override指令用于显式覆盖</span>
+    <span class="token comment">// @append directive for additions - @append指令用于添加</span>
+    <span class="token comment">// Default: concatenate with separators - 默认：使用分隔符连接</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Tool-Related-Data-Structures"><a href="#Tool-Related-Data-Structures" class="headerlink" title="Tool-Related Data Structures"></a>Tool-Related Data Structures</h2><h2 id="工具相关数据结构"><a href="#工具相关数据结构" class="headerlink" title="工具相关数据结构"></a>工具相关数据结构</h2><h3 id="ToolDefinition-The-Complete-Tool-Interface"><a href="#ToolDefinition-The-Complete-Tool-Interface" class="headerlink" title="ToolDefinition: The Complete Tool Interface"></a>ToolDefinition: The Complete Tool Interface</h3><h3 id="ToolDefinition：完整的工具接口"><a href="#ToolDefinition：完整的工具接口" class="headerlink" title="ToolDefinition：完整的工具接口"></a>ToolDefinition：完整的工具接口</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">interface</span> <span class="token class-name">ToolDefinition</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Identity - 身份标识</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>                               <span class="token comment">// 工具名称</span>
+  description<span class="token operator">:</span> <span class="token builtin">string</span>                        <span class="token comment">// 工具描述</span>
+  prompt<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// Additional LLM instructions - 额外的LLM指令</span>
+
+  <span class="token comment">// Schema (dual representation) - 模式（双重表示）</span>
+  inputSchema<span class="token operator">:</span> ZodSchema          <span class="token comment">// Runtime validation - 运行时验证</span>
+  inputJSONSchema<span class="token operator">?</span><span class="token operator">:</span> JSONSchema    <span class="token comment">// LLM communication - LLM通信</span>
+
+  <span class="token comment">// Execution - 执行</span>
+  call<span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>ToolProgress <span class="token operator">|</span> ToolResult<span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">></span>  <span class="token comment">// 异步生成器</span>
+
+  <span class="token comment">// Permissions - 权限</span>
+  checkPermissions<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>
+    input<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolUseContext<span class="token punctuation">,</span>
+    permContext<span class="token operator">:</span> ToolPermissionContext
+  <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>PermissionDecision<span class="token operator">></span>  <span class="token comment">// 权限决策</span>
+
+  <span class="token comment">// Output formatting - 输出格式化</span>
+  <span class="token function-variable function">mapToolResultToToolResultBlockParam</span><span class="token operator">:</span> <span class="token punctuation">(</span>
+    result<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    toolUseId<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">)</span> <span class="token operator">=></span> ContentBlock <span class="token operator">|</span> ContentBlock<span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token comment">// 内容块或块数组</span>
+
+  <span class="token comment">// Metadata - 元数据</span>
+  isReadOnly<span class="token operator">:</span> <span class="token builtin">boolean</span>                         <span class="token comment">// 是否只读</span>
+  isMcp<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>                            <span class="token comment">// 是否MCP</span>
+  isEnabled<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>config<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">boolean</span>       <span class="token comment">// 启用函数</span>
+  getPath<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>input<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">undefined</span>  <span class="token comment">// 路径获取函数</span>
+
+  <span class="token comment">// UI - 用户界面</span>
+  renderToolUseMessage<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>input<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=></span> ReactElement  <span class="token comment">// 渲染函数</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Memory characteristics of tool definitions - 工具定义的内存特征</span>
+<span class="token keyword">interface</span> <span class="token class-name">ToolDefinitionMemory</span> <span class="token punctuation">&#123;</span>
+  staticSize<span class="token operator">:</span> <span class="token string">"~2KB per tool"</span><span class="token punctuation">,</span>                    <span class="token comment">// 静态大小</span>
+  zodSchema<span class="token operator">:</span> <span class="token string">"Lazy compilation, cached"</span><span class="token punctuation">,</span>          <span class="token comment">// 延迟编译，缓存</span>
+  jsonSchema<span class="token operator">:</span> <span class="token string">"Generated once, memoized"</span><span class="token punctuation">,</span>         <span class="token comment">// 生成一次，记忆化</span>
+  closures<span class="token operator">:</span> <span class="token string">"Retains context references"</span>          <span class="token comment">// 保留上下文引用</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="The-Execution-Context-Everything-a-Tool-Needs"><a href="#The-Execution-Context-Everything-a-Tool-Needs" class="headerlink" title="The Execution Context: Everything a Tool Needs"></a>The Execution Context: Everything a Tool Needs</h3><h3 id="执行上下文：工具所需的一切"><a href="#执行上下文：工具所需的一切" class="headerlink" title="执行上下文：工具所需的一切"></a>执行上下文：工具所需的一切</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">interface</span> <span class="token class-name">ToolUseContext</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Cancellation - 取消机制</span>
+  abortController<span class="token operator">:</span> AbortController                <span class="token comment">// 中止控制器</span>
+
+  <span class="token comment">// File state tracking - 文件状态跟踪</span>
+  readFileState<span class="token operator">:</span> Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>                   <span class="token comment">// 读取文件状态</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span>                              <span class="token comment">// 内容</span>
+    timestamp<span class="token operator">:</span> <span class="token builtin">number</span>  <span class="token comment">// mtime - 修改时间</span>
+  <span class="token punctuation">&#125;</span><span class="token operator">></span>
+
+  <span class="token comment">// Permission resolution - 权限解析</span>
+  <span class="token function-variable function">getToolPermissionContext</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> ToolPermissionContext  <span class="token comment">// 获取工具权限上下文</span>
+
+  <span class="token comment">// Options bag - 选项包</span>
+  options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    tools<span class="token operator">:</span> ToolDefinition<span class="token punctuation">[</span><span class="token punctuation">]</span>                      <span class="token comment">// 工具定义列表</span>
+    mainLoopModel<span class="token operator">:</span> <span class="token builtin">string</span>                        <span class="token comment">// 主循环模型</span>
+    debug<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>                              <span class="token comment">// 调试模式</span>
+    verbose<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>                            <span class="token comment">// 详细模式</span>
+    isNonInteractiveSession<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>            <span class="token comment">// 非交互式会话</span>
+    maxThinkingTokens<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span>                   <span class="token comment">// 最大思考令牌数</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// MCP connections - MCP连接</span>
+  mcpClients<span class="token operator">?</span><span class="token operator">:</span> McpClient<span class="token punctuation">[</span><span class="token punctuation">]</span>                       <span class="token comment">// MCP客户端数组</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// The permission context reveals a sophisticated security model - 权限上下文揭示了复杂的安全模型</span>
+<span class="token keyword">interface</span> <span class="token class-name">ToolPermissionContext</span> <span class="token punctuation">&#123;</span>
+  mode<span class="token operator">:</span> <span class="token string">"default"</span> <span class="token operator">|</span> <span class="token string">"acceptEdits"</span> <span class="token operator">|</span> <span class="token string">"bypassPermissions"</span>  <span class="token comment">// 模式</span>
+
+  additionalWorkingDirectories<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span>              <span class="token comment">// 额外工作目录</span>
+
+  <span class="token comment">// Hierarchical rule system - 层次化规则系统</span>
+  alwaysAllowRules<span class="token operator">:</span> Record<span class="token operator">&lt;</span>PermissionRuleScope<span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token comment">// 始终允许规则</span>
+  alwaysDenyRules<span class="token operator">:</span> Record<span class="token operator">&lt;</span>PermissionRuleScope<span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token comment">// 始终拒绝规则</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">PermissionRuleScope</span> <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token string">"cliArg"</span>         <span class="token comment">// Highest priority - 最高优先级</span>
+  <span class="token operator">|</span> <span class="token string">"localSettings"</span>  <span class="token comment">// 本地设置</span>
+  <span class="token operator">|</span> <span class="token string">"projectSettings"</span> <span class="token comment">// 项目设置</span>
+  <span class="token operator">|</span> <span class="token string">"policySettings"</span> <span class="token comment">// 策略设置</span>
+  <span class="token operator">|</span> <span class="token string">"userSettings"</span>   <span class="token comment">// Lowest priority - 最低优先级</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="MCP-Protocol-Structures"><a href="#MCP-Protocol-Structures" class="headerlink" title="MCP Protocol Structures"></a>MCP Protocol Structures</h2><h2 id="MCP协议结构"><a href="#MCP协议结构" class="headerlink" title="MCP协议结构"></a>MCP协议结构</h2><p>The Multi-Cloud/Process protocol reveals a sophisticated RPC system:<br>多云/进程协议揭示了一个复杂的RPC系统：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// JSON-RPC 2.0 with extensions - 带扩展的JSON-RPC 2.0</span>
+<span class="token keyword">interface</span> <span class="token class-name">McpMessage</span> <span class="token punctuation">&#123;</span>
+  jsonrpc<span class="token operator">:</span> <span class="token string">"2.0"</span>                               <span class="token comment">// 版本</span>
+  id<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span>  <span class="token comment">// Optional for notifications - 通知的可选ID</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">McpRequest</span> <span class="token keyword">extends</span> <span class="token class-name">McpMessage</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span> <span class="token builtin">string</span>                               <span class="token comment">// 方法名</span>
+  params<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">unknown</span>                             <span class="token comment">// 参数</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">McpResponse</span> <span class="token keyword">extends</span> <span class="token class-name">McpMessage</span> <span class="token punctuation">&#123;</span>
+  id<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span>  <span class="token comment">// Required for responses - 响应必需的ID</span>
+  result<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">unknown</span>                             <span class="token comment">// 结果</span>
+  error<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>                                    <span class="token comment">// 错误</span>
+    code<span class="token operator">:</span> <span class="token builtin">number</span>                               <span class="token comment">// 错误代码</span>
+    message<span class="token operator">:</span> <span class="token builtin">string</span>                            <span class="token comment">// 错误消息</span>
+    data<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">unknown</span>                             <span class="token comment">// 错误数据</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Capability negotiation structure - 能力协商结构</span>
+<span class="token keyword">interface</span> <span class="token class-name">McpCapabilities</span> <span class="token punctuation">&#123;</span>
+  experimental<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">></span>           <span class="token comment">// 实验性功能</span>
+
+  <span class="token comment">// Feature flags - 功能标志</span>
+  roots<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>      <span class="token comment">// Workspace roots - 工作区根目录</span>
+  sampling<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>   <span class="token comment">// LLM sampling delegation - LLM采样委托</span>
+  prompts<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>    <span class="token comment">// Dynamic prompts - 动态提示</span>
+  resources<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>  <span class="token comment">// Resource serving - 资源服务</span>
+  tools<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>      <span class="token comment">// Tool exposure - 工具暴露</span>
+  logging<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>    <span class="token comment">// Log forwarding - 日志转发</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// The tool specification sent by MCP servers - MCP服务器发送的工具规范</span>
+<span class="token keyword">interface</span> <span class="token class-name">McpToolSpec</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>                                 <span class="token comment">// 工具名称</span>
+  description<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>                         <span class="token comment">// 工具描述</span>
+  inputSchema<span class="token operator">:</span> JSONSchema  <span class="token comment">// Always JSON Schema - 始终是JSON模式</span>
+
+  <span class="token comment">// MCP-specific metadata - MCP特定元数据</span>
+  isReadOnly<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>                         <span class="token comment">// 是否只读</span>
+  requiresConfirmation<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>               <span class="token comment">// 是否需要确认</span>
+  timeout<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span>                             <span class="token comment">// 超时时间</span>
+  maxRetries<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span>                          <span class="token comment">// 最大重试次数</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="MCP-State-Machine"><a href="#MCP-State-Machine" class="headerlink" title="MCP State Machine"></a>MCP State Machine</h3><h3 id="MCP状态机"><a href="#MCP状态机" class="headerlink" title="MCP状态机"></a>MCP状态机</h3><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> Disconnected - 断开连接
+    Disconnected <span class="token arrow operator">--></span> Connecting<span class="token operator">:</span> connect<span class="token punctuation">(</span><span class="token punctuation">)</span> - 连接
+    Connecting <span class="token arrow operator">--></span> Initializing<span class="token operator">:</span> transport ready - 传输就绪
+    Initializing <span class="token arrow operator">--></span> Ready<span class="token operator">:</span> capabilities exchanged - 能力交换完成
+
+    Ready <span class="token arrow operator">--></span> Ready<span class="token operator">:</span> request/response - 请求/响应
+    Ready <span class="token arrow operator">--></span> Ready<span class="token operator">:</span> notification - 通知
+
+    Ready <span class="token arrow operator">--></span> Closing<span class="token operator">:</span> close<span class="token punctuation">(</span><span class="token punctuation">)</span> - 关闭
+    Connecting <span class="token arrow operator">--></span> Failed<span class="token operator">:</span> error - 错误
+    Initializing <span class="token arrow operator">--></span> Failed<span class="token operator">:</span> negotiation failed - 协商失败
+
+    Closing <span class="token arrow operator">--></span> Disconnected<span class="token operator">:</span> closed - 已关闭
+    Failed <span class="token arrow operator">--></span> Disconnected<span class="token operator">:</span> reset - 重置
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/3.svg" class="">
+<h2 id="Session-State-The-Global-Memory"><a href="#Session-State-The-Global-Memory" class="headerlink" title="Session State: The Global Memory"></a>Session State: The Global Memory</h2><h2 id="会话状态：全局内存"><a href="#会话状态：全局内存" class="headerlink" title="会话状态：全局内存"></a>会话状态：全局内存</h2><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">interface</span> <span class="token class-name">SessionState</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Identity - 身份</span>
+  sessionId<span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// UUID v4 - 会话ID</span>
+  originalCwd<span class="token operator">:</span> <span class="token builtin">string</span>                          <span class="token comment">// 原始工作目录</span>
+  cwd<span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// Can change via bash cd - 当前工作目录（可通过bash cd改变）</span>
+
+  <span class="token comment">// Cost tracking (mutable accumulator) - 成本跟踪（可变累加器）</span>
+  totalCostUSD<span class="token operator">:</span> <span class="token builtin">number</span>                         <span class="token comment">// 总成本（美元）</span>
+  totalAPIDuration<span class="token operator">:</span> <span class="token builtin">number</span>                     <span class="token comment">// API总持续时间</span>
+  modelTokens<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>                <span class="token comment">// 模型令牌记录</span>
+    inputTokens<span class="token operator">:</span> <span class="token builtin">number</span>                        <span class="token comment">// 输入令牌数</span>
+    outputTokens<span class="token operator">:</span> <span class="token builtin">number</span>                       <span class="token comment">// 输出令牌数</span>
+    cacheReadInputTokens<span class="token operator">:</span> <span class="token builtin">number</span>               <span class="token comment">// 缓存读取输入令牌数</span>
+    cacheCreationInputTokens<span class="token operator">:</span> <span class="token builtin">number</span>           <span class="token comment">// 缓存创建输入令牌数</span>
+  <span class="token punctuation">&#125;</span><span class="token operator">></span>
+
+  <span class="token comment">// Model selection - 模型选择</span>
+  mainLoopModelOverride<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>               <span class="token comment">// 主循环模型覆盖</span>
+  initialMainLoopModel<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>                <span class="token comment">// 初始主循环模型</span>
+
+  <span class="token comment">// Activity metrics - 活动指标</span>
+  sessionCounter<span class="token operator">:</span> <span class="token builtin">number</span>                       <span class="token comment">// 会话计数器</span>
+  locCounter<span class="token operator">:</span> <span class="token builtin">number</span>      <span class="token comment">// Lines of code - 代码行数</span>
+  prCounter<span class="token operator">:</span> <span class="token builtin">number</span>       <span class="token comment">// Pull requests - 拉取请求数</span>
+  commitCounter<span class="token operator">:</span> <span class="token builtin">number</span>   <span class="token comment">// Git commits - Git提交数</span>
+
+  <span class="token comment">// State flags - 状态标志</span>
+  lastInteractionTime<span class="token operator">:</span> <span class="token builtin">number</span>                  <span class="token comment">// 最后交互时间</span>
+  hasUnknownModelCost<span class="token operator">:</span> <span class="token builtin">boolean</span>                 <span class="token comment">// 是否有未知模型成本</span>
+  maxRateLimitFallbackActive<span class="token operator">:</span> <span class="token builtin">boolean</span>          <span class="token comment">// 最大速率限制回退是否激活</span>
+
+  <span class="token comment">// Available models - 可用模型</span>
+  modelStrings<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                       <span class="token comment">// 模型字符串数组</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Session state access pattern (inferred) - 会话状态访问模式（推断）</span>
+<span class="token keyword">class</span> <span class="token class-name">SessionManager</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> state<span class="token operator">:</span> SessionState<span class="token punctuation">;</span>  <span class="token comment">// Singleton - 单例</span>
+
+  <span class="token keyword">static</span> <span class="token generic-function"><span class="token function">update</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">K</span> <span class="token keyword">extends</span> <span class="token keyword">keyof</span> SessionState<span class="token operator">></span></span></span><span class="token punctuation">(</span>
+    key<span class="token operator">:</span> <span class="token constant">K</span><span class="token punctuation">,</span>
+    value<span class="token operator">:</span> SessionState<span class="token punctuation">[</span><span class="token constant">K</span><span class="token punctuation">]</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">persistToDisk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Async, non-blocking - 异步，非阻塞</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">static</span> <span class="token function">increment</span><span class="token punctuation">(</span>metric<span class="token operator">:</span> <span class="token keyword">keyof</span> SessionState<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">[</span>metric<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">[</span>metric<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Bidirectional-Streaming-Implementation"><a href="#Bidirectional-Streaming-Implementation" class="headerlink" title="Bidirectional Streaming Implementation"></a>Bidirectional Streaming Implementation</h2><h2 id="双向流实现"><a href="#双向流实现" class="headerlink" title="双向流实现"></a>双向流实现</h2><p>The platform-level streaming reveals a sophisticated protocol:<br>平台级别的流处理揭示了一个复杂的协议：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Bidirectional streaming payload structures - 双向流载荷结构</span>
+<span class="token keyword">interface</span> <span class="token class-name">BidirectionalStreamingProtocol</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Client → Server - 客户端到服务器</span>
+  clientPayload<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    bytes<span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// Base64 encoded - Base64编码</span>
+    encoding<span class="token operator">:</span> <span class="token string">'base64'</span>                        <span class="token comment">// 编码方式</span>
+
+    <span class="token comment">// Decoded content types - 解码的内容类型</span>
+    contentTypes<span class="token operator">:</span>
+      <span class="token operator">|</span> ContinuedUserInput                    <span class="token comment">// 持续用户输入</span>
+      <span class="token operator">|</span> ToolResultBlock                       <span class="token comment">// 工具结果块</span>
+      <span class="token operator">|</span> ConversationTurnInput                 <span class="token comment">// 对话回合输入</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// Server → Client - 服务器到客户端</span>
+  serverPayload<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    bytes<span class="token operator">:</span> <span class="token builtin">string</span>  <span class="token comment">// Base64 encoded - Base64编码</span>
+    encoding<span class="token operator">:</span> <span class="token string">'base64'</span>                        <span class="token comment">// 编码方式</span>
+
+    <span class="token comment">// Decoded event types - 解码的事件类型</span>
+    eventTypes<span class="token operator">:</span>
+      <span class="token operator">|</span> ContentBlockDeltaEvent                <span class="token comment">// 内容块增量事件</span>
+      <span class="token operator">|</span> ToolUseRequestEvent                   <span class="token comment">// 工具使用请求事件</span>
+      <span class="token operator">|</span> ErrorEvent                            <span class="token comment">// 错误事件</span>
+      <span class="token operator">|</span> MetadataEvent                         <span class="token comment">// 元数据事件</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// The streaming state machine for bidirectional flows - 双向流的流状态机</span>
+<span class="token keyword">class</span> <span class="token class-name">BidirectionalStreamManager</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> encoder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 文本编码器</span>
+  <span class="token keyword">private</span> decoder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextDecoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 文本解码器</span>
+  <span class="token keyword">private</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span><span class="token number">65536</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 64KB buffer - 64KB缓冲区</span>
+
+  async <span class="token operator">*</span><span class="token function">processStream</span><span class="token punctuation">(</span>stream<span class="token operator">:</span> ReadableStream<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> reader <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">getReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 流读取器</span>
+    <span class="token keyword">let</span> partial <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>                         <span class="token comment">// 部分数据</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> done<span class="token punctuation">,</span> value <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">await</span> reader<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// Decode and split by newlines (SSE format) - 解码并按换行符分割（SSE格式）</span>
+      partial <span class="token operator">+=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>decoder<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> stream<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> lines <span class="token operator">=</span> partial<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'\\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      partial <span class="token operator">=</span> lines<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> line <span class="token keyword">of</span> lines<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'data: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">const</span> payload <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">decodePayload</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token function">decodePayload</span><span class="token punctuation">(</span>payload<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> bytes <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>payload<span class="token punctuation">.</span>bytes<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Further decode based on protocol buffers or JSON - 基于协议缓冲区或JSON进一步解码</span>
+    <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>bytes<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Performance-Optimizations-in-Data-Structures"><a href="#Performance-Optimizations-in-Data-Structures" class="headerlink" title="Performance Optimizations in Data Structures"></a>Performance Optimizations in Data Structures</h2><h2 id="数据结构中的性能优化"><a href="#数据结构中的性能优化" class="headerlink" title="数据结构中的性能优化"></a>数据结构中的性能优化</h2><h3 id="1-String-Interning-for-Common-Values"><a href="#1-String-Interning-for-Common-Values" class="headerlink" title="1. String Interning for Common Values"></a>1. <strong>String Interning for Common Values</strong></h3><h3 id="1-常用值的字符串驻留"><a href="#1-常用值的字符串驻留" class="headerlink" title="1. 常用值的字符串驻留"></a>1. <strong>常用值的字符串驻留</strong></h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Inferred string interning pattern - 推断的字符串驻留模式</span>
+<span class="token keyword">class</span> <span class="token class-name">StringIntern</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 字符串池</span>
+
+  <span class="token keyword">static</span> <span class="token function">intern</span><span class="token punctuation">(</span>str<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>pool<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>pool<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pool<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Usage in message processing - 在消息处理中的使用</span>
+message<span class="token punctuation">.</span>type <span class="token operator">=</span> StringIntern<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span>rawType<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 'user', 'assistant' etc - 用户、助手等</span>
+message<span class="token punctuation">.</span>stop_reason <span class="token operator">=</span> StringIntern<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 'end_turn', 'tool_use' etc - 结束回合、工具使用等</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-Lazy-Content-Block-Parsing"><a href="#2-Lazy-Content-Block-Parsing" class="headerlink" title="2. Lazy Content Block Parsing"></a>2. <strong>Lazy Content Block Parsing</strong></h3><h3 id="2-延迟内容块解析"><a href="#2-延迟内容块解析" class="headerlink" title="2. 延迟内容块解析"></a>2. <strong>延迟内容块解析</strong></h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Content blocks may use lazy parsing for performance - 内容块可以使用延迟解析来提高性能</span>
+<span class="token keyword">class</span> <span class="token class-name">LazyContentBlock</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> _raw<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>                          <span class="token comment">// 原始数据</span>
+  <span class="token keyword">private</span> _parsed<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span>                         <span class="token comment">// 解析后的数据</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span>raw<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_raw <span class="token operator">=</span> raw<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">get</span> <span class="token function">content</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>_parsed<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>_parsed <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_raw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_parsed<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token function">parse</span><span class="token punctuation">(</span>raw<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Expensive parsing only when accessed - 只在访问时进行昂贵的解析</span>
+    <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>raw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-ReadFileState-Weak-References"><a href="#3-ReadFileState-Weak-References" class="headerlink" title="3. ReadFileState Weak References"></a>3. <strong>ReadFileState Weak References</strong></h3><h3 id="3-ReadFileState弱引用"><a href="#3-ReadFileState弱引用" class="headerlink" title="3. ReadFileState弱引用"></a>3. <strong>ReadFileState弱引用</strong></h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// File cache with automatic memory management - 带自动内存管理的文件缓存</span>
+<span class="token keyword">class</span> <span class="token class-name">ReadFileState</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> WeakRef<span class="token operator">&lt;</span>FileContent<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 文件内容缓存</span>
+  <span class="token keyword">private</span> registry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FinalizationRegistry</span><span class="token punctuation">(</span><span class="token punctuation">(</span>path<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 终结注册表</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 删除缓存条目</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">set</span><span class="token punctuation">(</span>path<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> content<span class="token operator">:</span> FileContent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token comment">// 设置文件内容</span>
+    <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakRef</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// 创建弱引用</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> ref<span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// 添加到缓存</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>registry<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 注册到终结注册表</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">get</span><span class="token punctuation">(</span>path<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> FileContent <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 获取文件内容</span>
+    <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 获取弱引用</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ref<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> content <span class="token operator">=</span> ref<span class="token punctuation">.</span><span class="token function">deref</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// 解引用</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>content<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>                           <span class="token comment">// 如果内容已被垃圾回收</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// 从缓存中删除</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">return</span> content<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="文件总结"><a href="#文件总结" class="headerlink" title="文件总结"></a>文件总结</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文档深入分析了Claude Code的数据结构与消息架构，揭示了其高性能流式处理背后的技术实现。通过反编译和逆向工程分析，文档详细展示了Claude Code如何通过精心设计的数据结构来处理复杂的多层消息转换和流式协议。</p>
+<h2 id="核心架构特点"><a href="#核心架构特点" class="headerlink" title="核心架构特点"></a>核心架构特点</h2><h3 id="1-流式状态机架构"><a href="#1-流式状态机架构" class="headerlink" title="1. 流式状态机架构"></a>1. 流式状态机架构</h3><ul>
+<li><strong>三阶段表示系统</strong>：<ul>
+<li>CLI内部表示（CliMessage）：包含UI元数据和跟踪信息</li>
+<li>API线路格式（APIMessage）：与LLM通信的简洁格式</li>
+<li>流累加器（StreamAccumulator）：处理增量数据的缓冲机制</li>
+</ul>
+</li>
+<li><strong>优势</strong>：保持UI响应性同时处理复杂流式协议</li>
+</ul>
+<h3 id="2-多态内容块系统"><a href="#2-多态内容块系统" class="headerlink" title="2. 多态内容块系统"></a>2. 多态内容块系统</h3><ul>
+<li><strong>ContentBlock联合类型</strong>：支持文本、图像、工具调用、结果等多种内容类型</li>
+<li><strong>性能优化</strong>：不同内容块具有不同的内存特征和序列化特性</li>
+<li><strong>流式支持</strong>：文本和工具块支持流式传输，图像块通过引用优化</li>
+</ul>
+<h3 id="3-流式JSON解析器"><a href="#3-流式JSON解析器" class="headerlink" title="3. 流式JSON解析器"></a>3. 流式JSON解析器</h3><ul>
+<li><strong>智能解析</strong>：支持增量JSON块的解析，可自动修复未闭合字符串</li>
+<li><strong>深度跟踪</strong>：通过JSON结构深度判断完整性</li>
+<li><strong>字符串边界检测</strong>：精确跟踪字符串状态和转义字符</li>
+</ul>
+<h2 id="消息生命周期管理"><a href="#消息生命周期管理" class="headerlink" title="消息生命周期管理"></a>消息生命周期管理</h2><h3 id="输入处理管道"><a href="#输入处理管道" class="headerlink" title="输入处理管道"></a>输入处理管道</h3><ul>
+<li><strong>多样化输入源</strong>：用户文本、斜杠命令、Shell命令、内存笔记、粘贴内容</li>
+<li><strong>智能类型检测</strong>：自动识别输入内容类型并转换为相应格式</li>
+<li><strong>消息转换</strong>：去除CLI特定字段，生成纯净的API消息</li>
+</ul>
+<h3 id="令牌管理策略"><a href="#令牌管理策略" class="headerlink" title="令牌管理策略"></a>令牌管理策略</h3><ul>
+<li><strong>动态压缩</strong>：超过令牌限制时自动压缩历史消息</li>
+<li><strong>成本控制</strong>：实时计算API调用成本和持续时间</li>
+<li><strong>性能指标</strong>：详细的令牌使用统计和分析</li>
+</ul>
+<h2 id="CliMessage：中枢神经系统"><a href="#CliMessage：中枢神经系统" class="headerlink" title="CliMessage：中枢神经系统"></a>CliMessage：中枢神经系统</h2><h3 id="结构设计"><a href="#结构设计" class="headerlink" title="结构设计"></a>结构设计</h3><ul>
+<li><strong>类型安全</strong>：支持用户、助手、附件、进度四种消息类型</li>
+<li><strong>元数据丰富</strong>：包含成本、持续时间、请求ID等调试信息</li>
+<li><strong>性能优化</strong>：大内容使用弱引用，从历史数组移除时可垃圾回收</li>
+</ul>
+<h3 id="变异控制机制"><a href="#变异控制机制" class="headerlink" title="变异控制机制"></a>变异控制机制</h3><ul>
+<li><strong>三个变异点</strong>：<ol>
+<li>流累积：增量构建文本内容</li>
+<li>工具结果注入：添加系统生成的工具结果消息</li>
+<li>成本计算：动态更新成本和时间元数据</li>
+</ol>
+</li>
+</ul>
+<h2 id="系统提示动态组装"><a href="#系统提示动态组装" class="headerlink" title="系统提示动态组装"></a>系统提示动态组装</h2><h3 id="多源数据集成"><a href="#多源数据集成" class="headerlink" title="多源数据集成"></a>多源数据集成</h3><ul>
+<li><strong>基础指令</strong>：静态的系统级指令</li>
+<li><strong>CLAUDE.md层次</strong>：支持本地、用户、项目、托管四个优先级</li>
+<li><strong>实时上下文</strong>：Git状态、目录结构、可用工具</li>
+<li><strong>模型适配</strong>：针对不同模型的特定提示</li>
+</ul>
+<h3 id="Git上下文实时感知"><a href="#Git上下文实时感知" class="headerlink" title="Git上下文实时感知"></a>Git上下文实时感知</h3><ul>
+<li><strong>分支信息</strong>：当前分支状态和文件修改情况</li>
+<li><strong>提交历史</strong>：最近的提交记录和作者信息</li>
+<li><strong>差异分析</strong>：条件性的未提交差异计算</li>
+</ul>
+<h3 id="CLAUDE-md层次化加载"><a href="#CLAUDE-md层次化加载" class="headerlink" title="CLAUDE.md层次化加载"></a>CLAUDE.md层次化加载</h3><ul>
+<li><strong>四级优先级</strong>：本地 &gt; 用户 &gt; 项目 &gt; 托管</li>
+<li><strong>高效合并</strong>：覆盖语义、显式覆盖、添加指令</li>
+<li><strong>缓存机制</strong>：文件修改时间检查和内容缓存</li>
+</ul>
+<h2 id="工具系统架构"><a href="#工具系统架构" class="headerlink" title="工具系统架构"></a>工具系统架构</h2><h3 id="ToolDefinition完整接口"><a href="#ToolDefinition完整接口" class="headerlink" title="ToolDefinition完整接口"></a>ToolDefinition完整接口</h3><ul>
+<li><strong>双重模式</strong>：运行时Zod验证 + LLM通信JSON模式</li>
+<li><strong>异步执行</strong>：支持进度更新的生成器模式</li>
+<li><strong>权限系统</strong>：分层权限检查和决策机制</li>
+<li><strong>输出格式化</strong>：工具结果到内容块的转换</li>
+</ul>
+<h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><ul>
+<li><strong>取消机制</strong>：AbortController支持</li>
+<li><strong>文件状态跟踪</strong>：读取文件的缓存和修改时间管理</li>
+<li><strong>权限解析</strong>：多层次的权限规则系统</li>
+<li><strong>选项配置</strong>：调试、详细模式、非交互会话等</li>
+</ul>
+<h3 id="权限安全模型"><a href="#权限安全模型" class="headerlink" title="权限安全模型"></a>权限安全模型</h3><ul>
+<li><strong>五级规则范围</strong>：CLI参数 &gt; 本地设置 &gt; 项目设置 &gt; 策略设置 &gt; 用户设置</li>
+<li><strong>模式控制</strong>：默认、接受编辑、绕过权限三种模式</li>
+<li><strong>工作目录管理</strong>：额外的授权工作目录集合</li>
+</ul>
+<h2 id="MCP协议实现"><a href="#MCP协议实现" class="headerlink" title="MCP协议实现"></a>MCP协议实现</h2><h3 id="JSON-RPC-2-0扩展"><a href="#JSON-RPC-2-0扩展" class="headerlink" title="JSON-RPC 2.0扩展"></a>JSON-RPC 2.0扩展</h3><ul>
+<li><strong>消息结构</strong>：统一的请求、响应、通知格式</li>
+<li><strong>能力协商</strong>：工作区根目录、LLM采样、动态提示等功能</li>
+<li><strong>工具规范</strong>：MCP特定的元数据和安全配置</li>
+</ul>
+<h3 id="状态机管理"><a href="#状态机管理" class="headerlink" title="状态机管理"></a>状态机管理</h3><ul>
+<li><strong>连接生命周期</strong>：断开 → 连接 → 初始化 → 就绪 → 关闭</li>
+<li><strong>错误处理</strong>：连接失败、协商失败的恢复机制</li>
+<li><strong>双向通信</strong>：支持请求/响应和通知模式</li>
+</ul>
+<h2 id="会话状态管理"><a href="#会话状态管理" class="headerlink" title="会话状态管理"></a>会话状态管理</h2><h3 id="全局内存结构"><a href="#全局内存结构" class="headerlink" title="全局内存结构"></a>全局内存结构</h3><ul>
+<li><strong>身份跟踪</strong>：会话ID、工作目录状态</li>
+<li><strong>成本统计</strong>：USD成本、API持续时间、模型令牌详细统计</li>
+<li><strong>活动指标</strong>：会话、代码行、拉取请求、提交计数器</li>
+<li><strong>状态标志</strong>：最后交互时间、未知成本、速率限制状态</li>
+</ul>
+<h3 id="单例访问模式"><a href="#单例访问模式" class="headerlink" title="单例访问模式"></a>单例访问模式</h3><ul>
+<li><strong>线程安全</strong>：静态单例状态管理</li>
+<li><strong>持久化</strong>：异步非阻塞的磁盘持久化</li>
+<li><strong>增量更新</strong>：支持单个字段的更新和计数器递增</li>
+</ul>
+<h2 id="双向流协议"><a href="#双向流协议" class="headerlink" title="双向流协议"></a>双向流协议</h2><h3 id="载荷结构设计"><a href="#载荷结构设计" class="headerlink" title="载荷结构设计"></a>载荷结构设计</h3><ul>
+<li><strong>客户端到服务器</strong>：持续用户输入、工具结果、对话回合</li>
+<li><strong>服务器到客户端</strong>：内容增量、工具请求、错误、元数据事件</li>
+<li><strong>编码优化</strong>：Base64编码的紧凑载荷格式</li>
+</ul>
+<h3 id="流处理机制"><a href="#流处理机制" class="headerlink" title="流处理机制"></a>流处理机制</h3><ul>
+<li><strong>SSE格式</strong>：服务器发送事件的标准化处理</li>
+<li><strong>缓冲管理</strong>：64KB缓冲区和增量解码</li>
+<li><strong>协议解析</strong>：多层数据解码和JSON提取</li>
+</ul>
+<h2 id="性能优化策略"><a href="#性能优化策略" class="headerlink" title="性能优化策略"></a>性能优化策略</h2><h3 id="1-字符串驻留"><a href="#1-字符串驻留" class="headerlink" title="1. 字符串驻留"></a>1. 字符串驻留</h3><ul>
+<li><strong>内存优化</strong>：常用字符串的池化管理</li>
+<li><strong>减少重复</strong>：消息类型、停止原因等重复值的复用</li>
+<li><strong>快速比较</strong>：驻留字符串的指针比较</li>
+</ul>
+<h3 id="2-延迟解析"><a href="#2-延迟解析" class="headerlink" title="2. 延迟解析"></a>2. 延迟解析</h3><ul>
+<li><strong>按需计算</strong>：内容块仅在访问时解析</li>
+<li><strong>成本分摊</strong>：昂贵的JSON解析操作延迟到必要时</li>
+<li><strong>内存效率</strong>：原始字符串和解析结果的智能管理</li>
+</ul>
+<h3 id="3-弱引用缓存"><a href="#3-弱引用缓存" class="headerlink" title="3. 弱引用缓存"></a>3. 弱引用缓存</h3><ul>
+<li><strong>自动内存管理</strong>：文件内容的弱引用缓存</li>
+<li><strong>垃圾回收友好</strong>：FinalizationRegistry自动清理</li>
+<li><strong>内存安全</strong>：防止内存泄漏和悬挂引用</li>
+</ul>
+<h2 id="技术创新点"><a href="#技术创新点" class="headerlink" title="技术创新点"></a>技术创新点</h2><h3 id="架构创新"><a href="#架构创新" class="headerlink" title="架构创新"></a>架构创新</h3><ol>
+<li><strong>三层消息表示</strong>：UI、API、流的清晰分离</li>
+<li><strong>多态内容系统</strong>：统一接口处理多种内容类型</li>
+<li><strong>动态系统提示</strong>：实时上下文的高效组装</li>
+<li><strong>双向流协议</strong>：客户端和服务器的平等通信</li>
+</ol>
+<h3 id="性能创新"><a href="#性能创新" class="headerlink" title="性能创新"></a>性能创新</h3><ol>
+<li><strong>智能JSON解析</strong>：增量解析和自动修复</li>
+<li><strong>分层权限系统</strong>：灵活的安全控制机制</li>
+<li><strong>内存优化策略</strong>：驻留、延迟、弱引用的组合使用</li>
+<li><strong>缓存管理</strong>：多级缓存和自动失效机制</li>
+</ol>
+<h3 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h3><ol>
+<li><strong>类型安全</strong>：TypeScript接口的全面应用</li>
+<li><strong>错误处理</strong>：优雅的降级和恢复机制</li>
+<li><strong>可观测性</strong>：丰富的元数据和调试信息</li>
+<li><strong>扩展性</strong>：MCP协议和工具系统的模块化设计</li>
+</ol>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Claude Code的数据结构与消息架构体现了现代软件工程的最佳实践，通过精心设计的数据结构实现了高性能的流式处理。其架构的核心价值在于：</p>
+<ul>
+<li><strong>性能卓越</strong>：多层次的优化确保了快速的响应时间</li>
+<li><strong>架构清晰</strong>：清晰的职责分离和模块化设计</li>
+<li><strong>扩展性强</strong>：灵活的工具系统和MCP协议支持</li>
+<li><strong>用户友好</strong>：丰富的进度反馈和错误处理</li>
+</ul>
+<p>这种架构设计为处理复杂的AI交互场景提供了优秀的解决方案，特别是在需要实时响应和大量数据处理的场景中表现出色。文档的分析为理解现代AI应用的数据架构设计提供了宝贵的参考价值。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="claude-code控制流与编排引擎">
+                        
+                        <span class="card-title">claude-code控制流与编排引擎</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/10/23/claude-code-ji-chu-jia-gou/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="claude-code基础架构">
+                        
+                        <span class="card-title">claude-code基础架构</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+             -->
+            <!-- <a href="/about" target="_blank">寒霜</a> -->
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+             -->
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">161.7k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

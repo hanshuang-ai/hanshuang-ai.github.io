@@ -1,0 +1,2138 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="claude-code控制流与编排引擎, 我的博客">
+    <meta name="description" content="参考链接
+Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceDiagram
+    participant User as 用户
+    participant MainL">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>claude-code控制流与编排引擎 | 我的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">我的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">我的博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">claude-code控制流与编排引擎</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-10-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-10-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://southbridge-research.notion.site/Control-Flow-The-Orchestration-Engine-2055fec70db181d0b215e1b8584d03fa">参考链接</a></p>
+<h1 id="Control-Flow-amp-The-Orchestration-Engine"><a href="#Control-Flow-amp-The-Orchestration-Engine" class="headerlink" title="Control Flow &amp; The Orchestration Engine"></a>Control Flow &amp; The Orchestration Engine</h1><h1 id="控制流与编排引擎"><a href="#控制流与编排引擎" class="headerlink" title="控制流与编排引擎"></a>控制流与编排引擎</h1><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">participant</span> User as 用户
+    <span class="token keyword">participant</span> MainLoop as 主循环 <span class="token text string">(tt)</span>
+    <span class="token keyword">participant</span> LLM as LLM API
+    <span class="token keyword">participant</span> ToolBatch as 工具批处理器
+    <span class="token keyword">participant</span> Tool1 as 读取工具
+    <span class="token keyword">participant</span> Tool2 as 搜索工具
+    <span class="token keyword">participant</span> Tool3 as 编辑工具
+    <span class="token keyword">participant</span> UI as UI渲染器
+    User<span class="token arrow operator">->></span>MainLoop<span class="token operator">:</span> <span class="token string">"搜索TODO注释并更新它们"</span>
+    MainLoop<span class="token arrow operator">->></span>LLM<span class="token operator">:</span> 带上下文的流请求
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> text_delta<span class="token operator">:</span> <span class="token string">"我将搜索TODOs..."</span>
+    MainLoop<span class="token arrow operator">-->></span>UI<span class="token operator">:</span> 更新显示
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> tool_use<span class="token operator">:</span> GrepTool
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> tool_use<span class="token operator">:</span> ReadTool <span class="token text string">(多个文件)</span>
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> message_stop
+    MainLoop<span class="token arrow operator">->></span>ToolBatch<span class="token operator">:</span> 执行工具批次
+    <span class="token keyword">par</span> 并行执行
+        ToolBatch<span class="token arrow operator">->></span>Tool1<span class="token operator">:</span> ReadTool.call<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token text string">[只读]</span>
+        ToolBatch<span class="token arrow operator">->></span>Tool2<span class="token operator">:</span> GrepTool.call<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token text string">[只读]</span>
+        Tool1<span class="token arrow operator">-->></span>UI<span class="token operator">:</span> 进度<span class="token operator">:</span> <span class="token string">"正在读取file1.js"</span>
+        Tool2<span class="token arrow operator">-->></span>UI<span class="token operator">:</span> 进度<span class="token operator">:</span> <span class="token string">"正在搜索*.js"</span>
+        Tool1<span class="token arrow operator">-->></span>ToolBatch<span class="token operator">:</span> 结果<span class="token operator">:</span> 文件内容
+        Tool2<span class="token arrow operator">-->></span>ToolBatch<span class="token operator">:</span> 结果<span class="token operator">:</span> 5个匹配
+    <span class="token keyword">end</span>
+    ToolBatch<span class="token arrow operator">->></span>MainLoop<span class="token operator">:</span> 工具结果
+    MainLoop<span class="token arrow operator">->></span>LLM<span class="token operator">:</span> 继续处理结果
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> tool_use<span class="token operator">:</span> EditTool
+    MainLoop<span class="token arrow operator">->></span>ToolBatch<span class="token operator">:</span> 执行写入工具
+    <span class="token keyword">Note over</span> ToolBatch, Tool3<span class="token operator">:</span> 顺序执行
+    ToolBatch<span class="token arrow operator">->></span>Tool3<span class="token operator">:</span> EditTool.call<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token text string">[写入]</span>
+    Tool3<span class="token arrow operator">-->></span>UI<span class="token operator">:</span> 进度<span class="token operator">:</span> <span class="token string">"正在编辑file1.js"</span>
+    Tool3<span class="token arrow operator">-->></span>ToolBatch<span class="token operator">:</span> 结果<span class="token operator">:</span> 成功
+    ToolBatch<span class="token arrow operator">->></span>MainLoop<span class="token operator">:</span> 编辑完成
+    MainLoop<span class="token arrow operator">->></span>LLM<span class="token operator">:</span> 继续处理结果
+    LLM<span class="token arrow operator">-->></span>MainLoop<span class="token operator">:</span> text_delta<span class="token operator">:</span> <span class="token string">"已更新5个TODOs..."</span>
+    MainLoop<span class="token arrow operator">-->></span>UI<span class="token operator">:</span> 最终响应
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/1.svg" class="">
+
+<h2 id="The-Main-Conversation-Loop-A-Streaming-State-Machine"><a href="#The-Main-Conversation-Loop-A-Streaming-State-Machine" class="headerlink" title="The Main Conversation Loop: A Streaming State Machine"></a>The Main Conversation Loop: A Streaming State Machine</h2><h2 id="主对话循环：流式状态机"><a href="#主对话循环：流式状态机" class="headerlink" title="主对话循环：流式状态机"></a>主对话循环：流式状态机</h2><p>The heart of Claude Code is the <code>tt</code> async generator function—a sophisticated state machine that orchestrates the entire conversation flow. Let’s examine its actual structure:<br>Claude Code的核心是<code>tt</code>异步生成器函数——这是一个精密的状态机，负责编排整个对话流程。让我们来检视它的实际结构：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Reconstructed main loop signature with timing annotations</span>
+<span class="token comment">// 带时间注释重构的主循环签名</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">tt</span><span class="token punctuation">(</span>
+  currentMessages<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>         <span class="token comment">// Full history - Memory: O(conversation_length) // 完整历史 - 内存：O(对话长度)</span>
+  baseSystemPromptString<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>        <span class="token comment">// Static prompt - ~2KB // 静态提示 - ~2KB</span>
+  currentGitContext<span class="token operator">:</span> GitContext<span class="token punctuation">,</span>         <span class="token comment">// Git state - ~1-5KB typically // Git状态 - 通常~1-5KB</span>
+  currentClaudeMdContents<span class="token operator">:</span> ClaudeMdContent<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// Project context - ~5-50KB // 项目上下文 - ~5-50KB</span>
+  permissionGranterFn<span class="token operator">:</span> PermissionGranter<span class="token punctuation">,</span> <span class="token comment">// Permission callback // 权限回调</span>
+  toolUseContext<span class="token operator">:</span> ToolUseContext<span class="token punctuation">,</span>         <span class="token comment">// Shared context - ~10KB // 共享上下文 - ~10KB</span>
+  activeStreamingToolUse<span class="token operator">?</span><span class="token operator">:</span> ToolUseBlock<span class="token punctuation">,</span>  <span class="token comment">// Resume state // 恢复状态</span>
+  loopState<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    turnId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>        <span class="token comment">// UUID for this turn // 本轮对话的UUID</span>
+    turnCounter<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>   <span class="token comment">// Recursion depth // 递归深度</span>
+    compacted<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>   <span class="token comment">// Was history compressed? // 历史是否已压缩？</span>
+    isResuming<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>   <span class="token comment">// Resuming from save? // 是否从保存点恢复？</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ┌─ PHASE 1: Context Preparation [~50-200ms] // 阶段1：上下文准备 [~50-200ms]</span>
+  <span class="token comment">// ├─ PHASE 2: Auto-compaction Check [~0-3000ms if triggered] // 阶段2：自动压缩检查 [触发时~0-3000ms]</span>
+  <span class="token comment">// ├─ PHASE 3: System Prompt Assembly [~10-50ms] // 阶段3：系统提示组装 [~10-50ms]</span>
+  <span class="token comment">// ├─ PHASE 4: LLM Stream Processing [~2000-10000ms] // 阶段4：LLM流处理 [~2000-10000ms]</span>
+  <span class="token comment">// ├─ PHASE 5: Tool Execution [~100-30000ms per tool] // 阶段5：工具执行 [每个工具~100-30000ms]</span>
+  <span class="token comment">// └─ PHASE 6: Recursion or Completion [~0ms] // 阶段6：递归或完成 [~0ms]</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Phase-1-Context-Window-Management"><a href="#Phase-1-Context-Window-Management" class="headerlink" title="Phase 1: Context Window Management"></a>Phase 1: Context Window Management</h3><h3 id="阶段1：上下文窗口管理"><a href="#阶段1：上下文窗口管理" class="headerlink" title="阶段1：上下文窗口管理"></a>阶段1：上下文窗口管理</h3><p>The first critical decision in the control flow is whether the conversation needs compaction:<br>控制流中的第一个关键决策是判断对话是否需要压缩：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Auto-compaction logic (inferred implementation)</span>
+<span class="token comment">// 自动压缩逻辑（推断实现）</span>
+<span class="token keyword">class</span> <span class="token class-name">ContextCompactionController</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token constant">COMPACTION_THRESHOLDS</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    tokenCount<span class="token operator">:</span> <span class="token number">100_000</span><span class="token punctuation">,</span>      <span class="token comment">// Aggressive token limit // 激进的token限制</span>
+    messageCount<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>        <span class="token comment">// Message count fallback // 消息数量后备限制</span>
+    costThreshold<span class="token operator">:</span> <span class="token number">5.00</span>       <span class="token comment">// Cost-based trigger // 基于成本的触发器</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">shouldCompact</span><span class="token punctuation">(</span>
+    messages<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    model<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Fast path: check message count first</span>
+    <span class="token comment">// 快速路径：先检查消息数量</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>messages<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Expensive path: count tokens</span>
+    <span class="token comment">// 昂贵路径：计算tokens</span>
+    <span class="token keyword">const</span> tokenCount <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">estimateTokens</span><span class="token punctuation">(</span>messages<span class="token punctuation">,</span> model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> tokenCount <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">COMPACTION_THRESHOLDS</span><span class="token punctuation">.</span>tokenCount <span class="token operator">||</span>
+           messages<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">COMPACTION_THRESHOLDS</span><span class="token punctuation">.</span>messageCount<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">compact</span><span class="token punctuation">(</span>
+    messages<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolUseContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>CompactionResult<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Phase 1: Identify messages to preserve</span>
+    <span class="token comment">// 阶段1：识别要保留的消息</span>
+    <span class="token keyword">const</span> preserve <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">identifyPreservedMessages</span><span class="token punctuation">(</span>messages<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Phase 2: Generate summary via LLM</span>
+    <span class="token comment">// 阶段2：通过LLM生成摘要</span>
+    <span class="token keyword">const</span> summary <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">generateSummary</span><span class="token punctuation">(</span>
+      messages<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>m <span class="token operator">=></span> <span class="token operator">!</span>preserve<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span>uuid<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      context
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Phase 3: Reconstruct message history</span>
+    <span class="token comment">// 阶段3：重构消息历史</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      messages<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSummaryMessage</span><span class="token punctuation">(</span>summary<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>messages<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>m <span class="token operator">=></span> preserve<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span>uuid<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      tokensaved<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calculateSavings</span><span class="token punctuation">(</span>messages<span class="token punctuation">,</span> summary<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Performance Characteristics</strong>:<br><strong>性能特性</strong>：</p>
+<ul>
+<li>Token counting: O(n) where n is total message content length // Token计算：O(n)，其中n是消息内容总长度</li>
+<li>Summary generation: One additional LLM call (<del>2-3s) // 摘要生成：一次额外的LLM调用（</del>2-3秒）</li>
+<li>Memory impact: Temporarily doubles message storage during compaction // 内存影响：压缩期间临时 doubling 消息存储</li>
+</ul>
+<h3 id="Phase-2-Dynamic-System-Prompt-Assembly"><a href="#Phase-2-Dynamic-System-Prompt-Assembly" class="headerlink" title="Phase 2: Dynamic System Prompt Assembly"></a>Phase 2: Dynamic System Prompt Assembly</h3><h3 id="阶段2：动态系统提示组装"><a href="#阶段2：动态系统提示组装" class="headerlink" title="阶段2：动态系统提示组装"></a>阶段2：动态系统提示组装</h3><p>The system prompt assembly reveals a sophisticated caching and composition strategy:<br>系统提示组装展现了一个精密的缓存和组合策略：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// System prompt composition pipeline</span>
+<span class="token comment">// 系统提示组合管道</span>
+<span class="token keyword">class</span> <span class="token class-name">SystemPromptAssembler</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    hash<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    expiry<span class="token operator">:</span> <span class="token builtin">number</span>
+  <span class="token punctuation">&#125;</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">assemble</span><span class="token punctuation">(</span>
+    basePrompt<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    claudeMd<span class="token operator">:</span> ClaudeMdContent<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    gitContext<span class="token operator">:</span> GitContext<span class="token punctuation">,</span>
+    tools<span class="token operator">:</span> ToolDefinition<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    model<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> ContentBlock<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Parallel fetch of dynamic components</span>
+    <span class="token comment">// 并行获取动态组件</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>
+      claudeMdSection<span class="token punctuation">,</span>
+      gitSection<span class="token punctuation">,</span>
+      directorySection<span class="token punctuation">,</span>
+      toolSection
+    <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">formatClaudeMd</span><span class="token punctuation">(</span>claudeMd<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">formatGitContext</span><span class="token punctuation">(</span>gitContext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getDirectoryStructure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">formatToolDefinitions</span><span class="token punctuation">(</span>tools<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Model-specific adaptations</span>
+    <span class="token comment">// 模型特定适配</span>
+    <span class="token keyword">const</span> modelSection <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getModelAdaptations</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Compose with smart truncation</span>
+    <span class="token comment">// 智能截断组合</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compose</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      base<span class="token operator">:</span> basePrompt<span class="token punctuation">,</span>           <span class="token comment">// Priority 1 // 优先级1</span>
+      model<span class="token operator">:</span> modelSection<span class="token punctuation">,</span>        <span class="token comment">// Priority 2 // 优先级2</span>
+      claudeMd<span class="token operator">:</span> claudeMdSection<span class="token punctuation">,</span>  <span class="token comment">// Priority 3 // 优先级3</span>
+      git<span class="token operator">:</span> gitSection<span class="token punctuation">,</span>           <span class="token comment">// Priority 4 // 优先级4</span>
+      directory<span class="token operator">:</span> directorySection<span class="token punctuation">,</span> <span class="token comment">// Priority 5 // 优先级5</span>
+      tools<span class="token operator">:</span> toolSection         <span class="token comment">// Priority 6 // 优先级6</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token function">getModelAdaptations</span><span class="token punctuation">(</span>model<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Model-specific prompt engineering</span>
+    <span class="token comment">// 模型特定的提示工程</span>
+    <span class="token keyword">const</span> adaptations <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      <span class="token string-property property">'claude-3-opus'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        style<span class="token operator">:</span> <span class="token string">'detailed'</span><span class="token punctuation">,</span>
+        instructions<span class="token operator">:</span> <span class="token string">'Think step by step. Show your reasoning.'</span><span class="token punctuation">,</span>
+        tokenBudget<span class="token operator">:</span> <span class="token number">0.3</span>  <span class="token comment">// 30% of context for reasoning // 30%上下文用于推理</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token string-property property">'claude-3-sonnet'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        style<span class="token operator">:</span> <span class="token string">'balanced'</span><span class="token punctuation">,</span>
+        instructions<span class="token operator">:</span> <span class="token string">'Be concise but thorough.'</span><span class="token punctuation">,</span>
+        tokenBudget<span class="token operator">:</span> <span class="token number">0.2</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token string-property property">'claude-3-haiku'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        style<span class="token operator">:</span> <span class="token string">'brief'</span><span class="token punctuation">,</span>
+        instructions<span class="token operator">:</span> <span class="token string">'Get to the point quickly.'</span><span class="token punctuation">,</span>
+        tokenBudget<span class="token operator">:</span> <span class="token number">0.1</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> config <span class="token operator">=</span> adaptations<span class="token punctuation">[</span>model<span class="token punctuation">]</span> <span class="token operator">||</span> adaptations<span class="token punctuation">[</span><span class="token string">'claude-3-sonnet'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">formatModelInstructions</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Phase-3-The-Streaming-State-Machine"><a href="#Phase-3-The-Streaming-State-Machine" class="headerlink" title="Phase 3: The Streaming State Machine"></a>Phase 3: The Streaming State Machine</h3><h3 id="阶段3：流状态机"><a href="#阶段3：流状态机" class="headerlink" title="阶段3：流状态机"></a>阶段3：流状态机</h3><p>The LLM streaming phase implements a complex event-driven state machine:<br>LLM流阶段实现了一个复杂的事件驱动状态机：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Stream event processing state machine</span>
+<span class="token comment">// 流事件处理状态机</span>
+<span class="token keyword">class</span> <span class="token class-name">StreamEventProcessor</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> state<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    phase<span class="token operator">:</span> <span class="token string">'idle'</span> <span class="token operator">|</span> <span class="token string">'message_start'</span> <span class="token operator">|</span> <span class="token string">'content'</span> <span class="token operator">|</span> <span class="token string">'tool_input'</span> <span class="token operator">|</span> <span class="token string">'complete'</span><span class="token punctuation">;</span>
+    currentMessage<span class="token operator">:</span> Partial<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span><span class="token punctuation">;</span>
+    contentBlocks<span class="token operator">:</span> ContentBlock<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    activeToolInput<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      toolId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+      buffer<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+      parser<span class="token operator">:</span> StreamingToolInputParser<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    metrics<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      firstTokenLatency<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+      tokensPerSecond<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  async <span class="token operator">*</span><span class="token function">processStream</span><span class="token punctuation">(</span>
+    stream<span class="token operator">:</span> AsyncIterable<span class="token operator">&lt;</span>StreamEvent<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>UIEvent <span class="token operator">|</span> CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> event <span class="token keyword">of</span> stream<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">switch</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">case</span> <span class="token string">'message_start'</span><span class="token operator">:</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>phase <span class="token operator">=</span> <span class="token string">'message_start'</span><span class="token punctuation">;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>metrics<span class="token punctuation">.</span>firstTokenLatency <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> startTime<span class="token punctuation">;</span>
+          <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span> type<span class="token operator">:</span> <span class="token string">'ui_state'</span><span class="token punctuation">,</span> data<span class="token operator">:</span> <span class="token punctuation">&#123;</span> status<span class="token operator">:</span> <span class="token string">'assistant_responding'</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> <span class="token string">'content_block_start'</span><span class="token operator">:</span>
+          <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleContentBlockStart</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> <span class="token string">'content_block_delta'</span><span class="token operator">:</span>
+          <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleContentBlockDelta</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> <span class="token string">'content_block_stop'</span><span class="token operator">:</span>
+          <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleContentBlockStop</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> <span class="token string">'message_stop'</span><span class="token operator">:</span>
+          <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">finalizeMessage</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> <span class="token string">'error'</span><span class="token operator">:</span>
+          <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleError</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> async <span class="token operator">*</span><span class="token function">handleContentBlockDelta</span><span class="token punctuation">(</span>
+    event<span class="token operator">:</span> ContentBlockDeltaEvent
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>UIEvent<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> block <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>contentBlocks<span class="token punctuation">[</span>event<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">case</span> <span class="token string">'text_delta'</span><span class="token operator">:</span>
+        <span class="token comment">// Direct UI update for text</span>
+        <span class="token comment">// 文本的直接UI更新</span>
+        block<span class="token punctuation">.</span>text <span class="token operator">+=</span> event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+        <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span>
+          type<span class="token operator">:</span> <span class="token string">'ui_text_delta'</span><span class="token punctuation">,</span>
+          data<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            text<span class="token operator">:</span> event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>text<span class="token punctuation">,</span>
+            blockIndex<span class="token operator">:</span> event<span class="token punctuation">.</span>index
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">case</span> <span class="token string">'input_json_delta'</span><span class="token operator">:</span>
+        <span class="token comment">// Accumulate JSON for tool input</span>
+        <span class="token comment">// 累积工具输入的JSON</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeToolInput<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeToolInput<span class="token punctuation">.</span>buffer <span class="token operator">+=</span> event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>partial_json<span class="token punctuation">;</span>
+
+          <span class="token comment">// Try parsing at strategic points</span>
+          <span class="token comment">// 在策略点尝试解析</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>partial_json<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'&#125;'</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+              event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>partial_json<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">']'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeToolInput<span class="token punctuation">.</span>parser<span class="token punctuation">.</span><span class="token function">addChunk</span><span class="token punctuation">(</span>
+              event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>partial_json
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>complete<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              block<span class="token punctuation">.</span>input <span class="token operator">=</span> result<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+              <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span>
+                type<span class="token operator">:</span> <span class="token string">'ui_tool_preview'</span><span class="token punctuation">,</span>
+                data<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                  toolId<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeToolInput<span class="token punctuation">.</span>toolId<span class="token punctuation">,</span>
+                  input<span class="token operator">:</span> result<span class="token punctuation">.</span>value
+                <span class="token punctuation">&#125;</span>
+              <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Phase-4-The-Tool-Execution-Pipeline"><a href="#Phase-4-The-Tool-Execution-Pipeline" class="headerlink" title="Phase 4: The Tool Execution Pipeline"></a>Phase 4: The Tool Execution Pipeline</h3><h3 id="阶段4：工具执行管道"><a href="#阶段4：工具执行管道" class="headerlink" title="阶段4：工具执行管道"></a>阶段4：工具执行管道</h3><p>The tool execution system implements a sophisticated parallel/sequential execution strategy:<br>工具执行系统实现了一个精密的并行/顺序执行策略：</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
+    <span class="token keyword">subgraph</span> <span class="token string">"Tool Request Analysis"</span> // 工具请求分析
+        ToolRequests<span class="token text string">[Tool Use Blocks]</span> // 工具使用块 <span class="token arrow operator">--></span> Categorize<span class="token text string">&#123;Categorize by Type&#125;</span> // 按类型分类
+        Categorize <span class="token arrow operator">--></span><span class="token label property">|Read-Only|</span> ReadQueue<span class="token text string">[Read Queue]</span> // 只读队列
+        Categorize <span class="token arrow operator">--></span><span class="token label property">|Write/Side-Effect|</span> WriteQueue<span class="token text string">[Write Queue]</span> // 写入队列
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Parallel Execution Pool"</span> // 并行执行池
+        ReadQueue <span class="token arrow operator">--></span> ParallelPool<span class="token text string">[Parallel Executor]</span> // 并行执行器
+        ParallelPool <span class="token arrow operator">--></span> Worker1<span class="token text string">[Worker 1]</span> // 工作器1
+        ParallelPool <span class="token arrow operator">--></span> Worker2<span class="token text string">[Worker 2]</span> // 工作器2
+        ParallelPool <span class="token arrow operator">--></span> WorkerN<span class="token text string">[Worker N]</span> // 工作器N
+
+        Worker1 <span class="token arrow operator">--></span> Results1<span class="token text string">[Result 1]</span> // 结果1
+        Worker2 <span class="token arrow operator">--></span> Results2<span class="token text string">[Result 2]</span> // 结果2
+        WorkerN <span class="token arrow operator">--></span> ResultsN<span class="token text string">[Result N]</span> // 结果N
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Sequential Execution"</span> // 顺序执行
+        WriteQueue <span class="token arrow operator">--></span> SeqExecutor<span class="token text string">[Sequential Executor]</span> // 顺序执行器
+        Results1 <span class="token arrow operator">--></span> SeqExecutor
+        Results2 <span class="token arrow operator">--></span> SeqExecutor
+        ResultsN <span class="token arrow operator">--></span> SeqExecutor
+
+        SeqExecutor <span class="token arrow operator">--></span> WriteTool1<span class="token text string">[Write Tool 1]</span> // 写入工具1
+        WriteTool1 <span class="token arrow operator">--></span> WriteTool2<span class="token text string">[Write Tool 2]</span> // 写入工具2
+        WriteTool2 <span class="token arrow operator">--></span> FinalResults<span class="token text string">[All Results]</span> // 所有结果
+    <span class="token keyword">end</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/2.svg" class="">
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// The parallel execution orchestrator</span>
+<span class="token comment">// 并行执行编排器</span>
+<span class="token keyword">class</span> <span class="token class-name">ToolExecutionOrchestrator</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">readonly</span> <span class="token constant">CONCURRENCY_LIMIT</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">executeToolBatch</span><span class="token punctuation">(</span>
+    toolUses<span class="token operator">:</span> ToolUseBlock<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolUseContext<span class="token punctuation">,</span>
+    permissionFn<span class="token operator">:</span> PermissionGranter
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Phase 1: Categorize tools</span>
+    <span class="token comment">// 阶段1：分类工具</span>
+    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> readOnly<span class="token punctuation">,</span> writeTools <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">categorizeTools</span><span class="token punctuation">(</span>toolUses<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Phase 2: Execute read-only tools in parallel</span>
+    <span class="token comment">// 阶段2：并行执行只读工具</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>readOnly<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">executeParallel</span><span class="token punctuation">(</span>readOnly<span class="token punctuation">,</span> context<span class="token punctuation">,</span> permissionFn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Phase 3: Execute write tools sequentially</span>
+    <span class="token comment">// 阶段3：顺序执行写入工具</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> tool <span class="token keyword">of</span> writeTools<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">executeSequential</span><span class="token punctuation">(</span>tool<span class="token punctuation">,</span> context<span class="token punctuation">,</span> permissionFn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">executeParallel</span><span class="token punctuation">(</span>
+    tools<span class="token operator">:</span> ToolUseBlock<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolUseContext<span class="token punctuation">,</span>
+    permissionFn<span class="token operator">:</span> PermissionGranter
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> executions <span class="token operator">=</span> tools<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>tool <span class="token operator">=></span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createToolExecution</span><span class="token punctuation">(</span>tool<span class="token punctuation">,</span> context<span class="token punctuation">,</span> permissionFn<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Custom parallel map with backpressure</span>
+    <span class="token comment">// 自定义带回压的并行映射</span>
+    <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">parallelMap</span><span class="token punctuation">(</span>executions<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">CONCURRENCY_LIMIT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// The parallelMap implementation</span>
+<span class="token comment">// parallelMap实现</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token generic-function"><span class="token function">parallelMap</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>
+  generators<span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  concurrency<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> executing <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Promise</span><span class="token operator">&lt;</span>IteratorResult<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">>>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> pending <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>generators<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Fill initial slots</span>
+  <span class="token comment">// 填充初始槽位</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>executing<span class="token punctuation">.</span>size <span class="token operator">&lt;</span> concurrency <span class="token operator">&amp;&amp;</span> pending<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> gen <span class="token operator">=</span> pending<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+    executing<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>executing<span class="token punctuation">.</span>size <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Race for next completion</span>
+    <span class="token comment">// 竞争下一次完成</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">race</span><span class="token punctuation">(</span>executing<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    executing<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>result <span class="token keyword">as</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>result<span class="token punctuation">.</span>done<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// Yield the value</span>
+      <span class="token comment">// 产出值</span>
+      <span class="token keyword">yield</span> result<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+
+      <span class="token comment">// Continue this generator</span>
+      <span class="token comment">// 继续这个生成器</span>
+      <span class="token keyword">const</span> nextPromise <span class="token operator">=</span> result<span class="token punctuation">.</span>generator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      executing<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>nextPromise<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Fill empty slot if available</span>
+    <span class="token comment">// 如果有空槽位就填充</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>executing<span class="token punctuation">.</span>size <span class="token operator">&lt;</span> concurrency <span class="token operator">&amp;&amp;</span> pending<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> gen <span class="token operator">=</span> pending<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+      executing<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Execution Timing Analysis</strong>:<br><strong>执行时间分析</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Tool Type</th>
+<th>Concurrency</th>
+<th>Typical Latency</th>
+<th>Bottleneck</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ReadTool</td>
+<td>Parallel (10)</td>
+<td>10-50ms</td>
+<td>Disk I/O</td>
+</tr>
+<tr>
+<td>GrepTool</td>
+<td>Parallel (10)</td>
+<td>100-500ms</td>
+<td>CPU regex</td>
+</tr>
+<tr>
+<td>WebFetchTool</td>
+<td>Parallel (3)</td>
+<td>500-3000ms</td>
+<td>Network</td>
+</tr>
+<tr>
+<td>EditTool</td>
+<td>Sequential</td>
+<td>20-100ms</td>
+<td>Validation</td>
+</tr>
+<tr>
+<td>BashTool</td>
+<td>Sequential</td>
+<td>50-10000ms</td>
+<td>Process exec</td>
+</tr>
+<tr>
+<td>AgentTool</td>
+<td>Parallel (5)</td>
+<td>2000-20000ms</td>
+<td>Sub-LLM calls</td>
+</tr>
+<tr>
+<td>工具类型</td>
+<td>并发度</td>
+<td>典型延迟</td>
+<td>瓶颈</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>读取工具</td>
+<td>并行 (10)</td>
+<td>10-50毫秒</td>
+<td>磁盘I/O</td>
+</tr>
+<tr>
+<td>搜索工具</td>
+<td>并行 (10)</td>
+<td>100-500毫秒</td>
+<td>CPU正则表达式</td>
+</tr>
+<tr>
+<td>网络获取工具</td>
+<td>并行 (3)</td>
+<td>500-3000毫秒</td>
+<td>网络</td>
+</tr>
+<tr>
+<td>编辑工具</td>
+<td>顺序</td>
+<td>20-100毫秒</td>
+<td>验证</td>
+</tr>
+<tr>
+<td>Bash工具</td>
+<td>顺序</td>
+<td>50-10000毫秒</td>
+<td>进程执行</td>
+</tr>
+<tr>
+<td>代理工具</td>
+<td>并行 (5)</td>
+<td>2000-20000毫秒</td>
+<td>子LLM调用</td>
+</tr>
+</tbody></table>
+<h3 id="Phase-5-Permission-Control-Flow"><a href="#Phase-5-Permission-Control-Flow" class="headerlink" title="Phase 5: Permission Control Flow"></a>Phase 5: Permission Control Flow</h3><h3 id="阶段5：权限控制流"><a href="#阶段5：权限控制流" class="headerlink" title="阶段5：权限控制流"></a>阶段5：权限控制流</h3><p>The permission system implements a multi-level decision tree:<br>权限系统实现了一个多层决策树：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Permission decision flow</span>
+<span class="token comment">// 权限决策流</span>
+<span class="token keyword">class</span> <span class="token class-name">PermissionController</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">checkPermission</span><span class="token punctuation">(</span>
+    tool<span class="token operator">:</span> ToolDefinition<span class="token punctuation">,</span>
+    input<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolPermissionContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>PermissionDecision<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Level 1: Check explicit deny rules (highest priority)</span>
+    <span class="token comment">// 层级1：检查明确拒绝规则（最高优先级）</span>
+    <span class="token keyword">const</span> denyRule <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">findMatchingRule</span><span class="token punctuation">(</span>
+      tool<span class="token punctuation">,</span>
+      input<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>alwaysDenyRules
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>denyRule<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> behavior<span class="token operator">:</span> <span class="token string">'deny'</span><span class="token punctuation">,</span> reason<span class="token operator">:</span> denyRule <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Level 2: Check mode overrides</span>
+    <span class="token comment">// 层级2：检查模式覆盖</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>mode <span class="token operator">===</span> <span class="token string">'bypassPermissions'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> behavior<span class="token operator">:</span> <span class="token string">'allow'</span><span class="token punctuation">,</span> reason<span class="token operator">:</span> <span class="token string">'bypass_mode'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>mode <span class="token operator">===</span> <span class="token string">'acceptEdits'</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isEditTool</span><span class="token punctuation">(</span>tool<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isPathSafe</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> behavior<span class="token operator">:</span> <span class="token string">'allow'</span><span class="token punctuation">,</span> reason<span class="token operator">:</span> <span class="token string">'accept_edits_mode'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Level 3: Check explicit allow rules</span>
+    <span class="token comment">// 层级3：检查明确允许规则</span>
+    <span class="token keyword">const</span> allowRule <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">findMatchingRule</span><span class="token punctuation">(</span>
+      tool<span class="token punctuation">,</span>
+      input<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>alwaysAllowRules
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>allowRule<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> behavior<span class="token operator">:</span> <span class="token string">'allow'</span><span class="token punctuation">,</span> reason<span class="token operator">:</span> allowRule <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Level 4: Interactive prompt</span>
+    <span class="token comment">// 层级4：交互式提示</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      behavior<span class="token operator">:</span> <span class="token string">'ask'</span><span class="token punctuation">,</span>
+      suggestions<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">generateRuleSuggestions</span><span class="token punctuation">(</span>tool<span class="token punctuation">,</span> input<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token function">findMatchingRule</span><span class="token punctuation">(</span>
+    tool<span class="token operator">:</span> ToolDefinition<span class="token punctuation">,</span>
+    input<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> Record<span class="token operator">&lt;</span>PermissionRuleScope<span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Priority order: cliArg > localSettings > projectSettings > ...</span>
+    <span class="token comment">// 优先级顺序：cliArg > localSettings > projectSettings > ...</span>
+    <span class="token keyword">const</span> scopes<span class="token operator">:</span> PermissionRuleScope<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token string">'cliArg'</span><span class="token punctuation">,</span> <span class="token string">'localSettings'</span><span class="token punctuation">,</span> <span class="token string">'projectSettings'</span><span class="token punctuation">,</span>
+      <span class="token string">'policySettings'</span><span class="token punctuation">,</span> <span class="token string">'userSettings'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> scope <span class="token keyword">of</span> scopes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> scopeRules <span class="token operator">=</span> rules<span class="token punctuation">[</span>scope<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> rule <span class="token keyword">of</span> scopeRules<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">matchesRule</span><span class="token punctuation">(</span>tool<span class="token punctuation">,</span> input<span class="token punctuation">,</span> rule<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>scope<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>rule<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Phase-6-Recursive-Turn-Management"><a href="#Phase-6-Recursive-Turn-Management" class="headerlink" title="Phase 6: Recursive Turn Management"></a>Phase 6: Recursive Turn Management</h3><h3 id="阶段6：递归轮次管理"><a href="#阶段6：递归轮次管理" class="headerlink" title="阶段6：递归轮次管理"></a>阶段6：递归轮次管理</h3><p>The control flow implements tail recursion for multi-turn interactions:<br>控制流为多轮交互实现了尾递归：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Recursion control and state management</span>
+<span class="token comment">// 递归控制和状态管理</span>
+<span class="token keyword">class</span> <span class="token class-name">TurnController</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">manageTurn</span><span class="token punctuation">(</span>
+    messages<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    toolResults<span class="token operator">:</span> CliMessage<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> FullContext<span class="token punctuation">,</span>
+    loopState<span class="token operator">:</span> LoopState
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Check recursion depth</span>
+    <span class="token comment">// 检查递归深度</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>loopState<span class="token punctuation">.</span>turnCounter <span class="token operator">>=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSystemMessage</span><span class="token punctuation">(</span>
+        <span class="token string">"Maximum conversation depth reached. Please start a new query."</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Prepare next turn state</span>
+    <span class="token comment">// 准备下一轮状态</span>
+    <span class="token keyword">const</span> nextState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      <span class="token operator">...</span>loopState<span class="token punctuation">,</span>
+      turnCounter<span class="token operator">:</span> loopState<span class="token punctuation">.</span>turnCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      compacted<span class="token operator">:</span> <span class="token boolean">false</span>  <span class="token comment">// Reset compaction flag // 重置压缩标志</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Merge messages for next turn</span>
+    <span class="token comment">// 合并下一轮的消息</span>
+    <span class="token keyword">const</span> nextMessages <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span>messages<span class="token punctuation">,</span>
+      <span class="token operator">...</span>toolResults<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sortByToolRequestOrder<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Tail recursion</span>
+    <span class="token comment">// 尾递归</span>
+    <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">tt</span><span class="token punctuation">(</span>
+      nextMessages<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>basePrompt<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>gitContext<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>claudeMd<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>permissionFn<span class="token punctuation">,</span>
+      context<span class="token punctuation">.</span>toolContext<span class="token punctuation">,</span>
+      <span class="token keyword">undefined</span><span class="token punctuation">,</span>  <span class="token comment">// No active streaming tool // 没有活跃的流工具</span>
+      nextState
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Advanced-Control-Flow-Patterns"><a href="#Advanced-Control-Flow-Patterns" class="headerlink" title="Advanced Control Flow Patterns"></a>Advanced Control Flow Patterns</h2><h2 id="高级控制流模式"><a href="#高级控制流模式" class="headerlink" title="高级控制流模式"></a>高级控制流模式</h2><h3 id="1-Input-Router-State-Machine"><a href="#1-Input-Router-State-Machine" class="headerlink" title="1. Input Router State Machine"></a>1. Input Router State Machine</h3><h3 id="1-输入路由状态机"><a href="#1-输入路由状态机" class="headerlink" title="1. 输入路由状态机"></a>1. 输入路由状态机</h3><p>The input processing implements a sophisticated routing system:<br>输入处理实现了一个精密的路由系统：</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">stateDiagram-v2</span>
+    <span class="token text string">[*]</span> <span class="token arrow operator">--></span> InputReceived // 输入接收
+    InputReceived <span class="token arrow operator">--></span> CommandDetection // 命令检测
+
+    CommandDetection <span class="token arrow operator">--></span> SlashCommand<span class="token operator">:</span> starts with / // 以/开头
+    CommandDetection <span class="token arrow operator">--></span> BashMode<span class="token operator">:</span> starts with ! // 以!开头
+    CommandDetection <span class="token arrow operator">--></span> MemoryMode<span class="token operator">:</span> starts with # // 以#开头
+    CommandDetection <span class="token arrow operator">--></span> PasteDetection<span class="token operator">:</span> paste event // 粘贴事件
+    CommandDetection <span class="token arrow operator">--></span> NormalPrompt<span class="token operator">:</span> default // 默认
+
+    SlashCommand <span class="token arrow operator">--></span> ExecuteCommand // 执行命令
+    ExecuteCommand <span class="token arrow operator">--></span> UpdateState // 更新状态
+    UpdateState <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+    BashMode <span class="token arrow operator">--></span> CreateSyntheticTool // 创建合成工具
+    CreateSyntheticTool <span class="token arrow operator">--></span> MainLoop // 主循环
+
+    MemoryMode <span class="token arrow operator">--></span> UpdateClaudeMd // 更新ClaudeMd
+    UpdateClaudeMd <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+
+    PasteDetection <span class="token arrow operator">--></span> DetectContent // 检测内容
+    DetectContent <span class="token arrow operator">--></span> ProcessImage<span class="token operator">:</span> image detected // 图像检测到
+    DetectContent <span class="token arrow operator">--></span> ProcessText<span class="token operator">:</span> text only // 仅文本
+    ProcessImage <span class="token arrow operator">--></span> MainLoop
+    ProcessText <span class="token arrow operator">--></span> MainLoop
+
+    NormalPrompt <span class="token arrow operator">--></span> MainLoop
+    MainLoop <span class="token arrow operator">--></span> <span class="token text string">[*]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/3.svg" class="">
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Input router implementation</span>
+<span class="token comment">// 输入路由实现</span>
+<span class="token keyword">class</span> <span class="token class-name">InputRouter</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">routeInput</span><span class="token punctuation">(</span>
+    input<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> AppContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>RouterAction<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Command detection with priority</span>
+    <span class="token comment">// 带优先级的命令检测</span>
+    <span class="token keyword">const</span> matchers<span class="token operator">:</span> <span class="token punctuation">[</span>RegExp<span class="token punctuation">,</span> InputHandler<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">[</span><span class="token operator">/</span><span class="token operator">^</span>\\<span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\\w+)(.*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleSlashCommand<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^!(.+)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleBashMode<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^#(.+)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleMemoryMode<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^```[\\s\\S]+```$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleCodeBlock<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>pattern<span class="token punctuation">,</span> handler<span class="token punctuation">]</span> <span class="token keyword">of</span> matchers<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> match <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>match<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">handler</span><span class="token punctuation">(</span>match<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Default: normal prompt</span>
+    <span class="token comment">// 默认：正常提示</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> <span class="token string">'prompt'</span><span class="token punctuation">,</span>
+      message<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createUserMessage</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token function">handleBashMode</span><span class="token punctuation">(</span>
+    match<span class="token operator">:</span> RegExpMatchArray<span class="token punctuation">,</span>
+    context<span class="token operator">:</span> AppContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> RouterAction <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> command <span class="token operator">=</span> match<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Create synthetic assistant message with tool use</span>
+    <span class="token comment">// 创建带工具使用的合成助手消息</span>
+    <span class="token keyword">const</span> syntheticMessages <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          role<span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+          content<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Run this command: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>command<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'assistant'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          role<span class="token operator">:</span> <span class="token string">'assistant'</span><span class="token punctuation">,</span>
+          content<span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">&#123;</span>
+              type<span class="token operator">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+              text<span class="token operator">:</span> <span class="token string">'I\\'</span>ll run that command <span class="token keyword">for</span> you<span class="token punctuation">.</span>'
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span>
+              type<span class="token operator">:</span> <span class="token string">'tool_use'</span><span class="token punctuation">,</span>
+              id<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bash_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+              name<span class="token operator">:</span> <span class="token string">'BashTool'</span><span class="token punctuation">,</span>
+              input<span class="token operator">:</span> <span class="token punctuation">&#123;</span> command<span class="token punctuation">,</span> sandbox<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> <span class="token string">'synthetic_conversation'</span><span class="token punctuation">,</span>
+      messages<span class="token operator">:</span> syntheticMessages
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-Stream-Backpressure-Management"><a href="#2-Stream-Backpressure-Management" class="headerlink" title="2. Stream Backpressure Management"></a>2. Stream Backpressure Management</h3><h3 id="2-流背压管理"><a href="#2-流背压管理" class="headerlink" title="2. 流背压管理"></a>2. 流背压管理</h3><p>The streaming system implements sophisticated backpressure handling:<br>流系统实现了精密的背压处理：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Backpressure control for streaming</span>
+<span class="token comment">// 流的背压控制</span>
+<span class="token keyword">class</span> <span class="token class-name">StreamBackpressureController</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> buffer<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>StreamEvent<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> pressure <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    current<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    threshold<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>  <span class="token comment">// Max buffered events // 最大缓冲事件数</span>
+    paused<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  async <span class="token operator">*</span><span class="token function">controlledStream</span><span class="token punctuation">(</span>
+    source<span class="token operator">:</span> AsyncIterable<span class="token operator">&lt;</span>StreamEvent<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>StreamEvent<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> iterator <span class="token operator">=</span> source<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>asyncIterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// Check pressure</span>
+      <span class="token comment">// 检查压力</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>pressure<span class="token punctuation">.</span>current <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>pressure<span class="token punctuation">.</span>threshold<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pressure<span class="token punctuation">.</span>paused <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">waitForDrain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> done<span class="token punctuation">,</span> value <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">await</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// Buffer management</span>
+      <span class="token comment">// 缓冲区管理</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">shouldBuffer</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>buffer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pressure<span class="token punctuation">.</span>current<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// Yield immediately for high-priority events</span>
+        <span class="token comment">// 高优先级事件立即产出</span>
+        <span class="token keyword">yield</span> value<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      <span class="token comment">// Drain buffer periodically</span>
+      <span class="token comment">// 定期排空缓冲区</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>buffer<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>pressure<span class="token punctuation">.</span>paused<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">drainBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Final drain</span>
+    <span class="token comment">// 最终排空</span>
+    <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">drainBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token function">shouldBuffer</span><span class="token punctuation">(</span>event<span class="token operator">:</span> StreamEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Don't buffer tool results or errors</span>
+    <span class="token comment">// 不缓冲工具结果或错误</span>
+    <span class="token keyword">return</span> event<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'content_block_delta'</span> <span class="token operator">&amp;&amp;</span>
+           event<span class="token punctuation">.</span>delta<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'text_delta'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-AgentTool-Hierarchical-Control-Flow"><a href="#3-AgentTool-Hierarchical-Control-Flow" class="headerlink" title="3. AgentTool Hierarchical Control Flow"></a>3. AgentTool Hierarchical Control Flow</h3><h3 id="3-AgentTool层次控制流"><a href="#3-AgentTool层次控制流" class="headerlink" title="3. AgentTool层次控制流"></a>3. AgentTool层次控制流</h3><p>The AgentTool implements a fascinating parent-child control structure:<br>AgentTool实现了一个引人入胜的父子控制结构：</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
+    <span class="token keyword">subgraph</span> <span class="token string">"Main Agent"</span> // 主代理
+        MainTT<span class="token text string">[Main tt Loop]</span> // 主tt循环
+        MainContext<span class="token text string">[Main Context]</span> // 主上下文
+        MainTools<span class="token text string">[All Tools]</span> // 所有工具
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"AgentTool Invocation"</span> // AgentTool调用
+        AgentRequest<span class="token text string">[AgentTool Request]</span> // AgentTool请求
+        TaskSplitter<span class="token text string">[Task Splitter]</span> // 任务分割器
+
+        TaskSplitter <span class="token arrow operator">--></span> SubTask1<span class="token text string">[Sub-task 1]</span> // 子任务1
+        TaskSplitter <span class="token arrow operator">--></span> SubTask2<span class="token text string">[Sub-task 2]</span> // 子任务2
+        TaskSplitter <span class="token arrow operator">--></span> SubTaskN<span class="token text string">[Sub-task N]</span> // 子任务N
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 1"</span> // 子代理1
+        SubLoop1<span class="token text string">[Sub tt Loop]</span> // 子tt循环
+        SubContext1<span class="token text string">[Filtered Context]</span> // 过滤上下文
+        SubTools1<span class="token text string">[Tools - AgentTool]</span> // 工具 - AgentTool
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 2"</span> // 子代理2
+        SubLoop2<span class="token text string">[Sub tt Loop]</span> // 子tt循环
+        SubContext2<span class="token text string">[Filtered Context]</span> // 过滤上下文
+        SubTools2<span class="token text string">[Tools - AgentTool]</span> // 工具 - AgentTool
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"Synthesis"</span> // 合成
+        Collector<span class="token text string">[Result Collector]</span> // 结果收集器
+        Synthesizer<span class="token text string">[LLM Synthesizer]</span> // LLM合成器
+        FinalResult<span class="token text string">[Synthesized Result]</span> // 合成结果
+    <span class="token keyword">end</span>
+
+    MainTT <span class="token arrow operator">--></span> AgentRequest
+    AgentRequest <span class="token arrow operator">--></span> TaskSplitter
+
+    SubTask1 <span class="token arrow operator">--></span> SubLoop1
+    SubTask2 <span class="token arrow operator">--></span> SubLoop2
+
+    SubLoop1 <span class="token arrow operator">--></span> Collector
+    SubLoop2 <span class="token arrow operator">--></span> Collector
+
+    Collector <span class="token arrow operator">--></span> Synthesizer
+    Synthesizer <span class="token arrow operator">--></span> FinalResult
+    FinalResult <span class="token arrow operator">--></span> MainTT
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/4.svg" class="">
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// AgentTool hierarchical execution</span>
+<span class="token comment">// AgentTool层次执行</span>
+<span class="token keyword">class</span> <span class="token class-name">AgentToolExecutor</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">execute</span><span class="token punctuation">(</span>
+    input<span class="token operator">:</span> AgentToolInput<span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ToolUseContext<span class="token punctuation">,</span>
+    parentMessage<span class="token operator">:</span> CliMessage
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>ToolProgress <span class="token operator">|</span> ToolResult<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Phase 1: Task analysis</span>
+    <span class="token comment">// 阶段1：任务分析</span>
+    <span class="token keyword">const</span> subtasks <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">analyzeTask</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span>prompt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Phase 2: Spawn sub-agents</span>
+    <span class="token comment">// 阶段2：生成子代理</span>
+    <span class="token keyword">const</span> subAgentPromises <span class="token operator">=</span> subtasks<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>task<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// Create isolated context</span>
+      <span class="token comment">// 创建隔离上下文</span>
+      <span class="token keyword">const</span> subContext <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token operator">...</span>context<span class="token punctuation">,</span>
+        tools<span class="token operator">:</span> context<span class="token punctuation">.</span>tools<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>t <span class="token operator">=></span> t<span class="token punctuation">.</span>name <span class="token operator">!==</span> <span class="token string">'AgentTool'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        abortController<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createLinkedAbort</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>abortController<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token operator">...</span>context<span class="token punctuation">.</span>options<span class="token punctuation">,</span>
+          maxThinkingTokens<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calculateTokenBudget</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span>prompt<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// Run sub-agent</span>
+      <span class="token comment">// 运行子代理</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">runSubAgent</span><span class="token punctuation">(</span>task<span class="token punctuation">,</span> subContext<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Phase 3: Parallel execution with progress</span>
+    <span class="token comment">// 阶段3：带进度的并行执行</span>
+    <span class="token keyword">const</span> results<span class="token operator">:</span> SubAgentResult<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> update <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">trackProgress</span><span class="token punctuation">(</span>subAgentPromises<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>update<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'progress'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span>
+          type<span class="token operator">:</span> <span class="token string">'progress'</span><span class="token punctuation">,</span>
+          toolUseID<span class="token operator">:</span> parentMessage<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+          data<span class="token operator">:</span> update
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>update<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Phase 4: Synthesis</span>
+    <span class="token comment">// 阶段4：合成</span>
+    <span class="token keyword">const</span> synthesized <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">synthesizeResults</span><span class="token punctuation">(</span>results<span class="token punctuation">,</span> input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> <span class="token string">'result'</span><span class="token punctuation">,</span>
+      data<span class="token operator">:</span> synthesized
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">synthesizeResults</span><span class="token punctuation">(</span>
+    results<span class="token operator">:</span> SubAgentResult<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    input<span class="token operator">:</span> AgentToolInput
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>results<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> results<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>content<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Multi-result synthesis via LLM</span>
+    <span class="token comment">// 通过LLM进行多结果合成</span>
+    <span class="token keyword">const</span> synthesisPrompt <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      Synthesize these </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>results<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> findings into a cohesive response:
+      将这</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>results<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">个发现合成为一个连贯的响应：
+      </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>results<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Finding </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">:\\n</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>r<span class="token punctuation">.</span>content<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\\n\\n'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+
+      Original task: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>input<span class="token punctuation">.</span>prompt<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+      原始任务：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>input<span class="token punctuation">.</span>prompt<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> synthesizer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubAgentExecutor</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      prompt<span class="token operator">:</span> synthesisPrompt<span class="token punctuation">,</span>
+      model<span class="token operator">:</span> input<span class="token punctuation">.</span>model <span class="token operator">||</span> <span class="token string">'claude-3-haiku'</span><span class="token punctuation">,</span>  <span class="token comment">// Fast model for synthesis // 用于合成的快速模型</span>
+      isSynthesis<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> synthesizer<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-Error-Recovery-Control-Flow"><a href="#4-Error-Recovery-Control-Flow" class="headerlink" title="4. Error Recovery Control Flow"></a>4. Error Recovery Control Flow</h3><h3 id="4-错误恢复控制流"><a href="#4-错误恢复控制流" class="headerlink" title="4. 错误恢复控制流"></a>4. 错误恢复控制流</h3><p>The system implements sophisticated error recovery strategies:<br>系统实现了精密的错误恢复策略：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Error recovery state machine</span>
+<span class="token comment">// 错误恢复状态机</span>
+<span class="token keyword">class</span> <span class="token class-name">ErrorRecoveryController</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> recoveryStrategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">'rate_limit'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleRateLimit<span class="token punctuation">,</span>
+    <span class="token string-property property">'context_overflow'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleContextOverflow<span class="token punctuation">,</span>
+    <span class="token string-property property">'tool_error'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleToolError<span class="token punctuation">,</span>
+    <span class="token string-property property">'network_error'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleNetworkError<span class="token punctuation">,</span>
+    <span class="token string-property property">'permission_denied'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlePermissionDenied
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">handleError</span><span class="token punctuation">(</span>
+    error<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ErrorContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> errorType <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">classifyError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> strategy <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>recoveryStrategies<span class="token punctuation">[</span>errorType<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>strategy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">strategy</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// Generic error handling</span>
+      <span class="token comment">// 通用错误处理</span>
+      <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createErrorMessage</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">handleContextOverflow</span><span class="token punctuation">(</span>
+    error<span class="token operator">:</span> ContextOverflowError<span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ErrorContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Strategy 1: Try reducing max_tokens</span>
+    <span class="token comment">// 策略1：尝试减少max_tokens</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>details<span class="token punctuation">.</span>requested_tokens <span class="token operator">></span> <span class="token number">4096</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSystemMessage</span><span class="token punctuation">(</span><span class="token string">"Reducing response size..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">const</span> retry <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">retryWithReducedTokens</span><span class="token punctuation">(</span>
+        context<span class="token punctuation">.</span>request<span class="token punctuation">,</span>
+        Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>details<span class="token punctuation">.</span>requested_tokens <span class="token operator">*</span> <span class="token number">0.7</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>retry<span class="token punctuation">.</span>success<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">yield</span><span class="token operator">*</span> retry<span class="token punctuation">.</span>response<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// Strategy 2: Force compaction</span>
+    <span class="token comment">// 策略2：强制压缩</span>
+    <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSystemMessage</span><span class="token punctuation">(</span><span class="token string">"Compacting conversation history..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> compacted <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">forceCompaction</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>messages<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Retry with compacted history</span>
+    <span class="token comment">// 用压缩历史重试</span>
+    <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">retryWithMessages</span><span class="token punctuation">(</span>compacted<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">static</span> async <span class="token operator">*</span><span class="token function">handleRateLimit</span><span class="token punctuation">(</span>
+    error<span class="token operator">:</span> RateLimitError<span class="token punctuation">,</span>
+    context<span class="token operator">:</span> ErrorContext
+  <span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>CliMessage<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Multi-provider fallback</span>
+    <span class="token comment">// 多提供商后备</span>
+    <span class="token keyword">const</span> providers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'anthropic'</span><span class="token punctuation">,</span> <span class="token string">'bedrock'</span><span class="token punctuation">,</span> <span class="token string">'vertex'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> current <span class="token operator">=</span> context<span class="token punctuation">.</span>provider<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> alternatives <span class="token operator">=</span> providers<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>p <span class="token operator">=></span> p <span class="token operator">!==</span> current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> provider <span class="token keyword">of</span> alternatives<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSystemMessage</span><span class="token punctuation">(</span>
+        <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Rate limited on </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>current<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, trying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>provider<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">...</span><span class="token template-punctuation string">`</span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">retryWithProvider</span><span class="token punctuation">(</span>
+          context<span class="token punctuation">.</span>request<span class="token punctuation">,</span>
+          provider
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">yield</span><span class="token operator">*</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">continue</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// All providers exhausted</span>
+    <span class="token comment">// 所有提供商都已耗尽</span>
+    <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createErrorMessage</span><span class="token punctuation">(</span>
+      <span class="token string">"All providers are rate limited. Please try again later."</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Performance-Profiling-Points"><a href="#Performance-Profiling-Points" class="headerlink" title="Performance Profiling Points"></a>Performance Profiling Points</h2><h2 id="性能分析点"><a href="#性能分析点" class="headerlink" title="性能分析点"></a>性能分析点</h2><p>The control flow includes strategic profiling points:<br>控制流包含策略性的性能分析点：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// Performance measurement integration</span>
+<span class="token comment">// 性能测量集成</span>
+<span class="token keyword">class</span> <span class="token class-name">PerformanceProfiler</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> spans <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> PerformanceSpan<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token generic-function"><span class="token function">instrument</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> AsyncGenerator<span class="token operator">></span></span></span><span class="token punctuation">(</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    generator<span class="token operator">:</span> <span class="token constant">T</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> span <span class="token operator">=</span> tracer<span class="token punctuation">.</span><span class="token function">startSpan</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> start <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> itemCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> generator<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          itemCount<span class="token operator">++</span><span class="token punctuation">;</span>
+
+          <span class="token comment">// Measure inter-yield time</span>
+          <span class="token comment">// 测量产出间时间</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>itemCount <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            span<span class="token punctuation">.</span><span class="token function">addEvent</span><span class="token punctuation">(</span><span class="token string">'yield'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+              <span class="token string-property property">'yield.latency'</span><span class="token operator">:</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> lastYield
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+
+          <span class="token keyword">yield</span> item<span class="token punctuation">;</span>
+          lastYield <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        span<span class="token punctuation">.</span><span class="token function">setAttributes</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          <span class="token string-property property">'generator.yield_count'</span><span class="token operator">:</span> itemCount<span class="token punctuation">,</span>
+          <span class="token string-property property">'generator.total_time'</span><span class="token operator">:</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+        span<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="文件总结"><a href="#文件总结" class="headerlink" title="文件总结"></a>文件总结</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文档深入分析了Claude Code的控制流与编排引擎，揭示了其高性能响应背后的复杂状态机和并行处理机制。通过反编译和逆向工程分析，文档详细展示了Claude Code如何通过精密的控制流程来管理复杂的对话交互、工具执行和错误恢复。</p>
+<h2 id="核心架构特点"><a href="#核心架构特点" class="headerlink" title="核心架构特点"></a>核心架构特点</h2><h3 id="1-主对话循环：流式状态机"><a href="#1-主对话循环：流式状态机" class="headerlink" title="1. 主对话循环：流式状态机"></a>1. 主对话循环：流式状态机</h3><ul>
+<li><strong>tt异步生成器</strong>：整个系统的核心，管理完整的对话流程</li>
+<li><strong>六阶段处理流程</strong>：<ol>
+<li>上下文准备 [~50-200ms]</li>
+<li>自动压缩检查 [触发时~0-3000ms]</li>
+<li>系统提示组装 [~10-50ms]</li>
+<li>LLM流处理 [~2000-10000ms]</li>
+<li>工具执行 [每个工具~100-30000ms]</li>
+<li>递归或完成 [~0ms]</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-上下文窗口管理"><a href="#2-上下文窗口管理" class="headerlink" title="2. 上下文窗口管理"></a>2. 上下文窗口管理</h3><ul>
+<li><strong>智能压缩策略</strong>：<ul>
+<li>Token计数：O(n)复杂度，激进限制100,000 tokens</li>
+<li>消息数量后备：200条消息限制</li>
+<li>成本触发器：$5.00成本阈值</li>
+</ul>
+</li>
+<li><strong>压缩流程</strong>：<ul>
+<li>识别保留消息（最近、重要、系统消息）</li>
+<li>通过LLM生成摘要</li>
+<li>重构消息历史</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-动态系统提示组装"><a href="#3-动态系统提示组装" class="headerlink" title="3. 动态系统提示组装"></a>3. 动态系统提示组装</h3><ul>
+<li><strong>组件化策略</strong>：基础提示 + 模型适配 + CLAUDE.md + Git上下文 + 目录结构 + 工具定义</li>
+<li><strong>模型特定优化</strong>：<ul>
+<li>Opus：详细风格，30%上下文用于推理</li>
+<li>Sonnet：平衡风格，20%上下文用于推理</li>
+<li>Haiku：简洁风格，10%上下文用于推理</li>
+</ul>
+</li>
+<li><strong>并行获取</strong>：所有动态组件并行获取，智能截断组合</li>
+</ul>
+<h3 id="4-流状态机"><a href="#4-流状态机" class="headerlink" title="4. 流状态机"></a>4. 流状态机</h3><ul>
+<li><strong>事件驱动架构</strong>：message_start → content_block_start → content_block_delta → content_block_stop → message_stop</li>
+<li><strong>实时UI更新</strong>：文本增量直接更新UI，工具输入累积后解析</li>
+<li><strong>智能JSON解析</strong>：在策略点（}或]）尝试解析，避免频繁解析失败</li>
+</ul>
+<h2 id="工具执行管道"><a href="#工具执行管道" class="headerlink" title="工具执行管道"></a>工具执行管道</h2><h3 id="并行-顺序执行策略"><a href="#并行-顺序执行策略" class="headerlink" title="并行/顺序执行策略"></a>并行/顺序执行策略</h3><ul>
+<li><strong>分类执行</strong>：<ul>
+<li>只读工具（ReadTool、GrepTool、WebFetchTool）：并行执行，限制10个并发</li>
+<li>写入工具（EditTool、BashTool）：顺序执行，避免冲突</li>
+</ul>
+</li>
+<li><strong>性能优化</strong>：<ul>
+<li>自定义parallelMap实现，支持背压控制</li>
+<li>竞争机制确保高效完成检测</li>
+<li>动态槽位填充，最大化并发利用率</li>
+</ul>
+</li>
+</ul>
+<h3 id="执行时间分析"><a href="#执行时间分析" class="headerlink" title="执行时间分析"></a>执行时间分析</h3><table>
+<thead>
+<tr>
+<th>工具类型</th>
+<th>并发度</th>
+<th>典型延迟</th>
+<th>瓶颈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读取工具</td>
+<td>并行 (10)</td>
+<td>10-50毫秒</td>
+<td>磁盘I/O</td>
+</tr>
+<tr>
+<td>搜索工具</td>
+<td>并行 (10)</td>
+<td>100-500毫秒</td>
+<td>CPU正则表达式</td>
+</tr>
+<tr>
+<td>网络获取工具</td>
+<td>并行 (3)</td>
+<td>500-3000毫秒</td>
+<td>网络</td>
+</tr>
+<tr>
+<td>编辑工具</td>
+<td>顺序</td>
+<td>20-100毫秒</td>
+<td>验证</td>
+</tr>
+<tr>
+<td>Bash工具</td>
+<td>顺序</td>
+<td>50-10000毫秒</td>
+<td>进程执行</td>
+</tr>
+<tr>
+<td>代理工具</td>
+<td>并行 (5)</td>
+<td>2000-20000毫秒</td>
+<td>子LLM调用</td>
+</tr>
+</tbody></table>
+<h2 id="权限控制系统"><a href="#权限控制系统" class="headerlink" title="权限控制系统"></a>权限控制系统</h2><h3 id="多层决策树"><a href="#多层决策树" class="headerlink" title="多层决策树"></a>多层决策树</h3><ol>
+<li><strong>层级1</strong>：明确拒绝规则（最高优先级）</li>
+<li><strong>层级2</strong>：模式覆盖检查（绕过权限、接受编辑模式）</li>
+<li><strong>层级3</strong>：明确允许规则</li>
+<li><strong>层级4</strong>：交互式提示</li>
+</ol>
+<ul>
+<li><strong>规则优先级</strong>：CLI参数 &gt; 本地设置 &gt; 项目设置 &gt; 策略设置 &gt; 用户设置</li>
+</ul>
+<h3 id="递归轮次管理"><a href="#递归轮次管理" class="headerlink" title="递归轮次管理"></a>递归轮次管理</h3><ul>
+<li><strong>深度限制</strong>：最大10轮递归，防止无限循环</li>
+<li><strong>状态传递</strong>：轮次ID、计数器、压缩标志、恢复状态</li>
+<li><strong>尾递归优化</strong>：高效的递归调用实现</li>
+</ul>
+<h2 id="高级控制流模式-1"><a href="#高级控制流模式-1" class="headerlink" title="高级控制流模式"></a>高级控制流模式</h2><h3 id="1-输入路由状态机-1"><a href="#1-输入路由状态机-1" class="headerlink" title="1. 输入路由状态机"></a>1. 输入路由状态机</h3><ul>
+<li><strong>智能识别</strong>：<ul>
+<li><code>/</code> → 斜杠命令</li>
+<li><code>!</code> → Bash模式（合成工具使用）</li>
+<li><code>#</code> → 内存模式（更新CLAUDE.md）</li>
+<li>粘贴事件 → 内容类型检测</li>
+</ul>
+</li>
+<li><strong>合成对话</strong>：Bash模式创建用户消息和助手工具使用的合成对话</li>
+</ul>
+<h3 id="2-流背压管理-1"><a href="#2-流背压管理-1" class="headerlink" title="2. 流背压管理"></a>2. 流背压管理</h3><ul>
+<li><strong>缓冲控制</strong>：最大1000个缓冲事件</li>
+<li><strong>压力检测</strong>：动态暂停和恢复机制</li>
+<li><strong>优先级处理</strong>：工具结果和错误立即处理，文本增量可缓冲</li>
+<li><strong>定期排空</strong>：非暂停状态下定期清空缓冲区</li>
+</ul>
+<h3 id="3-AgentTool层次控制流-1"><a href="#3-AgentTool层次控制流-1" class="headerlink" title="3. AgentTool层次控制流"></a>3. AgentTool层次控制流</h3><ul>
+<li><strong>父子架构</strong>：<ul>
+<li>主代理 → 任务分割 → 子代理并行执行 → 结果收集 → LLM合成 → 返回主代理</li>
+</ul>
+</li>
+<li><strong>隔离上下文</strong>：子代理拥有过滤的工具集和独立的abort控制器</li>
+<li><strong>多结果合成</strong>：通过LLM将多个子任务结果合成为连贯响应</li>
+</ul>
+<h3 id="4-错误恢复控制流-1"><a href="#4-错误恢复控制流-1" class="headerlink" title="4. 错误恢复控制流"></a>4. 错误恢复控制流</h3><ul>
+<li><strong>分类恢复策略</strong>：<ul>
+<li>速率限制：多提供商后备</li>
+<li>上下文溢出：减少tokens或强制压缩</li>
+<li>工具错误：重试或降级</li>
+<li>网络错误：重试机制</li>
+<li>权限拒绝：用户提示</li>
+</ul>
+</li>
+<li><strong>多提供商后备</strong>：Anthropic → Bedrock → Vertex的故障转移</li>
+</ul>
+<h2 id="性能分析与优化"><a href="#性能分析与优化" class="headerlink" title="性能分析与优化"></a>性能分析与优化</h2><h3 id="性能分析点-1"><a href="#性能分析点-1" class="headerlink" title="性能分析点"></a>性能分析点</h3><ul>
+<li><strong>生成器仪表化</strong>：测量产出间延迟、总执行时间、产出计数</li>
+<li><strong>OpenTelemetry集成</strong>：跨服务的性能追踪</li>
+<li><strong>关键指标</strong>：<ul>
+<li>首个token延迟</li>
+<li>每秒token数</li>
+<li>工具执行时间</li>
+<li>内存使用情况</li>
+</ul>
+</li>
+</ul>
+<h3 id="时间优化策略"><a href="#时间优化策略" class="headerlink" title="时间优化策略"></a>时间优化策略</h3><ul>
+<li><strong>并行处理</strong>：尽可能并行执行只读操作</li>
+<li><strong>智能缓存</strong>：系统提示组件缓存</li>
+<li><strong>延迟加载</strong>：按需加载重量级依赖</li>
+<li><strong>背压控制</strong>：防止内存溢出的流控制</li>
+</ul>
+<h2 id="技术创新点"><a href="#技术创新点" class="headerlink" title="技术创新点"></a>技术创新点</h2><h3 id="架构创新"><a href="#架构创新" class="headerlink" title="架构创新"></a>架构创新</h3><ol>
+<li><strong>流式状态机</strong>：复杂的事件驱动对话管理</li>
+<li><strong>分层权限系统</strong>：灵活的多层安全控制</li>
+<li><strong>工具编排引擎</strong>：智能的并行/顺序执行策略</li>
+<li><strong>层次代理系统</strong>：父子代理的任务分解和合成</li>
+</ol>
+<h3 id="性能创新"><a href="#性能创新" class="headerlink" title="性能创新"></a>性能创新</h3><ol>
+<li><strong>智能压缩</strong>：基于多个维度的上下文压缩策略</li>
+<li><strong>背压管理</strong>：防止系统过载的流控制机制</li>
+<li><strong>并发优化</strong>：工具执行的最大化并行化</li>
+<li><strong>缓存策略</strong>：多层次的智能缓存机制</li>
+</ol>
+<h3 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h3><ol>
+<li><strong>错误恢复</strong>：全面的错误分类和恢复策略</li>
+<li><strong>性能监控</strong>：深度的性能分析和追踪</li>
+<li><strong>状态管理</strong>：复杂的递归状态传递</li>
+<li><strong>模块化设计</strong>：高度解耦的组件架构</li>
+</ol>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Claude Code的控制流与编排引擎体现了现代异步编程和分布式系统的最佳实践。其核心价值在于：</p>
+<ul>
+<li><strong>高性能</strong>：多层次的并行处理和智能优化</li>
+<li><strong>可靠性</strong>：全面的错误恢复和故障转移机制</li>
+<li><strong>可扩展性</strong>：模块化的工具系统和代理架构</li>
+<li><strong>用户体验</strong>：实时的进度反馈和流畅的交互</li>
+</ul>
+<p>这种复杂的编排设计为AI助手应用提供了优秀的架构模板，特别是在需要处理复杂工作流程和实时交互的场景中。文档的深入分析为理解现代AI系统的控制流设计提供了宝贵的技术参考，展现了如何在大规模异步环境中保持系统的响应性和稳定性。</p>
+<p>整个架构的成功关键在于平衡了复杂性（功能完整性）与性能（响应速度），通过精密的状态机和编排策略，实现了既强大又高效的AI助手体验。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/10/23/claude-code-gong-ju-yu-zhi-xing-yin-qing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="claude-code工具与执行引擎">
+                        
+                        <span class="card-title">claude-code工具与执行引擎</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/10/23/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="claude-code数据结构与消息架构">
+                        
+                        <span class="card-title">claude-code数据结构与消息架构</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+             -->
+            <!-- <a href="/about" target="_blank">寒霜</a> -->
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+             -->
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">161.7k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

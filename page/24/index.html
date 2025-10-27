@@ -48,7 +48,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -243,7 +243,7 @@
 </script>
 <script>
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
+      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 35) + '.jpg';
     
     $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
 
@@ -267,30 +267,28 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/16/js-zhong-this-zhi-xiang-xing-wen-ti/">
+                    <a href="/2022/03/02/js-zhong-de-shi-jian-xun-huan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="js中this指向性问题">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="js中的事件循环">
                             
-                            <span class="card-title">js中this指向性问题</span>
+                            <span class="card-title">js中的事件循环</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                this的指向是由上下文环境动态决定的
+                                js 中的事件循环 event loop
+所谓单线程，是指在JS引擎中负责解释和执行JavaScript代码的线程只有一个。
 
-全局环境普通函数调用由call/apply/bind函数调用对象属性方法调用构造函数调用箭头函数
-
-![this指向性问题](js中this指向性问题 /1.png)
-[示例代码链接](js中thi
+事件循环负责收集用事件（包括用户事件以及其他非用户事件等）、对任务进行排队以便在合适的时候执行回调。然后它执行所
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
                             </span>
                             <span class="publish-author">
                                 
@@ -308,12 +306,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/js/">
-                            <span class="chip bg-color">js</span>
-                        </a>
-                        
-                        <a href="/tags/%E4%B8%93%E9%A2%98/">
-                            <span class="chip bg-color">专题</span>
+                        <a href="/tags/%E8%BF%9B%E9%98%B6/">
+                            <span class="chip bg-color">进阶</span>
                         </a>
                         
                     </div>
@@ -325,33 +319,36 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/12/html-ji-chu/">
+                    <a href="/2022/03/01/liu-lan-qi-huan-jing-pan-duan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="HTML基础">
+                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="浏览器环境判断">
                             
-                            <span class="card-title">HTML基础</span>
+                            <span class="card-title">浏览器环境判断</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、浏览器基础1、从输入 url 到页面显示经历的过程
-1、浏览器接收 url，开启线程对 URL 使用的协议进行判断2、分析加载 URL3、DNS 解析、获取 IP、连同浏览器信息进行 get 请求（对 IP 发起）4、http 会话、发
+                                1. 根据浏览器的userAgent进行判断let isMobil, mobilInfo, isWx;
+
+// 判断是在手机还是电脑
+function isMobile_pc() &#123;
+  let flag = navigator.
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/html/" class="post-category">
-                                    html
+                                <a href="/categories/%E5%B0%81%E8%A3%85%E5%87%BD%E6%95%B0/" class="post-category">
+                                    封装函数
                                 </a>
                                 
                                 
@@ -362,8 +359,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/HTML%E5%9F%BA%E7%A1%80/">
-                            <span class="chip bg-color">HTML基础</span>
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">
+                            <span class="chip bg-color">开发</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                            <span class="chip bg-color">代码片段</span>
                         </a>
                         
                     </div>
@@ -375,36 +376,32 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/28/shi-yong-css-zhi-zuo-qi-pao-tu/">
+                    <a href="/2022/03/01/vue-xun-huan-zhong-wei-shi-me-bu-jian-yi-shi-yong-index-zuo-key-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="使用css制作气泡图">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="vue循环中为什么不建议使用index做key值">
                             
-                            <span class="card-title">使用css制作气泡图</span>
+                            <span class="card-title">vue循环中为什么不建议使用index做key值</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-slice
+                                vue2 中对循环的解释
 
-border-image-slice 指定图像的边界向内偏移通过 border-image-sourc
+当 Vue 正在更新使用 v-for 渲染的元素列表时，它默认使用“就地更新”的策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/css/" class="post-category">
-                                    css
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
                                 
                             </span>
                         </div>
@@ -413,12 +410,8 @@ border-image-slice 指定图像的边界向内偏移通过 border-image-sourc
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E7%89%B9%E6%95%88/">
-                            <span class="chip bg-color">特效</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%82%B9%E4%B9%9D%E5%9B%BE/">
-                            <span class="chip bg-color">点九图</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
                         </a>
                         
                     </div>
@@ -430,38 +423,39 @@ border-image-slice 指定图像的边界向内偏移通过 border-image-sourc
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/14/feng-zhuang-qing-qiu-he-lan-jie/">
+                    <a href="/2022/02/28/vue-lu-you-chuan-can-de-si-chong-fang-shi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="请求封装">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue路由传参的四种方式">
                             
-                            <span class="card-title">请求封装</span>
+                            <span class="card-title">vue路由传参的四种方式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                axios1、封装与拦截import axios from "axios";
-import &#123; Message &#125; from "element-ui";
-import router from "@/router";
+                                
 
-e
+1、router-link// 父组件传值
+&lt;router-link to="/room">
+
+// 子组件接收  this.$route.params
+
+
+2、$router.push2.1、path// 父组件传值
+&lt;b
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-28
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/http/" class="post-category">
-                                    http
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                寒霜
                                 
                             </span>
                         </div>
@@ -470,24 +464,8 @@ e
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/axios/">
-                            <span class="chip bg-color">axios</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%B0%81%E8%A3%85/">
-                            <span class="chip bg-color">封装</span>
-                        </a>
-                        
-                        <a href="/tags/http/">
-                            <span class="chip bg-color">http</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%AF%B7%E6%B1%82/">
-                            <span class="chip bg-color">请求</span>
-                        </a>
-                        
-                        <a href="/tags/uniapp/">
-                            <span class="chip bg-color">uniapp</span>
+                        <a href="/tags/vue/">
+                            <span class="chip bg-color">vue</span>
                         </a>
                         
                     </div>
@@ -499,34 +477,34 @@ e
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/12/31/wei-xin-pc-sao-ma-zhi-fu/">
+                    <a href="/2022/02/24/qian-duan-xing-neng-you-hua/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="微信PC扫码支付">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="前端性能优化">
                             
-                            <span class="card-title">微信PC扫码支付</span>
+                            <span class="card-title">前端性能优化</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                首先需要准备一个 dom 作为容器，放置 URL 转换的二维码&lt;!--微信支付二维码-->
-&lt;el-dialog :visible.sync="dialogVisible" title="乐哇">
-  &lt;!-- 将URL转
+                                
+
+移动互联网时代，用户对于网页的打开速度要求越来越高。首屏作为直面用户的第一屏，其重要性不言而喻。优化用户体验更是我们前端开发非常需要 focus 的东西之一。从用户的角度而言，当打开一个网页，往往关心的是从输入完网页地址后到最后展现完整
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%B8%89%E6%96%B9/" class="post-category">
-                                    三方
+                                <a href="/categories/%E6%80%A7%E8%83%BD/" class="post-category">
+                                    性能
                                 </a>
                                 
                                 
@@ -537,16 +515,12 @@ e
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%94%AF%E4%BB%98/">
-                            <span class="chip bg-color">支付</span>
+                        <a href="/tags/%E8%BF%9B%E9%98%B6/">
+                            <span class="chip bg-color">进阶</span>
                         </a>
                         
-                        <a href="/tags/%E5%BE%AE%E4%BF%A1/">
-                            <span class="chip bg-color">微信</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%AB%E7%A0%81/">
-                            <span class="chip bg-color">扫码</span>
+                        <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                            <span class="chip bg-color">性能优化</span>
                         </a>
                         
                     </div>
@@ -558,39 +532,33 @@ e
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/12/31/zhi-fu-bao-dian-nao-zhi-fu/">
+                    <a href="/2022/02/24/xiao-cheng-xu-de-bu-tong-ye-mian-jian-chuan-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="支付宝电脑支付">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小程序的不同页面间传值">
                             
-                            <span class="card-title">支付宝电脑支付</span>
+                            <span class="card-title">小程序的不同页面间传值</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                开发文档
+                                小程序的不同页面间传值
 
-1、封装请求后台的接口2、在其他页面使用接口，后端返回支付宝生成的 form 表单3、打开表单（直接在返回接口的回调中使用即可）
-
-封装请求后台的接口// 先封装请求后端的接口(promise)
-/**
- * 支付宝支付
- * 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%B8%89%E6%96%B9/" class="post-category">
-                                    三方
+                                <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    小程序
                                 </a>
                                 
                                 
@@ -601,16 +569,8 @@ e
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%94%AF%E4%BB%98/">
-                            <span class="chip bg-color">支付</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%89%AB%E7%A0%81/">
-                            <span class="chip bg-color">扫码</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/">
-                            <span class="chip bg-color">支付宝</span>
+                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                            <span class="chip bg-color">小程序</span>
                         </a>
                         
                     </div>
@@ -636,7 +596,7 @@ e
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">24 / 25</div>
+            <div class="center-align b-text-gray">24 / 26</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -669,7 +629,7 @@ e
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">76.3k</span>
+                        class="white-color">161.7k</span>
             
             
             
