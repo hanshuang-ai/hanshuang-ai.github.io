@@ -55,7 +55,7 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
@@ -208,7 +208,7 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -256,14 +256,14 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-10-24
+                    2025-10-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6k
+                    5.9k
                 </div>
                 
 
@@ -606,34 +606,35 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
 
 <h3 id="Phase-4-The-Tool-Execution-Pipeline"><a href="#Phase-4-The-Tool-Execution-Pipeline" class="headerlink" title="Phase 4: The Tool Execution Pipeline"></a>Phase 4: The Tool Execution Pipeline</h3><h3 id="阶段4：工具执行管道"><a href="#阶段4：工具执行管道" class="headerlink" title="阶段4：工具执行管道"></a>阶段4：工具执行管道</h3><p>The tool execution system implements a sophisticated parallel/sequential execution strategy:<br>工具执行系统实现了一个精密的并行/顺序执行策略：</p>
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
-    <span class="token keyword">subgraph</span> <span class="token string">"Tool Request Analysis"</span> // 工具请求分析
-        ToolRequests<span class="token text string">[Tool Use Blocks]</span> // 工具使用块 <span class="token arrow operator">--></span> Categorize<span class="token text string">&#123;Categorize by Type&#125;</span> // 按类型分类
-        Categorize <span class="token arrow operator">--></span><span class="token label property">|Read-Only|</span> ReadQueue<span class="token text string">[Read Queue]</span> // 只读队列
-        Categorize <span class="token arrow operator">--></span><span class="token label property">|Write/Side-Effect|</span> WriteQueue<span class="token text string">[Write Queue]</span> // 写入队列
+    <span class="token keyword">subgraph</span> <span class="token string">"Tool Request Analysis"</span>
+        ToolRequests<span class="token text string">[Tool Use Blocks]</span> <span class="token arrow operator">--></span> Categorize<span class="token text string">&#123;Categorize by Type&#125;</span>
+        Categorize <span class="token arrow operator">--></span><span class="token label property">|Read-Only|</span> ReadQueue<span class="token text string">[Read Queue]</span>
+        Categorize <span class="token arrow operator">--></span><span class="token label property">|Write/Side-Effect|</span> WriteQueue<span class="token text string">[Write Queue]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"Parallel Execution Pool"</span> // 并行执行池
-        ReadQueue <span class="token arrow operator">--></span> ParallelPool<span class="token text string">[Parallel Executor]</span> // 并行执行器
-        ParallelPool <span class="token arrow operator">--></span> Worker1<span class="token text string">[Worker 1]</span> // 工作器1
-        ParallelPool <span class="token arrow operator">--></span> Worker2<span class="token text string">[Worker 2]</span> // 工作器2
-        ParallelPool <span class="token arrow operator">--></span> WorkerN<span class="token text string">[Worker N]</span> // 工作器N
+    <span class="token keyword">subgraph</span> <span class="token string">"Parallel Execution Pool"</span>
+        ReadQueue <span class="token arrow operator">--></span> ParallelPool<span class="token text string">[Parallel Executor]</span>
+        ParallelPool <span class="token arrow operator">--></span> Worker1<span class="token text string">[Worker 1]</span>
+        ParallelPool <span class="token arrow operator">--></span> Worker2<span class="token text string">[Worker 2]</span>
+        ParallelPool <span class="token arrow operator">--></span> WorkerN<span class="token text string">[Worker N]</span>
 
-        Worker1 <span class="token arrow operator">--></span> Results1<span class="token text string">[Result 1]</span> // 结果1
-        Worker2 <span class="token arrow operator">--></span> Results2<span class="token text string">[Result 2]</span> // 结果2
-        WorkerN <span class="token arrow operator">--></span> ResultsN<span class="token text string">[Result N]</span> // 结果N
+        Worker1 <span class="token arrow operator">--></span> Results1<span class="token text string">[Result 1]</span>
+        Worker2 <span class="token arrow operator">--></span> Results2<span class="token text string">[Result 2]</span>
+        WorkerN <span class="token arrow operator">--></span> ResultsN<span class="token text string">[Result N]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"Sequential Execution"</span> // 顺序执行
-        WriteQueue <span class="token arrow operator">--></span> SeqExecutor<span class="token text string">[Sequential Executor]</span> // 顺序执行器
+    <span class="token keyword">subgraph</span> <span class="token string">"Sequential Execution"</span>
+        WriteQueue <span class="token arrow operator">--></span> SeqExecutor<span class="token text string">[Sequential Executor]</span>
         Results1 <span class="token arrow operator">--></span> SeqExecutor
         Results2 <span class="token arrow operator">--></span> SeqExecutor
         ResultsN <span class="token arrow operator">--></span> SeqExecutor
 
-        SeqExecutor <span class="token arrow operator">--></span> WriteTool1<span class="token text string">[Write Tool 1]</span> // 写入工具1
-        WriteTool1 <span class="token arrow operator">--></span> WriteTool2<span class="token text string">[Write Tool 2]</span> // 写入工具2
-        WriteTool2 <span class="token arrow operator">--></span> FinalResults<span class="token text string">[All Results]</span> // 所有结果
+        SeqExecutor <span class="token arrow operator">--></span> WriteTool1<span class="token text string">[Write Tool 1]</span>
+        WriteTool1 <span class="token arrow operator">--></span> WriteTool2<span class="token text string">[Write Tool 2]</span>
+        WriteTool2 <span class="token arrow operator">--></span> FinalResults<span class="token text string">[All Results]</span>
     <span class="token keyword">end</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <img src="/2025/10/23/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/2.svg" class="">
 <pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// The parallel execution orchestrator</span>
 <span class="token comment">// 并行执行编排器</span>
@@ -1109,37 +1110,37 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
 
 <h3 id="3-AgentTool-Hierarchical-Control-Flow"><a href="#3-AgentTool-Hierarchical-Control-Flow" class="headerlink" title="3. AgentTool Hierarchical Control Flow"></a>3. AgentTool Hierarchical Control Flow</h3><h3 id="3-AgentTool层次控制流"><a href="#3-AgentTool层次控制流" class="headerlink" title="3. AgentTool层次控制流"></a>3. AgentTool层次控制流</h3><p>The AgentTool implements a fascinating parent-child control structure:<br>AgentTool实现了一个引人入胜的父子控制结构：</p>
 <pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
-    <span class="token keyword">subgraph</span> <span class="token string">"Main Agent"</span> // 主代理
-        MainTT<span class="token text string">[Main tt Loop]</span> // 主tt循环
-        MainContext<span class="token text string">[Main Context]</span> // 主上下文
-        MainTools<span class="token text string">[All Tools]</span> // 所有工具
+    <span class="token keyword">subgraph</span> <span class="token string">"Main Agent"</span>
+        MainTT<span class="token text string">[Main tt Loop]</span>
+        MainContext<span class="token text string">[Main Context]</span>
+        MainTools<span class="token text string">[All Tools]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"AgentTool Invocation"</span> // AgentTool调用
-        AgentRequest<span class="token text string">[AgentTool Request]</span> // AgentTool请求
-        TaskSplitter<span class="token text string">[Task Splitter]</span> // 任务分割器
+    <span class="token keyword">subgraph</span> <span class="token string">"AgentTool Invocation"</span>
+        AgentRequest<span class="token text string">[AgentTool Request]</span>
+        TaskSplitter<span class="token text string">[Task Splitter]</span>
 
-        TaskSplitter <span class="token arrow operator">--></span> SubTask1<span class="token text string">[Sub-task 1]</span> // 子任务1
-        TaskSplitter <span class="token arrow operator">--></span> SubTask2<span class="token text string">[Sub-task 2]</span> // 子任务2
-        TaskSplitter <span class="token arrow operator">--></span> SubTaskN<span class="token text string">[Sub-task N]</span> // 子任务N
+        TaskSplitter <span class="token arrow operator">--></span> SubTask1<span class="token text string">[Sub-task 1]</span>
+        TaskSplitter <span class="token arrow operator">--></span> SubTask2<span class="token text string">[Sub-task 2]</span>
+        TaskSplitter <span class="token arrow operator">--></span> SubTaskN<span class="token text string">[Sub-task N]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 1"</span> // 子代理1
-        SubLoop1<span class="token text string">[Sub tt Loop]</span> // 子tt循环
-        SubContext1<span class="token text string">[Filtered Context]</span> // 过滤上下文
-        SubTools1<span class="token text string">[Tools - AgentTool]</span> // 工具 - AgentTool
+    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 1"</span>
+        SubLoop1<span class="token text string">[Sub tt Loop]</span>
+        SubContext1<span class="token text string">[Filtered Context]</span>
+        SubTools1<span class="token text string">[Tools - AgentTool]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 2"</span> // 子代理2
-        SubLoop2<span class="token text string">[Sub tt Loop]</span> // 子tt循环
-        SubContext2<span class="token text string">[Filtered Context]</span> // 过滤上下文
-        SubTools2<span class="token text string">[Tools - AgentTool]</span> // 工具 - AgentTool
+    <span class="token keyword">subgraph</span> <span class="token string">"Sub-Agent 2"</span>
+        SubLoop2<span class="token text string">[Sub tt Loop]</span>
+        SubContext2<span class="token text string">[Filtered Context]</span>
+        SubTools2<span class="token text string">[Tools - AgentTool]</span>
     <span class="token keyword">end</span>
 
-    <span class="token keyword">subgraph</span> <span class="token string">"Synthesis"</span> // 合成
-        Collector<span class="token text string">[Result Collector]</span> // 结果收集器
-        Synthesizer<span class="token text string">[LLM Synthesizer]</span> // LLM合成器
-        FinalResult<span class="token text string">[Synthesized Result]</span> // 合成结果
+    <span class="token keyword">subgraph</span> <span class="token string">"Synthesis"</span>
+        Collector<span class="token text string">[Result Collector]</span>
+        Synthesizer<span class="token text string">[LLM Synthesizer]</span>
+        FinalResult<span class="token text string">[Synthesized Result]</span>
     <span class="token keyword">end</span>
 
     MainTT <span class="token arrow operator">--></span> AgentRequest
@@ -1670,7 +1671,7 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="claude-code工具与执行引擎">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="claude-code工具与执行引擎">
                         
                         <span class="card-title">claude-code工具与执行引擎</span>
                     </div>
@@ -1707,7 +1708,7 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="claude-code数据结构与消息架构">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="claude-code数据结构与消息架构">
                         
                         <span class="card-title">claude-code数据结构与消息架构</span>
                     </div>
@@ -1870,7 +1871,7 @@ Control Flow &amp;amp; The Orchestration Engine控制流与编排引擎sequenceD
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">161.7k</span>
+                        class="white-color">141.7k</span>
             
             
             

@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="macOS安装homebrew, 我的博客">
-    <meta name="description" content="Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
-官方安装方式(https://brew.sh">
+    <meta name="keywords" content="live-server使用, 我的博客">
+    <meta name="description" content="本文适用于使用cnpm下载的live-server，使用npm或者其他方式下载的安装包未做测试
+与http-server比，live-server是一种自动热更新的工具包。
+但是在启动http-server的时候，会自动启动127.0.0.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>macOS安装homebrew | 我的博客</title>
+    <title>live-server使用 | 我的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -53,7 +54,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
@@ -206,12 +207,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">macOS安装homebrew</h1>
+                    <h1 class="description center-align post-title">live-server使用</h1>
                 </div>
             </div>
         </div>
@@ -233,13 +234,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/macOs/">
-                                <span class="chip bg-color">macOs</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -247,8 +244,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                系统
+                            <a href="/categories/%E5%BA%93/" class="post-category">
+                                库
                             </a>
                         
                     </div>
@@ -260,21 +257,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-14
+                    2025-10-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-27
+                    2025-10-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    220
+                    251
                 </div>
                 
 
@@ -309,12 +306,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p>
-<h3 id="官方安装方式-https-brew-sh-index-zh-cn"><a href="#官方安装方式-https-brew-sh-index-zh-cn" class="headerlink" title="官方安装方式(https://brew.sh/index_zh-cn)"></a>官方安装方式(<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">https://brew.sh/index_zh-cn</a>)</h3><pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p><code>本文适用于使用cnpm下载的live-server，使用npm或者其他方式下载的安装包未做测试</code></p>
+<pre class="line-numbers language-none"><code class="language-none">与http-server比，live-server是一种自动热更新的工具包。
+但是在启动http-server的时候，会自动启动127.0.0.1与本机ip地址两个链接以供访问，
+这就使得内网内的设备都能访问。
+但是live-server默认只会启动127.0.0.1（在没有修改包文件内index.js的时候）
+导致每次想换启动地址时都需要去修改index.js文件，导致非常麻烦。
 
-<p><code>官方安装方法在国内很多时候都是无法直接安装问题的，因为网络问题，解决方法也有很多，这里就不一一介绍了，这里就介绍最简单的方法</code></p>
-<h3 id="国内快速安装"><a href="#国内快速安装" class="headerlink" title="国内快速安装"></a>国内快速安装</h3><p><code>这里只推荐安装最全的方式，我一般选中科大的源</code></p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;zsh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;gitee.com&#x2F;cunkai&#x2F;HomebrewCN&#x2F;raw&#x2F;master&#x2F;Homebrew.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+目前本机安装的live-server版本，可以通过在命令行内直接使用命令指定的方式修改端口和链接。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>修改端口</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">live-server --port&#x3D;&#39;8081&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<br>
+
+<p><strong>修改地址</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">live-server --host&#x3D;&#39;192.168.1.1&#39;
+
+注意host内应该是本机的内网ip地址，这样在同一个内网下，不同的设备才能访问我们开放的页面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -328,11 +337,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/macOs/">
-                                    <span class="chip bg-color">macOs</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -410,13 +415,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/14/node-canvas-sheng-cheng-tu-pian-bing-bao-cun/">
+                <a href="/2025/10/22/canvas-hui-tu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="node canvas生成图片并保存">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="canvas绘图">
                         
-                        <span class="card-title">node canvas生成图片并保存</span>
+                        <span class="card-title">canvas绘图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -427,7 +432,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-22
                         </span>
                         <span class="publish-author">
                             
@@ -444,12 +449,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="chip bg-color">可视化</span>
-                    </a>
-                    
-                    <a href="/tags/node/">
-                        <span class="chip bg-color">node</span>
+                    <a href="/tags/canvas/">
+                        <span class="chip bg-color">canvas</span>
                     </a>
                     
                 </div>
@@ -463,13 +464,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/14/live-server-shi-yong/">
+                <a href="/2025/10/22/macos-an-zhuang-homebrew/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="live-server使用">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="macOS安装homebrew">
                         
-                        <span class="card-title">live-server使用</span>
+                        <span class="card-title">macOS安装homebrew</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -480,19 +481,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BA%93/" class="post-category">
-                                    库
+                            <a href="/categories/%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    系统
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/macOs/">
+                        <span class="chip bg-color">macOs</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -634,7 +643,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">161.7k</span>
+                        class="white-color">141.7k</span>
             
             
             
