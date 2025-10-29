@@ -1,0 +1,1242 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="claude-code内置工具Read核心代码, 我的博客">
+    <meta name="description" content="核心算法实现1. 智能文件类型检测// 文件类型检测算法
+function detectFileType(filePath: string): FileTypeInfo &amp;#123;
+  // 1. 基于扩展名的初步判断
+  const e">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>claude-code内置工具Read核心代码 | 我的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">我的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">我的博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">claude-code内置工具Read核心代码</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-10-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-10-29
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="核心算法实现"><a href="#核心算法实现" class="headerlink" title="核心算法实现"></a>核心算法实现</h3><h4 id="1-智能文件类型检测"><a href="#1-智能文件类型检测" class="headerlink" title="1. 智能文件类型检测"></a>1. 智能文件类型检测</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 文件类型检测算法</span>
+<span class="token keyword">function</span> <span class="token function">detectFileType</span><span class="token punctuation">(</span>filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> FileTypeInfo <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 1. 基于扩展名的初步判断</span>
+  <span class="token keyword">const</span> extension <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 2. MIME类型检测</span>
+  <span class="token keyword">const</span> mimeType <span class="token operator">=</span> mime<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 3. 文件头魔数检测</span>
+  <span class="token keyword">const</span> fileSignature <span class="token operator">=</span> <span class="token function">readFileSignature</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 4. 综合判断文件类型</span>
+  <span class="token keyword">const</span> fileType <span class="token operator">=</span> <span class="token function">determineFileType</span><span class="token punctuation">(</span>extension<span class="token punctuation">,</span> mimeType<span class="token punctuation">,</span> fileSignature<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    type<span class="token operator">:</span> fileType<span class="token punctuation">,</span>
+    category<span class="token operator">:</span> <span class="token function">categorizeFileType</span><span class="token punctuation">(</span>fileType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    encoding<span class="token operator">:</span> <span class="token function">detectEncoding</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> fileType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    readStrategy<span class="token operator">:</span> <span class="token function">selectReadStrategy</span><span class="token punctuation">(</span>fileType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    processingHints<span class="token operator">:</span> <span class="token function">getProcessingHints</span><span class="token punctuation">(</span>fileType<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 文件类型分类</span>
+<span class="token keyword">enum</span> FileCategory <span class="token punctuation">&#123;</span>
+  <span class="token constant">TEXT</span> <span class="token operator">=</span> <span class="token string">'text'</span><span class="token punctuation">,</span>           <span class="token comment">// 纯文本文件</span>
+  <span class="token constant">CODE</span> <span class="token operator">=</span> <span class="token string">'code'</span><span class="token punctuation">,</span>           <span class="token comment">// 代码文件</span>
+  <span class="token constant">BINARY</span> <span class="token operator">=</span> <span class="token string">'binary'</span><span class="token punctuation">,</span>       <span class="token comment">// 二进制文件</span>
+  <span class="token constant">IMAGE</span> <span class="token operator">=</span> <span class="token string">'image'</span><span class="token punctuation">,</span>         <span class="token comment">// 图像文件</span>
+  <span class="token constant">NOTEBOOK</span> <span class="token operator">=</span> <span class="token string">'notebook'</span><span class="token punctuation">,</span>   <span class="token comment">// Jupyter Notebook</span>
+  <span class="token constant">DOCUMENT</span> <span class="token operator">=</span> <span class="token string">'document'</span><span class="token punctuation">,</span>   <span class="token comment">// 文档文件</span>
+  <span class="token constant">ARCHIVE</span> <span class="token operator">=</span> <span class="token string">'archive'</span><span class="token punctuation">,</span>     <span class="token comment">// 压缩文件</span>
+  <span class="token constant">UNKNOWN</span> <span class="token operator">=</span> <span class="token string">'unknown'</span>      <span class="token comment">// 未知类型</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-智能编码检测机制"><a href="#2-智能编码检测机制" class="headerlink" title="2. 智能编码检测机制"></a>2. 智能编码检测机制</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 编码检测算法</span>
+<span class="token keyword">function</span> <span class="token function">detectTextEncoding</span><span class="token punctuation">(</span>filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> EncodingInfo <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 1. 读取文件前几个字节进行BOM检测</span>
+  <span class="token keyword">const</span> bomResult <span class="token operator">=</span> <span class="token function">detectBOM</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>bomResult<span class="token punctuation">.</span>hasBOM<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      encoding<span class="token operator">:</span> bomResult<span class="token punctuation">.</span>encoding<span class="token punctuation">,</span>
+      confidence<span class="token operator">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'BOM'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// 2. 统计分析法检测编码</span>
+  <span class="token keyword">const</span> sampleBuffer <span class="token operator">=</span> <span class="token function">readFileSample</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token number">8192</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 读取8KB样本</span>
+  <span class="token keyword">const</span> encodingCandidates <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'utf-8'</span><span class="token punctuation">,</span>
+    <span class="token string">'utf-16le'</span><span class="token punctuation">,</span>
+    <span class="token string">'utf-16be'</span><span class="token punctuation">,</span>
+    <span class="token string">'gbk'</span><span class="token punctuation">,</span>
+    <span class="token string">'gb2312'</span><span class="token punctuation">,</span>
+    <span class="token string">'shift_jis'</span><span class="token punctuation">,</span>
+    <span class="token string">'euc-kr'</span><span class="token punctuation">,</span>
+    <span class="token string">'iso-8859-1'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 3. 对每种编码计算置信度</span>
+  <span class="token keyword">const</span> encodingScores <span class="token operator">=</span> encodingCandidates<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>encoding <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    encoding<span class="token operator">:</span> encoding<span class="token punctuation">,</span>
+    confidence<span class="token operator">:</span> <span class="token function">calculateEncodingConfidence</span><span class="token punctuation">(</span>sampleBuffer<span class="token punctuation">,</span> encoding<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 4. 选择置信度最高的编码</span>
+  <span class="token keyword">const</span> bestEncoding <span class="token operator">=</span> encodingScores<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>best<span class="token punctuation">,</span> current<span class="token punctuation">)</span> <span class="token operator">=></span>
+    current<span class="token punctuation">.</span>confidence <span class="token operator">></span> best<span class="token punctuation">.</span>confidence <span class="token operator">?</span> current <span class="token operator">:</span> best
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    encoding<span class="token operator">:</span> bestEncoding<span class="token punctuation">.</span>encoding<span class="token punctuation">,</span>
+    confidence<span class="token operator">:</span> bestEncoding<span class="token punctuation">.</span>confidence<span class="token punctuation">,</span>
+    method<span class="token operator">:</span> <span class="token string">'statistical'</span><span class="token punctuation">,</span>
+    alternatives<span class="token operator">:</span> encodingScores<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>s <span class="token operator">=></span> s<span class="token punctuation">.</span>confidence <span class="token operator">></span> <span class="token number">0.7</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-分块读取优化算法"><a href="#3-分块读取优化算法" class="headerlink" title="3. 分块读取优化算法"></a>3. 分块读取优化算法</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 大文件分块读取策略</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">readFileInChunks</span><span class="token punctuation">(</span>
+  filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> ReadOptions
+<span class="token punctuation">)</span><span class="token operator">:</span> AsyncGenerator<span class="token operator">&lt;</span>FileChunk<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">const</span> fileStats <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span><span class="token function">stat</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> fileSize <span class="token operator">=</span> fileStats<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+
+  <span class="token comment">// 动态计算最优块大小</span>
+  <span class="token keyword">const</span> chunkSize <span class="token operator">=</span> <span class="token function">calculateOptimalChunkSize</span><span class="token punctuation">(</span>fileSize<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 创建读取流</span>
+  <span class="token keyword">const</span> readStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+    encoding<span class="token operator">:</span> options<span class="token punctuation">.</span>encoding <span class="token keyword">as</span> BufferEncoding<span class="token punctuation">,</span>
+    highWaterMark<span class="token operator">:</span> chunkSize
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> bytesRead <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> chunkIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> chunk <span class="token keyword">of</span> readStream<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 处理当前块</span>
+      <span class="token keyword">const</span> processedChunk <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processFileChunk</span><span class="token punctuation">(</span>
+        chunk<span class="token punctuation">,</span>
+        chunkIndex<span class="token punctuation">,</span>
+        bytesRead<span class="token punctuation">,</span>
+        fileSize<span class="token punctuation">,</span>
+        options
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 更新进度</span>
+      bytesRead <span class="token operator">+=</span> chunk<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+      chunkIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 生成块结果</span>
+      <span class="token keyword">yield</span> <span class="token punctuation">&#123;</span>
+        index<span class="token operator">:</span> chunkIndex<span class="token punctuation">,</span>
+        data<span class="token operator">:</span> processedChunk<span class="token punctuation">,</span>
+        bytesRead<span class="token operator">:</span> bytesRead<span class="token punctuation">,</span>
+        totalBytes<span class="token operator">:</span> fileSize<span class="token punctuation">,</span>
+        progress<span class="token operator">:</span> bytesRead <span class="token operator">/</span> fileSize<span class="token punctuation">,</span>
+        isLast<span class="token operator">:</span> bytesRead <span class="token operator">>=</span> fileSize
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 内存压力检查</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">memoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>heapUsed <span class="token operator">></span> options<span class="token punctuation">.</span>maxMemoryUsage<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 触发垃圾回收建议</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>global<span class="token punctuation">.</span>gc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          global<span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// 暂停读取，等待内存释放</span>
+        <span class="token keyword">await</span> <span class="token function">waitForMemoryRelease</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>memoryPressureThreshold<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ReadError</span><span class="token punctuation">(</span>
+      ReadErrorType<span class="token punctuation">.</span><span class="token constant">FILE_READ_ERROR</span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Failed to read file in chunks: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>error<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> filePath<span class="token punctuation">,</span> bytesRead<span class="token punctuation">,</span> chunkIndex <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 最优块大小计算</span>
+<span class="token keyword">function</span> <span class="token function">calculateOptimalChunkSize</span><span class="token punctuation">(</span>
+  fileSize<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> ReadOptions
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 基础块大小配置</span>
+  <span class="token keyword">const</span> baseChunkSize <span class="token operator">=</span> <span class="token number">64</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">;</span> <span class="token comment">// 64KB</span>
+  <span class="token keyword">const</span> maxChunkSize <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">;</span> <span class="token comment">// 2MB</span>
+  <span class="token keyword">const</span> minChunkSize <span class="token operator">=</span> <span class="token number">4</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">;</span> <span class="token comment">// 4KB</span>
+
+  <span class="token comment">// 根据文件大小调整</span>
+  <span class="token keyword">let</span> chunkSize<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>fileSize <span class="token operator">&lt;</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 小文件：一次性读取</span>
+    chunkSize <span class="token operator">=</span> fileSize<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>fileSize <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 中等文件：使用基础块大小</span>
+    chunkSize <span class="token operator">=</span> baseChunkSize<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 大文件：动态调整块大小</span>
+    chunkSize <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>
+      maxChunkSize<span class="token punctuation">,</span>
+      Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>minChunkSize<span class="token punctuation">,</span> fileSize <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">// 分100块读取</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// 根据可用内存调整</span>
+  <span class="token keyword">const</span> availableMemory <span class="token operator">=</span> options<span class="token punctuation">.</span>maxMemoryUsage <span class="token operator">-</span> process<span class="token punctuation">.</span><span class="token function">memoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>heapUsed<span class="token punctuation">;</span>
+  chunkSize <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">,</span> availableMemory <span class="token operator">*</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用10%可用内存</span>
+
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>minChunkSize<span class="token punctuation">,</span> chunkSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-readFileState状态管理"><a href="#4-readFileState状态管理" class="headerlink" title="4. readFileState状态管理"></a>4. readFileState状态管理</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// readFileState更新机制</span>
+<span class="token keyword">function</span> <span class="token function">updateReadFileState</span><span class="token punctuation">(</span>
+  filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  content<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> Buffer<span class="token punctuation">,</span>
+  options<span class="token operator">:</span> ReadOptions<span class="token punctuation">,</span>
+  readFileState<span class="token operator">:</span> FileStateTracker
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">const</span> absolutePath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 获取文件统计信息</span>
+  <span class="token keyword">const</span> fileStats <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">statSync</span><span class="token punctuation">(</span>absolutePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 计算内容哈希（用于验证文件一致性）</span>
+  <span class="token keyword">const</span> contentHash <span class="token operator">=</span> <span class="token function">calculateContentHash</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 更新状态记录</span>
+  readFileState<span class="token punctuation">[</span>absolutePath<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    content<span class="token operator">:</span> <span class="token keyword">typeof</span> content <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">?</span> content <span class="token operator">:</span> content<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>encoding <span class="token operator">||</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    timestamp<span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 使用逻辑时间戳</span>
+    fileSystemTimestamp<span class="token operator">:</span> fileStats<span class="token punctuation">.</span>mtimeMs<span class="token punctuation">,</span> <span class="token comment">// 文件系统修改时间</span>
+    size<span class="token operator">:</span> fileStats<span class="token punctuation">.</span>size<span class="token punctuation">,</span>
+    encoding<span class="token operator">:</span> options<span class="token punctuation">.</span>encoding <span class="token operator">||</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span>
+    contentHash<span class="token operator">:</span> contentHash<span class="token punctuation">,</span>
+    readOptions<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      offset<span class="token operator">:</span> options<span class="token punctuation">.</span>offset<span class="token punctuation">,</span>
+      limit<span class="token operator">:</span> options<span class="token punctuation">.</span>limit<span class="token punctuation">,</span>
+      encoding<span class="token operator">:</span> options<span class="token punctuation">.</span>encoding
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    metadata<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      fileType<span class="token operator">:</span> <span class="token function">detectFileType</span><span class="token punctuation">(</span>absolutePath<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      readCount<span class="token operator">:</span> <span class="token punctuation">(</span>readFileState<span class="token punctuation">[</span>absolutePath<span class="token punctuation">]</span><span class="token operator">?.</span>metadata<span class="token operator">?.</span>readCount <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      lastAccessTime<span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      permissions<span class="token operator">:</span> fileStats<span class="token punctuation">.</span>mode
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 清理过期的状态记录</span>
+  <span class="token function">cleanupExpiredFileStates</span><span class="token punctuation">(</span>readFileState<span class="token punctuation">,</span> options<span class="token punctuation">.</span>stateRetentionTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 文件状态清理</span>
+<span class="token keyword">function</span> <span class="token function">cleanupExpiredFileStates</span><span class="token punctuation">(</span>
+  readFileState<span class="token operator">:</span> FileStateTracker<span class="token punctuation">,</span>
+  retentionTime<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">const</span> currentTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> expiredPaths<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 查找过期的状态记录</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>filePath<span class="token punctuation">,</span> state<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>readFileState<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>currentTime <span class="token operator">-</span> state<span class="token punctuation">.</span>timestamp <span class="token operator">></span> retentionTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      expiredPaths<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// 删除过期记录</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> expiredPath <span class="token keyword">of</span> expiredPaths<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">delete</span> readFileState<span class="token punctuation">[</span>expiredPath<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// 记录清理统计</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>expiredPaths<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">logFileStateCleanup</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      cleanupTime<span class="token operator">:</span> currentTime<span class="token punctuation">,</span>
+      expiredCount<span class="token operator">:</span> expiredPaths<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+      remainingCount<span class="token operator">:</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>readFileState<span class="token punctuation">)</span><span class="token punctuation">.</span>length
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-特殊文件类型处理"><a href="#5-特殊文件类型处理" class="headerlink" title="5. 特殊文件类型处理"></a>5. 特殊文件类型处理</h4><h5 id="Jupyter-Notebook处理"><a href="#Jupyter-Notebook处理" class="headerlink" title="Jupyter Notebook处理"></a>Jupyter Notebook处理</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// Jupyter Notebook特殊处理</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">readJupyterNotebook</span><span class="token punctuation">(</span>
+  filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> ReadOptions
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>NotebookReadResult<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 使用专用的Notebook读取工具</span>
+    <span class="token keyword">const</span> notebookContent <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">NotebookRead</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      notebook_path<span class="token operator">:</span> filePath<span class="token punctuation">,</span>
+      cell_id<span class="token operator">:</span> options<span class="token punctuation">.</span>cellId
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 格式化Notebook内容</span>
+    <span class="token keyword">const</span> formattedContent <span class="token operator">=</span> <span class="token function">formatNotebookContent</span><span class="token punctuation">(</span>notebookContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      success<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      content<span class="token operator">:</span> formattedContent<span class="token punctuation">,</span>
+      metadata<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        cellCount<span class="token operator">:</span> notebookContent<span class="token punctuation">.</span>cells<span class="token operator">?.</span>length <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        notebookVersion<span class="token operator">:</span> notebookContent<span class="token punctuation">.</span>nbformat<span class="token punctuation">,</span>
+        kernelInfo<span class="token operator">:</span> notebookContent<span class="token punctuation">.</span>metadata<span class="token operator">?.</span>kernelspec
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ReadError</span><span class="token punctuation">(</span>
+      ReadErrorType<span class="token punctuation">.</span><span class="token constant">NOTEBOOK_READ_ERROR</span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Failed to read Jupyter notebook: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>error<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> filePath<span class="token punctuation">,</span> options <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Notebook内容格式化</span>
+<span class="token keyword">function</span> <span class="token function">formatNotebookContent</span><span class="token punctuation">(</span>notebookData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> sections<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 添加notebook信息头</span>
+  sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"># Jupyter Notebook: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>notebookData<span class="token punctuation">.</span>metadata<span class="token operator">?.</span>title <span class="token operator">||</span> <span class="token string">'Untitled'</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Kernel: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>notebookData<span class="token punctuation">.</span>metadata<span class="token operator">?.</span>kernelspec<span class="token operator">?.</span>display_name <span class="token operator">||</span> <span class="token string">'Unknown'</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'---\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 处理每个cell</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>notebookData<span class="token punctuation">.</span>cells <span class="token operator">&amp;&amp;</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>notebookData<span class="token punctuation">.</span>cells<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    notebookData<span class="token punctuation">.</span>cells<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cell<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> index<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">## Cell </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>cell<span class="token punctuation">.</span>cell_type<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>cell<span class="token punctuation">.</span>source<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>cell<span class="token punctuation">.</span>source<span class="token punctuation">)</span>
+          <span class="token operator">?</span> cell<span class="token punctuation">.</span>source<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+          <span class="token operator">:</span> cell<span class="token punctuation">.</span>source<span class="token punctuation">;</span>
+        sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      <span class="token comment">// 添加输出（如果有）</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>cell<span class="token punctuation">.</span>outputs <span class="token operator">&amp;&amp;</span> cell<span class="token punctuation">.</span>outputs<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'\n### Output:'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cell<span class="token punctuation">.</span>outputs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>output<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>output<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+              <span class="token operator">?</span> output<span class="token punctuation">.</span>text<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+              <span class="token operator">:</span> output<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+            sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      sections<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'\n---\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">return</span> sections<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="图像文件处理"><a href="#图像文件处理" class="headerlink" title="图像文件处理"></a>图像文件处理</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 图像文件处理</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">readImageFile</span><span class="token punctuation">(</span>
+  filePath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> ReadOptions
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>ImageReadResult<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 读取图像文件的二进制数据</span>
+    <span class="token keyword">const</span> imageBuffer <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 获取图像元数据</span>
+    <span class="token keyword">const</span> imageMetadata <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getImageMetadata</span><span class="token punctuation">(</span>imageBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 根据选项决定是否返回base64编码</span>
+    <span class="token keyword">const</span> imageContent <span class="token operator">=</span> options<span class="token punctuation">.</span>returnBase64
+      <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">data:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imageMetadata<span class="token punctuation">.</span>mimeType<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;base64,</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imageBuffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+      <span class="token operator">:</span> imageBuffer<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      success<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      content<span class="token operator">:</span> imageContent<span class="token punctuation">,</span>
+      metadata<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        format<span class="token operator">:</span> imageMetadata<span class="token punctuation">.</span>format<span class="token punctuation">,</span>
+        width<span class="token operator">:</span> imageMetadata<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+        height<span class="token operator">:</span> imageMetadata<span class="token punctuation">.</span>height<span class="token punctuation">,</span>
+        size<span class="token operator">:</span> imageBuffer<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+        mimeType<span class="token operator">:</span> imageMetadata<span class="token punctuation">.</span>mimeType
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ReadError</span><span class="token punctuation">(</span>
+      ReadErrorType<span class="token punctuation">.</span><span class="token constant">IMAGE_READ_ERROR</span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Failed to read image file: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>error<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> filePath<span class="token punctuation">,</span> options <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 图像元数据提取</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getImageMetadata</span><span class="token punctuation">(</span>buffer<span class="token operator">:</span> Buffer<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>ImageMetadata<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 基于文件头判断图像格式</span>
+  <span class="token keyword">const</span> format <span class="token operator">=</span> <span class="token function">detectImageFormat</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 根据格式提取尺寸信息</span>
+  <span class="token keyword">const</span> dimensions <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">extractImageDimensions</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    format<span class="token operator">:</span> format<span class="token punctuation">,</span>
+    width<span class="token operator">:</span> dimensions<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+    height<span class="token operator">:</span> dimensions<span class="token punctuation">.</span>height<span class="token punctuation">,</span>
+    mimeType<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">image/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>format<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    hasAlpha<span class="token operator">:</span> dimensions<span class="token punctuation">.</span>hasAlpha <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    colorDepth<span class="token operator">:</span> dimensions<span class="token punctuation">.</span>colorDepth <span class="token operator">||</span> <span class="token number">8</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/10/29/claude-code-task-ti-shi-ci/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="claude-code-Task提示词">
+                        
+                        <span class="card-title">claude-code-Task提示词</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/10/23/claude-codellm-shi-jiao-shi-ji-jie-shou-zhi-ling-de-gan-jue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="claude-codeLLM视角-实际接收指令的感觉">
+                        
+                        <span class="card-title">claude-codeLLM视角-实际接收指令的感觉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            寒霜
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2025</span>
+             -->
+            <!-- <a href="/about" target="_blank">寒霜</a> -->
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+             -->
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">147.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
