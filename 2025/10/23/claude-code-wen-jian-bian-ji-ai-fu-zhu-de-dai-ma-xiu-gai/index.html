@@ -1,304 +1,211 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>claude-code文件编辑-AI辅助的代码修改 | 我的博客</title><meta name="author" content="寒霜"><meta name="copyright" content="寒霜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="claude-code文件编辑-AI辅助的代码修改"><meta name="application-name" content="claude-code文件编辑-AI辅助的代码修改"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="claude-code文件编辑-AI辅助的代码修改"><meta property="og:url" content="https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/index.html"><meta property="og:site_name" content="我的博客"><meta property="og:description" content="参考链接 File Editing: AI-Assisted Code Modification文件编辑：AI辅助的代码修改graph TB     subgraph &amp;quot;文件编辑管道&amp;quot;         Read[读取工具] --&amp;gt;|cat -n 格式| Display[LLM看到]"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="寒霜"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="参考链接 File Editing: AI-Assisted Code Modification文件编辑：AI辅助的代码修改graph TB     subgraph &amp;quot;文件编辑管道&amp;quot;         Read[读取工具] --&amp;gt;|cat -n 格式| Display[LLM看到]"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的博客',
+  title: 'claude-code文件编辑-AI辅助的代码修改',
+  postAI: '',
+  pageFillDescription: 'File Editing AI-Assisted Code Modification, 文件编辑：AI辅助的代码修改, 文件编辑管道架构, 行号问题：一个看似复杂的挑战, EditTool：字符串替换的手术级精度, MultiEditTool：原子顺序操作, WriteTool：完整文件操作, 验证层：深度防御, 差异生成和反馈：闭环处理, 特殊情况和边缘条件, 性能优化, 常见失败模式和恢复, 文件总结, 概述, 核心架构特点, 1. 四阶段编辑管道, 2. 行号问题的解决方案, 3. EditTool：手术级精度编辑, 4. MultiEditTool：原子批量操作, 5. WriteTool：完整文件操作, 深度防御验证体系, 五层验证架构, 差异生成和反馈系统, 智能差异策略, 反馈机制, 边缘情况处理, 特殊文件类型, 性能优化策略, 大文件处理, 缓存机制, 内存管理, 故障恢复机制, 外部修改冲突, 编码问题恢复, 磁盘空间问题, 部分写入恢复, 技术创新点, 架构创新, 性能创新, 安全创新, 工程实践, 结论参考链接文件编辑辅助的代码修改文件编辑管道读取工具格式看到去除行号编辑工具验证通过应用编辑失败错误结果更新缓存生成差异确认验证检查文件已读取文件未更改字符串存在计数匹配不是无操作文件编辑管道架构中的文件编辑不仅仅是更改文本它是一个精心编排的管道旨在处理辅助代码修改的复杂性四阶段编辑循环阶段验证阶段准备阶段应用阶段验证状态跟踪系统为什么使用多个工具而不是一个通用编辑器工具目的保证失败模式单个字符串替换精确匹配计数如果出现次数预期则失败顺序编辑原子批处理如果任何编辑无效则失败完整替换完全覆盖如果未先读取则失败单元格操作结构保留如果单元格缺失则失败每个工具都提供特定的保证这是通用编辑器在保持友好性的同时无法维持的行号问题一个看似复杂的挑战文件编辑中最关键的挑战是行号前缀问题从看到的内容可能错误尝试编辑的内容错误包含行号它应该使用的内容正确无行号行号去除逻辑收到关于此问题的广泛指令但真正的挑战是确保做到这一点检查是否包含行号前缀似乎包含行号前缀请移除开头的数字和制表符检查字符串是否存在于文件中尝试检测是否是行号问题未找到字符串您是否包含了行号字符串替换的手术级精度实现零歧义的精确字符串匹配步骤检索缓存文件状态文件必须在编辑前使用读取这确保您拥有当前文件内容步骤验证文件未被外部更改文件自上次读取以来已被外部修改请再次读取文件以查看当前内容步骤验证编辑步骤应用替换步骤生成差异用于验证步骤以相同编码行结尾写入步骤更新缓存步骤生成上下文片段上下文行数无操作检查和相同不会进行任何更改空特殊情况插入不允许空的对于新文件请使用使用精确字符串匹配计算出现次数在文件中未找到确保包括空白字符在内的精确匹配期望次替换但找到次出现将设置为或优化转义特殊正则表达式字符以进行精确匹配特殊替换模式的字符转义保留换行符保留回车符手动替换以尊重限制使用原始字符串而非转义字符串使用统一差异格式编辑前编辑后为什么很重要场景多次出现不使用结果所有出现都被替换包括函数参数使用仅使用处不包括参数结果失败强制使用更具体的原子顺序操作解决了多个相关编辑的复杂问题加载文件一次文件必须在编辑前读取在应用任何编辑之前验证所有编辑顺序应用编辑到工作副本根据当前工作内容验证此编辑编辑失败应用编辑原子失败不写入任何更改在编辑处中止所有编辑已验证并应用一次性写入更新缓存检查空编辑数组未提供编辑检测潜在冲突检测到编辑冲突模拟所有编辑以确保它们有效编辑未找到之前的编辑可能已删除它编辑期望次替换但找到次应用到模拟冲突类型后面的编辑修改前面编辑的结果编辑依赖于编辑的结果冲突类型重叠替换编辑和影响重叠文本冲突类型相同目标不同替换编辑和以不同方式替换相同文本查找所有出现的位置检查是否有任何位置重叠检查重叠冲突检测的实际应用示例依赖编辑依赖第一个编辑结果检测到冲突编辑依赖于编辑示例安全的顺序编辑结果无冲突独立更改完整文件操作处理完整的文件创建或替换检查文件是否存在现有文件必须已被读取现有文件必须在覆盖前使用读取这可以防止意外数据丢失验证未被外部修改文件已被外部修改在覆盖前再次读取文件以查看当前内容文档文件限制创建文档文件需要明确的用户请求除非特别要求文档否则专注于代码实现准备写入操作确保目录存在写入文件更新缓存生成结果检测或保留行结尾默认为保留现有行结尾上新文件默认为规范化然后应用正确的行结尾检测编码简化实际实现更复杂更新时保留文件模式验证层深度防御每个编辑操作都经过多层验证层路径验证层权限检查层文件状态验证层内容验证层安全检查绝对路径要求文件路径必须是绝对路径路径遍历防护路径包含可疑的遍历模式边界检查路径在允许的目录之外特殊文件防护不允许对敏感文件进行操作检查文件是否已存在文件已存在使用并在之前读取以覆盖文件必须在编辑前读取陈旧性检查文件已被外部修改文件不再存在或无法访问差异生成和反馈闭环处理每个编辑都为生成丰富的反馈根据更改大小使用不同的差异策略小更改使用统一差异中等更改使用单词差异大更改使用摘要差异限制总片段大小截断使用差异算法格式化为统一差异编辑前编辑后特殊情况和边缘条件文件编辑必须处理许多边缘情况空文件处理无法编辑空文件使用添加内容的特殊反馈警告文件存在但内容为空二进制文件检测检查空字节二进制文件中常见检查文件扩展名使用文件魔数符号链接处理检查目标是否存在损坏的符号链接指向不存在的对于编辑操作提供选择这是指向的符号链接编辑将修改目标文件编码检测和处理检查尝试检查替换字符回退启发式默认为并附带警告编码不确定假设为性能优化大规模文件编辑需要仔细优化大文件的缓存策略对超过的文件使用流式处理对的文件使用分块缓存小文件直接读取使用缓存块分块读取块缓存以备将来使用批量编辑准备预计算所有位置按位置排序编辑逆序以安全应用内存高效差异生成对大文件使用滑动窗口性能特征文件大小操作方法时间内存读取直接读取直接读取分块读取流式任何编辑单个内存中任何编辑多个顺序任何写入直接常见失败模式和恢复理解常见失败有助于构建健壮的编辑外部修改冲突尝试三向合并基础我们的他们的文件已被外部修改更改已合并生成冲突标记检测到合并冲突需要手动解决回退显示差异并询问文件被外部修改覆盖外部更改中止编辑再次读取文件编码问题尝试不同编码使用编码而不是二进制回退视为二进制文件磁盘空间问题计算可以释放什么磁盘空间不足需要有可能是配额问题尽管有可用空间但写入失败检查磁盘配额部分写入恢复完全失败检查备份部分写入检查临时文件文件总结概述本文档深入分析了的文件编辑架构揭示了辅助代码修改背后的精密设计通过反编译和逆向工程分析文档详细展示了如何通过多层验证智能冲突检测和原子操作来确保文件编辑的安全性和可靠性核心架构特点四阶段编辑管道阶段验证路径权限文件状态检查阶段准备编辑前预处理和状态获取阶段应用执行实际的文件修改阶段验证编辑后的验证和反馈生成优势确保每个编辑操作都经过严格的检查和验证流程行号问题的解决方案挑战识别容易在中包含行号前缀检测机制正则表达式匹配模式智能建议自动去除行号并提供修正建议预防策略通过广泛指令和示例引导正确使用手术级精度编辑精确匹配基于字符串出现次数的严格验证外部修改检测通过文件修改时间戳防止并发冲突替换限制参数防止意外替换格式保持保留原始文件的编码和行结尾格式原子批量操作冲突检测依赖关系检测后续编辑修改前面编辑的结果重叠检测编辑影响相同文本区域矛盾检测相同目标的不同替换原子性保证要么全部成功要么全部失败顺序验证逐步验证每个编辑在当前状态下的有效性完整文件操作安全机制现有文件必须先读取才能覆盖外部修改时间戳验证文档文件创建限制格式保持智能检测和保留原始文件的编码行结尾权限目录创建自动创建不存在的目录结构深度防御验证体系五层验证架构路径验证绝对路径要求路径遍历攻击防护边界检查项目根目录限制敏感文件保护等权限检查多层权限规则评估用户交互式确认操作类型权限映射文件状态验证缓存状态一致性检查外部修改检测文件存在性验证内容验证编辑内容合理性检查无操作检测特殊字符处理安全检查恶意代码检测危险操作识别系统安全边界检查差异生成和反馈系统智能差异策略小更改统一差异格式行上下文中等更改单词级差异大更改摘要差异格式上下文片段围绕更改区域的行上下文最大字符反馈机制实时差异显示算法的高效实现上下文高亮更改行的特殊标记统计信息替换次数更改大小等边缘情况处理特殊文件类型空文件编辑操作被拒绝建议使用返回特殊系统提醒二进制文件空字节检测前文件扩展名检查文件魔数验证等符号链接目标存在性验证损坏链接检测编辑操作的明确警告编码检测检测编码回退策略编码不确定的警告机制性能优化策略大文件处理文件大小分级直接读取直接读取分块缓存流式处理缓存机制分块缓存块大小基于修改时间的失效文件状态缓存自动清理预计算优化批量编辑的位置预计算内存管理流式差异生成滑动窗口算法行窗口块大小优化读写块块间垃圾回收内存复杂度大文件的恒定内存占用故障恢复机制外部修改冲突三向合并基础版本我们的更改他们的更改冲突标记标准冲突格式用户决策覆盖中止重新读取选项编码问题恢复编码尝试序列二进制回退作为二进制文件处理测试写入验证编码可用性磁盘空间问题空间分析可用空间检查和使用分析清理建议可删除文件的建议列表配额检查磁盘配额问题的检测部分写入恢复备份恢复文件的自动恢复临时文件恢复文件的完整性检查大小验证期望大小与实际大小的比较技术创新点架构创新原子操作保证的全有或全无机制行号智能处理自动检测和修正的常见错误五层验证体系深度防御的安全架构差异生成优化基于更改大小的自适应策略性能创新分级文件处理根据文件大小的不同处理策略分块缓存机制大文件的高效缓存策略流式差异算法内存友好的大文件差异计算批量编辑优化位置预计算和逆序应用安全创新时间戳验证防止外部修改冲突路径安全验证多层次的路径安全检查敏感文件保护系统关键文件的自动保护权限分层管理基于操作类型的权限控制工程实践错误恢复机制全面的故障处理和恢复策略格式保持机制编码行结尾权限的智能保持反馈系统设计丰富的编辑反馈和差异显示边缘情况覆盖全面的特殊场景处理结论的文件编辑架构体现了现代软件工程的最佳实践通过精密的验证机制智能的冲突检测和可靠的原子操作实现了既安全又高效的辅助代码修改功能其核心价值在于安全性多层验证确保文件操作的安全性可靠性原子操作和冲突检测保证编辑的一致性性能分级处理和缓存优化确保大文件的高效处理用户友好智能的错误恢复和丰富的反馈机制这种复杂的文件编辑架构为辅助编程提供了优秀的技术参考特别是在需要处理复杂文件操作保证数据完整性和提供优秀用户体验的场景中文档的深入分析为理解现代系统的文件操作设计提供了宝贵的技术指导',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-24 18:27:01',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="claude-code文件编辑-AI辅助的代码修改, 我的博客">
-    <meta name="description" content="参考链接
-File Editing: AI-Assisted Code Modification文件编辑：AI辅助的代码修改graph TB
-    subgraph &#34;文件编辑管道&#34;
-        Read[读取工具] --&gt;|cat ">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    <title>claude-code文件编辑-AI辅助的代码修改 | 我的博客</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    
-
-
-    <!-- bg-cover style     -->
-
-
-
-<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-<link rel="stylesheet" type="text/css" href="/css/matery.css">
-<link rel="stylesheet" type="text/css" href="/css/my.css">
-<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
-
-
-
-
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-    <link rel="stylesheet" href="/css/post.css">
-
-
-
-
-    
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
-
-
-
-    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
-
-<meta name="generator" content="Hexo 5.4.2"></head>
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">我的博客</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
-      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
 
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">我的博客</div>
-        <div class="logo-desc">
-            
-            Never really desperate, only the lost of the soul.
-            
-        </div>
-    </div>
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-        </div>
-
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">claude-code文件编辑-AI辅助的代码修改</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<main class="post-container content">
-
-    
-    <div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-10-23
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-10-24
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.3k
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    33 分
-                </div>
-                
-
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
-
-        
-        <!-- 代码块折行 -->
-        <style type="text/css">
-            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
-        </style>
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://southbridge-research.notion.site/File-Editing-AI-Assisted-Code-Modification-2055fec70db18100803ff7287c24c6cc">参考链接</a></p>
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">我的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.05rem;">AI<sup>1</sup></a><a href="/tags/Claude/" style="font-size: 1.05rem;">Claude<sup>1</sup></a><a href="/tags/Go/" style="font-size: 1.05rem;">Go<sup>1</sup></a><a href="/tags/Golang/" style="font-size: 1.05rem;">Golang<sup>1</sup></a><a href="/tags/HTML%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">HTML基础<sup>1</sup></a><a href="/tags/SDK/" style="font-size: 1.05rem;">SDK<sup>1</sup></a><a href="/tags/base64/" style="font-size: 1.05rem;">base64<sup>1</sup></a><a href="/tags/canvas/" style="font-size: 1.05rem;">canvas<sup>2</sup></a><a href="/tags/cesium/" style="font-size: 1.05rem;">cesium<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>5</sup></a><a href="/tags/docker/" style="font-size: 1.05rem;">docker<sup>3</sup></a><a href="/tags/echart/" style="font-size: 1.05rem;">echart<sup>1</sup></a><a href="/tags/electron/" style="font-size: 1.05rem;">electron<sup>2</sup></a><a href="/tags/elementUI/" style="font-size: 1.05rem;">elementUI<sup>1</sup></a><a href="/tags/flex/" style="font-size: 1.05rem;">flex<sup>1</sup></a><a href="/tags/git/" style="font-size: 1.05rem;">git<sup>3</sup></a><a href="/tags/javascript/" style="font-size: 1.05rem;">javascript<sup>1</sup></a><a href="/tags/js/" style="font-size: 1.05rem;">js<sup>2</sup></a><a href="/tags/position/" style="font-size: 1.05rem;">position<sup>1</sup></a><a href="/tags/vue/" style="font-size: 1.05rem;">vue<sup>17</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 1.05rem;">事件循环<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" style="font-size: 1.05rem;">事件监听<sup>1</sup></a><a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.05rem;">可视化<sup>3</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>1</sup></a><a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" style="font-size: 1.05rem;">基本命令<sup>2</sup></a><a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 1.05rem;">存储<sup>1</sup></a><a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.05rem;">实战<sup>31</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 1.05rem;">布局<sup>1</sup></a><a href="/tags/%E6%89%93%E5%8D%B0/" style="font-size: 1.05rem;">打印<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%A8%AA%E7%AB%96%E5%B1%8F%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">横竖屏检测<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.05rem;">正则<sup>4</sup></a><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.05rem;">浏览器<sup>5</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 1.05rem;">盒模型<sup>1</sup></a><a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 1.05rem;">组件通信<sup>2</sup></a><a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 1.05rem;">缓存<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">编程语言<sup>1</sup></a><a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 1.05rem;">路由<sup>1</sup></a><a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.05rem;">过滤器<sup>3</sup></a><a href="/tags/%E9%9F%B3%E9%A2%91/" style="font-size: 1.05rem;">音频<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">21</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">claude-code文件编辑-AI辅助的代码修改</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-10-23T06:30:36.000Z" title="发表于 2025-10-23 14:30:36">2025-10-23</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-10-24T10:27:01.758Z" title="更新于 2025-10-24 18:27:01">2025-10-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/"><header><h1 id="CrawlerTitle" itemprop="name headline">claude-code文件编辑-AI辅助的代码修改</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">寒霜</span><time itemprop="dateCreated datePublished" datetime="2025-10-23T06:30:36.000Z" title="发表于 2025-10-23 14:30:36">2025-10-23</time><time itemprop="dateCreated datePublished" datetime="2025-10-24T10:27:01.758Z" title="更新于 2025-10-24 18:27:01">2025-10-24</time></header><p><a target="_blank" rel="noopener" href="https://southbridge-research.notion.site/File-Editing-AI-Assisted-Code-Modification-2055fec70db18100803ff7287c24c6cc">参考链接</a></p>
 <h1 id="File-Editing-AI-Assisted-Code-Modification"><a href="#File-Editing-AI-Assisted-Code-Modification" class="headerlink" title="File Editing: AI-Assisted Code Modification"></a>File Editing: AI-Assisted Code Modification</h1><h1 id="文件编辑：AI辅助的代码修改"><a href="#文件编辑：AI辅助的代码修改" class="headerlink" title="文件编辑：AI辅助的代码修改"></a>文件编辑：AI辅助的代码修改</h1><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
     <span class="token keyword">subgraph</span> <span class="token string">"文件编辑管道"</span>
         Read<span class="token text string">[读取工具]</span> <span class="token arrow operator">--></span><span class="token label property">|cat -n 格式|</span> Display<span class="token text string">[LLM看到]</span>
@@ -327,7 +234,7 @@ File Editing: AI-Assisted Code Modification文件编辑：AI辅助的代码修�
         V4 <span class="token arrow operator">--></span> V5
     <span class="token keyword">end</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img src="/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/1.svg" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/1.svg" class="">
 <h2 id="文件编辑管道架构"><a href="#文件编辑管道架构" class="headerlink" title="文件编辑管道架构"></a>文件编辑管道架构</h2><p>Claude Code中的文件编辑不仅仅是更改文本——它是一个精心编排的管道，旨在处理AI辅助代码修改的复杂性：</p>
 <pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">class</span> <span class="token class-name">FileEditingPipeline</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 四阶段编辑循环</span>
@@ -2009,564 +1916,148 @@ function processUser(user) &#123;
 <li><strong>用户友好</strong>：智能的错误恢复和丰富的反馈机制</li>
 </ul>
 <p>这种复杂的文件编辑架构为AI辅助编程提供了优秀的技术参考，特别是在需要处理复杂文件操作、保证数据完整性和提供优秀用户体验的场景中。文档的深入分析为理解现代AI系统的文件操作设计提供了宝贵的技术指导。</p>
-
-                
-            </div>
-            <hr/>
-
-            
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">寒霜</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/')">claude-code文件编辑-AI辅助的代码修改</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=claude-code文件编辑-AI辅助的代码修改&amp;url=https://hanshuang-ai.github.io/2025/10/23/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hanshuang-ai.github.io" target="_blank">我的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/10/23/claude-code-xin-ying-de-zu-jian/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">claude-code新颖的组件</div></div></a></div><div class="next-post pull-right"><a href="/2025/10/23/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">claude-code提示词工程-指导AI的艺术</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#File-Editing-AI-Assisted-Code-Modification"><span class="toc-number">1.</span> <span class="toc-text">File Editing: AI-Assisted Code Modification</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%EF%BC%9AAI%E8%BE%85%E5%8A%A9%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9"><span class="toc-number">2.</span> <span class="toc-text">文件编辑：AI辅助的代码修改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E7%AE%A1%E9%81%93%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">文件编辑管道架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%8F%B7%E9%97%AE%E9%A2%98%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%9C%8B%E4%BC%BC%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-number">2.2.</span> <span class="toc-text">行号问题：一个看似复杂的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EditTool%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2%E7%9A%84%E6%89%8B%E6%9C%AF%E7%BA%A7%E7%B2%BE%E5%BA%A6"><span class="toc-number">2.3.</span> <span class="toc-text">EditTool：字符串替换的手术级精度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MultiEditTool%EF%BC%9A%E5%8E%9F%E5%AD%90%E9%A1%BA%E5%BA%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">2.4.</span> <span class="toc-text">MultiEditTool：原子顺序操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WriteTool%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.5.</span> <span class="toc-text">WriteTool：完整文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%B1%82%EF%BC%9A%E6%B7%B1%E5%BA%A6%E9%98%B2%E5%BE%A1"><span class="toc-number">2.6.</span> <span class="toc-text">验证层：深度防御</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E5%BC%82%E7%94%9F%E6%88%90%E5%92%8C%E5%8F%8D%E9%A6%88%EF%BC%9A%E9%97%AD%E7%8E%AF%E5%A4%84%E7%90%86"><span class="toc-number">2.7.</span> <span class="toc-text">差异生成和反馈：闭环处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5%E5%92%8C%E8%BE%B9%E7%BC%98%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.8.</span> <span class="toc-text">特殊情况和边缘条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">2.9.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%A4%B1%E8%B4%A5%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="toc-number">2.10.</span> <span class="toc-text">常见失败模式和恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">文件总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E7%89%B9%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">核心架构特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%9B%E9%98%B6%E6%AE%B5%E7%BC%96%E8%BE%91%E7%AE%A1%E9%81%93"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 四阶段编辑管道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A1%8C%E5%8F%B7%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 行号问题的解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-EditTool%EF%BC%9A%E6%89%8B%E6%9C%AF%E7%BA%A7%E7%B2%BE%E5%BA%A6%E7%BC%96%E8%BE%91"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. EditTool：手术级精度编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-MultiEditTool%EF%BC%9A%E5%8E%9F%E5%AD%90%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. MultiEditTool：原子批量操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-WriteTool%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. WriteTool：完整文件操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E9%98%B2%E5%BE%A1%E9%AA%8C%E8%AF%81%E4%BD%93%E7%B3%BB"><span class="toc-number">3.3.</span> <span class="toc-text">深度防御验证体系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E5%B1%82%E9%AA%8C%E8%AF%81%E6%9E%B6%E6%9E%84"><span class="toc-number">3.3.1.</span> <span class="toc-text">五层验证架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E5%BC%82%E7%94%9F%E6%88%90%E5%92%8C%E5%8F%8D%E9%A6%88%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.4.</span> <span class="toc-text">差异生成和反馈系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E5%B7%AE%E5%BC%82%E7%AD%96%E7%95%A5"><span class="toc-number">3.4.1.</span> <span class="toc-text">智能差异策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="toc-number">3.4.2.</span> <span class="toc-text">反馈机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E7%BC%98%E6%83%85%E5%86%B5%E5%A4%84%E7%90%86"><span class="toc-number">3.5.</span> <span class="toc-text">边缘情况处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.5.1.</span> <span class="toc-text">特殊文件类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">3.6.</span> <span class="toc-text">性能优化策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">3.6.1.</span> <span class="toc-text">大文件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-number">3.6.2.</span> <span class="toc-text">缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">3.6.3.</span> <span class="toc-text">内存管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D%E6%9C%BA%E5%88%B6"><span class="toc-number">3.7.</span> <span class="toc-text">故障恢复机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E4%BF%AE%E6%94%B9%E5%86%B2%E7%AA%81"><span class="toc-number">3.7.1.</span> <span class="toc-text">外部修改冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%E6%81%A2%E5%A4%8D"><span class="toc-number">3.7.2.</span> <span class="toc-text">编码问题恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E9%97%AE%E9%A2%98"><span class="toc-number">3.7.3.</span> <span class="toc-text">磁盘空间问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5%E6%81%A2%E5%A4%8D"><span class="toc-number">3.7.4.</span> <span class="toc-text">部分写入恢复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%9B%E6%96%B0%E7%82%B9"><span class="toc-number">3.8.</span> <span class="toc-text">技术创新点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%88%9B%E6%96%B0"><span class="toc-number">3.8.1.</span> <span class="toc-text">架构创新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%9B%E6%96%B0"><span class="toc-number">3.8.2.</span> <span class="toc-text">性能创新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%88%9B%E6%96%B0"><span class="toc-number">3.8.3.</span> <span class="toc-text">安全创新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5"><span class="toc-number">3.8.4.</span> <span class="toc-text">工程实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">3.9.</span> <span class="toc-text">结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/25/macos-an-zhuang-homebrew/" title="macOS安装homebrew">macOS安装homebrew</a><time datetime="2025-12-25T12:09:27.713Z" title="更新于 2025-12-25 20:09:27">2025-12-25</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2025/01/16/go-yu-yan-ru-men-zhi-nan/" title="Go语言入门指南">Go语言入门指南</a><time datetime="2025-12-16T12:44:28.982Z" title="更新于 2025-12-16 20:44:28">2025-12-16</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2025/12/16/php-shu-zu-wan-quan-zhi-nan/" title="PHP数组完全指南">PHP数组完全指南</a><time datetime="2025-12-16T11:12:19.007Z" title="更新于 2025-12-16 19:12:19">2025-12-16</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/12/16/claude-code-agent-sdk-jie-ru-zi-yan-cha-jian/" title="Claude Code Agent SDK 接入自研插件">Claude Code Agent SDK 接入自研插件</a><time datetime="2025-12-16T10:15:32.430Z" title="更新于 2025-12-16 18:15:32">2025-12-16</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2025/11/20/react-ji-chu/" title="React核心基础与实践指南">React核心基础与实践指南</a><time datetime="2025-11-20T05:34:53.956Z" title="更新于 2025-11-20 13:34:53">2025-11-20</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 寒霜</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">167</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">121</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">30</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>1</sup></a><a href="/tags/Claude/" style="font-size: 0.88rem;">Claude<sup>1</sup></a><a href="/tags/Go/" style="font-size: 0.88rem;">Go<sup>1</sup></a><a href="/tags/Golang/" style="font-size: 0.88rem;">Golang<sup>1</sup></a><a href="/tags/HTML%E5%9F%BA%E7%A1%80/" style="font-size: 0.88rem;">HTML基础<sup>1</sup></a><a href="/tags/SDK/" style="font-size: 0.88rem;">SDK<sup>1</sup></a><a href="/tags/base64/" style="font-size: 0.88rem;">base64<sup>1</sup></a><a href="/tags/canvas/" style="font-size: 0.88rem;">canvas<sup>2</sup></a><a href="/tags/cesium/" style="font-size: 0.88rem;">cesium<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>5</sup></a><a href="/tags/docker/" style="font-size: 0.88rem;">docker<sup>3</sup></a><a href="/tags/echart/" style="font-size: 0.88rem;">echart<sup>1</sup></a><a href="/tags/electron/" style="font-size: 0.88rem;">electron<sup>2</sup></a><a href="/tags/elementUI/" style="font-size: 0.88rem;">elementUI<sup>1</sup></a><a href="/tags/flex/" style="font-size: 0.88rem;">flex<sup>1</sup></a><a href="/tags/git/" style="font-size: 0.88rem;">git<sup>3</sup></a><a href="/tags/javascript/" style="font-size: 0.88rem;">javascript<sup>1</sup></a><a href="/tags/js/" style="font-size: 0.88rem;">js<sup>2</sup></a><a href="/tags/position/" style="font-size: 0.88rem;">position<sup>1</sup></a><a href="/tags/vue/" style="font-size: 0.88rem;">vue<sup>17</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 0.88rem;">事件循环<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" style="font-size: 0.88rem;">事件监听<sup>1</sup></a><a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 0.88rem;">可视化<sup>3</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>1</sup></a><a href="/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" style="font-size: 0.88rem;">基本命令<sup>2</sup></a><a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 0.88rem;">存储<sup>1</sup></a><a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 0.88rem;">实战<sup>31</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 0.88rem;">布局<sup>1</sup></a><a href="/tags/%E6%89%93%E5%8D%B0/" style="font-size: 0.88rem;">打印<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 0.88rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%A8%AA%E7%AB%96%E5%B1%8F%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">横竖屏检测<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 0.88rem;">正则<sup>4</sup></a><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 0.88rem;">浏览器<sup>5</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 0.88rem;">盒模型<sup>1</sup></a><a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 0.88rem;">组件通信<sup>2</sup></a><a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 0.88rem;">缓存<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">编程语言<sup>1</sup></a><a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 0.88rem;">路由<sup>1</sup></a><a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 0.88rem;">过滤器<sup>3</sup></a><a href="/tags/%E9%9F%B3%E9%A2%91/" style="font-size: 0.88rem;">音频<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2025/10/23/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="claude-code提示词工程-指导AI的艺术">
-                        
-                        <span class="card-title">claude-code提示词工程-指导AI的艺术</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            寒霜
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
         
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/10/23/claude-code-xin-ying-de-zu-jian/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="claude-code新颖的组件">
-                        
-                        <span class="card-title">claude-code新颖的组件</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            寒霜
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
-</div>
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
 
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
 
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 寒霜 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
 
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
 
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
 
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('6'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-
-    <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            <!-- Copyright&nbsp;&copy;
-            
-                <span id="year">2019-2025</span>
-             -->
-            <!-- <a href="/about" target="_blank">寒霜</a> -->
-            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-             -->
-            <br>
-            
-                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">149.3k</span>
-            
-            
-            
-                
-            
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
-            
-            <br>
-
-            <!-- 运行天数提醒. -->
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
-
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 白天和黑夜主题 -->
-<div class="stars-con">
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>  
-</div>
-
-<script>
-    function switchNightMode() {
-        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
-        setTimeout(function () {
-            $('body').hasClass('DarkMode') 
-            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
-            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
-            
-            setTimeout(function () {
-            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
-                $(this).remove()
-            })
-            }, 2e3)
-        })
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
     }
-</script>
+  }
 
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
+  typeof typed === 'object' && typed.destroy()
 
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
-    
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
 
-    
-    
-    
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-    <!-- 雪花特效 -->
-    
+  typeof panguInit === 'function' && panguInit()
 
-    <!-- 鼠标星星特效 -->
-    
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
-    
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
-    <!-- Baidu Analytics -->
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
-    <!-- Baidu Push -->
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-
-    
-
-    <!--腾讯兔小巢-->
-    
-    
-
-    
-
-    
-    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
-
-</body>
-
-</html>
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
