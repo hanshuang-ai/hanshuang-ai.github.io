@@ -1,0 +1,1063 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Claude Code Router完全分析 | 我的博客</title><meta name="keywords" content="claude-code,router,deepseek,llm,中间件,分析,架构"><meta name="author" content="寒霜"><meta name="copyright" content="寒霜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Claude Code Router完全分析"><meta name="application-name" content="Claude Code Router完全分析"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Claude Code Router完全分析"><meta property="og:url" content="https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/index.html"><meta property="og:site_name" content="我的博客"><meta property="og:description" content="Claude Code Router 项目完整分析报告生成时间：2025-12-26分析工具：Claude Code v2.0.27模型：GLM-4.6  目录 项目概述 技术架构 项目结构 核心功能 配置系统 工作流程 关键特性 安全特性 性能优化 扩展性 项目亮点 潜在改进点 DeepSeek"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="寒霜"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="Claude Code Router 项目完整分析报告生成时间：2025-12-26分析工具：Claude Code v2.0.27模型：GLM-4.6  目录 项目概述 技术架构 项目结构 核心功能 配置系统 工作流程 关键特性 安全特性 性能优化 扩展性 项目亮点 潜在改进点 DeepSeek"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的博客',
+  title: 'Claude Code Router完全分析',
+  postAI: '',
+  pageFillDescription: 'Claude Code Router 项目完整分析报告, 目录, 一、项目概述, 1.1 项目简介, 1.2 核心价值主张, 1.3 基本信息, 二、技术架构, 2.1 技术栈, 2.2 核心依赖关系, 三、项目结构, 四、核心功能, 4.1 智能路由系统 (src/utils/router.ts), 路由决策优先级, Token 计算逻辑, 项目特定配置, 4.2 Transformer 系统, 内置转换器列表, 转换器配置层次, 4.3 Agent 系统 (src/agents/), 4.4 缓存系统, 五、配置系统, 5.1 配置文件位置, 5.2 关键配置项, 5.3 环境变量插值, 六、工作流程, 6.1 请求处理流程, 6.2 CLI 命令流程, 七、关键特性, 7.1 多提供商支持, 7.2 动态模型切换, 7.3 项目级配置, 7.4 自定义路由, 7.5 Web UI, 7.6 GitHub Actions 集成, 八、安全特性, 九、性能优化, 十、扩展性, 10.1 插件系统, 10.2 配置层次, 十一、项目亮点, 十二、潜在改进点, 十三、DeepSeek 集成指南, 13.1 需求说明, 13.2 支持情况, 13.3 实现步骤, 步骤 1：安装必要工具, 步骤 2：配置文件设置, 步骤 3：启动服务, 步骤 4：使用 Claude Code, 13.4 DeepSeek Transformer 工作原理, 请求转换（Claude → DeepSeek）, 响应转换（DeepSeek → Claude）, 13.5 功能对比表, 13.6 成本对比, 13.7 高级配置（可选）, 13.8 使用示例, 13.9 额外优势, 十四、总结, 14.1 项目评价, 14.2 核心价值, 14.3 适用场景, 14.4 最终结论, 附录, A. 快速参考命令, B. 配置文件路径, C. 日志文件路径, D. 有用的资源项目完整分析报告生成时间分析工具模型目录项目概述技术架构项目结构核心功能配置系统工作流程关键特性安全特性性能优化扩展性项目亮点潜在改进点集成指南总结一项目概述项目简介是一个功能强大的中间件路由器允许用户在不使用账户的情况下使用并将请求路由到其他大语言模型提供商核心价值主张降低使用成本可以使用更便宜的模型提供商如价格远低于提供灵活性支持多种提供商和自定义路由规则保持兼容性完全兼容的使用方式透明转换自动处理请求响应格式转换基本信息项目名称当前版本开源协议作者语言二技术架构技术栈核心框架基于构建工具包管理器计算编码交互缓存系统配置解析核心依赖关系核心服务器框架服务器计数交互式会话缓存唯一标识符生成配置解析三项目结构入口处理所有命令服务器初始化服务器工厂函数常量定义系统图像处理管理类型定义认证中间件核心工具集路由逻辑关键缓存代码命令处理进程管理个工具文件构建脚本构建输出四核心功能智能路由系统这是项目的核心实现了多层次的模型选择逻辑路由决策优先级直接指定模型格式示例长上下文模型默认阈值可配置模型通过特殊标签指定标签格式后台任务模型检测模型自动切换模型检测到工具优先级高于模型思考模型模式用于推理密集型任务默认模型兜底选项计算逻辑使用的编码计算消息系统提示和工具定义的总数支持长上下文阈值检测默认项目特定配置通过查找对应项目支持项目级和会话级配置覆盖使用缓存优化项目查找性能系统实现了请求响应转换器适配不同提供商的差异内置转换器列表转换器功能描述保留原始格式适配适配适配适配工具使用优化设置最大限制处理推理内容字段增强工具调用容错性清除字段处理采样参数等转换器配置层次全局转换器模型特定转换器选项化转换器示例配置全局模型特定选项化系统可扩展架构支持自定义图像处理图像相关任务类型安全类型定义缓存系统缓存限制个条目会话跟踪记录每个的使用情况性能优化避免重复的项目文件系统查找五配置系统配置文件位置关键配置项服务器配置日志配置路由配置提供商配置自定义路由环境变量插值环境变量插值支持在配置中使用环境变量六工作流程请求处理流程命令本地服务认证中间件计数路由决策选择提供商和模型应用转换器发送到提供商接收响应反向转换返回给命令流程启动后台服务停止服务重启服务执行命令交互式模型选择打开检查服务状态设置环境变量七关键特性多提供商支持支持以下提供商聚合多个模型高性价比中文模型本地模型部署的模型火山引擎硅基流动月之暗面微软魔搭社区阿里云通义千问混合平台动态模型切换在中使用命令立即生效无需重启服务示例项目级配置支持每个项目使用不同的模型会话级配置覆盖项目配置通过自动识别项目自定义路由支持编写路由脚本根据内容长度选择模型构建单文件输出中英文双语支持直观的配置管理界面集成支持在中使用模式支持自动化任务调度八安全特性认证可选的请求认证本地绑定无时强制环境变量插值敏感信息不硬编码代理支持可配置代理九性能优化缓存会话和项目查找缓存快速构建流式响应支持实时流式输出并发文件检查并发查找项目会话缓存跟踪使用情况优化路由决策十扩展性插件系统自定义转换器加载外部文件自定义路由器编写复杂路由逻辑扩展添加新的类型配置层次全局配置项目配置会话配置运行时切换十一项目亮点架构设计清晰职责分离明确易于维护类型安全全面使用用户友好配置文件多种管理方式高度可配置支持多层次的配置覆盖性能优化缓存并发处理等生态丰富支持众多提供商文档完善配置示例博客文章十二潜在改进点测试覆盖项目说明提到测试被删除应该增加自动化测试错误处理可以增强错误处理和用户友好的错误提示监控指标可以添加使用统计和性能监控配置验证启动时验证配置文件的有效性热重载配置文件修改后自动重载目前需要重启增强添加实时日志查看使用统计图表等十三集成指南需求说明将的上下文转换为格式同时将返回的数据转换回格式方便使用支持情况完全支持这正是的核心功能实现步骤步骤安装必要工具安装安装步骤配置文件设置创建配置文件步骤启动服务启动路由器服务验证服务状态步骤使用方式一使用命令帮我分析这个项目方式二激活环境变量后直接使用命令激活环境变量然后直接使用帮我重构这个函数工作原理请求转换格式转换为格式响应转换格式转换为格式功能对比表功能支持文本生成自动转换工具调用流式输出自动转换系统提示自动转换长上下文支持思考模式成本对比模型输入价格输出价格节省比例约约高级配置可选如果需要更精细的控制可以创建自定义路由器文件简单任务用快速复杂任务用深度思考在中添加你的用户名使用示例启动服务在项目中使用帮我重构这个组件或激活后直接使用分析这个项目的架构动态切换模型额外优势成本节省比便宜约无缝集成的所有功能都能正常使用工具调用支持确保工具调用正常流式输出实时响应体验灵活切换可以在不同模型间切换十四总结项目评价是一个设计精良功能强大高度可扩展的路由中间件它成功地解决了对的依赖问题为用户提供了更多的选择和灵活性核心价值降低成本支持更便宜的模型提供商提升灵活性多提供商多模型选择保持兼容完全兼容透明转换自动处理格式转换易于扩展插件化架构适用场景希望降低编程成本的团队使用等低成本模型节省约的成本需要多模型切换的开发者根据任务复杂度选择不同模型简单任务用快速模型复杂任务用强大模型有特定合规要求的企业使用本地模型数据不出本地网络希望优化工作流程的高级用户自定义路由规则项目级配置管理自动化集成离峰时段任务调度最终结论这是一个优秀的开源项目范例代码结构清晰文档完善功能实用社区活跃持续迭代强烈推荐给所有使用的开发者尝试附录快速参考命令服务管理启动服务停止服务重启服务查看状态使用执行命令选择模型打开激活环境变量运行时切换模型在中切换配置文件路径平台配置文件路径用户名项目级项目名会话级项目名日志文件路径日志类型路径服务器日志应用日志有用的资源仓库包社区赞助支持支付宝微信支付报告生成完毕本报告涵盖了项目的全面分析包括技术架构核心功能配置指南以及集成的详细说明希望这份报告对您有所帮助',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-29 18:57:24',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">我的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 1.05rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 1.05rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 1.05rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 1.05rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 1.05rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 1.05rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 1.05rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 1.05rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 1.05rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 1.05rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 1.05rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 1.05rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 1.05rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 1.05rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 1.05rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 1.05rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1.05rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 1.05rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 1.05rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 1.05rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 1.05rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 1.05rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 1.05rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 1.05rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1.05rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 1.05rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 1.05rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.05rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 1.05rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 1.05rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 1.05rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 1.05rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 1.05rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAI/" itemprop="url">大模型与AI</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/claude-code/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>claude-code</span></a><a class="article-meta__tags" href="/tags/router/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>router</span></a><a class="article-meta__tags" href="/tags/deepseek/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>deepseek</span></a><a class="article-meta__tags" href="/tags/llm/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>llm</span></a><a class="article-meta__tags" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>中间件</span></a><a class="article-meta__tags" href="/tags/%E5%88%86%E6%9E%90/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>分析</span></a><a class="article-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>架构</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Claude Code Router完全分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-11-22T16:00:00.000Z" title="发表于 2025-11-23 00:00:00">2025-11-23</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-12-29T10:57:24.450Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/"><header><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAI/" itemprop="url">大模型与AI</a><a href="/tags/claude-code/" tabindex="-1" itemprop="url">claude-code</a><a href="/tags/router/" tabindex="-1" itemprop="url">router</a><a href="/tags/deepseek/" tabindex="-1" itemprop="url">deepseek</a><a href="/tags/llm/" tabindex="-1" itemprop="url">llm</a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" tabindex="-1" itemprop="url">中间件</a><a href="/tags/%E5%88%86%E6%9E%90/" tabindex="-1" itemprop="url">分析</a><a href="/tags/%E6%9E%B6%E6%9E%84/" tabindex="-1" itemprop="url">架构</a><h1 id="CrawlerTitle" itemprop="name headline">Claude Code Router完全分析</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">寒霜</span><time itemprop="dateCreated datePublished" datetime="2025-11-22T16:00:00.000Z" title="发表于 2025-11-23 00:00:00">2025-11-23</time><time itemprop="dateCreated datePublished" datetime="2025-12-29T10:57:24.450Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></header><h1 id="Claude-Code-Router-项目完整分析报告"><a href="#Claude-Code-Router-项目完整分析报告" class="headerlink" title="Claude Code Router 项目完整分析报告"></a>Claude Code Router 项目完整分析报告</h1><p>生成时间：2025-12-26<br>分析工具：Claude Code v2.0.27<br>模型：GLM-4.6</p>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E4%B8%80%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0">项目概述</a></li>
+<li><a href="#%E4%BA%8C%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84">技术架构</a></li>
+<li><a href="#%E4%B8%89%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">项目结构</a></li>
+<li><a href="#%E5%9B%9B%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD">核心功能</a></li>
+<li><a href="#%E4%BA%94%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F">配置系统</a></li>
+<li><a href="#%E5%85%AD%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">工作流程</a></li>
+<li><a href="#%E4%B8%83%E5%85%B3%E9%94%AE%E7%89%B9%E6%80%A7">关键特性</a></li>
+<li><a href="#%E5%85%AB%E5%AE%89%E5%85%A8%E7%89%B9%E6%80%A7">安全特性</a></li>
+<li><a href="#%E4%B9%9D%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</a></li>
+<li><a href="#%E5%8D%81%E6%89%A9%E5%B1%95%E6%80%A7">扩展性</a></li>
+<li><a href="#%E5%8D%81%E4%B8%80%E9%A1%B9%E7%9B%AE%E4%BA%AE%E7%82%B9">项目亮点</a></li>
+<li><a href="#%E5%8D%81%E4%BA%8C%E6%BD%9C%E5%9C%A8%E6%94%B9%E8%BF%9B%E7%82%B9">潜在改进点</a></li>
+<li><a href="#%E5%8D%81%E4%B8%89deepseek-%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97">DeepSeek 集成指南</a></li>
+<li><a href="#%E5%8D%81%E5%9B%9B%E6%80%BB%E7%BB%93">总结</a></li>
+</ol>
+<hr>
+<h2 id="一、项目概述"><a href="#一、项目概述" class="headerlink" title="一、项目概述"></a>一、项目概述</h2><h3 id="1-1-项目简介"><a href="#1-1-项目简介" class="headerlink" title="1.1 项目简介"></a>1.1 项目简介</h3><p><strong>Claude Code Router</strong> 是一个功能强大的中间件路由器，允许用户在不使用 Anthropic 账户的情况下使用 Claude Code，并将请求路由到其他大语言模型提供商。</p>
+<h3 id="1-2-核心价值主张"><a href="#1-2-核心价值主张" class="headerlink" title="1.2 核心价值主张"></a>1.2 核心价值主张</h3><ul>
+<li><strong>降低使用成本</strong>：可以使用更便宜的模型提供商（如 DeepSeek 价格远低于 Claude）</li>
+<li><strong>提供灵活性</strong>：支持多种 LLM 提供商和自定义路由规则</li>
+<li><strong>保持兼容性</strong>：完全兼容 Claude Code 的使用方式</li>
+<li><strong>透明转换</strong>：自动处理请求/响应格式转换</li>
+</ul>
+<h3 id="1-3-基本信息"><a href="#1-3-基本信息" class="headerlink" title="1.3 基本信息"></a>1.3 基本信息</h3><ul>
+<li><strong>项目名称</strong>：@musistudio/claude-code-router</li>
+<li><strong>当前版本</strong>：1.0.73</li>
+<li><strong>开源协议</strong>：MIT</li>
+<li><strong>作者</strong>：musistudio</li>
+<li><strong>语言</strong>：TypeScript (ES2022)</li>
+</ul>
+<hr>
+<h2 id="二、技术架构"><a href="#二、技术架构" class="headerlink" title="二、技术架构"></a>二、技术架构</h2><h3 id="2-1-技术栈"><a href="#2-1-技术栈" class="headerlink" title="2.1 技术栈"></a>2.1 技术栈</h3><pre class="line-numbers language-none"><code class="language-none">核心框架：@musistudio&#x2F;llms (基于 Fastify)
+构建工具：esbuild
+包管理器：npm
+Token计算：tiktoken (cl100k_base 编码)
+交互CLI：@inquirer&#x2F;prompts
+缓存系统：lru-cache
+配置解析：json5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-2-核心依赖关系"><a href="#2-2-核心依赖关系" class="headerlink" title="2.2 核心依赖关系"></a>2.2 核心依赖关系</h3><pre class="line-numbers language-none"><code class="language-none">claude-code-router
+├── @musistudio&#x2F;llms (核心 LLM 服务器框架)
+│   └── Fastify (Web 服务器)
+├── tiktoken (Token 计数)
+├── @inquirer&#x2F;prompts (交互式 CLI)
+├── lru-cache (会话缓存)
+├── uuid (唯一标识符生成)
+└── json5 (配置解析)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="三、项目结构"><a href="#三、项目结构" class="headerlink" title="三、项目结构"></a>三、项目结构</h2><pre class="line-numbers language-none"><code class="language-none">claude-code-router&#x2F;
+├── src&#x2F;
+│   ├── cli.ts              # CLI 入口，处理所有命令
+│   ├── index.ts            # 服务器初始化
+│   ├── server.ts           # 服务器工厂函数
+│   ├── constants.ts        # 常量定义
+│   ├── agents&#x2F;             # Agent 系统
+│   │   ├── image.agent.ts  # 图像处理 Agent
+│   │   ├── index.ts        # Agent 管理
+│   │   └── type.ts         # 类型定义
+│   ├── middleware&#x2F;
+│   │   └── auth.ts         # API 认证中间件
+│   └── utils&#x2F;              # 核心工具集
+│       ├── router.ts       # 路由逻辑 (关键)
+│       ├── cache.ts        # LRU 缓存
+│       ├── codeCommand.ts  # 代码命令处理
+│       ├── processCheck.ts # 进程管理
+│       └── ... (14个工具文件)
+├── ui&#x2F;                     # React Web UI (Vite)
+├── scripts&#x2F;                # 构建脚本
+├── dist&#x2F;                   # 构建输出
+└── package.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="四、核心功能"><a href="#四、核心功能" class="headerlink" title="四、核心功能"></a>四、核心功能</h2><h3 id="4-1-智能路由系统-src-utils-router-ts"><a href="#4-1-智能路由系统-src-utils-router-ts" class="headerlink" title="4.1 智能路由系统 (src/utils/router.ts)"></a>4.1 智能路由系统 (src/utils/router.ts)</h3><p>这是项目的核心，实现了多层次的模型选择逻辑：</p>
+<h4 id="路由决策优先级"><a href="#路由决策优先级" class="headerlink" title="路由决策优先级"></a>路由决策优先级</h4><ol>
+<li><p><strong>直接指定模型</strong> (provider,model 格式)</p>
+<ul>
+<li>示例：<code>deepseek,deepseek-chat</code></li>
+</ul>
+</li>
+<li><p><strong>长上下文模型</strong> (tokenCount &gt; 60000)</p>
+<ul>
+<li>默认阈值：60000 tokens</li>
+<li>可配置：<code>longContextThreshold</code></li>
+</ul>
+</li>
+<li><p><strong>Subagent 模型</strong> (通过特殊标签指定)</p>
+<ul>
+<li>标签格式：<code>&lt;CCR-SUBAGENT-MODEL&gt;provider,model&lt;/CCR-SUBAGENT-MODEL&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>后台任务模型</strong> (Claude Haiku)</p>
+<ul>
+<li>检测 Haiku 模型自动切换</li>
+</ul>
+</li>
+<li><p><strong>WebSearch 模型</strong> (检测到 web_search 工具)</p>
+<ul>
+<li>优先级高于 thinking 模型</li>
+</ul>
+</li>
+<li><p><strong>思考模型</strong> (thinking 模式)</p>
+<ul>
+<li>用于推理密集型任务</li>
+</ul>
+</li>
+<li><p><strong>默认模型</strong></p>
+<ul>
+<li>兜底选项</li>
+</ul>
+</li>
+</ol>
+<h4 id="Token-计算逻辑"><a href="#Token-计算逻辑" class="headerlink" title="Token 计算逻辑"></a>Token 计算逻辑</h4><ul>
+<li>使用 <code>tiktoken</code> 的 cl100k_base 编码</li>
+<li>计算消息、系统提示和工具定义的总 token 数</li>
+<li>支持长上下文阈值检测（默认 60000 tokens）</li>
+</ul>
+<h4 id="项目特定配置"><a href="#项目特定配置" class="headerlink" title="项目特定配置"></a>项目特定配置</h4><ul>
+<li>通过 sessionId 查找对应项目</li>
+<li>支持项目级和会话级配置覆盖</li>
+<li>使用 LRU 缓存优化项目查找性能</li>
+</ul>
+<h3 id="4-2-Transformer-系统"><a href="#4-2-Transformer-系统" class="headerlink" title="4.2 Transformer 系统"></a>4.2 Transformer 系统</h3><p>实现了请求/响应转换器，适配不同提供商的 API 差异：</p>
+<h4 id="内置转换器列表"><a href="#内置转换器列表" class="headerlink" title="内置转换器列表"></a>内置转换器列表</h4><table>
+<thead>
+<tr>
+<th>转换器</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Anthropic</code></td>
+<td>保留原始 Anthropic 格式</td>
+</tr>
+<tr>
+<td><code>deepseek</code></td>
+<td>DeepSeek API 适配</td>
+</tr>
+<tr>
+<td><code>gemini</code></td>
+<td>Gemini API 适配</td>
+</tr>
+<tr>
+<td><code>openrouter</code></td>
+<td>OpenRouter API 适配</td>
+</tr>
+<tr>
+<td><code>groq</code></td>
+<td>Groq API 适配</td>
+</tr>
+<tr>
+<td><code>tooluse</code></td>
+<td>工具使用优化</td>
+</tr>
+<tr>
+<td><code>maxtoken</code></td>
+<td>设置最大 token 限制</td>
+</tr>
+<tr>
+<td><code>reasoning</code></td>
+<td>处理推理内容字段</td>
+</tr>
+<tr>
+<td><code>enhancetool</code></td>
+<td>增强工具调用容错性</td>
+</tr>
+<tr>
+<td><code>cleancache</code></td>
+<td>清除 cache_control 字段</td>
+</tr>
+<tr>
+<td><code>sampling</code></td>
+<td>处理采样参数（temperature、top_p 等）</td>
+</tr>
+</tbody></table>
+<h4 id="转换器配置层次"><a href="#转换器配置层次" class="headerlink" title="转换器配置层次"></a>转换器配置层次</h4><pre class="line-numbers language-none"><code class="language-none">全局转换器 → 模型特定转换器 → 选项化转换器<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>示例配置</strong>：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"transformer"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"use"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"deepseek"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>           <span class="token comment">// 全局</span>
+    <span class="token property">"deepseek-chat"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>             <span class="token comment">// 模型特定</span>
+      <span class="token property">"use"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"tooluse"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"deepseek-reasoner"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"use"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">"maxtoken"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>             <span class="token comment">// 选项化</span>
+          <span class="token property">"max_tokens"</span><span class="token operator">:</span> <span class="token number">8192</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-3-Agent-系统-src-agents"><a href="#4-3-Agent-系统-src-agents" class="headerlink" title="4.3 Agent 系统 (src/agents/)"></a>4.3 Agent 系统 (src/agents/)</h3><ul>
+<li><strong>可扩展架构</strong>：支持自定义 agent</li>
+<li><strong>图像 Agent</strong>：处理图像相关任务</li>
+<li><strong>类型安全</strong>：TypeScript 类型定义</li>
+</ul>
+<h3 id="4-4-缓存系统"><a href="#4-4-缓存系统" class="headerlink" title="4.4 缓存系统"></a>4.4 缓存系统</h3><ul>
+<li><strong>LRU 缓存</strong>：限制 1000 个条目</li>
+<li><strong>会话跟踪</strong>：记录每个 sessionId 的使用情况</li>
+<li><strong>性能优化</strong>：避免重复的项目文件系统查找</li>
+</ul>
+<hr>
+<h2 id="五、配置系统"><a href="#五、配置系统" class="headerlink" title="五、配置系统"></a>五、配置系统</h2><h3 id="5-1-配置文件位置"><a href="#5-1-配置文件位置" class="headerlink" title="5.1 配置文件位置"></a>5.1 配置文件位置</h3><pre class="line-numbers language-none"><code class="language-none">~&#x2F;.claude-code-router&#x2F;config.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="5-2-关键配置项"><a href="#5-2-关键配置项" class="headerlink" title="5.2 关键配置项"></a>5.2 关键配置项</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token comment">// 服务器配置</span>
+  <span class="token property">"HOST"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+  <span class="token property">"PORT"</span><span class="token operator">:</span> <span class="token number">3456</span><span class="token punctuation">,</span>
+  <span class="token property">"APIKEY"</span><span class="token operator">:</span> <span class="token string">"your-secret-key"</span><span class="token punctuation">,</span>
+  <span class="token property">"API_TIMEOUT_MS"</span><span class="token operator">:</span> <span class="token number">600000</span><span class="token punctuation">,</span>
+  <span class="token property">"PROXY_URL"</span><span class="token operator">:</span> <span class="token string">"http://127.0.0.1:7890"</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 日志配置</span>
+  <span class="token property">"LOG"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"LOG_LEVEL"</span><span class="token operator">:</span> <span class="token string">"debug"</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 路由配置</span>
+  <span class="token property">"Router"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"default"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span><span class="token punctuation">,</span>
+    <span class="token property">"background"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span><span class="token punctuation">,</span>
+    <span class="token property">"think"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span><span class="token punctuation">,</span>
+    <span class="token property">"longContext"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span><span class="token punctuation">,</span>
+    <span class="token property">"longContextThreshold"</span><span class="token operator">:</span> <span class="token number">60000</span><span class="token punctuation">,</span>
+    <span class="token property">"webSearch"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span><span class="token punctuation">,</span>
+    <span class="token property">"image"</span><span class="token operator">:</span> <span class="token string">"provider,model"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 提供商配置</span>
+  <span class="token property">"Providers"</span><span class="token operator">:</span> <span class="token punctuation">[</span>...<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 自定义路由</span>
+  <span class="token property">"CUSTOM_ROUTER_PATH"</span><span class="token operator">:</span> <span class="token string">"/path/to/router.js"</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 环境变量插值</span>
+  <span class="token property">"OPENAI_API_KEY"</span><span class="token operator">:</span> <span class="token string">"$OPENAI_API_KEY"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-3-环境变量插值"><a href="#5-3-环境变量插值" class="headerlink" title="5.3 环境变量插值"></a>5.3 环境变量插值</h3><p>支持在配置中使用环境变量：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"Providers"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"deepseek"</span><span class="token punctuation">,</span>
+      <span class="token property">"api_key"</span><span class="token operator">:</span> <span class="token string">"$DEEPSEEK_API_KEY"</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="六、工作流程"><a href="#六、工作流程" class="headerlink" title="六、工作流程"></a>六、工作流程</h2><h3 id="6-1-请求处理流程"><a href="#6-1-请求处理流程" class="headerlink" title="6.1 请求处理流程"></a>6.1 请求处理流程</h3><pre class="line-numbers language-none"><code class="language-none">Claude Code CLI
+    ↓
+ccr code 命令
+    ↓
+本地服务 (localhost:3456)
+    ↓
+认证中间件 (auth.ts)
+    ↓
+Token 计数 (router.ts)
+    ↓
+路由决策 (router.ts)
+    ↓
+选择提供商和模型
+    ↓
+应用转换器 (Transformer)
+    ↓
+发送到 LLM 提供商
+    ↓
+接收响应
+    ↓
+反向转换
+    ↓
+返回给 Claude Code CLI<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-2-CLI-命令流程"><a href="#6-2-CLI-命令流程" class="headerlink" title="6.2 CLI 命令流程"></a>6.2 CLI 命令流程</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ccr start    <span class="token comment"># 启动后台服务 (src/index.ts)</span>
+ccr stop     <span class="token comment"># 停止服务</span>
+ccr restart  <span class="token comment"># 重启服务</span>
+ccr code     <span class="token comment"># 执行 Claude Code 命令</span>
+ccr model    <span class="token comment"># 交互式模型选择</span>
+ccr ui       <span class="token comment"># 打开 Web UI</span>
+ccr status   <span class="token comment"># 检查服务状态</span>
+ccr activate <span class="token comment"># 设置环境变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="七、关键特性"><a href="#七、关键特性" class="headerlink" title="七、关键特性"></a>七、关键特性</h2><h3 id="7-1-多提供商支持"><a href="#7-1-多提供商支持" class="headerlink" title="7.1 多提供商支持"></a>7.1 多提供商支持</h3><p>支持以下 LLM 提供商：</p>
+<ul>
+<li><strong>OpenRouter</strong> - 聚合多个模型</li>
+<li><strong>DeepSeek</strong> - 高性价比中文模型</li>
+<li><strong>Ollama</strong> - 本地模型部署</li>
+<li><strong>Gemini</strong> - Google 的模型</li>
+<li><strong>Volcengine</strong> - 火山引擎</li>
+<li><strong>SiliconFlow</strong> - 硅基流动</li>
+<li><strong>Moonshot (Kimi)</strong> - 月之暗面</li>
+<li><strong>Azure OpenAI</strong> - 微软 Azure</li>
+<li><strong>ModelScope</strong> - 魔搭社区</li>
+<li><strong>Dashscope</strong> - 阿里云通义千问</li>
+<li><strong>AIHubmix</strong> - AI 混合平台</li>
+</ul>
+<h3 id="7-2-动态模型切换"><a href="#7-2-动态模型切换" class="headerlink" title="7.2 动态模型切换"></a>7.2 动态模型切换</h3><ul>
+<li>在 Claude Code 中使用 <code>/model provider,model</code> 命令</li>
+<li>立即生效，无需重启服务</li>
+<li>示例：<code>/model deepseek,deepseek-chat</code></li>
+</ul>
+<h3 id="7-3-项目级配置"><a href="#7-3-项目级配置" class="headerlink" title="7.3 项目级配置"></a>7.3 项目级配置</h3><ul>
+<li>支持每个项目使用不同的模型</li>
+<li>会话级配置覆盖项目配置</li>
+<li>通过 sessionId 自动识别项目</li>
+</ul>
+<h3 id="7-4-自定义路由"><a href="#7-4-自定义路由" class="headerlink" title="7.4 自定义路由"></a>7.4 自定义路由</h3><p>支持编写 JavaScript 路由脚本：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// custom-router.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">router</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> config</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> messages <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>messages <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> lastUserMessage <span class="token operator">=</span> messages<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">m</span> <span class="token operator">=></span> m<span class="token punctuation">.</span>role <span class="token operator">===</span> <span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 根据内容长度选择模型</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lastUserMessage <span class="token operator">&amp;&amp;</span> lastUserMessage<span class="token punctuation">.</span>content<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">"deepseek,deepseek-chat"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">return</span> <span class="token string">"deepseek,deepseek-reasoner"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7-5-Web-UI"><a href="#7-5-Web-UI" class="headerlink" title="7.5 Web UI"></a>7.5 Web UI</h3><ul>
+<li>React + Vite 构建</li>
+<li>单 HTML 文件输出</li>
+<li>中英文双语支持</li>
+<li>直观的配置管理界面</li>
+</ul>
+<h3 id="7-6-GitHub-Actions-集成"><a href="#7-6-GitHub-Actions-集成" class="headerlink" title="7.6 GitHub Actions 集成"></a>7.6 GitHub Actions 集成</h3><ul>
+<li>支持在 CI/CD 中使用</li>
+<li><code>NON_INTERACTIVE_MODE</code> 模式</li>
+<li>支持自动化任务调度</li>
+</ul>
+<hr>
+<h2 id="八、安全特性"><a href="#八、安全特性" class="headerlink" title="八、安全特性"></a>八、安全特性</h2><ol>
+<li><strong>API Key 认证</strong>：可选的请求认证</li>
+<li><strong>本地绑定</strong>：无 API Key 时强制 127.0.0.1</li>
+<li><strong>环境变量插值</strong>：敏感信息不硬编码</li>
+<li><strong>代理支持</strong>：可配置 HTTP 代理</li>
+</ol>
+<hr>
+<h2 id="九、性能优化"><a href="#九、性能优化" class="headerlink" title="九、性能优化"></a>九、性能优化</h2><ol>
+<li><strong>LRU 缓存</strong>：会话和项目查找缓存</li>
+<li><strong>esbuild</strong>：快速构建</li>
+<li><strong>流式响应</strong>：支持实时流式输出</li>
+<li><strong>并发文件检查</strong>：Promise.all 并发查找项目</li>
+<li><strong>会话缓存</strong>：跟踪使用情况优化路由决策</li>
+</ol>
+<hr>
+<h2 id="十、扩展性"><a href="#十、扩展性" class="headerlink" title="十、扩展性"></a>十、扩展性</h2><h3 id="10-1-插件系统"><a href="#10-1-插件系统" class="headerlink" title="10.1 插件系统"></a>10.1 插件系统</h3><ul>
+<li><strong>自定义转换器</strong>：加载外部 JavaScript 文件</li>
+<li><strong>自定义路由器</strong>：编写复杂路由逻辑</li>
+<li><strong>Agent 扩展</strong>：添加新的 Agent 类型</li>
+</ul>
+<h3 id="10-2-配置层次"><a href="#10-2-配置层次" class="headerlink" title="10.2 配置层次"></a>10.2 配置层次</h3><pre class="line-numbers language-none"><code class="language-none">全局配置 → 项目配置 → 会话配置 → 运行时切换<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h2 id="十一、项目亮点"><a href="#十一、项目亮点" class="headerlink" title="十一、项目亮点"></a>十一、项目亮点</h2><ol>
+<li>✅ <strong>架构设计清晰</strong>：职责分离明确，易于维护</li>
+<li>✅ <strong>类型安全</strong>：全面使用 TypeScript</li>
+<li>✅ <strong>用户友好</strong>：CLI、UI、配置文件多种管理方式</li>
+<li>✅ <strong>高度可配置</strong>：支持多层次的配置覆盖</li>
+<li>✅ <strong>性能优化</strong>：LRU 缓存、并发处理等</li>
+<li>✅ <strong>生态丰富</strong>：支持众多 LLM 提供商</li>
+<li>✅ <strong>文档完善</strong>：README、配置示例、博客文章</li>
+</ol>
+<hr>
+<h2 id="十二、潜在改进点"><a href="#十二、潜在改进点" class="headerlink" title="十二、潜在改进点"></a>十二、潜在改进点</h2><ol>
+<li><strong>测试覆盖</strong>：项目说明提到测试被删除，应该增加自动化测试</li>
+<li><strong>错误处理</strong>：可以增强错误处理和用户友好的错误提示</li>
+<li><strong>监控指标</strong>：可以添加使用统计和性能监控</li>
+<li><strong>配置验证</strong>：启动时验证配置文件的有效性</li>
+<li><strong>热重载</strong>：配置文件修改后自动重载（目前需要重启）</li>
+<li><strong>WebUI 增强</strong>：添加实时日志查看、使用统计图表等</li>
+</ol>
+<hr>
+<h2 id="十三、DeepSeek-集成指南"><a href="#十三、DeepSeek-集成指南" class="headerlink" title="十三、DeepSeek 集成指南"></a>十三、DeepSeek 集成指南</h2><h3 id="13-1-需求说明"><a href="#13-1-需求说明" class="headerlink" title="13.1 需求说明"></a>13.1 需求说明</h3><p>将 Claude Code 的上下文转换为 DeepSeek 格式，同时将 DeepSeek 返回的数据转换回 Claude Code 格式，方便使用 Claude Code CLI。</p>
+<h3 id="13-2-支持情况"><a href="#13-2-支持情况" class="headerlink" title="13.2 支持情况"></a>13.2 支持情况</h3><p>✅ <strong>完全支持</strong>！这正是 claude-code-router 的核心功能。</p>
+<h3 id="13-3-实现步骤"><a href="#13-3-实现步骤" class="headerlink" title="13.3 实现步骤"></a>13.3 实现步骤</h3><h4 id="步骤-1：安装必要工具"><a href="#步骤-1：安装必要工具" class="headerlink" title="步骤 1：安装必要工具"></a>步骤 1：安装必要工具</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 Claude Code</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @anthropic-ai/claude-code
+
+<span class="token comment"># 安装 claude-code-router</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @musistudio/claude-code-router<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="步骤-2：配置文件设置"><a href="#步骤-2：配置文件设置" class="headerlink" title="步骤 2：配置文件设置"></a>步骤 2：配置文件设置</h4><p>创建配置文件 <code>~/.claude-code-router/config.json</code>：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"LOG"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"HOST"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+  <span class="token property">"PORT"</span><span class="token operator">:</span> <span class="token number">3456</span><span class="token punctuation">,</span>
+  <span class="token property">"APIKEY"</span><span class="token operator">:</span> <span class="token string">"your-secret-key"</span><span class="token punctuation">,</span>
+  <span class="token property">"API_TIMEOUT_MS"</span><span class="token operator">:</span> <span class="token number">600000</span><span class="token punctuation">,</span>
+
+  <span class="token property">"Providers"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"deepseek"</span><span class="token punctuation">,</span>
+      <span class="token property">"api_base_url"</span><span class="token operator">:</span> <span class="token string">"https://api.deepseek.com/chat/completions"</span><span class="token punctuation">,</span>
+      <span class="token property">"api_key"</span><span class="token operator">:</span> <span class="token string">"sk-your-deepseek-api-key-here"</span><span class="token punctuation">,</span>
+      <span class="token property">"models"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"deepseek-chat"</span><span class="token punctuation">,</span>
+        <span class="token string">"deepseek-reasoner"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"transformer"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"use"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"deepseek"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"deepseek-chat"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"use"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"tooluse"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token property">"Router"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"default"</span><span class="token operator">:</span> <span class="token string">"deepseek,deepseek-chat"</span><span class="token punctuation">,</span>
+    <span class="token property">"background"</span><span class="token operator">:</span> <span class="token string">"deepseek,deepseek-chat"</span><span class="token punctuation">,</span>
+    <span class="token property">"think"</span><span class="token operator">:</span> <span class="token string">"deepseek,deepseek-reasoner"</span><span class="token punctuation">,</span>
+    <span class="token property">"longContext"</span><span class="token operator">:</span> <span class="token string">"deepseek,deepseek-chat"</span><span class="token punctuation">,</span>
+    <span class="token property">"webSearch"</span><span class="token operator">:</span> <span class="token string">"deepseek,deepseek-chat"</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="步骤-3：启动服务"><a href="#步骤-3：启动服务" class="headerlink" title="步骤 3：启动服务"></a>步骤 3：启动服务</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动路由器服务</span>
+ccr start
+
+<span class="token comment"># 验证服务状态</span>
+ccr status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="步骤-4：使用-Claude-Code"><a href="#步骤-4：使用-Claude-Code" class="headerlink" title="步骤 4：使用 Claude Code"></a>步骤 4：使用 Claude Code</h4><p><strong>方式一：使用 ccr code 命令</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ccr code <span class="token string">"帮我分析这个项目"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>方式二：激活环境变量后直接使用 claude 命令</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 激活环境变量</span>
+<span class="token builtin class-name">eval</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>ccr activate<span class="token variable">)</span></span>"</span>
+
+<span class="token comment"># 然后直接使用</span>
+claude <span class="token string">"帮我重构这个函数"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="13-4-DeepSeek-Transformer-工作原理"><a href="#13-4-DeepSeek-Transformer-工作原理" class="headerlink" title="13.4 DeepSeek Transformer 工作原理"></a>13.4 DeepSeek Transformer 工作原理</h3><h4 id="请求转换（Claude-→-DeepSeek）"><a href="#请求转换（Claude-→-DeepSeek）" class="headerlink" title="请求转换（Claude → DeepSeek）"></a>请求转换（Claude → DeepSeek）</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Claude 格式</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"model"</span><span class="token operator">:</span> <span class="token string">"claude-3.5-sonnet"</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"messages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"max_tokens"</span><span class="token operator">:</span> <span class="token number">4096</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"stream"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 转换为 DeepSeek 格式</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"model"</span><span class="token operator">:</span> <span class="token string">"deepseek-chat"</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"messages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"max_tokens"</span><span class="token operator">:</span> <span class="token number">4096</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"stream"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="响应转换（DeepSeek-→-Claude）"><a href="#响应转换（DeepSeek-→-Claude）" class="headerlink" title="响应转换（DeepSeek → Claude）"></a>响应转换（DeepSeek → Claude）</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// DeepSeek 格式</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"choices"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"message"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token string-property property">"role"</span><span class="token operator">:</span> <span class="token string">"assistant"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"content"</span><span class="token operator">:</span> <span class="token string">"..."</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"tool_calls"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"usage"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"prompt_tokens"</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"completion_tokens"</span><span class="token operator">:</span> <span class="token number">200</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 转换为 Claude 格式</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"content_block_delta"</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"delta"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"text"</span><span class="token operator">:</span> <span class="token string">"..."</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"usage"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"input_tokens"</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"output_tokens"</span><span class="token operator">:</span> <span class="token number">200</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="13-5-功能对比表"><a href="#13-5-功能对比表" class="headerlink" title="13.5 功能对比表"></a>13.5 功能对比表</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>Claude API</th>
+<th>DeepSeek API</th>
+<th>Router 支持</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文本生成</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ 自动转换</td>
+</tr>
+<tr>
+<td>工具调用</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ tooluse transformer</td>
+</tr>
+<tr>
+<td>流式输出</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ 自动转换</td>
+</tr>
+<tr>
+<td>系统提示</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ 自动转换</td>
+</tr>
+<tr>
+<td>长上下文</td>
+<td>✅ (200K)</td>
+<td>✅ (128K)</td>
+<td>✅ 支持 128K</td>
+</tr>
+<tr>
+<td>思考模式</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ deepseek-reasoner</td>
+</tr>
+</tbody></table>
+<h3 id="13-6-成本对比"><a href="#13-6-成本对比" class="headerlink" title="13.6 成本对比"></a>13.6 成本对比</h3><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>输入价格</th>
+<th>输出价格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Sonnet 3.5</td>
+<td>$3/1M tokens</td>
+<td>$15/1M tokens</td>
+</tr>
+<tr>
+<td>DeepSeek Chat</td>
+<td>¥1/1M tokens</td>
+<td>¥2/1M tokens</td>
+</tr>
+<tr>
+<td><strong>节省比例</strong></td>
+<td><strong>约 95%</strong></td>
+<td><strong>约 98%</strong></td>
+</tr>
+</tbody></table>
+<h3 id="13-7-高级配置（可选）"><a href="#13-7-高级配置（可选）" class="headerlink" title="13.7 高级配置（可选）"></a>13.7 高级配置（可选）</h3><p>如果需要更精细的控制，可以创建自定义路由器：</p>
+<p><strong>文件：<code>~/.claude-code-router/custom-router.js</code></strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">router</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> config</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> messages <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>messages <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> lastUserMessage <span class="token operator">=</span> messages<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">m</span> <span class="token operator">=></span> m<span class="token punctuation">.</span>role <span class="token operator">===</span> <span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 简单任务用 deepseek-chat（快速）</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lastUserMessage <span class="token operator">&amp;&amp;</span> lastUserMessage<span class="token punctuation">.</span>content<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">"deepseek,deepseek-chat"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// 复杂任务用 deepseek-reasoner（深度思考）</span>
+  <span class="token keyword">return</span> <span class="token string">"deepseek,deepseek-reasoner"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 <code>config.json</code> 中添加：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"CUSTOM_ROUTER_PATH"</span><span class="token operator">:</span> <span class="token string">"/Users/你的用户名/.claude-code-router/custom-router.js"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="13-8-使用示例"><a href="#13-8-使用示例" class="headerlink" title="13.8 使用示例"></a>13.8 使用示例</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 启动服务</span>
+ccr start
+
+<span class="token comment"># 2. 在项目中使用</span>
+<span class="token builtin class-name">cd</span> /path/to/your/project
+ccr code <span class="token string">"帮我重构这个组件"</span>
+
+<span class="token comment"># 3. 或激活后直接使用</span>
+<span class="token builtin class-name">eval</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>ccr activate<span class="token variable">)</span></span>"</span>
+claude <span class="token string">"分析这个项目的架构"</span>
+
+<span class="token comment"># 4. 动态切换模型</span>
+/model deepseek,deepseek-reasoner<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="13-9-额外优势"><a href="#13-9-额外优势" class="headerlink" title="13.9 额外优势"></a>13.9 额外优势</h3><ol>
+<li><strong>成本节省</strong>：DeepSeek 比 Claude 便宜约 95-98%</li>
+<li><strong>无缝集成</strong>：Claude Code 的所有功能都能正常使用</li>
+<li><strong>工具调用</strong>：支持 <code>tooluse</code> transformer，确保工具调用正常</li>
+<li><strong>流式输出</strong>：实时响应体验</li>
+<li><strong>灵活切换</strong>：可以在不同模型间切换</li>
+</ol>
+<hr>
+<h2 id="十四、总结"><a href="#十四、总结" class="headerlink" title="十四、总结"></a>十四、总结</h2><h3 id="14-1-项目评价"><a href="#14-1-项目评价" class="headerlink" title="14.1 项目评价"></a>14.1 项目评价</h3><p>Claude Code Router 是一个<strong>设计精良、功能强大、高度可扩展</strong>的 LLM 路由中间件。它成功地解决了 Claude Code 对 Anthropic API 的依赖问题，为用户提供了更多的选择和灵活性。</p>
+<h3 id="14-2-核心价值"><a href="#14-2-核心价值" class="headerlink" title="14.2 核心价值"></a>14.2 核心价值</h3><ul>
+<li>✅ <strong>降低成本</strong>：支持更便宜的模型提供商</li>
+<li>✅ <strong>提升灵活性</strong>：多提供商、多模型选择</li>
+<li>✅ <strong>保持兼容</strong>：完全兼容 Claude Code</li>
+<li>✅ <strong>透明转换</strong>：自动处理格式转换</li>
+<li>✅ <strong>易于扩展</strong>：插件化架构</li>
+</ul>
+<h3 id="14-3-适用场景"><a href="#14-3-适用场景" class="headerlink" title="14.3 适用场景"></a>14.3 适用场景</h3><ol>
+<li><p><strong>希望降低 AI 编程成本的团队</strong></p>
+<ul>
+<li>使用 DeepSeek 等低成本模型</li>
+<li>节省约 95-98% 的 API 成本</li>
+</ul>
+</li>
+<li><p><strong>需要多模型切换的开发者</strong></p>
+<ul>
+<li>根据任务复杂度选择不同模型</li>
+<li>简单任务用快速模型，复杂任务用强大模型</li>
+</ul>
+</li>
+<li><p><strong>有特定合规要求的企业</strong></p>
+<ul>
+<li>使用本地模型（Ollama）</li>
+<li>数据不出本地网络</li>
+</ul>
+</li>
+<li><p><strong>希望优化工作流程的高级用户</strong></p>
+<ul>
+<li>自定义路由规则</li>
+<li>项目级配置管理</li>
+</ul>
+</li>
+<li><p><strong>CI/CD 自动化</strong></p>
+<ul>
+<li>GitHub Actions 集成</li>
+<li>离峰时段任务调度</li>
+</ul>
+</li>
+</ol>
+<h3 id="14-4-最终结论"><a href="#14-4-最终结论" class="headerlink" title="14.4 最终结论"></a>14.4 最终结论</h3><p>这是一个<strong>优秀的开源项目范例</strong>：</p>
+<ul>
+<li>代码结构清晰</li>
+<li>文档完善</li>
+<li>功能实用</li>
+<li>社区活跃</li>
+<li>持续迭代</li>
+</ul>
+<p><strong>强烈推荐</strong>给所有使用 Claude Code 的开发者尝试！</p>
+<hr>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="A-快速参考命令"><a href="#A-快速参考命令" class="headerlink" title="A. 快速参考命令"></a>A. 快速参考命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 服务管理</span>
+ccr start      <span class="token comment"># 启动服务</span>
+ccr stop       <span class="token comment"># 停止服务</span>
+ccr restart    <span class="token comment"># 重启服务</span>
+ccr status     <span class="token comment"># 查看状态</span>
+
+<span class="token comment"># 使用 Claude Code</span>
+ccr code <span class="token string">"prompt"</span>           <span class="token comment"># 执行命令</span>
+ccr model                   <span class="token comment"># 选择模型</span>
+ccr ui                      <span class="token comment"># 打开 UI</span>
+<span class="token builtin class-name">eval</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>ccr activate<span class="token variable">)</span></span>"</span>      <span class="token comment"># 激活环境变量</span>
+
+<span class="token comment"># 运行时切换模型</span>
+/model provider,model       <span class="token comment"># 在 Claude Code 中切换</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="B-配置文件路径"><a href="#B-配置文件路径" class="headerlink" title="B. 配置文件路径"></a>B. 配置文件路径</h3><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>配置文件路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows</td>
+<td><code>C:\Users\用户名\.claude-code-router\config.json</code></td>
+</tr>
+<tr>
+<td>macOS/Linux</td>
+<td><code>~/.claude-code-router/config.json</code></td>
+</tr>
+<tr>
+<td>项目级</td>
+<td><code>~/.claude-code-router/项目名/config.json</code></td>
+</tr>
+<tr>
+<td>会话级</td>
+<td><code>~/.claude-code-router/项目名/sessionId.json</code></td>
+</tr>
+</tbody></table>
+<h3 id="C-日志文件路径"><a href="#C-日志文件路径" class="headerlink" title="C. 日志文件路径"></a>C. 日志文件路径</h3><table>
+<thead>
+<tr>
+<th>日志类型</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务器日志</td>
+<td><code>~/.claude-code-router/logs/ccr-*.log</code></td>
+</tr>
+<tr>
+<td>应用日志</td>
+<td><code>~/.claude-code-router/claude-code-router.log</code></td>
+</tr>
+</tbody></table>
+<h3 id="D-有用的资源"><a href="#D-有用的资源" class="headerlink" title="D. 有用的资源"></a>D. 有用的资源</h3><ul>
+<li><strong>GitHub 仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/musistudio/claude-code-router">https://github.com/musistudio/claude-code-router</a></li>
+<li><strong>NPM 包</strong>：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@musistudio/claude-code-router">https://www.npmjs.com/package/@musistudio/claude-code-router</a></li>
+<li><strong>Discord 社区</strong>：<a target="_blank" rel="noopener" href="https://discord.gg/rdftVMaUcS">https://discord.gg/rdftVMaUcS</a></li>
+<li><strong>赞助支持</strong>：Ko-fi、PayPal、支付宝、微信支付</li>
+</ul>
+<hr>
+<p><strong>报告生成完毕</strong> 📝</p>
+<p>本报告涵盖了 Claude Code Router 项目的全面分析，包括技术架构、核心功能、配置指南以及 DeepSeek 集成的详细说明。希望这份报告对您有所帮助！</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">寒霜</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/')">Claude Code Router完全分析</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Claude Code Router完全分析&amp;url=https://hanshuang-ai.github.io/2025/11/23/claude-code-router-wan-quan-fen-xi/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hanshuang-ai.github.io" target="_blank">我的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/claude-code/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>claude-code<span class="tagsPageCount">17</span></a><a class="post-meta__box__tags" href="/tags/router/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>router<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/deepseek/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>deepseek<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/llm/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>llm<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>中间件<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%88%86%E6%9E%90/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>分析<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E6%9E%B6%E6%9E%84/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>架构<span class="tagsPageCount">8</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/11/18/claude-code-todoread-ti-shi-ci/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">claude-code TodoRead提示词</div></div></a></div><div class="next-post pull-right"><a href="/2025/12/03/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">claude-code文件编辑-AI辅助的代码修改</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/12/20/claude-codellm-shi-jiao-shi-ji-jie-shou-zhi-ling-de-gan-jue/" title="claude-codeLLM视角-实际接收指令的感觉"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-codeLLM视角-实际接收指令的感觉</div></div></a></div><div><a href="/2025/10/31/claude-code-ji-chu-jia-gou/" title="claude-code基础架构"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code基础架构</div></div></a></div><div><a href="/2025/12/12/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code工具与执行引擎</div></div></a></div><div><a href="/2025/12/16/claude-code-kong-zhi-liu-yu-bian-pai-yin-qing/" title="claude-code控制流与编排引擎"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code控制流与编排引擎</div></div></a></div><div><a href="/2025/11/06/claude-code-shu-ju-jie-gou-yu-xiao-xi-jia-gou/" title="claude-code数据结构与消息架构"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code数据结构与消息架构</div></div></a></div><div><a href="/2025/12/13/claude-code-jia-gou-yin-qing-shi/" title="claude-code架构-引擎室"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code架构-引擎室</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Claude-Code-Router-%E9%A1%B9%E7%9B%AE%E5%AE%8C%E6%95%B4%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A"><span class="toc-number">1.</span> <span class="toc-text">Claude Code Router 项目完整分析报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.</span> <span class="toc-text">一、项目概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 项目简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC%E4%B8%BB%E5%BC%A0"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 核心价值主张</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 基本信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">二、技术架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 技术栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%A0%B8%E5%BF%83%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 核心依赖关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">三、项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-number">1.5.</span> <span class="toc-text">四、核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%99%BA%E8%83%BD%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F-src-utils-router-ts"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 智能路由系统 (src&#x2F;utils&#x2F;router.ts)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%86%B3%E7%AD%96%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">路由决策优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Token-%E8%AE%A1%E7%AE%97%E9%80%BB%E8%BE%91"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">Token 计算逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%89%B9%E5%AE%9A%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">项目特定配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Transformer-%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 Transformer 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E8%BD%AC%E6%8D%A2%E5%99%A8%E5%88%97%E8%A1%A8"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">内置转换器列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E5%99%A8%E9%85%8D%E7%BD%AE%E5%B1%82%E6%AC%A1"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">转换器配置层次</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Agent-%E7%B3%BB%E7%BB%9F-src-agents"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 Agent 系统 (src&#x2F;agents&#x2F;)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%BC%93%E5%AD%98%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 缓存系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.</span> <span class="toc-text">五、配置系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 配置文件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 关键配置项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 环境变量插值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.7.</span> <span class="toc-text">六、工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.7.1.</span> <span class="toc-text">6.1 请求处理流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-CLI-%E5%91%BD%E4%BB%A4%E6%B5%81%E7%A8%8B"><span class="toc-number">1.7.2.</span> <span class="toc-text">6.2 CLI 命令流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%85%B3%E9%94%AE%E7%89%B9%E6%80%A7"><span class="toc-number">1.8.</span> <span class="toc-text">七、关键特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%A4%9A%E6%8F%90%E4%BE%9B%E5%95%86%E6%94%AF%E6%8C%81"><span class="toc-number">1.8.1.</span> <span class="toc-text">7.1 多提供商支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B%E5%88%87%E6%8D%A2"><span class="toc-number">1.8.2.</span> <span class="toc-text">7.2 动态模型切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E9%A1%B9%E7%9B%AE%E7%BA%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">1.8.3.</span> <span class="toc-text">7.3 项目级配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1"><span class="toc-number">1.8.4.</span> <span class="toc-text">7.4 自定义路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-Web-UI"><span class="toc-number">1.8.5.</span> <span class="toc-text">7.5 Web UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-GitHub-Actions-%E9%9B%86%E6%88%90"><span class="toc-number">1.8.6.</span> <span class="toc-text">7.6 GitHub Actions 集成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%AE%89%E5%85%A8%E7%89%B9%E6%80%A7"><span class="toc-number">1.9.</span> <span class="toc-text">八、安全特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">1.10.</span> <span class="toc-text">九、性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%89%A9%E5%B1%95%E6%80%A7"><span class="toc-number">1.11.</span> <span class="toc-text">十、扩展性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.11.1.</span> <span class="toc-text">10.1 插件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E9%85%8D%E7%BD%AE%E5%B1%82%E6%AC%A1"><span class="toc-number">1.11.2.</span> <span class="toc-text">10.2 配置层次</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E4%BA%AE%E7%82%B9"><span class="toc-number">1.12.</span> <span class="toc-text">十一、项目亮点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%BD%9C%E5%9C%A8%E6%94%B9%E8%BF%9B%E7%82%B9"><span class="toc-number">1.13.</span> <span class="toc-text">十二、潜在改进点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81DeepSeek-%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97"><span class="toc-number">1.14.</span> <span class="toc-text">十三、DeepSeek 集成指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-1-%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E"><span class="toc-number">1.14.1.</span> <span class="toc-text">13.1 需求说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-2-%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5"><span class="toc-number">1.14.2.</span> <span class="toc-text">13.2 支持情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-3-%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.14.3.</span> <span class="toc-text">13.3 实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E5%B7%A5%E5%85%B7"><span class="toc-number">1.14.3.1.</span> <span class="toc-text">步骤 1：安装必要工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.14.3.2.</span> <span class="toc-text">步骤 2：配置文件设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.14.3.3.</span> <span class="toc-text">步骤 3：启动服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E4%BD%BF%E7%94%A8-Claude-Code"><span class="toc-number">1.14.3.4.</span> <span class="toc-text">步骤 4：使用 Claude Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-4-DeepSeek-Transformer-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.14.4.</span> <span class="toc-text">13.4 DeepSeek Transformer 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BD%AC%E6%8D%A2%EF%BC%88Claude-%E2%86%92-DeepSeek%EF%BC%89"><span class="toc-number">1.14.4.1.</span> <span class="toc-text">请求转换（Claude → DeepSeek）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E8%BD%AC%E6%8D%A2%EF%BC%88DeepSeek-%E2%86%92-Claude%EF%BC%89"><span class="toc-number">1.14.4.2.</span> <span class="toc-text">响应转换（DeepSeek → Claude）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-5-%E5%8A%9F%E8%83%BD%E5%AF%B9%E6%AF%94%E8%A1%A8"><span class="toc-number">1.14.5.</span> <span class="toc-text">13.5 功能对比表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-6-%E6%88%90%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.14.6.</span> <span class="toc-text">13.6 成本对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-7-%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">1.14.7.</span> <span class="toc-text">13.7 高级配置（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-8-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.14.8.</span> <span class="toc-text">13.8 使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-9-%E9%A2%9D%E5%A4%96%E4%BC%98%E5%8A%BF"><span class="toc-number">1.14.9.</span> <span class="toc-text">13.9 额外优势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">1.15.</span> <span class="toc-text">十四、总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-1-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7"><span class="toc-number">1.15.1.</span> <span class="toc-text">14.1 项目评价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC"><span class="toc-number">1.15.2.</span> <span class="toc-text">14.2 核心价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.15.3.</span> <span class="toc-text">14.3 适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-%E6%9C%80%E7%BB%88%E7%BB%93%E8%AE%BA"><span class="toc-number">1.15.4.</span> <span class="toc-text">14.4 最终结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">1.16.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-%E5%BF%AB%E9%80%9F%E5%8F%82%E8%80%83%E5%91%BD%E4%BB%A4"><span class="toc-number">1.16.1.</span> <span class="toc-text">A. 快速参考命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">1.16.2.</span> <span class="toc-text">B. 配置文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">1.16.3.</span> <span class="toc-text">C. 日志文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-%E6%9C%89%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-number">1.16.4.</span> <span class="toc-text">D. 有用的资源</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/02/xiang-liang-shu-ju-ku/" title="向量数据库">向量数据库</a><time datetime="2025-12-29T10:57:24.518Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/11/da-mo-xing-he-ji/" title="大模型合集">大模型合集</a><time datetime="2025-12-29T10:57:24.509Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/18/claude-code-todoread-ti-shi-ci/" title="claude-code TodoRead提示词">claude-code TodoRead提示词</a><time datetime="2025-12-29T10:57:24.506Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/10/da-mo-xing-xun-lian-yu-you-hua-wan-quan-zhi-nan/" title="大模型训练与优化完全指南">大模型训练与优化完全指南</a><time datetime="2025-12-29T10:57:24.505Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/12/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎">claude-code工具与执行引擎</a><time datetime="2025-12-29T10:57:24.501Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 寒霜</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">145</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">385</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 0.88rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 0.88rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 0.88rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 0.88rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 0.88rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 0.88rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 0.88rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 0.88rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 0.88rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 0.88rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 0.88rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 0.88rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 0.88rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 0.88rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 0.88rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 0.88rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 0.88rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 0.88rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 0.88rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 0.88rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 0.88rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 0.88rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 0.88rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 0.88rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 0.88rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 0.88rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 0.88rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 0.88rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 0.88rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 0.88rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 0.88rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 0.88rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 0.88rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 0.88rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 0.88rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 寒霜 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

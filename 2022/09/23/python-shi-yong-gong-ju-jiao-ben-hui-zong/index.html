@@ -1,0 +1,890 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Python实用工具脚本汇总 | 我的博客</title><meta name="keywords" content="python,工具脚本,自动化,实用工具"><meta name="author" content="寒霜"><meta name="copyright" content="寒霜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Python实用工具脚本汇总"><meta name="application-name" content="Python实用工具脚本汇总"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Python实用工具脚本汇总"><meta property="og:url" content="https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/index.html"><meta property="og:site_name" content="我的博客"><meta property="og:description" content="Python实用工具脚本汇总在日常开发中，我们经常需要编写一些自动化脚本来提高工作效率。本文汇总了几个实用的Python工具脚本，包括文件解压、Git仓库管理等。 1. 递归解压压缩包工具1.1 功能特点 支持多种压缩格式：ZIP、TAR、TAR.GZ、TAR.BZ2、GZ 递归解压嵌套的压缩包 自"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="寒霜"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="Python实用工具脚本汇总在日常开发中，我们经常需要编写一些自动化脚本来提高工作效率。本文汇总了几个实用的Python工具脚本，包括文件解压、Git仓库管理等。 1. 递归解压压缩包工具1.1 功能特点 支持多种压缩格式：ZIP、TAR、TAR.GZ、TAR.BZ2、GZ 递归解压嵌套的压缩包 自"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的博客',
+  title: 'Python实用工具脚本汇总',
+  postAI: '',
+  pageFillDescription: 'Python实用工具脚本汇总, 1. 递归解压压缩包工具, 1.1 功能特点, 1.2 完整代码实现, 1.3 使用示例, 1.4 支持的格式, 2. Git仓库状态检查工具, 2.1 功能特点, 2.2 完整代码实现, 2.3 使用示例, 2.4 输出示例, 3. 批量重命名工具, 3.1 功能特点, 3.2 代码实现, 4. 文件去重工具, 4.1 功能特点, 4.2 代码实现, 5. 总结实用工具脚本汇总在日常开发中我们经常需要编写一些自动化脚本来提高工作效率本文汇总了几个实用的工具脚本包括文件解压仓库管理等递归解压压缩包工具功能特点支持多种压缩格式递归解压嵌套的压缩包自动生成解压目录支持对特定文件类型如的特殊处理完整代码实现确保目录存在不存在则创建根据压缩包名称生成解压目录路径解压文件到指定目录下压缩文件路径解压目标目录是否对文件进行特殊处理将文件直接复制到目标目录解压文件到指定目录下压缩文件路径解压目标目录是否对文件进行特殊处理将文件直接复制到目标目录解压单独的文件压缩文件路径解压目标目录自动去除后缀解压文件递归解压嵌套的压缩文件要解压的压缩文件路径解压目录已处理的文件集合防止重复处理是否对文件进行特殊处理处理文件处理文件包括处理单独文件递归处理新解压的文件不支持的文件格式递归处理解压目录中的所有文件解压失败递归解压压缩包内的所有压缩包压缩包路径解压目录是否对文件进行特殊处理初次解压交互式使用递归解压工具功能支持格式的递归解压请输入要解压的文件路径错误文件不存在是否对文件进行特殊处理开始解压解压完成打印解压目录解压目录使用示例示例简单解压示例解压并处理文件示例指定解压目录支持的格式格式说明示例常用压缩格式常用格式压缩的压缩的单个压缩文件仓库状态检查工具功能特点遍历指定目录下的所有仓库检查每个仓库是否有未提交的更改批量检查多个项目的工作状态完整代码实现检查仓库的状态仓库路径未提交的更改信息执行命令如果所有的更改都已提交则输出应为空获取当前分支仓库路径当前分支名获取远程仓库仓库路径远程仓库遍历目录并检查所有仓库的状态要遍历的根目录是否显示已提交的仓库开始扫描目录检查文件夹是否包含目录有未提交的更改未提交的更改分支格式化输出更改内容修改新增删除重命名复制未跟踪未知所有更改都已提交已提交分支远程扫描完成总共找到个仓库其中个仓库有未提交的更改仓库状态批量检查工具默认目录获取用户输入请输入要扫描的目录默认错误目录不存在是否显示已提交的仓库使用示例示例检查指定目录示例检查并显示已提交的仓库示例检查单个仓库有未提交的更改所有更改已提交输出示例开始扫描目录未提交的更改分支修改新增未跟踪未提交的更改分支删除扫描完成总共找到个仓库其中个仓库有未提交的更改批量重命名工具功能特点批量重命名文件支持正则表达式匹配支持递归处理子目录代码实现批量重命名文件目录路径正则表达式模式替换字符串是否递归处理子目录是否为试运行不实际重命名递归遍历试运行重命名只处理当前目录试运行重命名试运行完成将重命名个文件确认执行重命名重命名完成共处理个文件使用示例示例将所有空格替换为下划线文件去重工具功能特点根据文件内容检测重复文件支持按文件大小筛选生成重复文件报告代码实现计算文件的值查找重复文件要扫描的目录最小文件大小字节重复文件字典跳过小于指定大小的文件只返回有重复的文件请输入要扫描的目录请输入最小文件大小字节不限制正在扫描未发现重复文件发现组重复文件共个重复总结本文汇总了个实用的工具脚本递归解压工具处理各种格式的压缩包状态检查工具批量检查多个仓库的状态批量重命名工具批量重命名文件文件去重工具查找重复文件这些脚本可以直接使用也可以根据实际需求进行修改的强大之处在于能够快速实现各种自动化任务大大提高工作效率',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2018-05-24 12:30:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">我的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 1.05rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 1.05rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 1.05rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 1.05rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 1.05rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 1.05rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 1.05rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 1.05rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 1.05rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 1.05rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 1.05rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 1.05rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 1.05rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 1.05rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 1.05rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 1.05rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1.05rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 1.05rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 1.05rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 1.05rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 1.05rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 1.05rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 1.05rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 1.05rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1.05rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 1.05rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 1.05rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.05rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 1.05rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 1.05rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 1.05rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 1.05rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 1.05rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url">后端开发</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/python/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>python</span></a><a class="article-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>工具脚本</span></a><a class="article-meta__tags" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>自动化</span></a><a class="article-meta__tags" href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>实用工具</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Python实用工具脚本汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2022-09-22T16:00:00.000Z" title="发表于 2022-09-23 00:00:00">2022-09-23</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2018-05-24T04:30:00.000Z" title="更新于 2018-05-24 12:30:00">2018-05-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/"><header><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url">后端开发</a><a href="/tags/python/" tabindex="-1" itemprop="url">python</a><a href="/tags/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/" tabindex="-1" itemprop="url">工具脚本</a><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url">自动化</a><a href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" tabindex="-1" itemprop="url">实用工具</a><h1 id="CrawlerTitle" itemprop="name headline">Python实用工具脚本汇总</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">寒霜</span><time itemprop="dateCreated datePublished" datetime="2022-09-22T16:00:00.000Z" title="发表于 2022-09-23 00:00:00">2022-09-23</time><time itemprop="dateCreated datePublished" datetime="2018-05-24T04:30:00.000Z" title="更新于 2018-05-24 12:30:00">2018-05-24</time></header><h1 id="Python实用工具脚本汇总"><a href="#Python实用工具脚本汇总" class="headerlink" title="Python实用工具脚本汇总"></a>Python实用工具脚本汇总</h1><p>在日常开发中，我们经常需要编写一些自动化脚本来提高工作效率。本文汇总了几个实用的Python工具脚本，包括文件解压、Git仓库管理等。</p>
+<h2 id="1-递归解压压缩包工具"><a href="#1-递归解压压缩包工具" class="headerlink" title="1. 递归解压压缩包工具"></a>1. 递归解压压缩包工具</h2><h3 id="1-1-功能特点"><a href="#1-1-功能特点" class="headerlink" title="1.1 功能特点"></a>1.1 功能特点</h3><ul>
+<li>支持多种压缩格式：ZIP、TAR、TAR.GZ、TAR.BZ2、GZ</li>
+<li>递归解压嵌套的压缩包</li>
+<li>自动生成解压目录</li>
+<li>支持对特定文件类型（如.log）的特殊处理</li>
+</ul>
+<h3 id="1-2-完整代码实现"><a href="#1-2-完整代码实现" class="headerlink" title="1.2 完整代码实现"></a>1.2 完整代码实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> zipfile
+<span class="token keyword">import</span> tarfile
+<span class="token keyword">import</span> gzip
+<span class="token keyword">import</span> shutil
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+<span class="token keyword">def</span> <span class="token function">ensure_dir_exists</span><span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""确保目录存在，不存在则创建"""</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>directory<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get_extract_path</span><span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""根据压缩包名称生成解压目录路径"""</span>
+    extract_dir <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    extract_to <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">,</span> extract_dir<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> extract_to
+
+<span class="token keyword">def</span> <span class="token function">unzip_file</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">,</span> handle_log<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    解压.zip文件到指定目录下
+    :param file_path: 压缩文件路径
+    :param extract_to: 解压目标目录
+    :param handle_log: 是否对.log文件进行特殊处理
+    """</span>
+    ensure_dir_exists<span class="token punctuation">(</span>extract_to<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> zipfile<span class="token punctuation">.</span>ZipFile<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> zip_ref<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> member <span class="token keyword">in</span> zip_ref<span class="token punctuation">.</span>infolist<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> handle_log <span class="token keyword">and</span> member<span class="token punctuation">.</span>filename<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.log'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token comment"># 将 .log 文件直接复制到目标目录</span>
+                log_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>extract_to<span class="token punctuation">,</span> member<span class="token punctuation">.</span>filename<span class="token punctuation">)</span>
+                ensure_dir_exists<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>log_path<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">with</span> zip_ref<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span> <span class="token keyword">as</span> source<span class="token punctuation">,</span> <span class="token builtin">open</span><span class="token punctuation">(</span>log_path<span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> target<span class="token punctuation">:</span>
+                    shutil<span class="token punctuation">.</span>copyfileobj<span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Copied .log file: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>member<span class="token punctuation">.</span>filename<span class="token punctuation">&#125;</span></span><span class="token string"> to </span><span class="token interpolation"><span class="token punctuation">&#123;</span>log_path<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                zip_ref<span class="token punctuation">.</span>extract<span class="token punctuation">(</span>member<span class="token punctuation">,</span> extract_to<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Extracted: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>member<span class="token punctuation">.</span>filename<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">untar_file</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">,</span> handle_log<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    解压.tar, .tar.gz, .tar.bz2文件到指定目录下
+    :param file_path: 压缩文件路径
+    :param extract_to: 解压目标目录
+    :param handle_log: 是否对.log文件进行特殊处理
+    """</span>
+    ensure_dir_exists<span class="token punctuation">(</span>extract_to<span class="token punctuation">)</span>
+    mode <span class="token operator">=</span> <span class="token string">'r'</span>
+    <span class="token keyword">if</span> file_path<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.gz'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        mode <span class="token operator">=</span> <span class="token string">'r:gz'</span>
+    <span class="token keyword">elif</span> file_path<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.bz2'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        mode <span class="token operator">=</span> <span class="token string">'r:bz2'</span>
+
+    <span class="token keyword">with</span> tarfile<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> mode<span class="token punctuation">)</span> <span class="token keyword">as</span> tar_ref<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> member <span class="token keyword">in</span> tar_ref<span class="token punctuation">.</span>getmembers<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> handle_log <span class="token keyword">and</span> member<span class="token punctuation">.</span>name<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.log'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token comment"># 将 .log 文件直接复制到目标目录</span>
+                log_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>extract_to<span class="token punctuation">,</span> member<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+                ensure_dir_exists<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>log_path<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">with</span> tar_ref<span class="token punctuation">.</span>extractfile<span class="token punctuation">(</span>member<span class="token punctuation">)</span> <span class="token keyword">as</span> source<span class="token punctuation">,</span> <span class="token builtin">open</span><span class="token punctuation">(</span>log_path<span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> target<span class="token punctuation">:</span>
+                    shutil<span class="token punctuation">.</span>copyfileobj<span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Copied .log file: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>member<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string"> to </span><span class="token interpolation"><span class="token punctuation">&#123;</span>log_path<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                tar_ref<span class="token punctuation">.</span>extract<span class="token punctuation">(</span>member<span class="token punctuation">,</span> extract_to<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Extracted: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>member<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">extract_gz_file</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    解压单独的.gz文件
+    :param file_path: 压缩文件路径
+    :param extract_to: 解压目标目录
+    """</span>
+    output_name <span class="token operator">=</span> Path<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">.</span>stem  <span class="token comment"># 自动去除.gz后缀</span>
+    output_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>extract_to<span class="token punctuation">,</span> output_name<span class="token punctuation">)</span>
+
+    ensure_dir_exists<span class="token punctuation">(</span>extract_to<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> gzip<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f_in<span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>output_path<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f_out<span class="token punctuation">:</span>
+            f_out<span class="token punctuation">.</span>write<span class="token punctuation">(</span>f_in<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"解压GZ文件: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>file_path<span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>output_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> output_path
+
+<span class="token keyword">def</span> <span class="token function">extract_nested_archives</span><span class="token punctuation">(</span>archive_path<span class="token punctuation">,</span> extract_to<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> processed<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> handle_log<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    递归解压嵌套的压缩文件
+    :param archive_path: 要解压的压缩文件路径
+    :param extract_to: 解压目录
+    :param processed: 已处理的文件集合（防止重复处理）
+    :param handle_log: 是否对.log文件进行特殊处理
+    """</span>
+    <span class="token keyword">if</span> processed <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        processed <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    archive_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> archive_path <span class="token keyword">in</span> processed<span class="token punctuation">:</span>
+        <span class="token keyword">return</span>
+    processed<span class="token punctuation">.</span>add<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> extract_to <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        extract_to <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>
+            os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            Path<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span><span class="token punctuation">.</span>stem <span class="token operator">+</span> <span class="token string">"_extracted"</span>
+        <span class="token punctuation">)</span>
+
+    ensure_dir_exists<span class="token punctuation">(</span>extract_to<span class="token punctuation">)</span>
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment"># 处理ZIP文件</span>
+        <span class="token keyword">if</span> zipfile<span class="token punctuation">.</span>is_zipfile<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            unzip_file<span class="token punctuation">(</span>archive_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">,</span> handle_log<span class="token punctuation">)</span>
+
+        <span class="token comment"># 处理TAR文件（包括tar.gz/tar.bz2）</span>
+        <span class="token keyword">elif</span> tarfile<span class="token punctuation">.</span>is_tarfile<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            untar_file<span class="token punctuation">(</span>archive_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">,</span> handle_log<span class="token punctuation">)</span>
+
+        <span class="token comment"># 处理单独.gz文件</span>
+        <span class="token keyword">elif</span> archive_path<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.gz'</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">not</span> tarfile<span class="token punctuation">.</span>is_tarfile<span class="token punctuation">(</span>archive_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            output_path <span class="token operator">=</span> extract_gz_file<span class="token punctuation">(</span>archive_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">)</span>
+            <span class="token comment"># 递归处理新解压的文件</span>
+            extract_nested_archives<span class="token punctuation">(</span>output_path<span class="token punctuation">,</span> processed<span class="token operator">=</span>processed<span class="token punctuation">,</span> handle_log<span class="token operator">=</span>handle_log<span class="token punctuation">)</span>
+
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"不支持的文件格式: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>archive_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+
+        <span class="token comment"># 递归处理解压目录中的所有文件</span>
+        <span class="token keyword">for</span> root<span class="token punctuation">,</span> _<span class="token punctuation">,</span> files <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>extract_to<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+                file_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>file_path<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'.zip'</span><span class="token punctuation">,</span> <span class="token string">'.tar'</span><span class="token punctuation">,</span> <span class="token string">'.tar.gz'</span><span class="token punctuation">,</span> <span class="token string">'.tar.bz2'</span><span class="token punctuation">,</span> <span class="token string">'.gz'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">and</span>
+                    file_path <span class="token keyword">not</span> <span class="token keyword">in</span> processed<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    extract_nested_archives<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> processed<span class="token operator">=</span>processed<span class="token punctuation">,</span> handle_log<span class="token operator">=</span>handle_log<span class="token punctuation">)</span>
+
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"解压失败: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>archive_path<span class="token punctuation">&#125;</span></span><span class="token string"> - </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">extract_all_in_archive</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> extract_to<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> handle_log<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    递归解压压缩包内的所有压缩包
+    :param file_path: 压缩包路径
+    :param extract_to: 解压目录
+    :param handle_log: 是否对.log文件进行特殊处理
+    """</span>
+    <span class="token keyword">if</span> extract_to <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        extract_to <span class="token operator">=</span> get_extract_path<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
+
+    <span class="token comment"># 初次解压</span>
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        extract_nested_archives<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> extract_to<span class="token punctuation">,</span> handle_log<span class="token operator">=</span>handle_log<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    <span class="token comment"># 交互式使用</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== Python递归解压工具 ==="</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"功能：支持ZIP、TAR、TAR.GZ、TAR.BZ2、GZ格式的递归解压"</span><span class="token punctuation">)</span>
+
+    file_path <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要解压的文件路径: "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'"'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"错误：文件不存在 - </span><span class="token interpolation"><span class="token punctuation">&#123;</span>file_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        handle_log <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"是否对.log文件进行特殊处理？(y/n): "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'y'</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n开始解压..."</span><span class="token punctuation">)</span>
+        extract_all_in_archive<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> handle_log<span class="token operator">=</span>handle_log<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"解压完成！"</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># 打印解压目录</span>
+        extract_dir <span class="token operator">=</span> get_extract_path<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"解压目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>extract_dir<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-3-使用示例"><a href="#1-3-使用示例" class="headerlink" title="1.3 使用示例"></a>1.3 使用示例</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 示例1：简单解压</span>
+extract_all_in_archive<span class="token punctuation">(</span><span class="token string">r'C:\Users\example\archive.zip'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 示例2：解压并处理.log文件</span>
+extract_all_in_archive<span class="token punctuation">(</span><span class="token string">r'C:\Users\example\archive.zip'</span><span class="token punctuation">,</span> handle_log<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 示例3：指定解压目录</span>
+extract_nested_archives<span class="token punctuation">(</span>
+    <span class="token string">r'C:\Users\example\archive.zip'</span><span class="token punctuation">,</span>
+    extract_to<span class="token operator">=</span><span class="token string">r'C:\Users\example\output'</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-4-支持的格式"><a href="#1-4-支持的格式" class="headerlink" title="1.4 支持的格式"></a>1.4 支持的格式</h3><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ZIP</td>
+<td>常用压缩格式</td>
+<td>archive.zip</td>
+</tr>
+<tr>
+<td>TAR</td>
+<td>Linux常用格式</td>
+<td>archive.tar</td>
+</tr>
+<tr>
+<td>TAR.GZ</td>
+<td>Gzip压缩的TAR</td>
+<td>archive.tar.gz</td>
+</tr>
+<tr>
+<td>TAR.BZ2</td>
+<td>Bzip2压缩的TAR</td>
+<td>archive.tar.bz2</td>
+</tr>
+<tr>
+<td>GZ</td>
+<td>单个Gzip压缩文件</td>
+<td>file.txt.gz</td>
+</tr>
+</tbody></table>
+<h2 id="2-Git仓库状态检查工具"><a href="#2-Git仓库状态检查工具" class="headerlink" title="2. Git仓库状态检查工具"></a>2. Git仓库状态检查工具</h2><h3 id="2-1-功能特点"><a href="#2-1-功能特点" class="headerlink" title="2.1 功能特点"></a>2.1 功能特点</h3><ul>
+<li>遍历指定目录下的所有Git仓库</li>
+<li>检查每个仓库是否有未提交的更改</li>
+<li>批量检查多个项目的工作状态</li>
+</ul>
+<h3 id="2-2-完整代码实现"><a href="#2-2-完整代码实现" class="headerlink" title="2.2 完整代码实现"></a>2.2 完整代码实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> subprocess
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+<span class="token keyword">def</span> <span class="token function">check_git_status</span><span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    检查Git仓库的状态
+    :param folder: Git仓库路径
+    :return: 未提交的更改信息
+    """</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment"># 执行`git status --porcelain`命令</span>
+        <span class="token comment"># 如果所有的更改都已提交，则输出应为空</span>
+        result <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>
+            <span class="token punctuation">[</span><span class="token string">'git'</span><span class="token punctuation">,</span> <span class="token string">'status'</span><span class="token punctuation">,</span> <span class="token string">'--porcelain'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            cwd<span class="token operator">=</span>folder<span class="token punctuation">,</span>
+            stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            text<span class="token operator">=</span><span class="token boolean">True</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+
+<span class="token keyword">def</span> <span class="token function">get_git_branch</span><span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    获取当前Git分支
+    :param folder: Git仓库路径
+    :return: 当前分支名
+    """</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>
+            <span class="token punctuation">[</span><span class="token string">'git'</span><span class="token punctuation">,</span> <span class="token string">'rev-parse'</span><span class="token punctuation">,</span> <span class="token string">'--abbrev-ref'</span><span class="token punctuation">,</span> <span class="token string">'HEAD'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            cwd<span class="token operator">=</span>folder<span class="token punctuation">,</span>
+            stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            text<span class="token operator">=</span><span class="token boolean">True</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"unknown"</span>
+
+<span class="token keyword">def</span> <span class="token function">get_git_remote_url</span><span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    获取Git远程仓库URL
+    :param folder: Git仓库路径
+    :return: 远程仓库URL
+    """</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>
+            <span class="token punctuation">[</span><span class="token string">'git'</span><span class="token punctuation">,</span> <span class="token string">'config'</span><span class="token punctuation">,</span> <span class="token string">'--get'</span><span class="token punctuation">,</span> <span class="token string">'remote.origin.url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            cwd<span class="token operator">=</span>folder<span class="token punctuation">,</span>
+            stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>
+            text<span class="token operator">=</span><span class="token boolean">True</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"unknown"</span>
+
+<span class="token keyword">def</span> <span class="token function">walk_and_check</span><span class="token punctuation">(</span>folder<span class="token punctuation">,</span> show_clean<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    遍历目录并检查所有Git仓库的状态
+    :param folder: 要遍历的根目录
+    :param show_clean: 是否显示已提交的仓库
+    """</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n开始扫描目录: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>folder<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"="</span> <span class="token operator">*</span> <span class="token number">80</span><span class="token punctuation">)</span>
+
+    repo_count <span class="token operator">=</span> <span class="token number">0</span>
+    uncommitted_count <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">for</span> root<span class="token punctuation">,</span> dirs<span class="token punctuation">,</span> _ <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> dir_name <span class="token keyword">in</span> dirs<span class="token punctuation">:</span>
+            dir_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> dir_name<span class="token punctuation">)</span>
+
+            <span class="token comment"># 检查文件夹是否包含.git目录</span>
+            <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>dir_path<span class="token punctuation">,</span> <span class="token string">'.git'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                repo_count <span class="token operator">+=</span> <span class="token number">1</span>
+                status <span class="token operator">=</span> check_git_status<span class="token punctuation">(</span>dir_path<span class="token punctuation">)</span>
+                branch <span class="token operator">=</span> get_git_branch<span class="token punctuation">(</span>dir_path<span class="token punctuation">)</span>
+
+                <span class="token keyword">if</span> status<span class="token punctuation">:</span>
+                    <span class="token comment"># 有未提交的更改</span>
+                    uncommitted_count <span class="token operator">+=</span> <span class="token number">1</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n❌ 未提交的更改: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dir_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"   分支: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>branch<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+                    <span class="token comment"># 格式化输出更改内容</span>
+                    <span class="token keyword">for</span> line <span class="token keyword">in</span> status<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">if</span> line<span class="token punctuation">:</span>
+                            status_code <span class="token operator">=</span> line<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+                            file_path <span class="token operator">=</span> line<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+                            status_symbol <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+                                <span class="token string">'M'</span><span class="token punctuation">:</span> <span class="token string">'修改'</span><span class="token punctuation">,</span>
+                                <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token string">'新增'</span><span class="token punctuation">,</span>
+                                <span class="token string">'D'</span><span class="token punctuation">:</span> <span class="token string">'删除'</span><span class="token punctuation">,</span>
+                                <span class="token string">'R'</span><span class="token punctuation">:</span> <span class="token string">'重命名'</span><span class="token punctuation">,</span>
+                                <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token string">'复制'</span><span class="token punctuation">,</span>
+                                <span class="token string">'??'</span><span class="token punctuation">:</span> <span class="token string">'未跟踪'</span>
+                            <span class="token punctuation">&#125;</span>
+                            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"   [</span><span class="token interpolation"><span class="token punctuation">&#123;</span>status_code<span class="token punctuation">&#125;</span></span><span class="token string">] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>status_symbol<span class="token punctuation">.</span>get<span class="token punctuation">(</span>status_code<span class="token punctuation">,</span> <span class="token string">'未知'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>file_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+                <span class="token keyword">elif</span> show_clean<span class="token punctuation">:</span>
+                    <span class="token comment"># 所有更改都已提交</span>
+                    remote_url <span class="token operator">=</span> get_git_remote_url<span class="token punctuation">(</span>dir_path<span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n✅ 已提交: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dir_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"   分支: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>branch<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"   远程: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>remote_url<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n"</span> <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">*</span> <span class="token number">80</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"扫描完成！"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"总共找到 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>repo_count<span class="token punctuation">&#125;</span></span><span class="token string"> 个Git仓库"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"其中 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>uncommitted_count<span class="token punctuation">&#125;</span></span><span class="token string"> 个仓库有未提交的更改"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== Git仓库状态批量检查工具 ===\n"</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 默认目录</span>
+    default_folder <span class="token operator">=</span> <span class="token string">r'E:\Projects'</span>
+
+    <span class="token comment"># 获取用户输入</span>
+    folder <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"请输入要扫描的目录 (默认: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>default_folder<span class="token punctuation">&#125;</span></span><span class="token string">): "</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> folder<span class="token punctuation">:</span>
+        folder <span class="token operator">=</span> default_folder
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"错误：目录不存在 - </span><span class="token interpolation"><span class="token punctuation">&#123;</span>folder<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        show_clean <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"是否显示已提交的仓库？(y/n): "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'y'</span>
+        walk_and_check<span class="token punctuation">(</span>folder<span class="token punctuation">,</span> show_clean<span class="token operator">=</span>show_clean<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-3-使用示例"><a href="#2-3-使用示例" class="headerlink" title="2.3 使用示例"></a>2.3 使用示例</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 示例1：检查指定目录</span>
+walk_and_check<span class="token punctuation">(</span><span class="token string">'E:\\Projects'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 示例2：检查并显示已提交的仓库</span>
+walk_and_check<span class="token punctuation">(</span><span class="token string">'E:\\Projects'</span><span class="token punctuation">,</span> show_clean<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 示例3：检查单个仓库</span>
+status <span class="token operator">=</span> check_git_status<span class="token punctuation">(</span><span class="token string">'E:\\Projects\\my-project'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> status<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"有未提交的更改"</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"所有更改已提交"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-4-输出示例"><a href="#2-4-输出示例" class="headerlink" title="2.4 输出示例"></a>2.4 输出示例</h3><pre class="line-numbers language-none"><code class="language-none">开始扫描目录: E:\Projects
+&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+❌ 未提交的更改: E:\Projects\project-a
+   分支: feature&#x2F;new-feature
+   [ M ] 修改: src&#x2F;main.py
+   [A ] 新增: src&#x2F;utils.py
+   [??] 未跟踪: config.ini
+
+❌ 未提交的更改: E:\Projects\project-b
+   分支: main
+   [ D ] 删除: old_file.py
+
+&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+扫描完成！
+总共找到 15 个Git仓库
+其中 2 个仓库有未提交的更改<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-批量重命名工具"><a href="#3-批量重命名工具" class="headerlink" title="3. 批量重命名工具"></a>3. 批量重命名工具</h2><h3 id="3-1-功能特点"><a href="#3-1-功能特点" class="headerlink" title="3.1 功能特点"></a>3.1 功能特点</h3><ul>
+<li>批量重命名文件</li>
+<li>支持正则表达式匹配</li>
+<li>支持递归处理子目录</li>
+</ul>
+<h3 id="3-2-代码实现"><a href="#3-2-代码实现" class="headerlink" title="3.2 代码实现"></a>3.2 代码实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> re
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+
+<span class="token keyword">def</span> <span class="token function">batch_rename_files</span><span class="token punctuation">(</span>directory<span class="token punctuation">,</span> pattern<span class="token punctuation">,</span> replacement<span class="token punctuation">,</span> recursive<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> dry_run<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    批量重命名文件
+    :param directory: 目录路径
+    :param pattern: 正则表达式模式
+    :param replacement: 替换字符串
+    :param recursive: 是否递归处理子目录
+    :param dry_run: 是否为试运行（不实际重命名）
+    """</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">if</span> recursive<span class="token punctuation">:</span>
+        <span class="token comment"># 递归遍历</span>
+        <span class="token keyword">for</span> root<span class="token punctuation">,</span> _<span class="token punctuation">,</span> files <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> filename <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    old_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+                    new_filename <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> replacement<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+                    new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> new_filename<span class="token punctuation">)</span>
+
+                    <span class="token keyword">if</span> dry_run<span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"[试运行] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filename<span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>new_filename<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>old_path<span class="token punctuation">,</span> new_path<span class="token punctuation">)</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"[重命名] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filename<span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>new_filename<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                    count <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment"># 只处理当前目录</span>
+        <span class="token keyword">for</span> filename <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            file_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>directory<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span> <span class="token keyword">and</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                new_filename <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> replacement<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+                new_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>directory<span class="token punctuation">,</span> new_filename<span class="token punctuation">)</span>
+
+                <span class="token keyword">if</span> dry_run<span class="token punctuation">:</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"[试运行] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filename<span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>new_filename<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> new_path<span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"[重命名] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filename<span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>new_filename<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+                count <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token keyword">if</span> dry_run<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n试运行完成：将重命名 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span></span><span class="token string"> 个文件"</span></span><span class="token punctuation">)</span>
+        confirm <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"确认执行重命名？(y/n): "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> confirm <span class="token operator">==</span> <span class="token string">'y'</span><span class="token punctuation">:</span>
+            batch_rename_files<span class="token punctuation">(</span>directory<span class="token punctuation">,</span> pattern<span class="token punctuation">,</span> replacement<span class="token punctuation">,</span> recursive<span class="token punctuation">,</span> dry_run<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n重命名完成：共处理 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span></span><span class="token string"> 个文件"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># 使用示例</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    <span class="token comment"># 示例：将所有空格替换为下划线</span>
+    batch_rename_files<span class="token punctuation">(</span>
+        directory<span class="token operator">=</span><span class="token string">'./files'</span><span class="token punctuation">,</span>
+        pattern<span class="token operator">=</span><span class="token string">r'\s+'</span><span class="token punctuation">,</span>
+        replacement<span class="token operator">=</span><span class="token string">'_'</span><span class="token punctuation">,</span>
+        recursive<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        dry_run<span class="token operator">=</span><span class="token boolean">True</span>
+    <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-文件去重工具"><a href="#4-文件去重工具" class="headerlink" title="4. 文件去重工具"></a>4. 文件去重工具</h2><h3 id="4-1-功能特点"><a href="#4-1-功能特点" class="headerlink" title="4.1 功能特点"></a>4.1 功能特点</h3><ul>
+<li>根据文件内容（MD5）检测重复文件</li>
+<li>支持按文件大小筛选</li>
+<li>生成重复文件报告</li>
+</ul>
+<h3 id="4-2-代码实现"><a href="#4-2-代码实现" class="headerlink" title="4.2 代码实现"></a>4.2 代码实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+
+<span class="token keyword">def</span> <span class="token function">calculate_md5</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""计算文件的MD5值"""</span>
+    hash_md5 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> chunk <span class="token keyword">in</span> <span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">:</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4096</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">b""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            hash_md5<span class="token punctuation">.</span>update<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> hash_md5<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">find_duplicates</span><span class="token punctuation">(</span>directory<span class="token punctuation">,</span> min_size<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    查找重复文件
+    :param directory: 要扫描的目录
+    :param min_size: 最小文件大小（字节）
+    :return: 重复文件字典 &#123;md5: [file_list]&#125;
+    """</span>
+    files_by_md5 <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> root<span class="token punctuation">,</span> _<span class="token punctuation">,</span> files <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>directory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> filename <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+            filepath <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+            filesize <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>getsize<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+
+            <span class="token comment"># 跳过小于指定大小的文件</span>
+            <span class="token keyword">if</span> filesize <span class="token operator">&lt;</span> min_size<span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                file_md5 <span class="token operator">=</span> calculate_md5<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+                files_by_md5<span class="token punctuation">[</span>file_md5<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error processing </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filepath<span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 只返回有重复的文件</span>
+    duplicates <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        md5<span class="token punctuation">:</span> files <span class="token keyword">for</span> md5<span class="token punctuation">,</span> files <span class="token keyword">in</span> files_by_md5<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> duplicates
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    directory <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要扫描的目录: "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    min_size <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入最小文件大小（字节，0=不限制）: "</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token string">"0"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n正在扫描 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>directory<span class="token punctuation">&#125;</span></span><span class="token string">..."</span></span><span class="token punctuation">)</span>
+    duplicates <span class="token operator">=</span> find_duplicates<span class="token punctuation">(</span>directory<span class="token punctuation">,</span> min_size<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> duplicates<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未发现重复文件"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        total_duplicates <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token keyword">for</span> files <span class="token keyword">in</span> duplicates<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n发现 </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">len</span><span class="token punctuation">(</span>duplicates<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string"> 组重复文件，共 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>total_duplicates<span class="token punctuation">&#125;</span></span><span class="token string"> 个重复：\n"</span></span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> md5<span class="token punctuation">,</span> files <span class="token keyword">in</span> duplicates<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"MD5: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>md5<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+                size <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>getsize<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"  - </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">file</span><span class="token punctuation">&#125;</span></span><span class="token string"> (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>size<span class="token punctuation">&#125;</span></span><span class="token string"> bytes)"</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>本文汇总了4个实用的Python工具脚本：</p>
+<ol>
+<li><strong>递归解压工具</strong> - 处理各种格式的压缩包</li>
+<li><strong>Git状态检查工具</strong> - 批量检查多个仓库的状态</li>
+<li><strong>批量重命名工具</strong> - 批量重命名文件</li>
+<li><strong>文件去重工具</strong> - 查找重复文件</li>
+</ol>
+<p>这些脚本可以直接使用，也可以根据实际需求进行修改。Python的强大之处在于能够快速实现各种自动化任务，大大提高工作效率。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">寒霜</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/')">Python实用工具脚本汇总</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Python实用工具脚本汇总&amp;url=https://hanshuang-ai.github.io/2022/09/23/python-shi-yong-gong-ju-jiao-ben-hui-zong/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hanshuang-ai.github.io" target="_blank">我的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/python/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>python<span class="tagsPageCount">4</span></a><a class="post-meta__box__tags" href="/tags/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>工具脚本<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>自动化<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>实用工具<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/12/css-he-mo-xing/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">css盒模型</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/24/docker-bu-shu-nodejs-fu-wu-xu-yao-zhu-yi-de-wen-ti/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">docker部署nodejs服务需要注意的问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2022/04/10/nodejs-yu-python-hui-tu/" title="nodejs与python绘图"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2019-03-13</div><div class="title">nodejs与python绘图</div></div></a></div><div><a href="/2023/02/13/python-shi-pin-fen-zheng/" title="python视频分帧"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2019-10-06</div><div class="title">python视频分帧</div></div></a></div><div><a href="/2022/01/18/python-jin-xing-shi-pin-ge-shi-zhuan-huan/" title="python进行视频格式转换"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2020-05-02</div><div class="title">python进行视频格式转换</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">Python实用工具脚本汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%92%E5%BD%92%E8%A7%A3%E5%8E%8B%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">1. 递归解压压缩包工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 功能特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 完整代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 支持的格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git%E4%BB%93%E5%BA%93%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git仓库状态检查工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 功能特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 完整代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 输出示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E5%B7%A5%E5%85%B7"><span class="toc-number">1.3.</span> <span class="toc-text">3. 批量重命名工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 功能特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%96%87%E4%BB%B6%E5%8E%BB%E9%87%8D%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.</span> <span class="toc-text">4. 文件去重工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 功能特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">5. 总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/02/xiang-liang-shu-ju-ku/" title="向量数据库">向量数据库</a><time datetime="2025-12-29T10:57:24.518Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/11/da-mo-xing-he-ji/" title="大模型合集">大模型合集</a><time datetime="2025-12-29T10:57:24.509Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/18/claude-code-todoread-ti-shi-ci/" title="claude-code TodoRead提示词">claude-code TodoRead提示词</a><time datetime="2025-12-29T10:57:24.506Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/10/da-mo-xing-xun-lian-yu-you-hua-wan-quan-zhi-nan/" title="大模型训练与优化完全指南">大模型训练与优化完全指南</a><time datetime="2025-12-29T10:57:24.505Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/12/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎">claude-code工具与执行引擎</a><time datetime="2025-12-29T10:57:24.501Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 寒霜</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">145</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">385</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 0.88rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 0.88rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 0.88rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 0.88rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 0.88rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 0.88rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 0.88rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 0.88rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 0.88rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 0.88rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 0.88rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 0.88rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 0.88rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 0.88rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 0.88rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 0.88rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 0.88rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 0.88rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 0.88rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 0.88rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 0.88rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 0.88rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 0.88rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 0.88rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 0.88rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 0.88rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 0.88rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 0.88rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 0.88rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 0.88rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 0.88rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 0.88rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 0.88rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 0.88rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 0.88rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 寒霜 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

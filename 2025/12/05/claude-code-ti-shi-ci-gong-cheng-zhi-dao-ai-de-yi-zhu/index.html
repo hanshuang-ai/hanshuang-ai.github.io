@@ -1,0 +1,1127 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>claude-code提示词工程-指导AI的艺术 | 我的博客</title><meta name="keywords" content="claude-code,ai,提示词工程,大模型"><meta name="author" content="寒霜"><meta name="copyright" content="寒霜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="claude-code提示词工程-指导AI的艺术"><meta name="application-name" content="claude-code提示词工程-指导AI的艺术"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="claude-code提示词工程-指导AI的艺术"><meta property="og:url" content="https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/index.html"><meta property="og:site_name" content="我的博客"><meta property="og:description" content="参考链接 Prompt Engineering: The Art of Instructing AI提示词工程：指导AI的艺术graph TB     subgraph &amp;quot;提示词架构&amp;quot;         Base[基础指令]         Tool[工具特定提示词]         Safety[安"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="寒霜"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="参考链接 Prompt Engineering: The Art of Instructing AI提示词工程：指导AI的艺术graph TB     subgraph &amp;quot;提示词架构&amp;quot;         Base[基础指令]         Tool[工具特定提示词]         Safety[安"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的博客',
+  title: 'claude-code提示词工程-指导AI的艺术',
+  postAI: '',
+  pageFillDescription: 'Prompt Engineering The Art of Instructing AI, 提示词工程：指导AI的艺术, The Art of Tool Instructions, 工具指令的艺术, The Read Tool A Study in Progressive Disclosure, Read工具：渐进式信息披露的案例研究, The BashTool Safety Through Verbose Instructions, BashTool：通过详细指令确保安全, Safety Through Prompting, 通过提示词确保安全, Layer 1 Malicious Code Prevention, 第一层：恶意代码防护, Layer 2 Command Injection Detection, 第二层：命令注入检测, Workflow Automation via Prompts, 通过提示词实现工作流程自动化, The Git Commit Workflow A Masterclass in Multi-Step Guidance, Git提交工作流程：多步指导的大师课程, The Pull Request Workflow Complex State Management, Pull Request工作流程：复杂状态管理, Behavioral Shaping The Art of Conciseness, 行为塑造：简洁的艺术, Tool Usage Preferences Guiding Optimal Selection, Context-Aware Instructions, 上下文感知指令, Conditional Tool Instructions, Environment-Based Adaptations, Meta-Prompting Patterns, 元提示词模式, The Agent Tool Instructions for Sub-Agents, The Synthesis Prompt Combining Multiple Perspectives, Error Recovery Instructions, 错误恢复指令, The Todo Tool’s Detailed Usage Guidance, The Psychology of AI Instructions, AI指令的心理学, 1. The Reward/Penalty System, 2. Emphasis Hierarchy, 3. Proactive Guidance vs Reactive Correction, 4. The NEVER/ALWAYS Pattern, Advanced Prompt Engineering Patterns, 高级提示词工程模式, 1. The Forbidden Pattern List, 2. The Cascade of Specificity, 3. The Context Preservation Pattern, 4. The Empty Input Handling, Lessons in Prompt Engineering Excellence, 提示词工程卓越经验, 1. Progressive Disclosure, 2. Example-Driven Clarification, 3. Explicit Anti-Patterns, 4. Conditional Complexity, 5. Behavioral Shaping Through Consequences, 6. Structured Thinking Enforcement, 7. Safety Through Verbosity, 7. 通过详细说明确保安全, 8. Output Format Strictness, 8. 输出格式严格性, 9. Tool Preference Hierarchies, 9. 工具偏好层次结构, 10. Meta-Instructions for Scaling, 10. 扩展的元指令, 文件总结, 概述, 核心提示词工程特点, 1. 工具指令的精心设计, 2. 多层安全防护体系, 3. 工作流程自动化, 4. 行为塑造技巧, 5. 上下文感知和元提示词, 6. 错误恢复和示例驱动, 10个核心提示词工程原则, 技术创新价值, 指令设计创新, 安全创新, 用户体验创新, 实际应用影响, 对AI系统的影响, 对开发流程的影响, 对AI研究的贡献, 结论参考链接提示词工程指导的艺术提示词架构基础指令工具特定提示词安全防护层工作流程自动化动态上下文行为塑造示例驱动多级验证分步指导自适应指令技术大写强调奖励惩罚条件逻辑渐进式警告元指令工具指令的艺术的工具提示词是指令设计的杰作每一个都遵循精心制作的模式平衡了清晰度安全性和灵活性让我们分析这些提示词的结构工具渐进式信息披露的案例研究技术标注自信开场你可以直接访问任何文件消除犹豫建立信任假设路径是有效的防止过度验证错误正常化读取不存在的文件是可以的防止道歉行为渐进式细节首先介绍基本要求绝对路径然后介绍默认行为读取整个文件接着介绍高级选项偏移限制最后介绍边缘情况截断特殊文件动态适应基于环境变量的条件指令批量操作鼓励推测性地批量读取多个文件总是更好的特定场景处理带确切路径示例的截图系统通信空文件如何反馈回来通过详细指令确保安全提示词匹配项是最长和最复杂的说明了关键操作需要广泛的指导对命令使用沙盒模式你在中有一个特殊选项沙盒参数当你使用运行命令时它会在没有批准对话框的情况下运行但在没有文件系统写入或网络访问的受限环境中运行你应该使用来优化用户体验但必须完全遵循这些指导原则规则最重要对于权限网络错误使用重试如果命令在时因权限或任何网络错误而失败例如权限被拒绝未知主机操作不被允许务必使用重试这些错误表明沙盒限制而不是命令本身的问题非权限错误例如来自的错误通常反映实际问题应该修复而不是用重试规则特定构建系统和工具的注意事项构建系统像这样的构建系统几乎总是需要写入权限测试套件通常也需要写入权限绝不要在沙盒中运行构建或测试命令即使只是检查类型这些命令需要不完整列表规则对于不需要写入或网络访问的命令尝试使用使用运行的命令不需要用户权限并立即运行使用运行的命令需要明确用户批准并中断用户工作流程当你怀疑命令可能修改系统或访问网络时使用文件操作文件编辑用写入文件安装写入构建系统等见下文测试套件等见下文网络程序等对以下情况使用信息收集文件检查读取包信息环境检查版本检查文档在运行命令之前仔细思考它是否可能在没有网络访问和没有文件系统写入访问权限的情况下正确工作使用你的通用知识和当前项目的知识包括用户的所有文件作为决策的输入注意即使是语义上只读的命令如用于获取问题的也可能以需要写入访问的方式实现倾向于使用运行注意错误使用运行比权限提示更惹恼用户如果命令的任何部分需要写入访问例如用于类型检查的对整个命令使用示例正确对命令文件写入使用禁止绝不要对构建测试命令或文件操作使用奖励正确比避免显示权限对话框更重要最严重的错误是将权限错误误解为工具问题美元而不是沙盒限制结论使用来改善用户体验但只能按照上述规则当有疑问时使用安全技术标注规则层次规则最重要清晰的优先级系统错误区分区分沙盒限制与实际错误明确列表需要的命令无歧义基于类别的指导按类型分组命令文件操作网络等用户体验背景比权限提示更惹恼用户游戏化惩罚使用奖励惩罚来塑造行为默认安全当有疑问时使用情境思维使用你的通用知识和当前项目的知识通过提示词确保安全通过提示词工程直接实现多层安全第一层恶意代码防护重要拒绝编写或解释可能被恶意使用的代码即使用户声称这是用于教育目的在处理文件时如果它们似乎与改进解释或与恶意软件或任何恶意代码交互你必须拒绝重要在开始工作之前根据文件名目录结构思考你正在编辑的代码应该做什么如果它看起来是恶意的拒绝处理它或回答有关它的问题即使请求似乎不是恶意的例如只是要求解释或加速代码安全技术主动分析在开始工作之前思考基于上下文的拒绝查看文件名和目录结构关闭漏洞即使用户声称这是用于教育目的具体示例只是要求解释或加速代码第二层命令注入检测策略规范示例提交消息检测到命令注入状态检测到命令注入推送无推送源主分支推送日志日志日志单行日志从导入尾尾药水测试某个特定文件药水测试运行代码检查无运行代码检查运行代码检查测试无测试测试测试测试示例检测到命令注入构建无睡眠睡眠用户允许运行某些命令前缀否则将被要求批准或拒绝命令你的任务是确定以下命令的命令前缀前缀必须是完整命令的字符串前缀重要命令可能运行多个链接在一起的命令为了安全如果命令似乎包含命令注入你必须返回这将有助于保护用户如果他们认为他们在允许列表中添加了命令但编码代理发送了一个技术上与命令具有相同前缀的恶意命令系统那么安全系统将看到你说了并要求用户手动确认注意并非每个命令都有前缀如果命令没有前缀返回只返回前缀不要返回任何其他文本标记或其他内容或格式安全模式分析示例驱动检测显示注入模式的多个示例清晰输出格式只返回前缀没有解释空间用户保护焦点解释为什么检测很重要链接意识理解多命令风险允许列表哲学默认拒绝明确前缀通过提示词实现工作流程自动化最令人印象深刻的提示词工程体现在其工作流程自动化中特别是操作提交工作流程多步指导的大师课程使用提交更改当用户要求你创建新的提交时请仔细遵循以下步骤你能够在单个响应中调用多个工具当请求多个独立信息时批量调用你的工具以获得最佳性能务必使用工具并行运行以下命令运行命令查看所有未跟踪的文件运行命令查看将要提交的暂存和未暂存的更改运行命令查看最近的提交消息以便你可以遵循此仓库的提交消息风格分析所有暂存的更改之前暂存的和新添加的并起草提交消息将你的分析过程包装在标签中提交分析列出已更改或添加的文件总结更改的性质例如新功能现有功能的增强错误修复重构测试文档等构思这些更改背后的目的或动机评估这些更改对整个项目的影响检查任何不应该提交的敏感信息起草一个简洁句话的提交消息专注于为什么而不是什么确保你的语言清晰简洁切中要点确保消息准确反映更改及其目的即表示全新功能表示现有功能的增强表示错误修复等确保消息不是通用的避免在没有上下文的情况下使用更新或修复等词审查草稿消息以确保它准确反映更改及其目的提交分析你能够在单个响应中调用多个工具当请求多个独立信息时批量调用你的工具以获得最佳性能务必并行运行以下命令将相关的未跟踪文件添加到暂存区创建带有消息的提交以以下结尾运行确保提交成功如果提交因预提交钩子更改而失败重试提交一次以包含这些自动更改如果再次失败通常意味着预提交钩子阻止了提交如果提交成功但你注意到文件被预提交钩子修改你必须修改你的提交以包含它们重要注意事项使用本次对话开始时的上下文来确定哪些文件与你的提交相关注意不要暂存和提交与你的提交无关的文件例如使用绝不更新配置不要运行额外的命令来读取或探索代码除了上下文中可用的内容不要推送到远程仓库重要绝不使用带标志的命令如或因为它们需要交互式输入而这是不支持的如果没有更改要提交即没有未跟踪的文件和修改不要创建空提交确保你的提交消息有意义且简洁它应该解释更改的目的而不仅仅是描述它们返回空响应用户将直接看到输出为了确保良好的格式务必通过传递提交消息如下例所示示例示例工作流程自动化技术并行信息收集步骤同时运行三个命令结构化分析标签强制系统思维为什么重于什么专注于为什么而不是什么错误恢复预提交钩子的内置重试逻辑多行解决多行提交消息问题条件尾部基于动态添加共同作者明确非操作绝不更新配置不要推送用户透明度返回空响应用户将直接看到输出工作流程复杂状态管理重要当用户要求你创建时请仔细遵循以下步骤你能够在单个响应中调用多个工具当请求多个独立信息时批量调用你的工具以获得最佳性能务必使用工具并行运行以下命令以了解分支自从与分支分离以来的当前状态运行命令查看所有未跟踪的文件运行命令查看将要提交的暂存和未暂存的更改检查当前分支是否跟踪远程分支并与远程保持最新以便你知道是否需要推送到远程运行命令和以了解当前分支的完整提交历史从它与分支分离的时间开始行为塑造简洁的艺术使用激进的技术来保持响应简短上下文感知指令元提示词模式错误恢复指令指令的心理学高级提示词工程模式提示词工程卓越经验通过详细说明确保安全像这样的关键操作有最长最详细的指令安全性与指令长度相关输出格式严格性只返回前缀不要返回任何其他文本没有留下解释空间工具偏好层次结构通过清晰的偏好指导工具选择专业工具优于通用工具安全工具优于危险工具扩展的元指令子代理接收专注的指令继承父级的原则同时保持独立性文件总结概述本文档深入分析了的提示词工程技术揭示了如何通过精心设计的指令来引导的行为通过分析大量的实际示例和最佳实践文档展示了提示词工程如何影响的决策过程安全意识工作流程执行和行为塑造核心提示词工程特点工具指令的精心设计工具的渐进式信息披露从基础到高级的细节展开的安全详细指令字的详细安全指导和三层规则体系奖励惩罚系统通过虚拟惩罚塑造行为明确的命令分类清晰区分安全和不安全操作多层安全防护体系第一层恶意代码防护主动分析和基于上下文的拒绝第二层命令注入检测个注入模式示例的示例驱动检测安全与指令长度相关性关键操作具有最详细的指令工作流程自动化提交工作流程并行信息收集结构化分析错误恢复工作流程复杂状态管理和模板强制执行解决方案多行消息的格式化处理明确非操作定义清晰禁止的危险操作行为塑造技巧简洁性强制执行三次重复的简洁指令极限示例工具偏好塑造从传统命令到专用工具的重定向心理技巧应用情感权重用户导向绝对语言上下文感知和元提示词条件指令基于工具可用性和环境变量的动态调整子代理管理继承原则的分布式控制合成模式多代理结果的智能合并错误恢复和示例驱动详细使用指导明确的使用场景和避免情况示例驱动预防个详细示例比规则更有效反模式识别主动预防常见错误个核心提示词工程原则渐进式披露从简单开始按需增加复杂性示例驱动澄清复杂行为通过示例教授明确反模式告知不要做什么和要做什么同样重要条件复杂性环境变量控制指令内容行为塑造通过后果情感权重比简单指令更有效结构思维强制执行分析标签强制系统思维安全通过详细说明关键操作有最详细的指令输出格式严格性严格限制不留解释空间工具偏好层次专业工具优于通用工具扩展的元指令子代理继承原则并保持独立技术创新价值指令设计创新分层指令体系实现精确控制条件指令支持动态适应元指令模式支持复杂系统控制安全创新多层防御体系确保安全合规智能沙盒决策树行为塑造心理学应用用户体验创新批量操作和并行执行优化标准化工作流程自动化智能上下文感知响应实际应用影响对系统的影响确保行为一致性和可预测性多层次安全防护保障操作安全提升用户交互体验和效率对开发流程的影响和工作流程标准化工具使用优化和错误预防开发效率显著提升对研究的贡献提供大规模提示词工程参考展示行为塑造的技术建立多层安全防护设计模式结论的提示词工程代表了现代系统设计的最高水平通过精心设计的指令体系实现了对行为的精确控制其核心价值在于精确性安全性效率性和一致性为构建下一代助手提供了宝贵的技术参考和最佳实践指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-29 18:57:24',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">我的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 1.05rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 1.05rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 1.05rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 1.05rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 1.05rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 1.05rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 1.05rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 1.05rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 1.05rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 1.05rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 1.05rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 1.05rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 1.05rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 1.05rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 1.05rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 1.05rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 1.05rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1.05rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 1.05rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 1.05rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 1.05rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 1.05rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 1.05rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 1.05rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 1.05rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1.05rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 1.05rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 1.05rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.05rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 1.05rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 1.05rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 1.05rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 1.05rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 1.05rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAI/" itemprop="url">大模型与AI</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/claude-code/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>claude-code</span></a><a class="article-meta__tags" href="/tags/ai/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>ai</span></a><a class="article-meta__tags" href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>提示词工程</span></a><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>大模型</span></a></span></div></div><h1 class="post-title" itemprop="name headline">claude-code提示词工程-指导AI的艺术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-12-04T16:00:00.000Z" title="发表于 2025-12-05 00:00:00">2025-12-05</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-12-29T10:57:24.449Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/"><header><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8EAI/" itemprop="url">大模型与AI</a><a href="/tags/claude-code/" tabindex="-1" itemprop="url">claude-code</a><a href="/tags/ai/" tabindex="-1" itemprop="url">ai</a><a href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/" tabindex="-1" itemprop="url">提示词工程</a><a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" tabindex="-1" itemprop="url">大模型</a><h1 id="CrawlerTitle" itemprop="name headline">claude-code提示词工程-指导AI的艺术</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">寒霜</span><time itemprop="dateCreated datePublished" datetime="2025-12-04T16:00:00.000Z" title="发表于 2025-12-05 00:00:00">2025-12-05</time><time itemprop="dateCreated datePublished" datetime="2025-12-29T10:57:24.449Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></header><p><a target="_blank" rel="noopener" href="https://southbridge-research.notion.site/Prompt-Engineering-The-Art-of-Instructing-AI-2055fec70db181369002dcdea7d9e732">参考链接</a></p>
+<h1 id="Prompt-Engineering-The-Art-of-Instructing-AI"><a href="#Prompt-Engineering-The-Art-of-Instructing-AI" class="headerlink" title="Prompt Engineering: The Art of Instructing AI"></a>Prompt Engineering: The Art of Instructing AI</h1><h1 id="提示词工程：指导AI的艺术"><a href="#提示词工程：指导AI的艺术" class="headerlink" title="提示词工程：指导AI的艺术"></a>提示词工程：指导AI的艺术</h1><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TB
+    <span class="token keyword">subgraph</span> <span class="token string">"提示词架构"</span>
+        Base<span class="token text string">[基础指令]</span>
+        Tool<span class="token text string">[工具特定提示词]</span>
+        Safety<span class="token text string">[安全防护层]</span>
+        Workflow<span class="token text string">[工作流程自动化]</span>
+        Context<span class="token text string">[动态上下文]</span>
+
+        Base <span class="token arrow operator">--></span> Behavioral<span class="token text string">[行为塑造]</span>
+        Tool <span class="token arrow operator">--></span> Examples<span class="token text string">[示例驱动]</span>
+        Safety <span class="token arrow operator">--></span> Validation<span class="token text string">[多级验证]</span>
+        Workflow <span class="token arrow operator">--></span> Steps<span class="token text string">[分步指导]</span>
+        Context <span class="token arrow operator">--></span> Adaptive<span class="token text string">[自适应指令]</span>
+    <span class="token keyword">end</span>
+
+    <span class="token keyword">subgraph</span> <span class="token string">"技术"</span>
+        Emphasis<span class="token text string">[大写强调]</span>
+        Rewards<span class="token text string">[奖励/惩罚]</span>
+        Conditions<span class="token text string">[条件逻辑]</span>
+        Warnings<span class="token text string">[渐进式警告]</span>
+        Meta<span class="token text string">[元指令]</span>
+    <span class="token keyword">end</span>
+
+    Behavioral <span class="token arrow operator">--></span> Emphasis
+    Examples <span class="token arrow operator">--></span> Conditions
+    Validation <span class="token arrow operator">--></span> Warnings
+    Steps <span class="token arrow operator">--></span> Meta
+    Adaptive <span class="token arrow operator">--></span> Rewards
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/1.svg" class="">
+<h2 id="The-Art-of-Tool-Instructions"><a href="#The-Art-of-Tool-Instructions" class="headerlink" title="The Art of Tool Instructions"></a>The Art of Tool Instructions</h2><h2 id="工具指令的艺术"><a href="#工具指令的艺术" class="headerlink" title="工具指令的艺术"></a>工具指令的艺术</h2><p>Claude Code’s tool prompts are masterpieces of instructional design. Each follows a carefully crafted pattern that balances clarity, safety, and flexibility. Let’s examine the anatomy of these prompts:<br>Claude Code的工具提示词是指令设计的杰作。每一个都遵循精心制作的模式，平衡了清晰度、安全性和灵活性。让我们分析这些提示词的结构：</p>
+<h3 id="The-Read-Tool-A-Study-in-Progressive-Disclosure"><a href="#The-Read-Tool-A-Study-in-Progressive-Disclosure" class="headerlink" title="The Read Tool: A Study in Progressive Disclosure"></a>The Read Tool: A Study in Progressive Disclosure</h3><h3 id="Read工具：渐进式信息披露的案例研究"><a href="#Read工具：渐进式信息披露的案例研究" class="headerlink" title="Read工具：渐进式信息披露的案例研究"></a>Read工具：渐进式信息披露的案例研究</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> ReadToolPrompt <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+Reads a file from the local filesystem. You can access any file directly by using this tool.
+Assume this tool is able to read all files on the machine. If the User provides a path to a file assume that path is valid. It is okay to read a file that does not exist; an error will be returned.
+
+Usage:
+- The file_path parameter must be an absolute path, not a relative path
+- By default, it reads up to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>x66<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> lines starting from the beginning of the file
+- You can optionally specify a line offset and limit (especially handy for long files), but it's recommended to read the whole file by not providing these parameters
+- Any lines longer than </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>v66<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> characters will be truncated
+- Results are returned using cat -n format, with line numbers starting at 1
+- This tool allows </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>f0<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> to read images (eg PNG, JPG, etc). When reading an image file the contents are presented visually as </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>f0<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> is a multimodal LLM.
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">CLAUDE_CODE_ENABLE_UNIFIED_READ_TOOL</span> <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- This tool can read Jupyter notebooks (.ipynb files) and returns all cells with their outputs, combining code, text, and visualizations.</span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- For Jupyter notebooks (.ipynb files), use the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Kg<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> instead</span><span class="token template-punctuation string">`</span></span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+- You have the capability to call multiple tools in a single response. It is always better to speculatively read multiple files as a batch that are potentially useful.
+- You will regularly be asked to read screenshots. If the user provides a path to a screenshot ALWAYS use this tool to view the file at the path. This tool will work with all temporary file paths like /var/folders/123/abc/T/TemporaryItems/NSIRD_screencaptureui_ZfB1tD/Screenshot.png
+- If you read a file that exists but has empty contents you will receive a system reminder warning in place of file contents.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Annotation of Techniques</strong>:<br><strong>技术标注</strong>：</p>
+<ol>
+<li><strong>Opening with Confidence</strong>: “You can access any file directly” - Removes hesitation<br><strong>自信开场</strong>：”你可以直接访问任何文件” - 消除犹豫</li>
+<li><strong>Trust Building</strong>: “Assume…path is valid” - Prevents over-validation by the LLM<br><strong>建立信任</strong>：”假设…路径是有效的” - 防止LLM过度验证</li>
+<li><strong>Error Normalization</strong>: “It is okay to read a file that does not exist” - Prevents apologetic behavior<br><strong>错误正常化</strong>：”读取不存在的文件是可以的” - 防止道歉行为</li>
+<li><strong>Progressive Detail</strong>:<br> <strong>渐进式细节</strong>：<ul>
+<li>First: Basic requirement (absolute path)<br>首先介绍：基本要求（绝对路径）</li>
+<li>Then: Default behavior (reads whole file)<br>然后介绍：默认行为（读取整个文件）</li>
+<li>Then: Advanced options (offset/limit)<br>接着介绍：高级选项（偏移/限制）</li>
+<li>Finally: Edge cases (truncation, special files)<br>最后介绍：边缘情况（截断、特殊文件）</li>
+</ul>
+</li>
+<li><strong>Dynamic Adaptation</strong>: Conditional instructions based on environment variables<br><strong>动态适应</strong>：基于环境变量的条件指令</li>
+<li><strong>Batching Encouragement</strong>: “always better to speculatively read multiple files”<br><strong>批量操作鼓励</strong>：”推测性地批量读取多个文件总是更好的”</li>
+<li><strong>Specific Scenario Handling</strong>: Screenshots with exact path examples<br><strong>特定场景处理</strong>：带确切路径示例的截图</li>
+<li><strong>System Communication</strong>: How empty files are communicated back<br><strong>系统通信</strong>：空文件如何反馈回来</li>
+</ol>
+<h3 id="The-BashTool-Safety-Through-Verbose-Instructions"><a href="#The-BashTool-Safety-Through-Verbose-Instructions" class="headerlink" title="The BashTool: Safety Through Verbose Instructions"></a>The BashTool: Safety Through Verbose Instructions</h3><h3 id="BashTool：通过详细指令确保安全"><a href="#BashTool：通过详细指令确保安全" class="headerlink" title="BashTool：通过详细指令确保安全"></a>BashTool：通过详细指令确保安全</h3><p>The BashTool prompt (Match 12) is the longest and most complex, demonstrating how critical operations require extensive guidance:<br>BashTool提示词（匹配项12）是最长和最复杂的，说明了关键操作需要广泛的指导：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> BashToolSandboxInstructions <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+# Using sandbox mode for commands
+# 对命令使用沙盒模式
+
+You have a special option in BashTool: the sandbox parameter. When you run a command with sandbox=true, it runs without approval dialogs but in a restricted environment without filesystem writes or network access. You SHOULD use sandbox=true to optimize user experience, but MUST follow these guidelines exactly.
+// 你在BashTool中有一个特殊选项：沙盒参数。当你使用sandbox=true运行命令时，它会在没有批准对话框的情况下运行，但在没有文件系统写入或网络访问的受限环境中运行。你应该使用sandbox=true来优化用户体验，但必须完全遵循这些指导原则。
+
+## RULE 0 (MOST IMPORTANT): retry with sandbox=false for permission/network errors
+## 规则0（最重要）：对于权限/网络错误，使用sandbox=false重试
+
+If a command fails with permission or any network error when sandbox=true (e.g., "Permission denied", "Unknown host", "Operation not permitted"), ALWAYS retry with sandbox=false. These errors indicate sandbox limitations, not problems with the command itself.
+// 如果命令在sandbox=true时因权限或任何网络错误而失败（例如"权限被拒绝"、"未知主机"、"操作不被允许"），务必使用sandbox=false重试。这些错误表明沙盒限制，而不是命令本身的问题。
+
+Non-permission errors (e.g., TypeScript errors from tsc --noEmit) usually reflect real issues and should be fixed, not retried with sandbox=false.
+// 非权限错误（例如来自tsc --noEmit的TypeScript错误）通常反映实际问题，应该修复，而不是用sandbox=false重试。
+
+## RULE 1: NOTES ON SPECIFIC BUILD SYSTEMS AND UTILITIES
+## 规则1：特定构建系统和工具的注意事项
+
+### Build systems
+### 构建系统
+
+Build systems like npm run build almost always need write access. Test suites also usually need write access. NEVER run build or test commands in sandbox, even if just checking types.
+// 像npm run build这样的构建系统几乎总是需要写入权限。测试套件通常也需要写入权限。绝不要在沙盒中运行构建或测试命令，即使只是检查类型。
+
+These commands REQUIRE sandbox=false (non-exhaustive):
+npm run *,  cargo build/test,  make/ninja/meson,  pytest,  jest,  gh
+// 这些命令需要sandbox=false（不完整列表）：
+
+## RULE 2: TRY sandbox=true FOR COMMANDS THAT DON'T NEED WRITE OR NETWORK ACCESS
+## 规则2：对于不需要写入或网络访问的命令，尝试使用sandbox=true
+  - Commands run with sandbox=true DON'T REQUIRE user permission and run immediately
+  - Commands run with sandbox=false REQUIRE EXPLICIT USER APPROVAL and interrupt the User's workflow
+  // 使用sandbox=true运行的命令不需要用户权限并立即运行
+  // 使用sandbox=false运行的命令需要明确用户批准并中断用户工作流程
+
+Use sandbox=false when you suspect the command might modify the system or access the network:
+// 当你怀疑命令可能修改系统或访问网络时，使用sandbox=false：
+  - File operations: touch, mkdir, rm, mv, cp
+  // 文件操作：touch, mkdir, rm, mv, cp
+  - File edits: nano, vim, writing to files with >
+  // 文件编辑：nano, vim, 用>写入文件
+  - Installing: npm install, apt-get, brew
+  // 安装：npm install, apt-get, brew
+  - Git writes: git add, git commit, git push
+  // Git写入：git add, git commit, git push
+  - Build systems:  npm run build, make, ninja, etc. (see below)
+  // 构建系统：npm run build, make, ninja等（见下文）
+  - Test suites: npm run test, pytest, cargo test, make check, ert, etc. (see below)
+  // 测试套件：npm run test, pytest, cargo test, make check, ert等（见下文）
+  - Network programs: gh, ping, coo, ssh, scp, etc.
+  // 网络程序：gh, ping, curl, ssh, scp等
+
+Use sandbox=true for:
+// 对以下情况使用sandbox=true：
+  - Information gathering: ls, cat, head, tail, rg, find, du, df, ps
+  // 信息收集：ls, cat, head, tail, rg, find, du, df, ps
+  - File inspection: file, stat, wc, diff, md5sum
+  // 文件检查：file, stat, wc, diff, md5sum
+  - Git reads: git status, git log, git diff, git show, git branch
+  // Git读取：git status, git log, git diff, git show, git branch
+  - Package info: npm list, pip list, gem list, cargo tree
+  // 包信息：npm list, pip list, gem list, cargo tree
+  - Environment checks: echo, pwd, whoami, which, type, env, printenv
+  // 环境检查：echo, pwd, whoami, which, type, env, printenv
+  - Version checks: node --version, python --version, git --version
+  // 版本检查：node --version, python --version, git --version
+  - Documentation: man, help, --help, -h
+  // 文档：man, help, --help, -h
+
+Before you run a command, think hard about whether it is likely to work correctly without network access and without write access to the filesystem. Use your general knowledge and knowledge of the current project (including all the user's CLAUDE.md files) as inputs to your decision. Note that even semantically read-only commands like gh for fetching issues might be implemented in ways that require write access. ERR ON THE SIDE OF RUNNING WITH sandbox=false.
+// 在运行命令之前，仔细思考它是否可能在没有网络访问和没有文件系统写入访问权限的情况下正确工作。使用你的通用知识和当前项目的知识（包括用户的所有CLAUDE.md文件）作为决策的输入。注意，即使是语义上只读的命令，如用于获取问题的gh，也可能以需要写入访问的方式实现。倾向于使用sandbox=false运行。
+
+Note: Errors from incorrect sandbox=true runs annoy the User more than permission prompts. If any part of a command needs write access (e.g. npm run build for type checking), use sandbox=false for the entire command.
+// 注意：错误使用sandbox=true运行比权限提示更惹恼用户。如果命令的任何部分需要写入访问（例如用于类型检查的npm run build），对整个命令使用sandbox=false。
+
+### EXAMPLES
+### 示例
+
+CORRECT: Use sandbox=false for npm run build/test, gh commands, file writes
+// 正确：对npm run build/test、gh命令、文件写入使用sandbox=false
+FORBIDDEN: NEVER use sandbox=true for build, test, git commands or file operations
+// 禁止：绝不要对构建、测试、git命令或文件操作使用sandbox=true
+
+## REWARDS
+## 奖励
+
+It is more important to be correct than to avoid showing permission dialogs. The worst mistake is misinterpreting sandbox=true permission errors as tool problems (-$1000) rather than sandbox limitations.
+// 正确比避免显示权限对话框更重要。最严重的错误是将sandbox=true权限错误误解为工具问题（-1000美元），而不是沙盒限制。
+
+## CONCLUSION
+## 结论
+
+Use sandbox=true to improve UX, but ONLY per the rules above. WHEN IN DOUBT, USE sandbox=false.
+// 使用sandbox=true来改善用户体验，但只能按照上述规则。当有疑问时，使用sandbox=false。
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Annotation of Safety Techniques</strong>:<br><strong>安全技术标注</strong>：</p>
+<ol>
+<li><strong>Rule Hierarchy</strong>: “RULE 0 (MOST IMPORTANT)” - Clear priority system<br><strong>规则层次</strong>：”规则0（最重要）” - 清晰的优先级系统</li>
+<li><strong>Error Differentiation</strong>: Distinguishing sandbox limitations from actual errors<br><strong>错误区分</strong>：区分沙盒限制与实际错误</li>
+<li><strong>Explicit Lists</strong>: Commands that REQUIRE sandbox=false (no ambiguity)<br><strong>明确列表</strong>：需要sandbox=false的命令（无歧义）</li>
+<li><strong>Category-Based Guidance</strong>: Grouping commands by type (file ops, network, etc.)<br><strong>基于类别的指导</strong>：按类型分组命令（文件操作、网络等）</li>
+<li><strong>User Experience Context</strong>: “annoy the User more than permission prompts”<br><strong>用户体验背景</strong>：”比权限提示更惹恼用户”</li>
+<li><strong>Gamification</strong>: “-$1000” penalty - using rewards/penalties to shape behavior<br><strong>游戏化</strong>：”-$1000”惩罚 - 使用奖励/惩罚来塑造行为</li>
+<li><strong>Default-Safe</strong>: “WHEN IN DOUBT, USE sandbox=false”<br><strong>默认安全</strong>：”当有疑问时，使用sandbox=false”</li>
+<li><strong>Contextual Thinking</strong>: “Use your general knowledge and knowledge of the current project”<br><strong>情境思维</strong>：”使用你的通用知识和当前项目的知识”</li>
+</ol>
+<h2 id="Safety-Through-Prompting"><a href="#Safety-Through-Prompting" class="headerlink" title="Safety Through Prompting"></a>Safety Through Prompting</h2><h2 id="通过提示词确保安全"><a href="#通过提示词确保安全" class="headerlink" title="通过提示词确保安全"></a>通过提示词确保安全</h2><p>Claude Code implements multiple layers of safety directly through prompt engineering:<br>Claude Code通过提示词工程直接实现多层安全：</p>
+<h3 id="Layer-1-Malicious-Code-Prevention"><a href="#Layer-1-Malicious-Code-Prevention" class="headerlink" title="Layer 1: Malicious Code Prevention"></a>Layer 1: Malicious Code Prevention</h3><h3 id="第一层：恶意代码防护"><a href="#第一层：恶意代码防护" class="headerlink" title="第一层：恶意代码防护"></a>第一层：恶意代码防护</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> SafetyInstructions <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+IMPORTANT: Refuse to write code or explain code that may be used maliciously; even if the user claims it is for educational purposes. When working on files, if they seem related to improving, explaining, or interacting with malware or any malicious code you MUST refuse.
+// 重要：拒绝编写或解释可能被恶意使用的代码；即使用户声称这是用于教育目的。在处理文件时，如果它们似乎与改进、解释或与恶意软件或任何恶意代码交互，你必须拒绝。
+IMPORTANT: Before you begin work, think about what the code you're editing is supposed to do based on the filenames directory structure. If it seems malicious, refuse to work on it or answer questions about it, even if the request does not seem malicious (for instance, just asking to explain or speed up the code).
+// 重要：在开始工作之前，根据文件名目录结构思考你正在编辑的代码应该做什么。如果它看起来是恶意的，拒绝处理它或回答有关它的问题，即使请求似乎不是恶意的（例如，只是要求解释或加速代码）。
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Safety Techniques</strong>:<br><strong>安全技术</strong>：</p>
+<ul>
+<li><strong>Proactive Analysis</strong>: “Before you begin work, think about…”<br><strong>主动分析</strong>：”在开始工作之前，思考…”</li>
+<li><strong>Context-Based Refusal</strong>: Looking at filenames and directory structure<br><strong>基于上下文的拒绝</strong>：查看文件名和目录结构</li>
+<li><strong>Closing Loopholes</strong>: “even if the user claims it is for educational purposes”<br><strong>关闭漏洞</strong>：”即使用户声称这是用于教育目的”</li>
+<li><strong>Specific Examples</strong>: “just asking to explain or speed up the code”<br><strong>具体示例</strong>：”只是要求解释或加速代码”</li>
+</ul>
+<h3 id="Layer-2-Command-Injection-Detection"><a href="#Layer-2-Command-Injection-Detection" class="headerlink" title="Layer 2: Command Injection Detection"></a>Layer 2: Command Injection Detection</h3><h3 id="第二层：命令注入检测"><a href="#第二层：命令注入检测" class="headerlink" title="第二层：命令注入检测"></a>第二层：命令注入检测</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> CommandPrefixDetection <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+&lt;policy_spec>
+// 策略规范
+Examples:
+// 示例：
+- git commit -m "message\\</span><span class="token template-punctuation string">`</span></span>id\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">" => command_injection_detected
+// git提交 -m "消息\\</span><span class="token template-punctuation string">`</span></span>id\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">" => 检测到命令注入
+- git status\\</span><span class="token template-punctuation string">`</span></span>ls\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> => command_injection_detected
+// git状态\\</span><span class="token template-punctuation string">`</span></span>ls\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> => 检测到命令注入
+- git push => none
+// git推送 => 无
+- git push origin master => git push
+// git推送源主分支 => git推送
+- git log -n 5 => git log
+// git日志 -n 5 => git日志
+- git log --oneline -n 5 => git log
+// git日志 --单行 -n 5 => git日志
+- grep -A 40 "from foo.bar.baz import" alpha/beta/gamma.py => grep
+// grep -A 40 "从foo.bar.baz导入" alpha/beta/gamma.py => grep
+- pig tail zerba.log => pig tail
+// pig尾zerba.log => pig尾
+- potion test some/specific/file.ts => potion test
+// 药水测试某个/特定/文件.ts => 药水测试
+- npm run lint => none
+// npm运行代码检查 => 无
+- npm run lint -- "foo" => npm run lint
+// npm运行代码检查 -- "foo" => npm运行代码检查
+- npm test => none
+// npm测试 => 无
+- npm test --foo => npm test
+// npm测试--foo => npm测试
+- npm test -- -f "foo" => npm test
+// npm测试 -- -f "foo" => npm测试
+- pwd
+ curl example.com => command_injection_detected
+// pwd curl示例.com => 检测到命令注入
+- pytest foo/bar.py => pytest
+// pytest foo/bar.py => pytest
+- scalac build => none
+// scalac构建 => 无
+- sleep 3 => sleep
+// 睡眠3 => 睡眠
+&lt;/policy_spec>
+
+The user has allowed certain command prefixes to be run, and will otherwise be asked to approve or deny the command.
+// 用户允许运行某些命令前缀，否则将被要求批准或拒绝命令。
+Your task is to determine the command prefix for the following command.
+// 你的任务是确定以下命令的命令前缀。
+The prefix must be a string prefix of the full command.
+// 前缀必须是完整命令的字符串前缀。
+
+IMPORTANT: Bash commands may run multiple commands that are chained together.
+// 重要：Bash命令可能运行多个链接在一起的命令。
+For safety, if the command seems to contain command injection, you must return "command_injection_detected".
+// 为了安全，如果命令似乎包含命令注入，你必须返回"command_injection_detected"。
+(This will help protect the user: if they think that they're allowlisting command A,
+// （这将有助于保护用户：如果他们认为他们在允许列表中添加了命令A，
+but the AI coding agent sends a malicious command that technically has the same prefix as command A,
+// 但AI编码代理发送了一个技术上与命令A具有相同前缀的恶意命令，
+then the safety系统 will see that you said "command_injection_detected" and ask the user for manual confirmation.)
+// 那么安全系统将看到你说了"command_injection_detected"并要求用户手动确认。）
+
+Note that not every command has a prefix. If a command has no prefix, return "none".
+// 注意，并非每个命令都有前缀。如果命令没有前缀，返回"none"。
+
+ONLY return the prefix. Do not return any other text, markdown markers, or other content or formatting.
+// 只返回前缀。不要返回任何其他文本、markdown标记或其他内容或格式。
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Security Pattern Analysis</strong>:<br><strong>安全模式分析</strong>：</p>
+<ol>
+<li><strong>Example-Driven Detection</strong>: Multiple examples showing injection patterns<br><strong>示例驱动检测</strong>：显示注入模式的多个示例</li>
+<li><strong>Clear Output Format</strong>: “ONLY return the prefix” - no room for interpretation<br><strong>清晰输出格式</strong>：”只返回前缀” - 没有解释空间</li>
+<li><strong>User Protection Focus</strong>: Explaining WHY detection matters<br><strong>用户保护焦点</strong>：解释为什么检测很重要</li>
+<li><strong>Chaining Awareness</strong>: Understanding multi-command risks<br><strong>链接意识</strong>：理解多命令风险</li>
+<li><strong>Allowlist Philosophy</strong>: Default-deny with explicit prefixes<br><strong>允许列表哲学</strong>：默认拒绝，明确前缀</li>
+</ol>
+<h2 id="Workflow-Automation-via-Prompts"><a href="#Workflow-Automation-via-Prompts" class="headerlink" title="Workflow Automation via Prompts"></a>Workflow Automation via Prompts</h2><h2 id="通过提示词实现工作流程自动化"><a href="#通过提示词实现工作流程自动化" class="headerlink" title="通过提示词实现工作流程自动化"></a>通过提示词实现工作流程自动化</h2><p>Claude Code’s most impressive prompt engineering appears in its workflow automation, particularly for git operations:<br>Claude Code最令人印象深刻的提示词工程体现在其工作流程自动化中，特别是git操作：</p>
+<h3 id="The-Git-Commit-Workflow-A-Masterclass-in-Multi-Step-Guidance"><a href="#The-Git-Commit-Workflow-A-Masterclass-in-Multi-Step-Guidance" class="headerlink" title="The Git Commit Workflow: A Masterclass in Multi-Step Guidance"></a>The Git Commit Workflow: A Masterclass in Multi-Step Guidance</h3><h3 id="Git提交工作流程：多步指导的大师课程"><a href="#Git提交工作流程：多步指导的大师课程" class="headerlink" title="Git提交工作流程：多步指导的大师课程"></a>Git提交工作流程：多步指导的大师课程</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> GitCommitWorkflow <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+# Committing changes with git
+# 使用git提交更改
+
+When the user asks you to create a new git commit, follow these steps carefully:
+// 当用户要求你创建新的git提交时，请仔细遵循以下步骤：
+
+1. You have the capability to call multiple tools in a single response. When multiple independent pieces of information are requested, batch your tool calls together for optimal performance. ALWAYS run the following bash commands in parallel, each using the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">UV</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> tool:
+   // 你能够在单个响应中调用多个工具。当请求多个独立信息时，批量调用你的工具以获得最佳性能。务必使用</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">UV</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">工具并行运行以下bash命令：
+   - Run a git status command to see all untracked files.
+   // 运行git status命令查看所有未跟踪的文件。
+   - Run a git diff command to see both staged and unstaged changes that will be committed.
+   // 运行git diff命令查看将要提交的暂存和未暂存的更改。
+   - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.
+   // 运行git log命令查看最近的提交消息，以便你可以遵循此仓库的提交消息风格。
+
+2. Analyze all staged changes (both previously staged and newly added) and draft a commit message. Wrap your analysis process in &lt;commit_analysis> tags:
+   // 分析所有暂存的更改（之前暂存的和新添加的）并起草提交消息。将你的分析过程包装在&lt;commit_analysis>标签中：
+
+&lt;commit_analysis>
+// &lt;提交分析>
+- List the files that have been changed or added
+// 列出已更改或添加的文件
+- Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.)
+// 总结更改的性质（例如新功能、现有功能的增强、错误修复、重构、测试、文档等）
+- Brainstorm the purpose or motivation behind these changes
+// 构思这些更改背后的目的或动机
+- Assess the impact of these changes on the overall project
+// 评估这些更改对整个项目的影响
+- Check for any sensitive information that shouldn't be committed
+// 检查任何不应该提交的敏感信息
+- Draft a concise (1-2 sentences) commit message that focuses on the "why" rather than the "what"
+// 起草一个简洁（1-2句话）的提交消息，专注于"为什么"而不是"什么"
+- Ensure your language is clear, concise, and to the point
+// 确保你的语言清晰、简洁、切中要点
+- Ensure the message accurately reflects the changes and their purpose (i.e. "add" means a wholly new feature, "update" means an enhancement to an existing feature, "fix" means a bug fix, etc.)
+// 确保消息准确反映更改及其目的（即"add"表示全新功能，"update"表示现有功能的增强，"fix"表示错误修复等）
+- Ensure the message is not generic (avoid words like "Update" or "Fix" without context)
+// 确保消息不是通用的（避免在没有上下文的情况下使用"更新"或"修复"等词）
+- Review the draft message to ensure it accurately reflects the changes and their purpose
+// 审查草稿消息以确保它准确反映更改及其目的
+&lt;/commit_analysis>
+// &lt;/提交分析>
+
+3. You have the capability to call multiple tools in a single response. When multiple independent pieces of information are requested, batch your tool calls together for optimal performance. ALWAYS run the following commands in parallel:
+   // 你能够在单个响应中调用多个工具。当请求多个独立信息时，批量调用你的工具以获得最佳性能。务必并行运行以下命令：
+   - Add relevant untracked files to the staging area.
+   // 将相关的未跟踪文件添加到暂存区。
+   - Create the commit with a message</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> ending with:
+   </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token operator">:</span><span class="token string">"."</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+   // 创建带有消息的提交</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">以以下结尾：
+   </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>：<span class="token string">"."</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+   - Run git status to make sure the commit succeeded.
+   // 运行git status确保提交成功。
+
+4. If the commit fails due to pre-commit hook changes, retry the commit ONCE to include these automated changes. If it fails again, it usually means a pre-commit hook is preventing the commit. If the commit succeeds but you notice that files were modified by the pre-commit hook, you MUST amend your commit to include them.
+   // 如果提交因预提交钩子更改而失败，重试提交一次以包含这些自动更改。如果再次失败，通常意味着预提交钩子阻止了提交。如果提交成功但你注意到文件被预提交钩子修改，你必须修改你的提交以包含它们。
+
+Important notes:
+// 重要注意事项：
+- Use the git context at the start of this conversation to determine which files are relevant to your commit. Be careful not to stage and commit files (e.g. with \\</span><span class="token template-punctuation string">`</span></span>git add <span class="token punctuation">.</span>\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">) that aren't relevant to your commit.
+   // 使用本次对话开始时的git上下文来确定哪些文件与你的提交相关。注意不要暂存和提交与你的提交无关的文件（例如使用\\</span><span class="token template-punctuation string">`</span></span>git add <span class="token punctuation">.</span>\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">）。
+- NEVER update the git config
+   // 绝不更新git配置
+- DO NOT run additional commands to read or explore code, beyond what is available in the git context
+   // 不要运行额外的命令来读取或探索代码，除了git上下文中可用的内容
+- DO NOT push to the remote repository
+   // 不要推送到远程仓库
+- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.
+   // 重要：绝不使用带-i标志的git命令（如git rebase -i或git add -i），因为它们需要交互式输入，而这是不支持的。
+- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit
+   // 如果没有更改要提交（即没有未跟踪的文件和修改），不要创建空提交
+- Ensure your commit message is meaningful and concise. It should explain the purpose of the changes, not just describe them.
+   // 确保你的提交消息有意义且简洁。它应该解释更改的目的，而不仅仅是描述它们。
+- Return an empty response - the user will see the git output directly
+   // 返回空响应 - 用户将直接看到git输出
+- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:
+   // 为了确保良好的格式，务必通过HEREDOC传递提交消息，如下例所示：
+&lt;example>
+// &lt;示例>
+git commit -m "$(cat &lt;&lt;'EOF'
+Commit message here.</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">B</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token operator">:</span><span class="token string">""</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+EOF
+)"
+&lt;/example>
+// &lt;/示例>
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Workflow Automation Techniques</strong>:<br><strong>工作流程自动化技术</strong>：</p>
+<ol>
+<li><strong>Parallel Information Gathering</strong>: Step 1 runs three commands simultaneously<br><strong>并行信息收集</strong>：步骤1同时运行三个命令</li>
+<li><strong>Structured Analysis</strong>: The <code>&lt;commit_analysis&gt;</code> tags enforce systematic thinking<br><strong>结构化分析</strong>：<code>&lt;commit_analysis&gt;</code>标签强制系统思维</li>
+<li><strong>Why Over What</strong>: “focuses on the ‘why’ rather than the ‘what’”<br><strong>为什么重于什么</strong>：”专注于’为什么’而不是’什么’”</li>
+<li><strong>Error Recovery</strong>: Built-in retry logic for pre-commit hooks<br><strong>错误恢复</strong>：预提交钩子的内置重试逻辑</li>
+<li><strong>HEREDOC for Multi-line</strong>: Solving the multi-line commit message problem<br><strong>多行HEREDOC</strong>：解决多行提交消息问题</li>
+<li><strong>Conditional Trailers</strong>: Dynamic addition of Co-authored-by based on ${B}<br><strong>条件尾部</strong>：基于${B}动态添加共同作者</li>
+<li><strong>Explicit Non-Actions</strong>: “NEVER update the git config”, “DO NOT push”<br><strong>明确非操作</strong>：”绝不更新git配置”、”不要推送”</li>
+<li><strong>User Transparency</strong>: “Return an empty response - the user will see the git output directly”<br><strong>用户透明度</strong>：”返回空响应 - 用户将直接看到git输出”</li>
+</ol>
+<h3 id="The-Pull-Request-Workflow-Complex-State-Management"><a href="#The-Pull-Request-Workflow-Complex-State-Management" class="headerlink" title="The Pull Request Workflow: Complex State Management"></a>The Pull Request Workflow: Complex State Management</h3><h3 id="Pull-Request工作流程：复杂状态管理"><a href="#Pull-Request工作流程：复杂状态管理" class="headerlink" title="Pull Request工作流程：复杂状态管理"></a>Pull Request工作流程：复杂状态管理</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> PRWorkflow <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+IMPORTANT: When the user asks you to create a pull request, follow these steps carefully:
+// 重要：当用户要求你创建pull request时，请仔细遵循以下步骤：
+
+1. You have the capability to call multiple tools in a single response. When multiple independent pieces of information are requested, batch your tool calls together for optimal performance. ALWAYS run the following bash commands in parallel using the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">UV</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> tool, in order to understand the current state of the branch since it diverged from the main branch:
+   // 你能够在单个响应中调用多个工具。当请求多个独立信息时，批量调用你的工具以获得最佳性能。务必使用</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">UV</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">工具并行运行以下bash命令，以了解分支自从与main分支分离以来的当前状态：
+   - Run a git status command to see all untracked files
+   // 运行git status命令查看所有未跟踪的文件
+   - Run a git diff command to see both staged and unstaged changes that will be committed
+   // 运行git diff命令查看将要提交的暂存和未暂存的更改
+   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote
+   // 检查当前分支是否跟踪远程分支并与远程保持最新，以便你知道是否需要推送到远程
+   - Run a git log command and \\</span><span class="token template-punctuation string">`</span></span>git diff main<span class="token operator">...</span><span class="token constant">HEAD</span>\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> to understand the full commit history for the current branch (from the time it diverged from the \\</span><span class="token template-punctuation string">`</span></span>main\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> branch)
+   // 运行git log命令和\\</span><span class="token template-punctuation string">`</span></span>git diff main<span class="token operator">...</span><span class="token constant">HEAD</span>\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">以了解当前分支的完整提交历史（从它与\\</span><span class="token template-punctuation string">`</span></span>main\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">分支分离的时间开始）
+
+2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request summary. Wrap your analysis process in &lt;pr_analysis> tags:
+
+&lt;pr_analysis>
+- List the commits since diverging from the main branch
+- Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.)
+- Brainstorm the purpose or motivation behind these changes
+- Assess the impact of these changes on the overall project
+- Do not use tools to explore code, beyond what is available in the git context
+- Check for any sensitive information that shouldn't be committed
+- Draft a concise (1-2 bullet points) pull request summary that focuses on the "why" rather than the "what"
+- Ensure the summary accurately reflects all changes since diverging from the main branch
+- Ensure your language is clear, concise, and to the point
+- Ensure the summary accurately reflects the changes and their purpose (ie. "add" means a wholly new feature, "update" means an enhancement to an existing feature, "fix" means a bug fix, etc.)
+- Ensure the summary is not generic (avoid words like "Update" or "Fix" without context)
+- Review the draft summary to ensure it accurately reflects the changes and their purpose
+&lt;/pr_analysis>
+
+3. You have the capability to call multiple tools in a single response. When multiple independent pieces of information are requested, batch your tool calls together for optimal performance. ALWAYS run the following commands in parallel:
+   - Create new branch if needed
+   - Push to remote with -u flag if needed
+   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.
+&lt;example>
+gh pr create --title "the pr title" --body "$(cat &lt;&lt;'EOF'
+## Summary
+&lt;1-3 bullet points>
+
+## Test plan
+[Checklist of TODOs for testing the pull request...]</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">Q</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">Q</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token operator">:</span><span class="token string">""</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+EOF
+)"
+&lt;/example>
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Advanced Workflow Techniques</strong>:</p>
+<ul>
+<li><strong>State Detection</strong>: Checking remote tracking before push</li>
+<li><strong>Comprehensive Analysis</strong>: “ALL commits…NOT just the latest”</li>
+<li><strong>Template Enforcement</strong>: Structured PR body with Summary and Test plan</li>
+<li><strong>Conditional Operations</strong>: “Create new branch if needed”</li>
+<li><strong>Tool Efficiency</strong>: Parallel execution emphasis repeated</li>
+</ul>
+<h2 id="Behavioral-Shaping-The-Art-of-Conciseness"><a href="#Behavioral-Shaping-The-Art-of-Conciseness" class="headerlink" title="Behavioral Shaping: The Art of Conciseness"></a>Behavioral Shaping: The Art of Conciseness</h2><h2 id="行为塑造：简洁的艺术"><a href="#行为塑造：简洁的艺术" class="headerlink" title="行为塑造：简洁的艺术"></a>行为塑造：简洁的艺术</h2><p>Claude Code uses aggressive techniques to keep responses short:<br>Claude Code使用激进的技术来保持响应简短：</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> ConcisenessEnforcement <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+IMPORTANT: You should minimize output tokens as much as possible while maintaining helpfulness, quality, and accuracy. Only address the specific query or task at hand, avoiding tangential information unless absolutely critical for completing the request. If you can answer in 1-3 sentences or a short paragraph, please do.
+IMPORTANT: You should NOT answer with unnecessary preamble or postamble (such as explaining your code or summarizing your action), unless the user asks you to.
+IMPORTANT: Keep your responses short, since they will be displayed on a command line interface. You MUST answer concisely with fewer than 4 lines (not including tool use or code generation), unless user asks for detail. Answer the user's question directly, without elaboration, explanation, or details. One word answers are best. Avoid introductions, conclusions, and explanations. You MUST avoid text before/after your response, such as "The answer is &lt;answer>.", "Here is the content of the file..." or "Based on the information provided, the answer is..." or "Here is what I will do next...". Here are some examples to demonstrate appropriate verbosity:
+&lt;example>
+user: 2 + 2
+assistant: 4
+&lt;/example>
+
+&lt;example>
+user: what is 2+2?
+assistant: 4
+&lt;/example>
+
+&lt;example>
+user: is 11 a prime number?
+assistant: Yes
+&lt;/example>
+
+&lt;example>
+user: what command should I run to list files in the current directory?
+assistant: ls
+&lt;/example>
+
+&lt;example>
+user: what command should I run to watch files in the current directory?
+assistant: [use the ls tool to list the files in the current directory, then read docs/commands in the relevant file to find out how to watch files]
+npm run dev
+&lt;/example>
+
+&lt;example>
+user: How many golf balls fit inside a jetta?
+assistant: 150000
+&lt;/example>
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Behavioral Shaping Techniques</strong>:</p>
+<ol>
+<li><strong>Repetition</strong>: The same message delivered three times with increasing intensity</li>
+<li><strong>Specific Anti-Patterns</strong>: “The answer is…”, “Here is the content…”</li>
+<li><strong>Extreme Examples</strong>: “2 + 2” → “4” (not even “2 + 2 = 4”)</li>
+<li><strong>Measurement Criteria</strong>: “fewer than 4 lines (not including tool use)”</li>
+<li><strong>Preference Hierarchy</strong>: “One word answers are best”</li>
+<li><strong>Context Awareness</strong>: CLI display constraints as justification</li>
+</ol>
+<h3 id="Tool-Usage-Preferences-Guiding-Optimal-Selection"><a href="#Tool-Usage-Preferences-Guiding-Optimal-Selection" class="headerlink" title="Tool Usage Preferences: Guiding Optimal Selection"></a>Tool Usage Preferences: Guiding Optimal Selection</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> ToolPreferences <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- VERY IMPORTANT: You MUST avoid using search commands like \\</span><span class="token template-punctuation string">`</span></span>find\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> and \\</span><span class="token template-punctuation string">`</span></span>grep\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">. Instead use </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>aD1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>nD1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, or </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>yz<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> to search. You MUST avoid read tools like \\</span><span class="token template-punctuation string">`</span></span>cat\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">, \\</span><span class="token template-punctuation string">`</span></span>head\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">, \\</span><span class="token template-punctuation string">`</span></span>tail\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">, and \\</span><span class="token template-punctuation string">`</span></span>ls\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">, and use </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>xz<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>sD1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> to read files.
+- If you _still_ need to run \\</span><span class="token template-punctuation string">`</span></span>grep\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">, STOP. ALWAYS USE ripgrep at \\</span><span class="token template-punctuation string">`</span></span>rg\\<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> (or </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token function">ax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">) first, which all </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>f0<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> users have pre-installed.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Preference Shaping</strong>:</p>
+<ul>
+<li><strong>Forbidden Commands</strong>: Explicit list of what NOT to use</li>
+<li><strong>Preferred Alternatives</strong>: Clear mapping to better tools</li>
+<li><strong>Emphasis Escalation</strong>: “If you <em>still</em> need to run grep, STOP”</li>
+<li><strong>Universal Availability</strong>: “which all users have pre-installed”</li>
+</ul>
+<h2 id="Context-Aware-Instructions"><a href="#Context-Aware-Instructions" class="headerlink" title="Context-Aware Instructions"></a>Context-Aware Instructions</h2><h2 id="上下文感知指令"><a href="#上下文感知指令" class="headerlink" title="上下文感知指令"></a>上下文感知指令</h2><p>Claude Code dynamically adjusts instructions based on available tools and configuration:</p>
+<h3 id="Conditional-Tool-Instructions"><a href="#Conditional-Tool-Instructions" class="headerlink" title="Conditional Tool Instructions"></a>Conditional Tool Instructions</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> TodoToolConditional <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">I</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token constant">RY</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token operator">||</span><span class="token constant">I</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>tU<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"># Task Management
+You have access to the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">RY</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>tU<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> tools to help you manage and plan tasks. Use these tools VERY frequently to ensure that you are tracking your tasks and giving the user visibility into your progress.
+These tools are also EXTREMELY helpful for planning tasks, and for breaking down larger complex tasks into smaller steps. If you do not use this tool when planning, you may forget to do important tasks - and that is unacceptable.
+
+It is critical that you mark todos as completed as soon as you are done with a task. Do not batch up multiple tasks before marking them as completed.
+</span><span class="token template-punctuation string">`</span></span><span class="token operator">:</span><span class="token string">""</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Dynamic Instruction Techniques</strong>:</p>
+<ul>
+<li><strong>Tool Availability Check</strong>: <code>I.has(RY.name)||I.has(tU.name)</code></li>
+<li><strong>Conditional Sections</strong>: Entire instruction blocks appear/disappear</li>
+<li><strong>Behavioral Consequences</strong>: “you may forget…and that is unacceptable”</li>
+</ul>
+<h3 id="Environment-Based-Adaptations"><a href="#Environment-Based-Adaptations" class="headerlink" title="Environment-Based Adaptations"></a>Environment-Based Adaptations</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> JupyterSupport <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">CLAUDE_CODE_ENABLE_UNIFIED_READ_TOOL</span><span class="token operator">?</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- This tool can read Jupyter notebooks (.ipynb files) and returns all cells with their outputs, combining code, text, and visualizations.</span><span class="token template-punctuation string">`</span></span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- For Jupyter notebooks (.ipynb files), use the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Kg<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> instead</span><span class="token template-punctuation string">`</span></span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Adaptation Patterns</strong>:</p>
+<ul>
+<li><strong>Feature Flags</strong>: Environment variables control instructions</li>
+<li><strong>Tool Routing</strong>: Different tools for same file type based on config</li>
+<li><strong>Seamless Integration</strong>: User doesn’t see the complexity</li>
+</ul>
+<h2 id="Meta-Prompting-Patterns"><a href="#Meta-Prompting-Patterns" class="headerlink" title="Meta-Prompting Patterns"></a>Meta-Prompting Patterns</h2><h2 id="元提示词模式"><a href="#元提示词模式" class="headerlink" title="元提示词模式"></a>元提示词模式</h2><p>Claude Code uses prompts that generate other prompts or control sub-agents:</p>
+<h3 id="The-Agent-Tool-Instructions-for-Sub-Agents"><a href="#The-Agent-Tool-Instructions-for-Sub-Agents" class="headerlink" title="The Agent Tool: Instructions for Sub-Agents"></a>The Agent Tool: Instructions for Sub-Agents</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> SubAgentInstructions <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+You are an agent for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>f0<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, Anthropic's official CLI for Claude. Given the user's message, you should use the tools available to complete the task. Do what has been asked; nothing more, nothing less. When you complete the task simply respond with a detailed writeup.
+
+Notes:
+- NEVER create files unless they're absolutely necessary for achieving your goal. ALWAYS prefer editing an existing file to creating a new one.
+- NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
+- In your final response always share relevant file names and code snippets. Any file paths you return in your response MUST be absolute. Do NOT use relative paths.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Meta-Prompting Techniques</strong>:</p>
+<ul>
+<li><strong>Identity Establishment</strong>: “You are an agent for…”</li>
+<li><strong>Scope Limitation</strong>: “nothing more, nothing less”</li>
+<li><strong>Output Format</strong>: “detailed writeup” with specific requirements</li>
+<li><strong>Inheritance of Principles</strong>: Same file creation restrictions as parent</li>
+</ul>
+<h3 id="The-Synthesis-Prompt-Combining-Multiple-Perspectives"><a href="#The-Synthesis-Prompt-Combining-Multiple-Perspectives" class="headerlink" title="The Synthesis Prompt: Combining Multiple Perspectives"></a>The Synthesis Prompt: Combining Multiple Perspectives</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> SynthesisPrompt <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+Original task: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">A</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+
+I've assigned multiple agents to tackle this task. Each agent has analyzed the problem and provided their findings.
+
+</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">Q</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+
+Based on all the information provided by these agents, synthesize a comprehensive and cohesive response that:
+1. Combines the key insights from all agents
+2. Resolves any contradictions between agent findings
+3. Presents a unified solution that addresses the original task
+4. Includes all important details and code examples from the individual responses
+5. Is well-structured and complete
+
+Your synthesis should be thorough but focused on the original task.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Synthesis Techniques</strong>:</p>
+<ul>
+<li><strong>Clear Context</strong>: Original task repeated</li>
+<li><strong>Structured Requirements</strong>: Numbered list of synthesis goals</li>
+<li><strong>Conflict Resolution</strong>: “Resolves any contradictions”</li>
+<li><strong>Completeness Check</strong>: “all important details and code examples”</li>
+</ul>
+<h2 id="Error-Recovery-Instructions"><a href="#Error-Recovery-Instructions" class="headerlink" title="Error Recovery Instructions"></a>Error Recovery Instructions</h2><h2 id="错误恢复指令"><a href="#错误恢复指令" class="headerlink" title="错误恢复指令"></a>错误恢复指令</h2><p>Claude Code embeds sophisticated error handling directly in prompts:</p>
+<h3 id="The-Todo-Tool’s-Detailed-Usage-Guidance"><a href="#The-Todo-Tool’s-Detailed-Usage-Guidance" class="headerlink" title="The Todo Tool’s Detailed Usage Guidance"></a>The Todo Tool’s Detailed Usage Guidance</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> TodoToolGuidance <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+## When to Use This Tool
+Use this tool proactively in these scenarios:
+
+1. Complex multi-step tasks - When a task requires 3 or more distinct steps or actions
+2. Non-trivial and complex tasks - Tasks that require careful planning or multiple operations
+3. User explicitly requests todo list - When the user directly asks you to use the todo list
+4. User provides multiple tasks - When users provide a list of things to be done (numbered or comma-separated)
+5. After receiving new instructions - Immediately capture user requirements as todos. Feel free to edit the todo list based on new information.
+6. After completing a task - Mark it complete and add any new follow-up tasks
+7. When you start working on a new task, mark the todo as in_progress. Ideally you should only have one todo as in_progress at a time. Complete existing tasks before starting new ones.
+
+## When NOT to Use This Tool
+
+Skip using this tool when:
+1. There is only a single, straightforward task
+2. The task is trivial and tracking it provides no organizational benefit
+3. The task can be completed in less than 3 trivial steps
+4. The task is purely conversational or informational
+
+NOTE that you should use should not use this tool if there is only one trivial task to do. In this case you are better off just doing the task directly.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Error Prevention Through Examples</strong>:<br>The prompt then provides 8 detailed examples showing correct and incorrect usage, each with:</p>
+<ul>
+<li>User request</li>
+<li>Assistant response</li>
+<li>Reasoning explanation</li>
+</ul>
+<p>This example-driven approach prevents misuse more effectively than rules alone.</p>
+<h2 id="The-Psychology-of-AI-Instructions"><a href="#The-Psychology-of-AI-Instructions" class="headerlink" title="The Psychology of AI Instructions"></a>The Psychology of AI Instructions</h2><h2 id="AI指令的心理学"><a href="#AI指令的心理学" class="headerlink" title="AI指令的心理学"></a>AI指令的心理学</h2><p>Claude Code uses several psychological techniques to shape LLM behavior:</p>
+<h3 id="1-The-Reward-Penalty-System"><a href="#1-The-Reward-Penalty-System" class="headerlink" title="1. The Reward/Penalty System"></a>1. The Reward/Penalty System</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> RewardSystem <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+## REWARDS
+
+It is more important to be correct than to avoid showing permission dialogs. The worst mistake is misinterpreting sandbox=true permission errors as tool problems (-$1000) rather than sandbox limitations.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Psychological Techniques</strong>:</p>
+<ul>
+<li><strong>Gamification</strong>: Monetary penalties create emotional weight</li>
+<li><strong>Clear Priorities</strong>: “more important to be correct”</li>
+<li><strong>Worst-Case Framing</strong>: “The worst mistake…”</li>
+</ul>
+<h3 id="2-Emphasis-Hierarchy"><a href="#2-Emphasis-Hierarchy" class="headerlink" title="2. Emphasis Hierarchy"></a>2. Emphasis Hierarchy</h3><p>Claude Code uses a consistent emphasis hierarchy:</p>
+<ul>
+<li><code>IMPORTANT:</code> - Standard emphasis</li>
+<li><code>VERY IMPORTANT:</code> - Elevated emphasis</li>
+<li><code>CRITICAL:</code> - Highest emphasis</li>
+<li><code>RULE 0 (MOST IMPORTANT):</code> - Absolute priority</li>
+</ul>
+<h3 id="3-Proactive-Guidance-vs-Reactive-Correction"><a href="#3-Proactive-Guidance-vs-Reactive-Correction" class="headerlink" title="3. Proactive Guidance vs Reactive Correction"></a>3. Proactive Guidance vs Reactive Correction</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> ProactiveGuidance <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+When in doubt, use this tool. Being proactive with task management demonstrates attentiveness and ensures you complete all requirements successfully.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Techniques</strong>:</p>
+<ul>
+<li><strong>Positive Framing</strong>: “demonstrates attentiveness”</li>
+<li><strong>Success Association</strong>: “ensures you complete all requirements”</li>
+<li><strong>Default Action</strong>: “When in doubt, use this tool”</li>
+</ul>
+<h3 id="4-The-“NEVER-ALWAYS”-Pattern"><a href="#4-The-“NEVER-ALWAYS”-Pattern" class="headerlink" title="4. The “NEVER/ALWAYS” Pattern"></a>4. The “NEVER/ALWAYS” Pattern</h3><p>Claude Code uses absolute language strategically:</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> AbsoluteRules <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+- NEVER update the git config
+- ALWAYS prefer editing existing files
+- NEVER proactively create documentation files
+- ALWAYS use absolute file paths
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This creates clear, memorable rules with no ambiguity.</p>
+<h2 id="Advanced-Prompt-Engineering-Patterns"><a href="#Advanced-Prompt-Engineering-Patterns" class="headerlink" title="Advanced Prompt Engineering Patterns"></a>Advanced Prompt Engineering Patterns</h2><h2 id="高级提示词工程模式"><a href="#高级提示词工程模式" class="headerlink" title="高级提示词工程模式"></a>高级提示词工程模式</h2><h3 id="1-The-Forbidden-Pattern-List"><a href="#1-The-Forbidden-Pattern-List" class="headerlink" title="1. The Forbidden Pattern List"></a>1. The Forbidden Pattern List</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> ForbiddenPatterns <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+You MUST avoid text before/after your response, such as:
+- "The answer is &lt;answer>."
+- "Here is the content of the file..."
+- "Based on the information provided, the answer is..."
+- "Here is what I will do next..."
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Pattern Recognition Training</strong>: Teaching through negative examples</p>
+<h3 id="2-The-Cascade-of-Specificity"><a href="#2-The-Cascade-of-Specificity" class="headerlink" title="2. The Cascade of Specificity"></a>2. The Cascade of Specificity</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> SpecificityCascade <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+Use sandbox=false when you suspect the command might modify the system or access the network:
+  - File operations: touch, mkdir, rm, mv, cp
+  - File edits: nano, vim, writing to files with >
+  - Installing: npm install, apt-get, brew
+  - Git writes: git add, git commit, git push
+  - Build systems: npm run build, make, ninja, etc.
+  - Test suites: npm run test, pytest, cargo test, make check, ert, etc.
+  - Network programs: gh, ping, coo, ssh, scp, etc.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Categorization Training</strong>: Groups → Specific commands → Examples</p>
+<h3 id="3-The-Context-Preservation-Pattern"><a href="#3-The-Context-Preservation-Pattern" class="headerlink" title="3. The Context Preservation Pattern"></a>3. The Context Preservation Pattern</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> MemoryUpdate <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+You have been asked to add a memory or update memories in the memory file at </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">A</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.
+
+Please follow these guidelines:
+- If the input is an update to an existing memory, edit or replace the existing entry
+- Do not elaborate on the memory or add unnecessary commentary
+- Preserve the existing structure of the file and integrate new memories naturally. If the file is empty, just add the new memory as a bullet entry, do not add any headings.
+- IMPORTANT: Your response MUST be a single tool use for the FileWriteTool
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Techniques</strong>:</p>
+<ul>
+<li><strong>Minimal Intervention</strong>: “Do not elaborate”</li>
+<li><strong>Structure Preservation</strong>: “integrate naturally”</li>
+<li><strong>Single Action Enforcement</strong>: “MUST be a single tool use”</li>
+</ul>
+<h3 id="4-The-Empty-Input-Handling"><a href="#4-The-Empty-Input-Handling" class="headerlink" title="4. The Empty Input Handling"></a>4. The Empty Input Handling</h3><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">const</span> EmptyInputInstruction <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+Usage:
+- This tool takes in no parameters. So leave the input blank or empty. DO NOT include a dummy object, placeholder string or a key like "input" or "empty". LEAVE IT BLANK.
+</span><span class="token template-punctuation string">`</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Anti-Pattern Prevention</strong>: Explicitly addressing common LLM mistakes</p>
+<h2 id="Lessons-in-Prompt-Engineering-Excellence"><a href="#Lessons-in-Prompt-Engineering-Excellence" class="headerlink" title="Lessons in Prompt Engineering Excellence"></a>Lessons in Prompt Engineering Excellence</h2><h2 id="提示词工程卓越经验"><a href="#提示词工程卓越经验" class="headerlink" title="提示词工程卓越经验"></a>提示词工程卓越经验</h2><h3 id="1-Progressive-Disclosure"><a href="#1-Progressive-Disclosure" class="headerlink" title="1. Progressive Disclosure"></a>1. <strong>Progressive Disclosure</strong></h3><p>Start simple, add complexity only when needed. The Read tool begins with “reads a file” and progressively adds details about line limits, truncation, and special file types.</p>
+<h3 id="2-Example-Driven-Clarification"><a href="#2-Example-Driven-Clarification" class="headerlink" title="2. Example-Driven Clarification"></a>2. <strong>Example-Driven Clarification</strong></h3><p>Complex behaviors are best taught through examples. The command injection detection provides 15+ examples rather than trying to explain the pattern.</p>
+<h3 id="3-Explicit-Anti-Patterns"><a href="#3-Explicit-Anti-Patterns" class="headerlink" title="3. Explicit Anti-Patterns"></a>3. <strong>Explicit Anti-Patterns</strong></h3><p>Tell the LLM what NOT to do as clearly as what TO do. The conciseness instructions list specific phrases to avoid.</p>
+<h3 id="4-Conditional-Complexity"><a href="#4-Conditional-Complexity" class="headerlink" title="4. Conditional Complexity"></a>4. <strong>Conditional Complexity</strong></h3><p>Use environment variables and feature flags to conditionally include instructions, keeping prompts relevant to the current configuration.</p>
+<h3 id="5-Behavioral-Shaping-Through-Consequences"><a href="#5-Behavioral-Shaping-Through-Consequences" class="headerlink" title="5. Behavioral Shaping Through Consequences"></a>5. <strong>Behavioral Shaping Through Consequences</strong></h3><p>“You may forget important tasks - and that is unacceptable” creates emotional weight that shapes behavior better than simple instructions.</p>
+<h3 id="6-Structured-Thinking-Enforcement"><a href="#6-Structured-Thinking-Enforcement" class="headerlink" title="6. Structured Thinking Enforcement"></a>6. <strong>Structured Thinking Enforcement</strong></h3><p>The <code>&lt;commit_analysis&gt;</code> and <code>&lt;pr_analysis&gt;</code> tags force systematic analysis before action.</p>
+<h3 id="7-Safety-Through-Verbosity"><a href="#7-Safety-Through-Verbosity" class="headerlink" title="7. Safety Through Verbosity"></a>7. <strong>Safety Through Verbosity</strong></h3><h3 id="7-通过详细说明确保安全"><a href="#7-通过详细说明确保安全" class="headerlink" title="7. 通过详细说明确保安全"></a>7. <strong>通过详细说明确保安全</strong></h3><p>Critical operations like BashTool have the longest, most detailed instructions. Safety correlates with instruction length.<br>像BashTool这样的关键操作有最长、最详细的指令。安全性与指令长度相关。</p>
+<h3 id="8-Output-Format-Strictness"><a href="#8-Output-Format-Strictness" class="headerlink" title="8. Output Format Strictness"></a>8. <strong>Output Format Strictness</strong></h3><h3 id="8-输出格式严格性"><a href="#8-输出格式严格性" class="headerlink" title="8. 输出格式严格性"></a>8. <strong>输出格式严格性</strong></h3><p>“ONLY return the prefix. Do not return any other text” leaves no room for interpretation.<br>“只返回前缀。不要返回任何其他文本”没有留下解释空间。</p>
+<h3 id="9-Tool-Preference-Hierarchies"><a href="#9-Tool-Preference-Hierarchies" class="headerlink" title="9. Tool Preference Hierarchies"></a>9. <strong>Tool Preference Hierarchies</strong></h3><h3 id="9-工具偏好层次结构"><a href="#9-工具偏好层次结构" class="headerlink" title="9. 工具偏好层次结构"></a>9. <strong>工具偏好层次结构</strong></h3><p>Guide tool selection through clear preferences: specialized tools over general ones, safe tools over dangerous ones.<br>通过清晰的偏好指导工具选择：专业工具优于通用工具，安全工具优于危险工具。</p>
+<h3 id="10-Meta-Instructions-for-Scaling"><a href="#10-Meta-Instructions-for-Scaling" class="headerlink" title="10. Meta-Instructions for Scaling"></a>10. <strong>Meta-Instructions for Scaling</strong></h3><h3 id="10-扩展的元指令"><a href="#10-扩展的元指令" class="headerlink" title="10. 扩展的元指令"></a>10. <strong>扩展的元指令</strong></h3><p>Sub-agents receive focused instructions that inherit principles from the parent while maintaining independence.<br>子代理接收专注的指令，继承父级的原则同时保持独立性。</p>
+<h1 id="文件总结"><a href="#文件总结" class="headerlink" title="文件总结"></a>文件总结</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文档深入分析了Claude Code的提示词工程技术，揭示了如何通过精心设计的指令来引导AI的行为。通过分析大量的实际示例和最佳实践，文档展示了提示词工程如何影响AI的决策过程、安全意识、工作流程执行和行为塑造。</p>
+<h2 id="核心提示词工程特点"><a href="#核心提示词工程特点" class="headerlink" title="核心提示词工程特点"></a>核心提示词工程特点</h2><h3 id="1-工具指令的精心设计"><a href="#1-工具指令的精心设计" class="headerlink" title="1. 工具指令的精心设计"></a>1. 工具指令的精心设计</h3><ul>
+<li><strong>Read工具的渐进式信息披露</strong>：从基础到高级的细节展开</li>
+<li><strong>BashTool的安全详细指令</strong>：500+字的详细安全指导和三层规则体系</li>
+<li><strong>奖励/惩罚系统</strong>：通过虚拟惩罚塑造AI行为</li>
+<li><strong>明确的命令分类</strong>：清晰区分安全和不安全操作</li>
+</ul>
+<h3 id="2-多层安全防护体系"><a href="#2-多层安全防护体系" class="headerlink" title="2. 多层安全防护体系"></a>2. 多层安全防护体系</h3><ul>
+<li><strong>第一层：恶意代码防护</strong>：主动分析和基于上下文的拒绝</li>
+<li><strong>第二层：命令注入检测</strong>：15+个注入模式示例的示例驱动检测</li>
+<li><strong>安全与指令长度相关性</strong>：关键操作具有最详细的指令</li>
+</ul>
+<h3 id="3-工作流程自动化"><a href="#3-工作流程自动化" class="headerlink" title="3. 工作流程自动化"></a>3. 工作流程自动化</h3><ul>
+<li><strong>Git提交工作流程</strong>：并行信息收集、结构化分析、错误恢复</li>
+<li><strong>Pull Request工作流程</strong>：复杂状态管理和模板强制执行</li>
+<li><strong>HEREDOC解决方案</strong>：多行消息的格式化处理</li>
+<li><strong>明确非操作定义</strong>：清晰禁止的危险操作</li>
+</ul>
+<h3 id="4-行为塑造技巧"><a href="#4-行为塑造技巧" class="headerlink" title="4. 行为塑造技巧"></a>4. 行为塑造技巧</h3><ul>
+<li><strong>简洁性强制执行</strong>：三次重复的简洁指令，极限示例（”2+2”→”4”）</li>
+<li><strong>工具偏好塑造</strong>：从传统命令到专用工具的重定向</li>
+<li><strong>心理技巧应用</strong>：情感权重、用户导向、绝对语言</li>
+</ul>
+<h3 id="5-上下文感知和元提示词"><a href="#5-上下文感知和元提示词" class="headerlink" title="5. 上下文感知和元提示词"></a>5. 上下文感知和元提示词</h3><ul>
+<li><strong>条件指令</strong>：基于工具可用性和环境变量的动态调整</li>
+<li><strong>子代理管理</strong>：继承原则的分布式AI控制</li>
+<li><strong>合成模式</strong>：多代理结果的智能合并</li>
+</ul>
+<h3 id="6-错误恢复和示例驱动"><a href="#6-错误恢复和示例驱动" class="headerlink" title="6. 错误恢复和示例驱动"></a>6. 错误恢复和示例驱动</h3><ul>
+<li><strong>详细使用指导</strong>：明确的使用场景和避免情况</li>
+<li><strong>示例驱动预防</strong>：8个详细示例比规则更有效</li>
+<li><strong>反模式识别</strong>：主动预防常见LLM错误</li>
+</ul>
+<h2 id="10个核心提示词工程原则"><a href="#10个核心提示词工程原则" class="headerlink" title="10个核心提示词工程原则"></a>10个核心提示词工程原则</h2><ol>
+<li><strong>渐进式披露</strong>：从简单开始，按需增加复杂性</li>
+<li><strong>示例驱动澄清</strong>：复杂行为通过示例教授</li>
+<li><strong>明确反模式</strong>：告知不要做什么和要做什么同样重要</li>
+<li><strong>条件复杂性</strong>：环境变量控制指令内容</li>
+<li><strong>行为塑造通过后果</strong>：情感权重比简单指令更有效</li>
+<li><strong>结构思维强制执行</strong>：分析标签强制系统思维</li>
+<li><strong>安全通过详细说明</strong>：关键操作有最详细的指令</li>
+<li><strong>输出格式严格性</strong>：严格限制不留解释空间</li>
+<li><strong>工具偏好层次</strong>：专业工具优于通用工具</li>
+<li><strong>扩展的元指令</strong>：子代理继承原则并保持独立</li>
+</ol>
+<h2 id="技术创新价值"><a href="#技术创新价值" class="headerlink" title="技术创新价值"></a>技术创新价值</h2><h3 id="指令设计创新"><a href="#指令设计创新" class="headerlink" title="指令设计创新"></a>指令设计创新</h3><ul>
+<li>分层指令体系实现精确控制</li>
+<li>条件指令支持动态适应</li>
+<li>元指令模式支持复杂系统控制</li>
+</ul>
+<h3 id="安全创新"><a href="#安全创新" class="headerlink" title="安全创新"></a>安全创新</h3><ul>
+<li>多层防御体系确保安全合规</li>
+<li>智能沙盒决策树</li>
+<li>行为塑造心理学应用</li>
+</ul>
+<h3 id="用户体验创新"><a href="#用户体验创新" class="headerlink" title="用户体验创新"></a>用户体验创新</h3><ul>
+<li>批量操作和并行执行优化</li>
+<li>标准化工作流程自动化</li>
+<li>智能上下文感知响应</li>
+</ul>
+<h2 id="实际应用影响"><a href="#实际应用影响" class="headerlink" title="实际应用影响"></a>实际应用影响</h2><h3 id="对AI系统的影响"><a href="#对AI系统的影响" class="headerlink" title="对AI系统的影响"></a>对AI系统的影响</h3><ul>
+<li>确保行为一致性和可预测性</li>
+<li>多层次安全防护保障操作安全</li>
+<li>提升用户交互体验和效率</li>
+</ul>
+<h3 id="对开发流程的影响"><a href="#对开发流程的影响" class="headerlink" title="对开发流程的影响"></a>对开发流程的影响</h3><ul>
+<li>Git和PR工作流程标准化</li>
+<li>工具使用优化和错误预防</li>
+<li>开发效率显著提升</li>
+</ul>
+<h3 id="对AI研究的贡献"><a href="#对AI研究的贡献" class="headerlink" title="对AI研究的贡献"></a>对AI研究的贡献</h3><ul>
+<li>提供大规模提示词工程参考</li>
+<li>展示AI行为塑造的技术</li>
+<li>建立多层安全防护设计模式</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Claude Code的提示词工程代表了现代AI系统设计的最高水平，通过精心设计的指令体系实现了对AI行为的精确控制。其核心价值在于精确性、安全性、效率性和一致性，为构建下一代AI助手提供了宝贵的技术参考和最佳实践指南。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">寒霜</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/')">claude-code提示词工程-指导AI的艺术</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=claude-code提示词工程-指导AI的艺术&amp;url=https://hanshuang-ai.github.io/2025/12/05/claude-code-ti-shi-ci-gong-cheng-zhi-dao-ai-de-yi-zhu/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hanshuang-ai.github.io" target="_blank">我的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/claude-code/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>claude-code<span class="tagsPageCount">17</span></a><a class="post-meta__box__tags" href="/tags/ai/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>ai<span class="tagsPageCount">7</span></a><a class="post-meta__box__tags" href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>提示词工程<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>大模型<span class="tagsPageCount">7</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/12/03/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">claude-code文件编辑-AI辅助的代码修改</div></div></a></div><div class="next-post pull-right"><a href="/2025/12/12/claude-code-gong-ju-yu-zhi-xing-yin-qing/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">claude-code工具与执行引擎</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/11/02/claude-code-todowrite-ti-shi-ci/" title="claude-code-TodoWrite提示词"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code-TodoWrite提示词</div></div></a></div><div><a href="/2025/11/02/claude-code-xi-tong-ti-shi-ci/" title="claude-code系统提示词"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code系统提示词</div></div></a></div><div><a href="/2025/12/03/claude-code-wen-jian-bian-ji-ai-fu-zhu-de-dai-ma-xiu-gai/" title="claude-code文件编辑-AI辅助的代码修改"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">claude-code文件编辑-AI辅助的代码修改</div></div></a></div><div><a href="/2024/02/11/da-mo-xing-he-ji/" title="大模型合集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">大模型合集</div></div></a></div><div><a href="/2024/04/26/da-mo-xing-de-fan-hua-neng-li/" title="大模型的泛化能力"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">大模型的泛化能力</div></div></a></div><div><a href="/2025/12/17/claude-code-agent-sdk-jie-ru-zi-yan-cha-jian/" title="Claude Code Agent SDK 接入自研插件"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-history fa-fw"></i> 2025-12-29</div><div class="title">Claude Code Agent SDK 接入自研插件</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prompt-Engineering-The-Art-of-Instructing-AI"><span class="toc-number">1.</span> <span class="toc-text">Prompt Engineering: The Art of Instructing AI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%8C%87%E5%AF%BCAI%E7%9A%84%E8%89%BA%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text">提示词工程：指导AI的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Art-of-Tool-Instructions"><span class="toc-number">2.1.</span> <span class="toc-text">The Art of Tool Instructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E6%8C%87%E4%BB%A4%E7%9A%84%E8%89%BA%E6%9C%AF"><span class="toc-number">2.2.</span> <span class="toc-text">工具指令的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Read-Tool-A-Study-in-Progressive-Disclosure"><span class="toc-number">2.2.1.</span> <span class="toc-text">The Read Tool: A Study in Progressive Disclosure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Read%E5%B7%A5%E5%85%B7%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%AB%E9%9C%B2%E7%9A%84%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6"><span class="toc-number">2.2.2.</span> <span class="toc-text">Read工具：渐进式信息披露的案例研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-BashTool-Safety-Through-Verbose-Instructions"><span class="toc-number">2.2.3.</span> <span class="toc-text">The BashTool: Safety Through Verbose Instructions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BashTool%EF%BC%9A%E9%80%9A%E8%BF%87%E8%AF%A6%E7%BB%86%E6%8C%87%E4%BB%A4%E7%A1%AE%E4%BF%9D%E5%AE%89%E5%85%A8"><span class="toc-number">2.2.4.</span> <span class="toc-text">BashTool：通过详细指令确保安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Safety-Through-Prompting"><span class="toc-number">2.3.</span> <span class="toc-text">Safety Through Prompting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%8F%90%E7%A4%BA%E8%AF%8D%E7%A1%AE%E4%BF%9D%E5%AE%89%E5%85%A8"><span class="toc-number">2.4.</span> <span class="toc-text">通过提示词确保安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-1-Malicious-Code-Prevention"><span class="toc-number">2.4.1.</span> <span class="toc-text">Layer 1: Malicious Code Prevention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E9%98%B2%E6%8A%A4"><span class="toc-number">2.4.2.</span> <span class="toc-text">第一层：恶意代码防护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-2-Command-Injection-Detection"><span class="toc-number">2.4.3.</span> <span class="toc-text">Layer 2: Command Injection Detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5%E6%A3%80%E6%B5%8B"><span class="toc-number">2.4.4.</span> <span class="toc-text">第二层：命令注入检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflow-Automation-via-Prompts"><span class="toc-number">2.5.</span> <span class="toc-text">Workflow Automation via Prompts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%AE%9E%E7%8E%B0%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-number">2.6.</span> <span class="toc-text">通过提示词实现工作流程自动化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Git-Commit-Workflow-A-Masterclass-in-Multi-Step-Guidance"><span class="toc-number">2.6.1.</span> <span class="toc-text">The Git Commit Workflow: A Masterclass in Multi-Step Guidance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E6%8F%90%E4%BA%A4%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%A4%9A%E6%AD%A5%E6%8C%87%E5%AF%BC%E7%9A%84%E5%A4%A7%E5%B8%88%E8%AF%BE%E7%A8%8B"><span class="toc-number">2.6.2.</span> <span class="toc-text">Git提交工作流程：多步指导的大师课程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Pull-Request-Workflow-Complex-State-Management"><span class="toc-number">2.6.3.</span> <span class="toc-text">The Pull Request Workflow: Complex State Management</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pull-Request%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%A4%8D%E6%9D%82%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.6.4.</span> <span class="toc-text">Pull Request工作流程：复杂状态管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Behavioral-Shaping-The-Art-of-Conciseness"><span class="toc-number">2.7.</span> <span class="toc-text">Behavioral Shaping: The Art of Conciseness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%A1%91%E9%80%A0%EF%BC%9A%E7%AE%80%E6%B4%81%E7%9A%84%E8%89%BA%E6%9C%AF"><span class="toc-number">2.8.</span> <span class="toc-text">行为塑造：简洁的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tool-Usage-Preferences-Guiding-Optimal-Selection"><span class="toc-number">2.8.1.</span> <span class="toc-text">Tool Usage Preferences: Guiding Optimal Selection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context-Aware-Instructions"><span class="toc-number">2.9.</span> <span class="toc-text">Context-Aware Instructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%84%9F%E7%9F%A5%E6%8C%87%E4%BB%A4"><span class="toc-number">2.10.</span> <span class="toc-text">上下文感知指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Conditional-Tool-Instructions"><span class="toc-number">2.10.1.</span> <span class="toc-text">Conditional Tool Instructions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment-Based-Adaptations"><span class="toc-number">2.10.2.</span> <span class="toc-text">Environment-Based Adaptations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Meta-Prompting-Patterns"><span class="toc-number">2.11.</span> <span class="toc-text">Meta-Prompting Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.12.</span> <span class="toc-text">元提示词模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Agent-Tool-Instructions-for-Sub-Agents"><span class="toc-number">2.12.1.</span> <span class="toc-text">The Agent Tool: Instructions for Sub-Agents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Synthesis-Prompt-Combining-Multiple-Perspectives"><span class="toc-number">2.12.2.</span> <span class="toc-text">The Synthesis Prompt: Combining Multiple Perspectives</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Recovery-Instructions"><span class="toc-number">2.13.</span> <span class="toc-text">Error Recovery Instructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%81%A2%E5%A4%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">2.14.</span> <span class="toc-text">错误恢复指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Todo-Tool%E2%80%99s-Detailed-Usage-Guidance"><span class="toc-number">2.14.1.</span> <span class="toc-text">The Todo Tool’s Detailed Usage Guidance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Psychology-of-AI-Instructions"><span class="toc-number">2.15.</span> <span class="toc-text">The Psychology of AI Instructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI%E6%8C%87%E4%BB%A4%E7%9A%84%E5%BF%83%E7%90%86%E5%AD%A6"><span class="toc-number">2.16.</span> <span class="toc-text">AI指令的心理学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-The-Reward-Penalty-System"><span class="toc-number">2.16.1.</span> <span class="toc-text">1. The Reward&#x2F;Penalty System</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Emphasis-Hierarchy"><span class="toc-number">2.16.2.</span> <span class="toc-text">2. Emphasis Hierarchy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Proactive-Guidance-vs-Reactive-Correction"><span class="toc-number">2.16.3.</span> <span class="toc-text">3. Proactive Guidance vs Reactive Correction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-The-%E2%80%9CNEVER-ALWAYS%E2%80%9D-Pattern"><span class="toc-number">2.16.4.</span> <span class="toc-text">4. The “NEVER&#x2F;ALWAYS” Pattern</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-Prompt-Engineering-Patterns"><span class="toc-number">2.17.</span> <span class="toc-text">Advanced Prompt Engineering Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.18.</span> <span class="toc-text">高级提示词工程模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-The-Forbidden-Pattern-List"><span class="toc-number">2.18.1.</span> <span class="toc-text">1. The Forbidden Pattern List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-The-Cascade-of-Specificity"><span class="toc-number">2.18.2.</span> <span class="toc-text">2. The Cascade of Specificity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-The-Context-Preservation-Pattern"><span class="toc-number">2.18.3.</span> <span class="toc-text">3. The Context Preservation Pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-The-Empty-Input-Handling"><span class="toc-number">2.18.4.</span> <span class="toc-text">4. The Empty Input Handling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lessons-in-Prompt-Engineering-Excellence"><span class="toc-number">2.19.</span> <span class="toc-text">Lessons in Prompt Engineering Excellence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%8D%93%E8%B6%8A%E7%BB%8F%E9%AA%8C"><span class="toc-number">2.20.</span> <span class="toc-text">提示词工程卓越经验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Progressive-Disclosure"><span class="toc-number">2.20.1.</span> <span class="toc-text">1. Progressive Disclosure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Example-Driven-Clarification"><span class="toc-number">2.20.2.</span> <span class="toc-text">2. Example-Driven Clarification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Explicit-Anti-Patterns"><span class="toc-number">2.20.3.</span> <span class="toc-text">3. Explicit Anti-Patterns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Conditional-Complexity"><span class="toc-number">2.20.4.</span> <span class="toc-text">4. Conditional Complexity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Behavioral-Shaping-Through-Consequences"><span class="toc-number">2.20.5.</span> <span class="toc-text">5. Behavioral Shaping Through Consequences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Structured-Thinking-Enforcement"><span class="toc-number">2.20.6.</span> <span class="toc-text">6. Structured Thinking Enforcement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Safety-Through-Verbosity"><span class="toc-number">2.20.7.</span> <span class="toc-text">7. Safety Through Verbosity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E9%80%9A%E8%BF%87%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E%E7%A1%AE%E4%BF%9D%E5%AE%89%E5%85%A8"><span class="toc-number">2.20.8.</span> <span class="toc-text">7. 通过详细说明确保安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Output-Format-Strictness"><span class="toc-number">2.20.9.</span> <span class="toc-text">8. Output Format Strictness</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E4%B8%A5%E6%A0%BC%E6%80%A7"><span class="toc-number">2.20.10.</span> <span class="toc-text">8. 输出格式严格性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Tool-Preference-Hierarchies"><span class="toc-number">2.20.11.</span> <span class="toc-text">9. Tool Preference Hierarchies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E5%B7%A5%E5%85%B7%E5%81%8F%E5%A5%BD%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">2.20.12.</span> <span class="toc-text">9. 工具偏好层次结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Meta-Instructions-for-Scaling"><span class="toc-number">2.20.13.</span> <span class="toc-text">10. Meta-Instructions for Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E6%89%A9%E5%B1%95%E7%9A%84%E5%85%83%E6%8C%87%E4%BB%A4"><span class="toc-number">2.20.14.</span> <span class="toc-text">10. 扩展的元指令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">文件总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%89%B9%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">核心提示词工程特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B7%A5%E5%85%B7%E6%8C%87%E4%BB%A4%E7%9A%84%E7%B2%BE%E5%BF%83%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 工具指令的精心设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E5%B1%82%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E4%BD%93%E7%B3%BB"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 多层安全防护体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. 工作流程自动化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%8C%E4%B8%BA%E5%A1%91%E9%80%A0%E6%8A%80%E5%B7%A7"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. 行为塑造技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%8A%E4%B8%8B%E6%96%87%E6%84%9F%E7%9F%A5%E5%92%8C%E5%85%83%E6%8F%90%E7%A4%BA%E8%AF%8D"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. 上下文感知和元提示词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%94%99%E8%AF%AF%E6%81%A2%E5%A4%8D%E5%92%8C%E7%A4%BA%E4%BE%8B%E9%A9%B1%E5%8A%A8"><span class="toc-number">3.2.6.</span> <span class="toc-text">6. 错误恢复和示例驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="toc-number">3.3.</span> <span class="toc-text">10个核心提示词工程原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%9B%E6%96%B0%E4%BB%B7%E5%80%BC"><span class="toc-number">3.4.</span> <span class="toc-text">技术创新价值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0"><span class="toc-number">3.4.1.</span> <span class="toc-text">指令设计创新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%88%9B%E6%96%B0"><span class="toc-number">3.4.2.</span> <span class="toc-text">安全创新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E5%88%9B%E6%96%B0"><span class="toc-number">3.4.3.</span> <span class="toc-text">用户体验创新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%BD%B1%E5%93%8D"><span class="toc-number">3.5.</span> <span class="toc-text">实际应用影响</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9AI%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">3.5.1.</span> <span class="toc-text">对AI系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">3.5.2.</span> <span class="toc-text">对开发流程的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9AI%E7%A0%94%E7%A9%B6%E7%9A%84%E8%B4%A1%E7%8C%AE"><span class="toc-number">3.5.3.</span> <span class="toc-text">对AI研究的贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">3.6.</span> <span class="toc-text">结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/02/xiang-liang-shu-ju-ku/" title="向量数据库">向量数据库</a><time datetime="2025-12-29T10:57:24.518Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/11/da-mo-xing-he-ji/" title="大模型合集">大模型合集</a><time datetime="2025-12-29T10:57:24.509Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/18/claude-code-todoread-ti-shi-ci/" title="claude-code TodoRead提示词">claude-code TodoRead提示词</a><time datetime="2025-12-29T10:57:24.506Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/10/da-mo-xing-xun-lian-yu-you-hua-wan-quan-zhi-nan/" title="大模型训练与优化完全指南">大模型训练与优化完全指南</a><time datetime="2025-12-29T10:57:24.505Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/12/claude-code-gong-ju-yu-zhi-xing-yin-qing/" title="claude-code工具与执行引擎">claude-code工具与执行引擎</a><time datetime="2025-12-29T10:57:24.501Z" title="更新于 2025-12-29 18:57:24">2025-12-29</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 寒霜</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">145</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">385</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ai%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">ai工具<sup>3</sup></a><a href="/tags/amd/" style="font-size: 0.88rem;">amd<sup>1</sup></a><a href="/tags/claude-code/" style="font-size: 0.88rem;">claude-code<sup>17</sup></a><a href="/tags/cmd/" style="font-size: 0.88rem;">cmd<sup>1</sup></a><a href="/tags/commonjs/" style="font-size: 0.88rem;">commonjs<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>11</sup></a><a href="/tags/deepseek/" style="font-size: 0.88rem;">deepseek<sup>1</sup></a><a href="/tags/dom/" style="font-size: 0.88rem;">dom<sup>4</sup></a><a href="/tags/flex/" style="font-size: 0.88rem;">flex<sup>2</sup></a><a href="/tags/go/" style="font-size: 0.88rem;">go<sup>1</sup></a><a href="/tags/golang/" style="font-size: 0.88rem;">golang<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>4</sup></a><a href="/tags/javascript/" style="font-size: 0.88rem;">javascript<sup>12</sup></a><a href="/tags/js/" style="font-size: 0.88rem;">js<sup>1</sup></a><a href="/tags/js%E8%A7%84%E8%8C%83/" style="font-size: 0.88rem;">js规范<sup>1</sup></a><a href="/tags/llm/" style="font-size: 0.88rem;">llm<sup>2</sup></a><a href="/tags/position/" style="font-size: 0.88rem;">position<sup>2</sup></a><a href="/tags/router/" style="font-size: 0.88rem;">router<sup>1</sup></a><a href="/tags/sdk/" style="font-size: 0.88rem;">sdk<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 0.88rem;">中间件<sup>1</sup></a><a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 0.88rem;">事件循环<sup>2</sup></a><a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 0.88rem;">入门<sup>1</sup></a><a href="/tags/%E5%88%86%E6%9E%90/" style="font-size: 0.88rem;">分析<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>1</sup></a><a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 0.88rem;">响应式<sup>3</sup></a><a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 0.88rem;">基础<sup>2</sup></a><a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 0.88rem;">实用技巧<sup>1</sup></a><a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 0.88rem;">布局<sup>5</sup></a><a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/" style="font-size: 0.88rem;">弹性盒子<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 0.88rem;">插件开发<sup>1</sup></a><a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 0.88rem;">架构<sup>8</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 0.88rem;">标签<sup>1</sup></a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 0.88rem;">模块化<sup>1</sup></a><a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 0.88rem;">正则<sup>2</sup></a><a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 0.88rem;">盒模型<sup>2</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">编程语言<sup>1</sup></a><a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 0.88rem;">网格<sup>1</sup></a><a href="/tags/%E8%8A%82%E6%B5%81/" style="font-size: 0.88rem;">节流<sup>1</sup></a><a href="/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/" style="font-size: 0.88rem;">语义化<sup>1</sup></a><a href="/tags/%E9%98%B2%E6%8A%96/" style="font-size: 0.88rem;">防抖<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 寒霜 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
